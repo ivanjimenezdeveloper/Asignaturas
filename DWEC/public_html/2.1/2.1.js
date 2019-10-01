@@ -5,12 +5,12 @@
  */
 
 function cambioImagen() {
-    var x = document.getElementById().value;
+    var x = document.getElementById('imagenENV');
 
     if (x.src.match("Open")) {
-        x.src = "envelope";
+        x.src = "imagenes/envelope.png";
     } else {
-        x.src = "envelopeOpen";
+        x.src = "imagenes/envelopeOpen.png";
 
     }
 }

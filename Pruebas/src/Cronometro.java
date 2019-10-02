@@ -6,11 +6,7 @@ public class Cronometro {
 		int sec=40;
 		int min=1;
 		int milis=0000;
-		ArrayList<Integer> tiempo = new ArrayList<Integer>();
-		
-		tiempo.add(min);
-		tiempo.add(sec);
-		tiempo.add(milis);
+
 		
 		while(min<2) {
 			long start = System.currentTimeMillis();
@@ -28,6 +24,7 @@ public class Cronometro {
 				min++;
 				sec =0;
 			}
+			
 
 			System.out.println(min + ":"+ sec + ":" + 0000 );
 

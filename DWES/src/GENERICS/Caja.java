@@ -8,6 +8,7 @@ public class Caja<E> {
 
 	
 	private E object;
+	
 	Caja(){
 		this.object=null;
 	}
@@ -17,8 +18,12 @@ public class Caja<E> {
 //		
 //	}
 	
+	public void setCaja(E object) {
+		this.object = object;
+	}
+	
 	public E getCaja() {
-		return this.object;
+		return object;
 	}
 
 

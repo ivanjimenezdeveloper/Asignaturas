@@ -1,11 +1,12 @@
 package Actividad1T1;
 
-public class producto<E> {
-	private	int id;
-	private double precio;
+public class Producto<T> implements Comparable<T> {
+	private	Integer id;
+	private Double precio;
 	private String nombre;
 
-	public producto(int id, double precio, String nombre) {
+//Constructor
+	public Producto(int id, double precio, String nombre) {
 		super();
 		this.id = id;
 		this.precio = precio;
@@ -18,7 +19,7 @@ public class producto<E> {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -26,7 +27,7 @@ public class producto<E> {
 		return precio;
 	}
 
-	public void setPrecio(double precio) {
+	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
 
@@ -36,6 +37,15 @@ public class producto<E> {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	@Override
+	public int compareTo(T arg0) {
+		
+		
+		
+		
+		return 0;
 	}
 
 }

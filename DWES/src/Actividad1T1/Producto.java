@@ -1,19 +1,19 @@
 package Actividad1T1;
 
-public class Producto<T> implements Comparable<T> {
-	private	Integer id;
+public class Producto implements Comparable<Producto> {
+	private Integer id;
 	private Double precio;
 	private String nombre;
 
 //Constructor
-	public Producto(int id, double precio, String nombre) {
+	public Producto(Integer id, Double precio, String nombre) {
 		super();
 		this.id = id;
 		this.precio = precio;
 		this.nombre = nombre;
-		
+
 	}
-	
+
 //Getters y Setters
 	public int getId() {
 		return id;
@@ -40,12 +40,19 @@ public class Producto<T> implements Comparable<T> {
 	}
 
 	@Override
-	public int compareTo(T arg0) {
-		
-		
-		
-		
-		return 0;
+	public int compareTo(Producto e) {
+//Este metodo me compara los precios de los productos
+		if (this.precio > e.getPrecio()) {
+
+			return 1;
+
+		} else if (this.precio < e.getPrecio()) {
+			
+			return 0;
+			
+		}
+
+		return -1;
 	}
 
 }

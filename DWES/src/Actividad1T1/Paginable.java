@@ -31,11 +31,28 @@ public class Paginable<T extends Producto> {
 	
 	public void remove(T producto) {
 		
+		l.remove(productoPagina);
+		
 	}
 	
-	public Producto contains(int index) {
+	public boolean contains(T Producto) {
 		
-		return null;
+		
+		return l.contains(Producto);
+	}
+	
+	public int size() {
+		
+	
+		
+		return l.size();
+		
+	}
+	
+	public int getTotal() {
+		
+		return l.size()/productoPagina +  (l.size()%productoPagina != 0? 1 : 0);
+		
 	}
 	
 	public void mostrar() {
@@ -46,17 +63,29 @@ public class Paginable<T extends Producto> {
 		}
 	}
 	
+	public int getPage(int index) {
+		if(index > l.size()) {
+			
+			return -1;
+			
+		}else {
+			
+			return index//conseguir el total de paginas y redondear hacia arriba 
+			
+		}
+	}
+	
 	
 	/**
-	 * int productoPagina
+	 * 
 	 * 
 	 * 		metodos 
-	 * add
-	 * remove
-	 * contains
+	 * 
+	 * 
+	 * 
 	 * getPage(int index)
-	 * int getTotal()
-	 * size
+	 * 
+	 * 
 	 *
 	 */
 }

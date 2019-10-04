@@ -33,7 +33,10 @@ public class Main {
 		lista1.add(p9);
 		lista1.add(p10);
 		
-		lista1.mostrar();
+
+		System.out.println(lista1.getTotal());
+		
+		System.out.println(lista1.size());
 		
 	}
 

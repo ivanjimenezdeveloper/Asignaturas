@@ -5,3 +5,13 @@
  */
 
 
+function randomDado(){
+    
+    var caras = document.getElementById("selector");
+    var numero = caras.options[caras.selectedIndex].value;
+    
+    document.getElementById("texto").innerHTML = Math.floor((Math.random() * numero )+1);
+
+    
+    
+}

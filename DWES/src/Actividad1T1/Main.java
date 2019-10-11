@@ -1,17 +1,22 @@
 package Actividad1T1;
 
+import java.util.ArrayList;
 import java.util.Random;
 import Actividad1T1.*;
 public class Main {
 
 	public static void main(String[] args) {
-		//Creo un objeto Random para los productos
+		//Creo un objeto Random para los precios de los productos
 		Random r = new Random();
 				
-		//Creando los productos base
-
+		// Creo la lista que de Paginable que voy a usar
+		
 		Paginable<Producto> lista1 = new Paginable<Producto>();
-		Producto p1 = new Producto(1, r.nextInt(100- 0) +0.95, "Computadora G4MING");
+		
+		// Creando los productos base. Los precios se calculan 
+		// de forma aleatoria entre 0.95 y 100.95 
+
+		Producto p1 = new Producto(1, 20.00/*r.nextInt(100- 0) +0.95*/, "Computadora G4MING");
 		Producto p2 = new Producto(1, r.nextInt(100- 0) +0.95, "Computadora G4MING");
 		Producto p3 = new Producto(1, r.nextInt(100- 0) +0.95, "Computadora G4MING");
 		Producto p4 = new Producto(1, r.nextInt(100- 0) +0.95, "Computadora G4MING");
@@ -20,7 +25,9 @@ public class Main {
 		Producto p7 = new Producto(1, r.nextInt(100- 0) +0.95, "Computadora G4MING");
 		Producto p8 = new Producto(1, r.nextInt(100- 0) +0.95, "Computadora G4MING");
 		Producto p9 = new Producto(1, r.nextInt(100- 0) +0.95, "Computadora G4MING");
-		Producto p10 = new Producto(1, r.nextInt(100- 0) +0.95, "Computadora G4MING");
+		Producto p10 = new Producto(1, 50.00 /* r.nextInt(100- 0) +0.95*/, "Computadora G4MING");
+		
+		//Productos añadidos
 		
 		lista1.add(p1);
 		lista1.add(p2);
@@ -32,11 +39,20 @@ public class Main {
 		lista1.add(p8);
 		lista1.add(p9);
 		lista1.add(p10);
-		
 
-		System.out.println(lista1.getTotal());
+//		System.out.println(lista1.getTotal());
+//		
+//		System.out.println(lista1.size());
+//		ArrayList<Producto> objetos = new ArrayList<Producto>();
+//		
+//		objetos.add(p10);
+//		objetos.add(p9);
+//		
+//		Producto.mostrarArray(lista1.getPage(1));
 		
-		System.out.println(lista1.size());
+		//Hacer for para mostrar productos y hacer el metodo de mostar en producto
+		
+		
 		
 	}
 

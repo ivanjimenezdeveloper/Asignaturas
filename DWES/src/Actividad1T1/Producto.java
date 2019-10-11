@@ -1,5 +1,7 @@
 package Actividad1T1;
 
+import java.util.ArrayList;
+
 public class Producto implements Comparable<Producto> {
 	private Integer id;
 	private Double precio;
@@ -12,6 +14,13 @@ public class Producto implements Comparable<Producto> {
 		this.precio = precio;
 		this.nombre = nombre;
 
+	}
+	
+	public static void mostrarArray(ArrayList<Producto> lista) {
+		for(Producto p : lista) {
+			System.out.println("Nombre: " + p.getNombre());
+			System.out.println("Precio: " +	p.getPrecio());
+		}
 	}
 
 //Getters y Setters
@@ -39,9 +48,12 @@ public class Producto implements Comparable<Producto> {
 		this.nombre = nombre;
 	}
 
+	/**
+	 * Metodo que compara los productos segun su precio
+	 */
 	@Override
 	public int compareTo(Producto e) {
-//Este metodo me compara los precios de los productos
+
 		if (this.precio > e.getPrecio()) {
 
 			return 1;

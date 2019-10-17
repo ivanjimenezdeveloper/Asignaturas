@@ -1,9 +1,11 @@
-package Actividad1T1;
+package Actividad3T1;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
-import Actividad1T1.*;
+
+
+import Actividad3T1.*;
 
 public class Main {
 

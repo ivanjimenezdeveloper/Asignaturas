@@ -1,4 +1,4 @@
-package Actividad1T1;
+package Actividad3T1;
 
 import java.util.ArrayList;
 
@@ -52,7 +52,6 @@ public class Producto implements Comparable<Producto> {
 	 */
 	@Override
 	public int compareTo(Producto e) {
-
 
 		return this.precio.compareTo(e.getPrecio());
 

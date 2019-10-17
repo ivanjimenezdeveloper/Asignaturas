@@ -1,14 +1,12 @@
-package Actividad1T1;
+package Actividad2T1;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
-import java.util.Random;
+import java.util.Map;
 
-import Actividad1T1.Producto;
+import Actividad2T1.Producto;
 
 public class Paginable<T extends Producto> {
 	/**
@@ -16,14 +14,31 @@ public class Paginable<T extends Producto> {
 	 */
 	private int productoPagina = 3;
 
-	private List<T> l;
+	private Map<Integer, T> l;
 
+	/**
+	 * Creo una lista para poder ordenar y paginar
+	 */
+	private List<T> lista;
 	/*
 	 * Defino el tipo de lista que voy a usar
 	 */
 
 	public Paginable() {
-		l = new ArrayList<T>();
+		l = new Hashtable<Integer, T>();
+
+		lista = new ArrayList<T>();
+
+	}
+
+	/**
+	 * Vacia la arraylist y la rellena
+	 */
+	private void paginar() {
+		lista.clear();
+		l.forEach((k, v) -> {
+			lista.add(v);
+		});
 	}
 
 	/**
@@ -33,7 +48,7 @@ public class Paginable<T extends Producto> {
 	 */
 
 	public void add(T producto) {
-		l.add(producto);
+		l.put(producto.getId(), producto);
 	}
 
 	/**
@@ -44,10 +59,8 @@ public class Paginable<T extends Producto> {
 	 */
 
 	public Producto get(int indice) {
-		if (indice > l.size() | indice < 0) {
-			return null;
-		}
-		return l.get(indice);
+
+		return lista.get(indice);
 
 	}
 
@@ -72,7 +85,7 @@ public class Paginable<T extends Producto> {
 
 	public boolean contains(T Producto) {
 
-		return l.contains(Producto);
+		return l.containsValue(Producto);
 	}
 
 	/**
@@ -106,7 +119,7 @@ public class Paginable<T extends Producto> {
 
 	public void ordenar() {
 
-		Collections.sort(l);
+		Collections.sort(lista);
 
 	}
 
@@ -117,12 +130,14 @@ public class Paginable<T extends Producto> {
 	 * @return Array devuelta
 	 */
 
-	public ArrayList<T> getPage(int pagina) {
+	public ArrayList<T> getPage(int index) {
+
+		paginar();
 
 		ArrayList<T> objetos = new ArrayList<T>();
-		int indiceInicial = pagina * productoPagina - productoPagina;
-		int indiceFinal = pagina * productoPagina;
-		if (pagina > this.getTotal() || pagina <= 0) {
+		int indiceInicial = index * productoPagina - productoPagina;
+		int indiceFinal = index * productoPagina;
+		if (index > this.getTotal() || index <= 0) {
 
 			return null;
 
@@ -133,7 +148,7 @@ public class Paginable<T extends Producto> {
 					break;
 				}
 
-				objetos.add(l.get(i));
+				objetos.add(lista.get(i));
 
 			}
 
@@ -151,9 +166,11 @@ public class Paginable<T extends Producto> {
 
 	public int getPage(Producto e) {
 
+		paginar();
+
 		for (int indice = 0; indice < l.size(); indice++) {
 
-			if (l.get(indice).getId() == e.getId()) {
+			if (lista.get(indice).equals(e)) {
 				indice++;
 				double x = (double) indice / (double) productoPagina;
 

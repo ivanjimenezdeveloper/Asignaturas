@@ -1,0 +1,3 @@
+module DWES {
+	exports pruebas;
+}

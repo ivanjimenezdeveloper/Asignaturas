@@ -29,3 +29,319 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-10-01 14:54:56.926
 !MESSAGE locking FileBasedConfig[C:\Users\ivanj\.gitconfig] failed after 5 retries
+!SESSION 2019-10-11 12:19:14.833 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=12.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-10-11 12:19:57.477
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\ivanj'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2019-10-13 17:52:36.358 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=12.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-10-13 17:53:22.870
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\ivanj'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:33.715
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:33.749
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:39.757
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:39.770
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:40.413
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:40.417
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:40.427
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:40.432
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:41.282
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:41.286
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:41.295
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:41.298
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:41.702
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:41.706
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:41.714
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:41.718
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:41.937
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:41.940
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:41.949
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:41.952
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:42.814
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:42.817
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:42.825
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:42.828
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:43.574
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:43.578
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:43.580
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:43.588
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:43.591
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:43.594
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:44.044
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:44.048
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:44.051
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:44.059
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:44.062
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:44.065
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:44.472
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:44.476
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:44.478
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:44.486
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:44.489
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:44.491
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:49.640
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:49.644
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:49.648
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:49.656
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:49.659
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:02:49.662
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:24.654
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:24.667
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:24.678
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:25.196
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:25.200
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:25.212
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:25.215
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:25.228
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:25.231
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:25.762
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:25.774
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:25.787
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:26.165
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:26.169
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:26.179
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:26.183
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:26.194
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:26.196
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:26.671
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:26.675
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:26.685
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:26.689
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:26.700
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:26.703
+!MESSAGE Compile error during code evaluation: The type java.util.Hashtable is ambiguous
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:27.055
+!MESSAGE Compile error during code evaluation: K cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:27.059
+!MESSAGE Compile error during code evaluation: V cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:27.065
+!MESSAGE Compile error during code evaluation: K cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:27.068
+!MESSAGE Compile error during code evaluation: V cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:27.074
+!MESSAGE Compile error during code evaluation: K cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:27.077
+!MESSAGE Compile error during code evaluation: V cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:36.431
+!MESSAGE Compile error during code evaluation: K cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:36.435
+!MESSAGE Compile error during code evaluation: V cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:36.441
+!MESSAGE Compile error during code evaluation: K cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:36.445
+!MESSAGE Compile error during code evaluation: V cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:36.451
+!MESSAGE Compile error during code evaluation: K cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:36.454
+!MESSAGE Compile error during code evaluation: V cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:36.722
+!MESSAGE Compile error during code evaluation: K cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:36.725
+!MESSAGE Compile error during code evaluation: V cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:36.731
+!MESSAGE Compile error during code evaluation: K cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:36.734
+!MESSAGE Compile error during code evaluation: V cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:36.740
+!MESSAGE Compile error during code evaluation: K cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:15:36.743
+!MESSAGE Compile error during code evaluation: V cannot be resolved to a type
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:41:31.224
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:41:31.232
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:41:31.238
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:41:31.244
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:41:31.250
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base
+
+!ENTRY org.eclipse.debug.core 2 0 2019-10-13 20:41:31.257
+!MESSAGE Compile error during code evaluation: The package java.lang is accessible from more than one module: DWES, java.base

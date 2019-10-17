@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 
-function nombreDia(){
+    var fecha = new Date();
+    var dia = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+    
+    document.getElementById("dia").innerHTML = dia[fecha.getDay()];
     
     
-}
+

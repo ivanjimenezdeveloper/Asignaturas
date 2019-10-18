@@ -1,0 +1,15 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18 oct. 2019, 18:45:09
+    Author     : horabaixa
+*/
+
+html{
+    background-image: linear-gradient(rgba(0,0,255,0.4), rgba(255,255,255,0.8)), radial-gradient(circle farthest-corner at 100% 20% , yellow 10%, white 15%);
+    background-repeat: no-repeat;
+    height: 100%;
+}

@@ -10,11 +10,35 @@ and open the template in the editor.
 
 .container * {
     display: flex;
-    flex-wrap: nowrap;
-    max-width: 
+    flex-wrap: wrap;
+    max-width: 1200px;
+    border: 2px solid black;
+    
 }
+
+
 
 .header{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    font-size: 20px; 
 }
+
+.header *{
+    width: 14.07%;
+}
+.semana{
+    flex-direction: row;
+    width: 100%;
+    justify-content: right;
+}
+
+.semana *{
+    width: 20px;
+    width: 14.0767%;
+    height: 100%;
+    min-height: 50px;
+    align-content: center;
+    justify-content: center;
+}
+

@@ -7,6 +7,9 @@ and open the template in the editor.
     Created on : 18 oct. 2019, 19:41:10
     Author     : horabaixa
 */
+body{
+    background-color: rgba(230,210,200);
+}
 
 .container * {
     display: flex;
@@ -16,12 +19,15 @@ and open the template in the editor.
     
 }
 
-
-
-.header{
+.header *{
     display: flex;
     flex-wrap: wrap;
     font-size: 20px; 
+    justify-content: center;
+    align-content: center;
+        background-color: rgba(0,200,255,0.5);
+    border-bottom: solid blue 6px;
+
 }
 
 .header *{
@@ -40,5 +46,10 @@ and open the template in the editor.
     min-height: 50px;
     align-content: center;
     justify-content: center;
+}
+
+.semana div:last-child, .semana div:nth-last-child(2){
+        background-color: coral;
+
 }
 

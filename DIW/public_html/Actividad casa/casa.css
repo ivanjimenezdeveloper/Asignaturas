@@ -1,0 +1,41 @@
+
+
+div{
+    position: absolute;
+    border: 3px solid black;
+    padding: 5px;
+}
+
+.casa{
+    background-color: gray;
+    z-index: 0;
+    width: 400px;
+    height: 400px;
+    left: 300px;
+    top: 125px;
+}
+
+.tejado{
+    background-color: red;
+    z-index: 1;
+    width: 500px;
+    height: 90px;
+    top: -107px;
+    left: -50px;
+}
+
+.ventana, .ventana2{
+    background-color: blue;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+}
+
+.puerta{
+    z-index: 1;
+    height: 100px;
+    background-color: red;
+    width: 120px;
+    top: 297px;
+    left: 130px;
+}

@@ -1,0 +1,136 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 29 oct. 2019, 18:44:25
+    Author     : horabaixa
+*/
+
+ul *{
+    text-decoration: none;
+    color: gray;
+    list-style: none;
+    display: inline-block;
+}
+ul{
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+}
+div{
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    height: 35px;
+    font-size: 12px;
+    margin-top: 10px;
+        font-weight: bold;
+
+}
+
+div:first-of-type{
+    margin-top: 0;
+
+}
+
+body{
+    margin: 0 auto;
+    height: 500px;
+}
+
+a{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px 8px 3px 8px;
+    border-radius: 3px 3px 0px 0px;
+}
+
+.menu1{
+    background-color: #abcbff;
+}
+
+.menu1 a{
+    background-color: #cbdcf7; 
+    border-color: rgba(0,0,0,0)
+}
+
+.menu1 a:hover{
+    background-color: #9fe7f5;
+}
+
+.menu1 a:active{
+    background-color: #79d6ed;
+}
+
+.menu2{
+    background-color: #d7dfe0;
+}
+
+.menu2 a{
+    background-color: #e1e7e8; 
+    border-color: rgba(0,0,0,0)
+}
+
+.menu2 a:hover{
+    color: #e3c3dc;
+}
+
+.menu2 a:active{
+    color: #e87dd0;
+}
+
+.menu3{
+    background-color: #d2fada;
+}
+
+.menu3 a{
+    background-color: #bae3c3; 
+    border-color: rgba(0,0,0,0)
+}
+
+.menu3 a:hover{
+    background-color: #7de393;
+}
+
+.menu3 a:active{
+    color: #3f571e;
+}
+
+.menu4{
+    background-color: #ffebfe;
+    border-bottom: 1px solid #ff7df8;
+}
+
+.menu4 a{
+background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(238,17,242,0.11244019138755978) 0%, rgba(0,212,255,0) 100%);
+    border-color: rgba(0,0,0,0);
+    color: #e046d9;
+}
+
+.menu4 a:hover{
+background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(238,17,242,0.5502392344497608) 0%, rgba(0,212,255,0) 100%);
+}
+
+.menu4 a:active{
+    color: #b304ab;
+}
+
+.menu5{
+    background-color: black;
+}
+
+.menu5 a{
+background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(242,17,49,1) 5%, rgba(167,17,38,1) 63%, rgba(167,10,33,1) 100%);
+    border-color: rgba(0,0,0,0);
+    color: white;
+}
+
+.menu5 a:hover{
+background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(238,17,242,0.5502392344497608) 0%, rgba(0,212,255,0) 100%);
+}
+
+.menu5 a:active{
+    color: #b304ab;
+}

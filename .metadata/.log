@@ -1388,3 +1388,33 @@ Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to
 
 !ENTRY org.eclipse.wst.server.discovery 1 0 2019-10-28 16:48:53.089
 !MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
+!SESSION 2019-10-30 19:03:46.753 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=11.0.4
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2019-10-30 19:59:56.376
+!MESSAGE Could not publish server configuration for Tomcat v7.0 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2019-10-30 19:59:56.376
+!MESSAGE Multiple Contexts have a path of "/Cookies".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2019-10-30 19:59:57.836
+!MESSAGE Could not publish server configuration for Tomcat v7.0 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2019-10-30 19:59:57.836
+!MESSAGE Multiple Contexts have a path of "/Cookies".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2019-10-30 19:59:59.210
+!MESSAGE Could not publish server configuration for Tomcat v7.0 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2019-10-30 19:59:59.210
+!MESSAGE Multiple Contexts have a path of "/Cookies".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2019-10-30 20:00:06.349
+!MESSAGE Could not publish server configuration for Tomcat v7.0 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2019-10-30 20:00:06.349
+!MESSAGE Multiple Contexts have a path of "/Cookies".
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2019-10-30 20:00:17.062
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4

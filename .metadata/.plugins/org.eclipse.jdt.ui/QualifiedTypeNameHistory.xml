@@ -14,5 +14,8 @@
     <fullyQualifiedTypeName name="Actividad2T1.Producto"/>
     <fullyQualifiedTypeName name="Actividad1T1.Producto"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="org.apache.tomcat.util.http.Cookies"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>

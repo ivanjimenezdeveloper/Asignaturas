@@ -1,6 +1,8 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,13 +33,12 @@ public class LogIn extends HttpServlet {
 			throws ServletException, IOException {
 		String error = request.getParameter("error");
 		PrintWriter out;
-		
-		if(error != null) {
-			
-			response.sendRedirect("FormularioLogInERROR.html");
-			
 
-		}else {
+		if (error != null) {
+
+			response.sendRedirect("FormularioLogInERROR.html");
+
+		} else {
 			response.sendRedirect("FormularioLogIn.html");
 
 		}
@@ -53,19 +54,20 @@ public class LogIn extends HttpServlet {
 
 		String usuario = request.getParameter("usuario");
 		String password = request.getParameter("pass");
-		
-		if(usuario != null && password != null && usuario.contentEquals("prueba")) {
+		Usuario usr = new Usuario();
+
+
+
+		if (usuario != null && password != null && usuario.contentEquals("prueba")) {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("usuario", usuario);
 			session.setAttribute("password", password);
-			
+
 			response.sendRedirect("Main");
-		}else {
+		} else {
 			response.sendRedirect("LogIn?error=1");
 		}
-		
-		
-		
+
 	}
 
 }

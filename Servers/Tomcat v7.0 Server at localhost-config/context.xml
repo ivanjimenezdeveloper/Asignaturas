@@ -29,9 +29,9 @@
     <!--
     <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
     -->
-	<Resource name="jdbc/HIPOTECA" auth="Container"
-	type="javax.sql.DataSource" maxActive="100" maxIdle="30"
-	maxWait="10000" username="hipoteco" password="Ageofempires2"
-	driverClassName="com.mysql.cj.jdbc.Driver"
-	url="jdbc:mysql://localhost:3306/HIPOTECA?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
+    <Resource name="jdbc/HIPOTECA" auth="Container"
+            type="javax.sql.DataSource" maxActive="100" maxIdle="30"
+            maxWait="10000" username="hipoteco" password="Ageofempires2"
+            driverClassName="com.mysql.cj.jdbc.Driver"
+            url="jdbc:mysql://localhost:3306/HIPOTECA?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
 </Context>

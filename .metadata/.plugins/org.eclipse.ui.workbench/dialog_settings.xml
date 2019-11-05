@@ -20,4 +20,22 @@
 			<item value="org.eclipse.jst.j2ee.internal"/>
 		</list>
 	</section>
+	<section name="org.eclipse.ui.internal.dialogs.WorkbenchEditorsDialog">
+		<item key="allPersp" value="false"/>
+		<item key="sort" value="0"/>
+		<list key="bounds">
+			<item value="561"/>
+			<item value="152"/>
+			<item value="870"/>
+			<item value="604"/>
+		</list>
+		<list key="columns">
+			<item value="279"/>
+			<item value="559"/>
+		</list>
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="598"/>
+		<item key="DIALOG_Y_ORIGIN" value="158"/>
+	</section>
 </section>

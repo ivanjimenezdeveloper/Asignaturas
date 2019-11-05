@@ -14,6 +14,12 @@ output += "<li> Elementos a =" + getElementP(body) + "</li>";
 output += "<li> Penultimo enlace =" + getUrlFromAPenultimate(body) + "</li>";
 output += "<li> Penultimo enlace =" + getUrlFromLastA(body) + "</li>";
 output += "<li> Cantidad de enlaces a http://prova  =" + cantidadEnlacesPorUrl(body, "http://prova") + "</li>";
+output += "<li> Cantidad de enlaces en el paragrafo 1 =" + cantidadEnlacesPorP(1, body) + "</li>";
+output += "<li> Cantidad de enlaces en el paragrafo 2 =" + cantidadEnlacesPorP(2, body) + "</li>";
+output += "<li> Cantidad de enlaces en el paragrafo 3 =" + cantidadEnlacesPorP(3, body) + "</li>";
+output += "<li> Cantidad de enlaces en el paragrafo 4 =" + cantidadEnlacesPorP(4, body) + "</li>";
+output += "<li> Cantidad de enlaces en el paragrafo 5 =" + cantidadEnlacesPorP(5, body) + "</li>";
+output += "<li> Cantidad de enlaces en el paragrafo 6 =" + cantidadEnlacesPorP(6, body) + "</li>";
 output += "</ul>"
 
 document.getElementById("info").innerHTML = output;
@@ -54,6 +60,8 @@ function getUrlFromLastA(x) {
 
 }
 
+
+//Devuelve la cantidad de veces que sale el enlace dado
 function cantidadEnlacesPorUrl(x, enlace){
     
     var enlaces = x.getElementsByTagName("a");
@@ -70,5 +78,15 @@ function cantidadEnlacesPorUrl(x, enlace){
     }
     
     return cantidadRepetida;
+    
+}
+
+//Segun el indice dado y el body mostrara los a en la etiqueta p seleccionada
+function cantidadEnlacesPorP(indice, x){
+    
+    var paragrafos = x.getElementsByTagName("p");
+    indice -= 1;
+    return paragrafos[indice].getElementsByTagName("a").length;
+    
     
 }

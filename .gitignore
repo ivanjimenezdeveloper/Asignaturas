@@ -15,3 +15,27 @@ nbdist/
 /.metadata/
 
 AEMET-proyecto/
+
+webapps/
+
+temp/
+
+Servers/
+
+lib/
+
+conf/
+
+bin/
+
+RUNNING.txt
+
+RELEASE-NOTES
+
+NOTICE
+
+LICENSE
+
+.metadata/
+
+Servers

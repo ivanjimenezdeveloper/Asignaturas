@@ -37,7 +37,32 @@ public class Queries {
 		return encontrado;
 	}
 
+	public static boolean UsuarioExiste(String usuario) throws SQLException {
+		Connection poolConn = Connection.getInstance();
+		con = poolConn.getConnection();
+		String query = "SELECT * FROM USUARIO WHERE USUARIO = ?";
+		stm = con.prepareStatement(query);
+		boolean encontrado = false;
 
+		stm.setString(1, usuario);
+
+		ResultSet rs = stm.executeQuery();
+
+		while (rs.next()) {
+			String nombre = rs.getString("NOMBRE");
+
+			if (nombre != null) {
+
+				encontrado = true;
+			}
+		}
+
+		stm.close();
+		con.close();
+		rs.close();
+
+		return encontrado;
+	}
 
 	
 }

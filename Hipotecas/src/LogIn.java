@@ -54,11 +54,9 @@ public class LogIn extends HttpServlet {
 
 		String usuario = request.getParameter("usuario");
 		String password = request.getParameter("pass");
-		Usuario usr = new Usuario();
 		boolean encontrado = false;
 		try {
 			encontrado = Queries.hipotecaContains(usuario, password);
-
 
 		} catch (SQLException e) {
 			e.printStackTrace();

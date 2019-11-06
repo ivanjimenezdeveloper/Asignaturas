@@ -79,9 +79,9 @@ public class Tabla {
 		}
 		
 
-		System.out.println("TABLA");
-		System.out.println(tbArr.toString());
-		System.out.println("\n========================================\n");
+//		System.out.println("TABLA");
+//		System.out.println(tbArr.toString());
+//		System.out.println("\n========================================\n");
 		
 
 	}

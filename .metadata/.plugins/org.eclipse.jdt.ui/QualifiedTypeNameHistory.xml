@@ -23,9 +23,14 @@
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="org.apache.tomcat.jdbc.pool.PoolConfiguration"/>
+    <fullyQualifiedTypeName name="Usuario"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="com.mysql.cj.protocol.Resultset"/>
     <fullyQualifiedTypeName name="Connection"/>
+    <fullyQualifiedTypeName name="Queries"/>
     <fullyQualifiedTypeName name="CRUD"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="Usuario"/>
+    <fullyQualifiedTypeName name="Tabla"/>
+    <fullyQualifiedTypeName name="Hipoteca"/>
+    <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
 </qualifiedTypeNameHistroy>

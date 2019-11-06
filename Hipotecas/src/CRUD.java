@@ -1,3 +1,4 @@
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 public class CRUD {
 	private static Statement stm;
 	private static java.sql.Connection con;
+	private static PreparedStatement ps;
 	
 	//CREAR UN SELECT SEGUN CONTRASEÑA Y USUARIO
 	public static ArrayList<Usuario> SelectAll() throws SQLException {
@@ -34,9 +36,17 @@ public class CRUD {
 			toReturn.add(usr);
 		}
 		
-		
+		stm.close();
+		con.close();
+		rs.close();
 		
 		return toReturn;
+		
+	}
+	
+	public static void registroUsuario(String nombre, String usuario,String pass, String img) {
+		
+		
 		
 	}
 	

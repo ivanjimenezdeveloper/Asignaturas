@@ -86,7 +86,7 @@ public class Main extends HttpServlet {
 				"<div><p>Int</p><input type=\"number\"></div>\r\n" + 
 				"<div><p>Any</p><input type=\"number\"></div>\r\n" + 
 				"\r\n" + 
-				"<div> <input type=\"submit\"></div>\r\n" + 
+				"<div> <input type=\"submit\" value='Calcular'></div>\r\n" + 
 				"\r\n" + 
 				"</form>\r\n" + 
 				"\r\n" + 

@@ -1,0 +1,105 @@
+body{
+    margin: 0 auto;
+    background-color: #abcbff;
+}
+
+
+/******************************************HEADER******************************************/
+
+.header{
+    height: 150px;
+}
+
+.logoHeader{
+    
+    height: 180px;
+    top: -40px;
+    position: relative;
+    
+    left: 160px;
+}
+
+/******************************************NAVEGADOR******************************************/
+.nav ul *{
+    text-decoration: none;
+    color: gray;
+    list-style: none;
+    display: inline-block;
+}
+.nav ul{
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    padding-left: 0;
+}
+.nav{
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    height: 35px;
+    font-size: 20px;
+    margin-top: 0px;
+    font-weight: bold;
+    margin-left: 10%;
+
+}
+.nav a{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px 8px 3px 8px;
+    border-radius: 3px 3px 0px 0px;
+}
+
+.nav{
+    background-color: #abcbff;
+
+}
+
+.nav a{
+    background-color: #cbdcf7; 
+    border-color: rgba(0,0,0,0)
+}
+
+.nav a:hover{
+    background-color: #9fe7f5;
+}
+
+.nav a:active{
+    background-color: #79d6ed;
+}
+.nav a:first-child{
+    border-bottom-left-radius: 10px;
+}
+
+.nav a:last-of-type{
+    border-top-right-radius: 10px;
+}
+/******************************************CONTAINER******************************************/
+
+.container{
+    width: 80%;
+    min-height: 500px;
+    background-color: #3c9ecf;
+    margin-left: 10%;
+    
+    border-radius: 10px;
+    margin-top: 1px;
+    color: #f5f9fc;
+    text-shadow: 2px 2px #f00;
+    /*! margin: 0 auto; */
+    padding-top: 30px;
+
+}
+
+.noticias{
+    margin-top: 0px; 
+}
+
+.noticias h1{
+    
+    margin: 10 auto;
+    margin-left: 40px;
+
+
+    
+}

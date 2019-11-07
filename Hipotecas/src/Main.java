@@ -69,6 +69,11 @@ public class Main extends HttpServlet {
 		doGet(request, response);
 	}
 	
+	/**
+	 * Devuelve el html del usuario loggeado
+	 * @param usr
+	 * @return
+	 */
 	protected String HtmlLogged(String usr) {
 		//Html del usuario logged
 		String html = "<!DOCTYPE html>\r\n" + 

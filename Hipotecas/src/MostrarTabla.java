@@ -75,7 +75,13 @@ public class MostrarTabla extends HttpServlet {
 		}
 
 	}
-
+/**
+ * Muestra la tabla para usuarios loggeados
+ * @param request
+ * @param response
+ * @param usr Nombre de usuario loggeado
+ * @throws IOException
+ */
 	protected void mostrarLogged(HttpServletRequest request, HttpServletResponse response, String usr)
 			throws IOException {
 
@@ -97,7 +103,7 @@ public class MostrarTabla extends HttpServlet {
 				+ "<div class='dropdown-content'><a href='LogOut'>LogOut</a></div></div></div>"
 				+ "	<div class=\"main\">\n" + "\n" + "		<table>\n" + "			<thead>\n"
 				+ "<td>Mes</td><td>Capital pendiente anterior</td>\n" + "<td>Couta a Pagar</td>\n"
-				+ "<td>Parte de la couta que es amortización</td>\n" + "<td>Parte de la couta que es interés</td>\n"
+				+ "<td>Parte de la couta que es amortizaciï¿½n</td>\n" + "<td>Parte de la couta que es interï¿½s</td>\n"
 				+ "<td>Capital pendiente posterior</td>\n" + "\n" + "			</thead>\n" + "			<tbody>";
 		out.append(html1);
 
@@ -131,6 +137,12 @@ public class MostrarTabla extends HttpServlet {
 
 	}
 
+	/**
+	 * Muestra la tabla para usuarios no loggeados
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 */
 	protected void mostrarNoLogged(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		int meses;
@@ -152,8 +164,8 @@ public class MostrarTabla extends HttpServlet {
 				+ "				<a href=\"LogIn\">LogIn</a> | <a href=\"FormularioRegister.html\">Register</a>\n"
 				+ "			</p>\n" + "		</div>\n" + "	</div>\n" + "\n" + "	<div class=\"main\">\n" + "\n"
 				+ "		<table>\n" + "			<thead>\n" + "<td>Mes</td><td>Capital pendiente anterior</td>\n"
-				+ "<td>Couta a Pagar</td>\n" + "<td>Parte de la couta que es amortización</td>\n"
-				+ "<td>Parte de la couta que es interés</td>\n" + "<td>Capital pendiente posterior</td>\n" + "\n"
+				+ "<td>Couta a Pagar</td>\n" + "<td>Parte de la couta que es amortizaciï¿½n</td>\n"
+				+ "<td>Parte de la couta que es interï¿½s</td>\n" + "<td>Capital pendiente posterior</td>\n" + "\n"
 				+ "			</thead>\n" + "			<tbody>";
 		out.append(html1);
 
@@ -169,8 +181,10 @@ public class MostrarTabla extends HttpServlet {
 		// Calcula la couta que pagara cada mes
 		double couta = capital / (operacionCouta1 / operacionCouta2);
 
+		//Guarda en una array de tablas (rows) lo calculado en el metodo
 		tbArr = Tabla.calcularTabla(meses, capital, interes);
 
+		//Se dibuja cada row de la tabla
 		for (Tabla tabla : tbArr) {
 			mes++;
 			out.append("<tr>").append("<td>" + mes + "</td>")

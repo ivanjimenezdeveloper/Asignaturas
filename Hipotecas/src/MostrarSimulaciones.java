@@ -32,7 +32,6 @@ public class MostrarSimulaciones extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		PrintWriter out = response.getWriter();
 		boolean logged = false;
 		String user = "";
 
@@ -49,7 +48,7 @@ public class MostrarSimulaciones extends HttpServlet {
 		if (user != null && !user.contentEquals("")) {
 			logged = true;
 		}
-		// en caso de no estar logged redirige a el html para usuarios no logged
+		// en caso de no estar logged redirige al main
 		if (logged == true) {
 
 			mostrarSimulaciones(response, user);
@@ -60,13 +59,21 @@ public class MostrarSimulaciones extends HttpServlet {
 		}
 
 	}
-
+/**
+ * Muestra las simulaciones segun el nombre de usuario
+ * @param response
+ * @param user
+ * @throws IOException
+ */
 	protected void mostrarSimulaciones(HttpServletResponse response, String user) throws IOException {
 
 		PrintWriter out = response.getWriter();
+		
 		int idUsuario;
+		//Arraylist donde guardo los objetos hipotecas que mostrare en la simulacion
 		ArrayList<Hipoteca> hp = new ArrayList<Hipoteca>();
 
+		//Primera parte del html
 		out.append("<!DOCTYPE html>\r\n" + "<html>\r\n" + "<head>\r\n" + "<meta charset=\"ISO-8859-1\">\r\n"
 				+ "<title>Main Hipotecas</title>\r\n"
 				+ "<link rel=\"stylesheet\" type=\"text/css\" href='Hipotecas.css'>\r\n" + "</head>\r\n" + "<body>\r\n"
@@ -79,14 +86,23 @@ public class MostrarSimulaciones extends HttpServlet {
 				+ "		</div>\r\n" + "	</div>\r\n" + "	<div class=\"main\">");
 
 		try {
+			//Busca la id del usuario y la guarda en la variable idUsuario
 			idUsuario = Queries.UsuarioID(user);
 
+			//Segun la id recibida crea la array con sus simulaciones de hipotecas
+			//y las guarda en una array
 			hp = Queries.querySimulaciones(idUsuario);
 
+			//Por cada hipoteca guardada en la array creara un div que mostrara 
+			// En un div
 			for (Hipoteca hipoteca : hp) {
+				
+				//Variables que guardan los valores de las actuales hipotecas
 				double capital = hipoteca.getCapital();
 				double interes = hipoteca.getIntereses();
 				int mes = (int) hipoteca.getMeses();
+				
+				//Div que escribe en el html con los datos
 				out.append("<div class=\"simulacion\">").append("<p>ID: </p>")
 						.append("<p>Capital: " + capital + "</p>")
 						.append("<p>Interes: " + interes + "</p>")

@@ -1,8 +1,6 @@
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,7 +32,6 @@ public class LogIn extends HttpServlet {
 
 		// Recoge el parametro error
 		String error = request.getParameter("error");
-		PrintWriter out;
 
 		// Si hay un error redirige al formulario con error en caso contrario redirige
 		// al formulario normal
@@ -56,7 +53,7 @@ public class LogIn extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// Recoge el usuario y la contraseña
+		// Recoge el usuario y la contraseï¿½a
 		String usuario = request.getParameter("usuario");
 		String password = request.getParameter("pass");
 		boolean encontrado = false;
@@ -68,7 +65,7 @@ public class LogIn extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		// En caso de encontrar un usuario con su contraseña guarda los atributos y reenvia al main
+		// En caso de encontrar un usuario con su contraseï¿½a guarda los atributos y reenvia al main
 		// en caso contrario vuelve al servlet con un error
 		if (usuario != null && password != null && encontrado == true) {
 			HttpSession session = request.getSession(true);

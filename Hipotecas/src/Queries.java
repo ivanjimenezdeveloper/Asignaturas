@@ -25,6 +25,7 @@ public class Queries {
 		while (rs.next()) {
 			String nombre = rs.getString("NOMBRE");
 
+			//Cuando encuentra el usuario cambia el boolean a true
 			if (nombre != null) {
 
 				encontrado = true;
@@ -38,7 +39,7 @@ public class Queries {
 		return encontrado;
 	}
 
-	// Busca si existe el usuario y devuelve un true o false segun su resultado
+	// Busca si existe el nombre de usuario y devuelve un true o false segun su resultado
 	public static boolean UsuarioExiste(String usuario) throws SQLException {
 		Connection poolConn = Connection.getInstance();
 		con = poolConn.getConnection();
@@ -52,6 +53,7 @@ public class Queries {
 
 		while (rs.next()) {
 			String nombre = rs.getString("NOMBRE");
+			//Cuando encuentra el usuario cambia el boolean a true
 
 			if (nombre != null) {
 
@@ -91,6 +93,8 @@ public class Queries {
 
 	}
 
+	//Busca segun la id del usuario las simulaciones del mismo y
+	// devuelve una array con los resultados
 	public static ArrayList<Hipoteca> querySimulaciones(int usuarioID) {
 
 		ArrayList<Hipoteca> hipotecas = new ArrayList<Hipoteca>();
@@ -112,17 +116,20 @@ public class Queries {
 				capital = rs.getDouble("CAPITAL");
 				interes = rs.getInt("INTERES");
 				mes = rs.getInt("MES");
-
+				
+				//guarda los parametros en el objeto hipoteca 
 				hp.setCapital(capital);
 				hp.setIntereses(interes);
 				hp.setMeses(mes);
 
+				//Guarda la hipoteca en la array
 				hipotecas.add(hp);
 
+				//Reinicio el objeto hipoteca
 				hp = new Hipoteca();
 
 			}
-			
+			//Devuelve la array
 			return hipotecas;
 
 		} catch (SQLException e) {

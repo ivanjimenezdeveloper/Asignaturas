@@ -14,7 +14,6 @@
     <fullyQualifiedTypeName name="Actividad1T1.Producto"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="org.apache.tomcat.util.http.Cookies"/>
-    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
     <fullyQualifiedTypeName name="org.apache.naming.java.javaURLContextFactory"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
@@ -28,10 +27,12 @@
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="com.mysql.cj.protocol.Resultset"/>
     <fullyQualifiedTypeName name="Connection"/>
-    <fullyQualifiedTypeName name="Queries"/>
-    <fullyQualifiedTypeName name="CRUD"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="Tabla"/>
     <fullyQualifiedTypeName name="Hipoteca"/>
     <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
+    <fullyQualifiedTypeName name="Queries"/>
+    <fullyQualifiedTypeName name="CRUD"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 </qualifiedTypeNameHistroy>

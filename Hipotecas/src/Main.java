@@ -82,16 +82,17 @@ public class Main extends HttpServlet {
 				"<div class=\"nav\">\r\n" + 
 				" <div class=\"logo\"><p>logo</p></div>\r\n" + 
 				"<div class='dropdown'><button class='dropbtn'>"+usr+"</button>"
-						+ "<div class='dropdown-content'><a href='LogOut'>LogOut</a></div></div></div>"+
+						+ "<div class='dropdown-content'><a href='LogOut'>LogOut</a></div>"
+						+ "<div class='dropdown-content'><a href='MostarSimulaciones'>Simulaciones</a></div></div></div>"+
 				"<div class=\"main\">\r\n" + 
 				"\r\n" + 
 				"<div class=\"formulario\">\r\n" + 
 				"\r\n" + 
-				"<form method=\"GET\" action=\"Main\">\r\n" + 
+				"<form method=\"GET\" action=\"MostrarTabla\">\r\n" + 
 				"\r\n" + 
-				"<div><p>Cap</p><input type=\"number\"></div>\r\n" + 
-				"<div><p>Int</p><input type=\"number\"></div>\r\n" + 
-				"<div><p>Any</p><input type=\"number\"></div>\r\n" + 
+				"<div><p>Cap</p><input type=\"number\" name='cap'></div>\r\n" + 
+				"<div><p>Int</p><input type=\"number\" name='int'></div>\r\n" + 
+				"<div><p>Meses</p><input type=\"number\" name='meses'></div>\r\n" + 
 				"\r\n" + 
 				"<div> <input type=\"submit\" value='Calcular'></div>\r\n" + 
 				"\r\n" + 

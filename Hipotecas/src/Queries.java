@@ -1,9 +1,7 @@
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
-import com.mysql.cj.protocol.Resultset;
 
 public class Queries {
 	private static PreparedStatement stm;
@@ -66,6 +64,32 @@ public class Queries {
 
 		return encontrado;
 	}
+	
+	//Busca si existe el usuario y devuelve un true o false segun su resultado
+	public static int UsuarioID(String usuario) throws SQLException {
+		Connection poolConn = Connection.getInstance();
+		con = poolConn.getConnection();
+		String query = "SELECT ID FROM USUARIO WHERE USUARIO = ?";
+		int id=-1;
+		stm = con.prepareStatement(query);
+
+		stm.setString(1, usuario);
+
+		ResultSet rs = stm.executeQuery();
+
+		while (rs.next()) {
+			id = rs.getInt("ID");
+
+		}
+
+		stm.close();
+		con.close();
+		rs.close();
+		
+		return id;
+
+	}
+	
 
 	
 }

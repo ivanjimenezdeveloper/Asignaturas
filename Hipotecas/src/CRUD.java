@@ -85,5 +85,33 @@ public class CRUD {
 		return true;
 
 	}
+	
+	public static void insertarSimulacion(String usuario, double capital, int interes, int meses, int cuadroAmortizacion) throws SQLException {
+		
+		Connection poolcn = Connection.getInstance();
+
+		con = poolcn.getConnection();
+		
+		//consigo la id del usuario a partir de el nombre
+		int idUsuario = Queries.UsuarioID(usuario);
+		
+		String query = "INSERT INTO SIMULACION(CAPITAL, INTERES, MES, ID_USUARIO, CUADRO_AMORTIZACION) VALUES(?,?,?,?,?)";
+		ps = con.prepareStatement(query);
+		
+		ps.setDouble(1, capital);
+		ps.setInt(2, interes);
+		ps.setInt(3, meses);
+		ps.setInt(4, idUsuario);
+		ps.setInt(5, cuadroAmortizacion);
+		
+
+		
+		
+		ps.executeUpdate();
+		
+		con.close();
+		ps.close();
+		
+	}
 
 }

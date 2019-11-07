@@ -31,17 +31,24 @@ public class Main extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+	
 		out = response.getWriter();
 		boolean logged = false;
 		String user = "";
+		
+		//Crea la sesion
 		HttpSession sesion = request.getSession(true);
 
+		//Coge el atributo de la sesion usuario
 		user = (String) sesion.getAttribute("usuario");
 
+		//En caso de que el usuario recogido no este vacio significara que hay alguien logged
+		//por lo que se cambiara el boolean logged a true y mostrare el html
+		//para usuarios loggeds
 		if (user != null && !user.contentEquals("")) {
 			logged = true;
 		}
-
+//en caso de no estar logged redirige a el html para usuarios no logged
 		if (logged == true) {
 			
 			out.print(HtmlLogged(user));
@@ -63,7 +70,7 @@ public class Main extends HttpServlet {
 	}
 	
 	protected String HtmlLogged(String usr) {
-		
+		//Html del usuario logged
 		String html = "<!DOCTYPE html>\r\n" + 
 				"<html>\r\n" + 
 				"<head>\r\n" + 

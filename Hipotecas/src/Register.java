@@ -28,8 +28,11 @@ public class Register extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// Recoge el parametro error
 		String error = request.getParameter("error");
-
+		
+		// Si hay un error redirige al formulario con error en caso contrario redirige
+		// al formulario normal
 		if (error != null) {
 
 			response.sendRedirect("FormularioRegisterERROR.html");
@@ -46,6 +49,9 @@ public class Register extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		//Recoge los parametros para hacer el registro
+		
 		String usuario = request.getParameter("usuario");
 		String password = request.getParameter("pass");
 		String nombre = request.getParameter("nombre");
@@ -60,6 +66,8 @@ public class Register extends HttpServlet {
 
 			e.printStackTrace();
 		}
+		
+		//Si se registra correctamente redirige al log y en caso contrario recarga la pagina con un error
 		if (correcto == true) {
 			response.sendRedirect("LogIn");
 

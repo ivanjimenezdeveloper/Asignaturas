@@ -12,7 +12,7 @@ public final class Connection {
 	private static Context initContext;
 	private static Context envContext;
 	private static DataSource DatSrc;
-
+//Crea las conexiones por medio del contexto
 	private Connection() {
 
 		try {

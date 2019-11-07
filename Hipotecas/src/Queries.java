@@ -9,6 +9,8 @@ public class Queries {
 	private static PreparedStatement stm;
 	private static java.sql.Connection con;
 
+	//Comprueba que exista un usuario y que coincida con su contraseña
+	//devuelve true o false segun si lo encontro o no
 	public static boolean hipotecaContains(String usuario, String password) throws SQLException {
 		Connection poolConn = Connection.getInstance();
 		con = poolConn.getConnection();
@@ -37,6 +39,7 @@ public class Queries {
 		return encontrado;
 	}
 
+	//Busca si existe el usuario y devuelve un true o false segun su resultado
 	public static boolean UsuarioExiste(String usuario) throws SQLException {
 		Connection poolConn = Connection.getInstance();
 		con = poolConn.getConnection();

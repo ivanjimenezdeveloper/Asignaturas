@@ -9,7 +9,7 @@ public class CRUD {
 	private static java.sql.Connection con;
 	private static PreparedStatement ps;
 
-	// CREAR UN SELECT SEGUN CONTRASEÃ‘A Y USUARIO
+	// Select all de la tabla usuarios
 	public static ArrayList<Usuario> SelectAll() throws SQLException {
 		Connection poolConn = Connection.getInstance();
 		con = poolConn.getConnection();
@@ -43,21 +43,30 @@ public class CRUD {
 
 	}
 
+	// Registra al usuario haciendo un insert a la tabla usuario devuelve true o false segun si se ha realizado
+	// el insert
 	public static boolean registroUsuario(String nombre, String usuario, String pass, String img) throws SQLException {
+
+		// Crea la conexion desde la pool de conexiones
 
 		Connection poolcn = Connection.getInstance();
 
 		con = poolcn.getConnection();
 
 		boolean existe = false;
+		
+		//Lanza una querie que devuelve un boolean si encuentra un usuario devuelve true
+		existe = Queries.UsuarioExiste(usuario);
 
-		existe = Queries.hipotecaContains(usuario, pass);
-
+		
+		//Si ha encontrado un usuario no se hace el insert y devuelve false 
 		if (existe == true) {
 
 			return false;
 
 		} else {
+			
+			//Inserta el usuario dado el nombre, usuario, contraseña y la foto
 			String query = "INSERT INTO USUARIO(NOMBRE, USUARIO, PASS, NOMBRE_FOTO) VALUES(?,?,?,?)";
 			ps = con.prepareStatement(query);
 
@@ -69,10 +78,10 @@ public class CRUD {
 			ps.executeUpdate();
 
 		}
-		
+
 		con.close();
 		ps.close();
-		
+
 		return true;
 
 	}

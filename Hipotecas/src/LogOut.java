@@ -29,6 +29,7 @@ public class LogOut extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+	//Invalida la sesion guardada y redirige al main
 	HttpSession session = request.getSession(true);
 	session.invalidate();
 	

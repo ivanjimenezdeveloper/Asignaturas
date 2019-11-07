@@ -1,9 +1,10 @@
 
 public class Hipoteca {
-
+	
+	//objeto hipoteca que guarda los meses, intereses y capital usados para la tabla
 	private double meses, intereses;
 	
-	double capital;
+	private double capital;
 
 	public Hipoteca(double meses, double intereses, double capital) {
 		super();

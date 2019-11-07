@@ -23,7 +23,7 @@ public class Tabla {
 		calcularTabla(1, 2.0, 3);
 	}
 
-	public static void calcularTabla(int meses, double capital, int intereses) {
+	public static ArrayList<Tabla> calcularTabla(int meses, double capital, int intereses) {
 
 		ArrayList<Tabla> tbArr = new ArrayList<Tabla>();
 		Hipoteca hp = new Hipoteca();
@@ -33,51 +33,73 @@ public class Tabla {
 		double operacionCouta1, operacionCouta2;
 
 		// pruebas
+//		hp.setCapital(200000.00);
+//		hp.setIntereses(3);
+//		hp.setMeses(60);
 
-		hp.setCapital(200000.00);
-		hp.setIntereses(3);
+		//Recoge los datos dados y los guarda en un objeto hipoteca
+
+		hp.setCapital(capital);
+		hp.setIntereses(intereses);
 		hp.setMeses(60);
-
+		
+		//Guarda los valores de la hipoteca en unas variables
 		capitalTabla = hp.getCapital();
 		mesesTabla = hp.getMeses();
 		interesesTabla = hp.getIntereses();
+		
+		// Guarda las operaciones de la couta para una facil lectura
 		operacionCouta1 = 1 - Math.pow((1 + (interesesTabla / 100 / 12)), -mesesTabla);
 		operacionCouta2 = interesesTabla / 100 / 12;
 
+		//Calcula la couta que pagara cada mes
 		tabla.setCoutaTabla(capitalTabla / (operacionCouta1 / operacionCouta2));
 		
+		
+		//Guarda la capital pendiente posterior en la tabla
 		tabla.setCapitalPenPos(capitalTabla);
 		
-		
+		//Se crean las rows y se guardan en una array segun los meses dados
 		for(int i = 0; i<mesesTabla;i++) {
 			
+			// Guarda la nueva capital pendiente anterior
 			tabla.setCapitalPenAnt(tabla.getCapitalPenPos());
 			
+			
+			//Calcula la parte de la cuota que es interes
 			tabla.setCoutaInteres(
 					tabla.getCapitalPenAnt()*(interesesTabla/100/12)
 					);
 			
+			
+			//Calcula la parte de la cuota que es amortizada
 			tabla.setCoutaAmortizada(
 					tabla.getCoutaTabla()-tabla.getCoutaInteres()
 					);
 			
 
-			
+			//Calcula el capital pendiente posterior
 			tabla.setCapitalPenPos(
 					tabla.getCapitalPenAnt()-tabla.getCoutaAmortizada()
 					);
 			
+			//Guarda esta row en una array de objetos tabla
 			tbArr.add(tabla);
 			
+			// Variable que guarda la capital pendiente posterior para usarla en la siguiente
 			double t = tabla.getCapitalPenPos();
 			
+			// Reinicia el objeto tabla para poder guardarlo en la array
 			tabla = new Tabla();
 
+			//Guarda la couta en la nueva tabla
 			tabla.setCoutaTabla(capitalTabla / (operacionCouta1 / operacionCouta2));
 			
+			//Guarda la capital pendiente posterior dada la anterior variable
 			tabla.setCapitalPenPos(t);
 		}
 		
+		return tbArr;
 
 //		System.out.println("TABLA");
 //		System.out.println(tbArr.toString());

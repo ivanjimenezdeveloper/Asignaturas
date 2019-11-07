@@ -1,14 +1,15 @@
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
 
 public class Queries {
 	private static PreparedStatement stm;
 	private static java.sql.Connection con;
+	private static PreparedStatement ps;
 
-	//Comprueba que exista un usuario y que coincida con su contraseña
-	//devuelve true o false segun si lo encontro o no
+	// Comprueba que exista un usuario y que coincida con su contraseï¿½a
+	// devuelve true o false segun si lo encontro o no
 	public static boolean hipotecaContains(String usuario, String password) throws SQLException {
 		Connection poolConn = Connection.getInstance();
 		con = poolConn.getConnection();
@@ -37,7 +38,7 @@ public class Queries {
 		return encontrado;
 	}
 
-	//Busca si existe el usuario y devuelve un true o false segun su resultado
+	// Busca si existe el usuario y devuelve un true o false segun su resultado
 	public static boolean UsuarioExiste(String usuario) throws SQLException {
 		Connection poolConn = Connection.getInstance();
 		con = poolConn.getConnection();
@@ -64,13 +65,13 @@ public class Queries {
 
 		return encontrado;
 	}
-	
-	//Busca si existe el usuario y devuelve un true o false segun su resultado
+
+	// Busca si existe el usuario y devuelve un true o false segun su resultado
 	public static int UsuarioID(String usuario) throws SQLException {
 		Connection poolConn = Connection.getInstance();
 		con = poolConn.getConnection();
 		String query = "SELECT ID FROM USUARIO WHERE USUARIO = ?";
-		int id=-1;
+		int id = -1;
 		stm = con.prepareStatement(query);
 
 		stm.setString(1, usuario);
@@ -85,11 +86,59 @@ public class Queries {
 		stm.close();
 		con.close();
 		rs.close();
-		
+
 		return id;
 
 	}
-	
 
-	
+	public static ArrayList<Hipoteca> querySimulaciones(int usuarioID) {
+
+		ArrayList<Hipoteca> hipotecas = new ArrayList<Hipoteca>();
+		Connection poolConn = Connection.getInstance();
+		Hipoteca hp = new Hipoteca();
+		String query = "SELECT * FROM SIMULACION where ID_USUARIO = ?";
+		double capital;
+		int interes, mes;
+		try {
+			con = poolConn.getConnection();
+
+			ps = con.prepareStatement(query);
+
+			ps.setInt(1, usuarioID);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				capital = rs.getDouble("CAPITAL");
+				interes = rs.getInt("INTERES");
+				mes = rs.getInt("MES");
+
+				hp.setCapital(capital);
+				hp.setIntereses(interes);
+				hp.setMeses(mes);
+
+				hipotecas.add(hp);
+
+				hp = new Hipoteca();
+
+			}
+			
+			return hipotecas;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+				con.close();
+				stm.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return hipotecas;
+
+	}
+
 }

@@ -23,7 +23,7 @@ public class Tabla {
 		calcularTabla(1, 2.0, 3);
 	}
 
-	public static ArrayList<Tabla> calcularTabla(int meses, double capital, int intereses) {
+	public static ArrayList<Tabla> calcularTabla(int meses, double capital, double intereses) {
 
 		ArrayList<Tabla> tbArr = new ArrayList<Tabla>();
 		Hipoteca hp = new Hipoteca();
@@ -41,7 +41,7 @@ public class Tabla {
 
 		hp.setCapital(capital);
 		hp.setIntereses(intereses);
-		hp.setMeses(60);
+		hp.setMeses(meses);
 		
 		//Guarda los valores de la hipoteca en unas variables
 		capitalTabla = hp.getCapital();

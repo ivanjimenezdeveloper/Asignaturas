@@ -1,0 +1,7 @@
+128  [main] ERROR Main.App - ERROR
+130  [main] ERROR Main.App - ERROR
+138  [main] ERROR Main.App - UWU
+127  [main] WARN  Main.App - El usuario con IP 1 ha sido saludado
+128  [main] ERROR Main.App - ERROR
+128  [main] ERROR Main.App - UWU
+129  [main] DEBUG Main.App - wenas

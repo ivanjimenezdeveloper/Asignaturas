@@ -1,8 +1,10 @@
+package Servlets;
 import java.sql.SQLException;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.Servlet;
 import javax.sql.DataSource;
 
 public final class Connection {

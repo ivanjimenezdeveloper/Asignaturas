@@ -6,6 +6,8 @@
 
 .nav {
 	border-bottom: 1px solid black;
+	padding-top: 30px;
+	padding-bottom: 9px;
 }
 
 .main {
@@ -33,12 +35,24 @@
 }
 
 .formulario form {
-	border: 1px solid black;
+	border: 1px solid rgb(100,148,210);
 	max-width: 300px;
 	/*! justify-content: center; */
 	/*! align-content: center; */
 	padding: 0 0 0 20px;
 	/*! margin-top: 20px; */
+	display: inline-block;
+	width: 29.1%;
+	padding: 2% 2% 2% 2%;
+	background: rgb(24,148,210);
+	background: linear-gradient(0deg, rgba(24,148,210,0.70) 5%, rgba(60,158,207,1) 95%);
+	border-radius: 5px;
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	/*! box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); */
+	-webkit-box-shadow: 0px 0px 4px 5px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 4px 5px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 4px 5px rgba(0,0,0,0.75);
 }
 
 .formulario form p {
@@ -48,8 +62,14 @@
 }
 
 .formulario {
-	margin: 190px 0 0 0;
-	margin-left: 40%
+	/*! margin: 190px 0 0 0; */
+	margin-left: 38%;
+	/*! display: inline-block; */
+	/*! width: 29.1%; */
+	/*! padding: 2% 2% 2% 2%; */
+	/*! background: rgb(24,148,210); */
+	/*! background: linear-gradient(0deg, rgba(24,148,210,0.70) 5%, rgba(60,158,207,1) 95%); */
+	/*! border-radius: 5px; */
 }
 
 .dropdown {
@@ -94,6 +114,11 @@ table {
 	margin-top: 50px;
 	border: 1px solid black;
 	border-collapse: collapse;
+	/*! align-self: center; */
+	/*! display: flex; */
+	/*! margin-left: 20%; */
+	/*! flex-direction: column; */
+	margin-left: 20%;
 }
 
 thead {
@@ -122,4 +147,170 @@ td {
 	width: 24px;
 	margin-left: 47%;
 	text-align: center;
+}
+
+body{
+    margin: 0 auto;
+    background-color: #abcbff;
+}
+
+
+/******************************************HEADER******************************************/
+
+.header{
+    height: 150px;
+}
+
+.logoHeader{
+
+    height: 180px;
+    top: -30px;
+    position: relative;
+
+    left: 160px;
+}
+
+/******************************************NAVEGADOR******************************************/
+.nav ul *{
+    text-decoration: none;
+    color: gray;
+    list-style: none;
+    display: inline-block;
+}
+.nav ul{
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    padding-left: 0;
+}
+.nav{
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    height: 35px;
+    font-size: 20px;
+    margin-top: 0px;
+    font-weight: bold;
+    padding-left: 10%;
+
+    padding-bottom: 13px;
+}
+.nav a{
+    /*! border: 1px solid black; */
+    border-collapse: collapse;
+    padding: 5px 8px 3px 8px;
+    /*! border-radius: 3px 3px 0px 0px; */
+}
+
+.nav{
+    background-color: #abcbff;
+
+}
+
+.nav a{
+    background-color: #cbdcf7; 
+    border-color: rgba(0,0,0,0)
+}
+
+.nav a:hover{
+    background-color: #9fe7f5;
+}
+
+.nav a:active{
+    background-color: #79d6ed;
+}
+.nav a:first-child{
+    border-bottom-left-radius: 10px;
+}
+
+.nav a:last-of-type{
+    border-top-right-radius: 10px;
+}
+/******************************************CONTAINER******************************************/
+
+.main {
+    width: 80%;
+    min-height: 500px;
+    background-color: #3c9ecf;
+    margin-left: 10%;
+
+    border-radius: 10px;
+    margin-top: 1px;
+    color: #f5f9fc;
+    /*! margin: 0 auto; */
+    padding-top: 30px;
+
+}
+.main h1, h2{
+   text-shadow: 2px 2px #f00;   
+
+}
+.main h1{
+    margin: 10px auto;
+    margin-left: auto;
+margin-left: 30px;
+border-bottom: 1px solid
+white;
+width: 96%;
+padding-bottom: 15px;
+}
+.noticias h1, h2{
+    margin-top: 0px; 
+
+}
+
+.noticias{
+    border-bottom: 2px solid white;
+    width: 100%;
+    border-radius: 10px;
+}
+.subnoticia {
+    display: inline-block;
+    width: 29.1%;
+    padding: 2% 2% 2% 2%;
+    background: rgb(24,148,210);
+    background: linear-gradient(0deg, rgba(24,148,210,0.70) 5%, rgba(60,158,207,1) 95%);
+    border-radius: 5px;
+}
+
+.formulario p{
+    font-weight: bolder;
+}
+
+.nav button {    
+	border: 0.5px solid lightgray;
+    margin-top: 5%;
+
+    border-radius: 8px;
+    background: linear-gradient(0deg, lightgray 20%, rgba(0,0,0,0.17969194513742992) 100%);
+    margin-top: 20px;
+    margin-left: 13.5%;
+
+	/*! width: 250px; */
+	background-color: #ff5757;
+	border-radius: 8px;
+	border-top: 10px;
+	border-left: 0px solid;
+	border-bottom: 5px solid #d43737;
+	margin: 4px;
+	padding-top: 2px;
+}
+.nav button p{
+	    color: white;
+    text-shadow: 0 -1px black;
+    border-top: 1px solid rgba(255,255,255,0.313865614605217);
+    border-bottom: 1px solid rgba(177,177,177,0.313865614605217);
+    border-radius: 3px;
+    margin: 0 auto;
+    /*! padding-top: 20px; */
+        /*! padding-bottom:  20px; */
+}
+}
+button:hover{
+    
+    background-color: #eb4034;
+    
+}
+.main a{
+	margin-left: 47%;
 }

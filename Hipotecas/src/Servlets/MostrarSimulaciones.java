@@ -1,3 +1,4 @@
+package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -77,12 +78,15 @@ public class MostrarSimulaciones extends HttpServlet {
 		out.append("<!DOCTYPE html>\r\n" + "<html>\r\n" + "<head>\r\n" + "<meta charset=\"ISO-8859-1\">\r\n"
 				+ "<title>Main Hipotecas</title>\r\n"
 				+ "<link rel=\"stylesheet\" type=\"text/css\" href='Hipotecas.css'>\r\n" + "</head>\r\n" + "<body>\r\n"
-				+ "	<div class=\"nav\">\r\n" + "		<div class=\"logo\">\r\n" + "			<p>logo</p>\r\n"
+				+ "	<div class=\"nav\">\r\n" + "		<div class=\"logo\">\r\n" +
+				"<a href='Main'>HOME</a>"
 				+ "		</div>\r\n" + "		<div class='dropdown'>\r\n"
 				+ "			<button class='dropbtn'>"+user+"</button>\r\n" + "\r\n"
-				+ "			<div class='dropdown-content'>\r\n" + "				<a href='LogOut'>LogOut</a>\r\n"
-				+ "			</div>\r\n" + "\r\n" + "			<div class='dropdown-content'>\r\n"
-				+ "				<a href='MostarSimulaciones'>Simulaciones</a>\r\n" + "			</div>\r\n"
+				+ "<div class='dropdown-content'>"
+				+ "<a href='LogOut'>LogOut</a>"
+				+ "<a href='MostrarSimulaciones'>Simulaciones</a>"
+				+ "</div>"
+						+ "\r\n"
 				+ "		</div>\r\n" + "	</div>\r\n" + "	<div class=\"main\">");
 
 		try {

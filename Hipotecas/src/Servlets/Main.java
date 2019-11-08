@@ -1,3 +1,4 @@
+package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -36,11 +37,15 @@ public class Main extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 	
+		logger.debug("nose");
 		try {
 			out = response.getWriter();
 		} catch (IOException e1) {
 
-			e1.printStackTrace();
+			logger.warn(e1.getMessage());
+			logger.debug(e1.getMessage());
+			logger.debug("prueba");
+			
 		}
 		boolean logged = false;
 		String user = "";
@@ -66,7 +71,9 @@ public class Main extends HttpServlet {
 			try {
 				response.sendRedirect("MainNoLogged.html");
 			} catch (IOException e) {
-
+				logger.warn(e.getMessage());
+				logger.debug(e.getMessage());
+				logger.debug("prueba2");
 			}
 
 		}
@@ -98,10 +105,12 @@ public class Main extends HttpServlet {
 				"</head>\r\n" + 
 				"<body>\r\n" + 
 				"<div class=\"nav\">\r\n" + 
-				" <div class=\"logo\"><p>logo</p></div>\r\n" + 
-				"<div class='dropdown'><button class='dropbtn'>"+usr+"</button>"
-						+ "<div class='dropdown-content'><a href='LogOut'>LogOut</a>"
-						+ "<a href='MostrarSimulaciones'>Simulaciones</a></div>"
+				" <div class=\"logo\"><a href='Main'>HOME</a></div>\r\n" + 
+				"<div class='dropdown'><button class='dropbtn'><p>"+usr+"</p></button>"
+						+ "<div class='dropdown-content'>"
+						+ "<a href='LogOut'>LogOut</a>"
+						+ "<a href='MostrarSimulaciones'>Simulaciones</a>"
+						+ "</div>"
 						+ "</div></div>"+
 				"<div class=\"main\">\r\n" + 
 				"\r\n" + 

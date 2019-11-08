@@ -1,3 +1,4 @@
+package Servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -53,61 +54,45 @@ public class Register extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		boolean existe = false;
 		// Recoge los parametros para hacer el registro
 
 		String usuario = request.getParameter("usuario");
 		String password = request.getParameter("pass");
 		String nombre = request.getParameter("nombre");
-		String img = request.getParameter("img");
-
-		// Obtenemos la ruta en el servidor
-		String uploadPath = getServletContext().getRealPath("\\Hipotecas\\WebContent") + File.separator + SAVE_DIR;
-
-		File uploadDir = new File(uploadPath);
-
-		// Guardamos el nombre del archivo
-		String fileName = null;
-
-		// Si no existe creamos el directorio
-		if (!uploadDir.exists()) {
-			uploadDir.mkdir();
-		}
-
-		//Por alguna razon la guarda en una carpeta temporal por lo cual no la puedo usar
-		for (Part part : request.getParts()) {
-			fileName = getFileName(part);
-			part.write(uploadPath + File.separator + fileName);
-
-		}
-
-		boolean correcto = false;
+//		String img = request.getParameter("img");
 
 		try {
-			correcto = CRUD.registroUsuario(nombre, usuario, password, img );
 
-		} catch (SQLException e) {
-
-			e.printStackTrace();
+			existe =Queries.UsuarioExiste(usuario);
+		} catch (SQLException e1) {
 		}
 
-		// Si se registra correctamente redirige al log y en caso contrario recarga la
-		// pagina con un error
-		if (correcto == true) {
-			response.sendRedirect("LogIn");
-
-		} else {
+		if (usuario.length() == 0 || password.length() == 0 || nombre.length() == 0 || existe == true) {
 			response.sendRedirect("Register?error=1");
+		} else {
+
+			boolean correcto = false;
+
+			try {
+				correcto = CRUD.registroUsuario(nombre, usuario, password, "prueba");
+
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
+
+			// Si se registra correctamente redirige al log y en caso contrario recarga la
+			// pagina con un error
+			if (correcto == true) {
+				response.sendRedirect("LogIn");
+
+			} else {
+				response.sendRedirect("Register?error=1");
+			}
+
 		}
 
-	}
-
-	private String getFileName(Part part) {
-		for (String content : part.getHeader("content-disposition").split(";")) {
-			if (content.trim().startsWith("filename"))
-				return content.substring(content.indexOf("=") + 2, content.length() - 1);
-		}
-		return "desconocido.txt";
 	}
 
 }

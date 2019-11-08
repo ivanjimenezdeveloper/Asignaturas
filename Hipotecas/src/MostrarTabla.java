@@ -36,12 +36,21 @@ public class MostrarTabla extends HttpServlet {
 		int meses;
 		double capital;
 		double interes;
+		String amortizacion;
+		int cuadroAmortizado = 0;
+
 
 		boolean logged = false;
 		String user = "";
 		capital = Double.parseDouble(request.getParameter("cap"));
 		interes = Double.parseDouble(request.getParameter("int"));
 		meses = Integer.parseInt(request.getParameter("meses"));
+		amortizacion = request.getParameter("amortizado");
+		
+		
+		if(amortizacion != null) {
+			cuadroAmortizado = 1;
+		}
 
 		// Crea la sesion
 		HttpSession sesion = request.getSession(true);
@@ -55,11 +64,16 @@ public class MostrarTabla extends HttpServlet {
 		// para usuarios loggeds
 		if (user != null && !user.contentEquals("")) {
 			logged = true;
+			
+			if(request.getParameter("saveQuery") == null) {
+				
+			
 			try {
 				// Guardo la simulacion creada por el usuario
-				CRUD.insertarSimulacion(user, capital, (int) interes, meses, 1);
+				CRUD.insertarSimulacion(user, capital, (int) interes, meses, cuadroAmortizado);
 			} catch (SQLException e) {
 				e.printStackTrace();
+			}
 			}
 		}
 
@@ -90,11 +104,27 @@ public class MostrarTabla extends HttpServlet {
 		double interes;
 		double operacionCouta1, operacionCouta2;
 		int mes = 0;
+		String amortizacion;
+		String esconderAmortizacion = "";
+		
 		DecimalFormat df2 = new DecimalFormat("#.##");
 
 		ArrayList<Tabla> tbArr = new ArrayList<Tabla>();
 		PrintWriter out = response.getWriter();
 
+
+
+		// Coge los parametros para realizar la tabla
+		capital = Double.parseDouble(request.getParameter("cap"));
+		interes = Double.parseDouble(request.getParameter("int"));
+		meses = Integer.parseInt(request.getParameter("meses"));
+		amortizacion = request.getParameter("amortizado");
+		
+		if(amortizacion == null) {
+			esconderAmortizacion = "style=\"display: none;\"";
+		}
+		
+		
 		String html1 = "<!DOCTYPE html>\n" + "<html>\n" + "<head>\n" + "<meta charset=\"ISO-8859-1\">\n"
 				+ "<title>Tabla hipoteca</title>\n"
 				+ "<link rel=\"stylesheet\" type=\"text/css\" href=\"Hipotecas.css\">\n" + "\n" + "</head>\n"
@@ -103,14 +133,9 @@ public class MostrarTabla extends HttpServlet {
 				+ "<div class='dropdown-content'><a href='LogOut'>LogOut</a></div></div></div>"
 				+ "	<div class=\"main\">\n" + "\n" + "		<table>\n" + "			<thead>\n"
 				+ "<td>Mes</td><td>Capital pendiente anterior</td>\n" + "<td>Couta a Pagar</td>\n"
-				+ "<td>Parte de la couta que es amortizaci�n</td>\n" + "<td>Parte de la couta que es inter�s</td>\n"
+				+ "<td "+esconderAmortizacion+" >Parte de la couta que es amortizaci�n</td>\n" + "<td>Parte de la couta que es inter�s</td>\n"
 				+ "<td>Capital pendiente posterior</td>\n" + "\n" + "			</thead>\n" + "			<tbody>";
 		out.append(html1);
-
-		// Coge los parametros para realizar la tabla
-		capital = Double.parseDouble(request.getParameter("cap"));
-		interes = Double.parseDouble(request.getParameter("int"));
-		meses = Integer.parseInt(request.getParameter("meses"));
 
 		// Guarda las operaciones de la couta para una facil lectura
 		operacionCouta1 = 1 - Math.pow((1 + (interes / 100 / 12)), -meses);
@@ -126,7 +151,7 @@ public class MostrarTabla extends HttpServlet {
 			out.append("<tr>").append("<td>" + mes + "</td>")
 					.append("<td>" + df2.format(tabla.getCapitalPenAnt()) + "</td>")
 					.append("<td>" + df2.format(couta) + "</td>")
-					.append("<td>" + df2.format(tabla.getCoutaAmortizada()) + "</td>")
+					.append("<td "+esconderAmortizacion+" >" + df2.format(tabla.getCoutaAmortizada()) + "</td>")
 					.append("<td>" + df2.format(tabla.getCoutaInteres()) + "</td>")
 					.append("<td>" + df2.format(tabla.getCapitalPenPos()) + "</td>").append("</tr>");
 
@@ -150,11 +175,25 @@ public class MostrarTabla extends HttpServlet {
 		double interes;
 		double operacionCouta1, operacionCouta2;
 		int mes = 0;
+		String amortizacion;
+		String esconderAmortizacion = "";
 		DecimalFormat df2 = new DecimalFormat("#.##");
 
 		ArrayList<Tabla> tbArr = new ArrayList<Tabla>();
 		PrintWriter out = response.getWriter();
 
+
+
+		// Coge los parametros para realizar la tabla
+		capital = Double.parseDouble(request.getParameter("cap"));
+		interes = Double.parseDouble(request.getParameter("int"));
+		meses = Integer.parseInt(request.getParameter("meses"));
+		amortizacion = request.getParameter("amortizado");
+
+		if(amortizacion ==null) {
+			esconderAmortizacion = "style=\"display: none;\"";
+		}
+		
 		String html1 = "<!DOCTYPE html>\n" + "<html>\n" + "<head>\n" + "<meta charset=\"ISO-8859-1\">\n"
 				+ "<title>Tabla hipoteca</title>\n"
 				+ "<link rel=\"stylesheet\" type=\"text/css\" href=\"Hipotecas.css\">\n" + "\n" + "</head>\n"
@@ -164,15 +203,12 @@ public class MostrarTabla extends HttpServlet {
 				+ "				<a href=\"LogIn\">LogIn</a> | <a href=\"FormularioRegister.html\">Register</a>\n"
 				+ "			</p>\n" + "		</div>\n" + "	</div>\n" + "\n" + "	<div class=\"main\">\n" + "\n"
 				+ "		<table>\n" + "			<thead>\n" + "<td>Mes</td><td>Capital pendiente anterior</td>\n"
-				+ "<td>Couta a Pagar</td>\n" + "<td>Parte de la couta que es amortizaci�n</td>\n"
+				+ "<td>Couta a Pagar</td>\n" + "<td" +esconderAmortizacion+">Parte de la couta que es amortizaci�n</td>\n"
 				+ "<td>Parte de la couta que es inter�s</td>\n" + "<td>Capital pendiente posterior</td>\n" + "\n"
 				+ "			</thead>\n" + "			<tbody>";
+		
 		out.append(html1);
 
-		// Coge los parametros para realizar la tabla
-		capital = Double.parseDouble(request.getParameter("cap"));
-		interes = Double.parseDouble(request.getParameter("int"));
-		meses = Integer.parseInt(request.getParameter("meses"));
 
 		// Guarda las operaciones de la couta para una facil lectura
 		operacionCouta1 = 1 - Math.pow((1 + (interes / 100 / 12)), -meses);
@@ -190,7 +226,7 @@ public class MostrarTabla extends HttpServlet {
 			out.append("<tr>").append("<td>" + mes + "</td>")
 					.append("<td>" + df2.format(tabla.getCapitalPenAnt()) + "</td>")
 					.append("<td>" + df2.format(couta) + "</td>")
-					.append("<td>" + df2.format(tabla.getCoutaAmortizada()) + "</td>")
+					.append("<td "+esconderAmortizacion+" >" + df2.format(tabla.getCoutaAmortizada()) + "</td>")
 					.append("<td>" + df2.format(tabla.getCoutaInteres()) + "</td>")
 					.append("<td>" + df2.format(tabla.getCapitalPenPos()) + "</td>").append("</tr>");
 

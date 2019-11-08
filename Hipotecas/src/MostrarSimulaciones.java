@@ -79,7 +79,7 @@ public class MostrarSimulaciones extends HttpServlet {
 				+ "<link rel=\"stylesheet\" type=\"text/css\" href='Hipotecas.css'>\r\n" + "</head>\r\n" + "<body>\r\n"
 				+ "	<div class=\"nav\">\r\n" + "		<div class=\"logo\">\r\n" + "			<p>logo</p>\r\n"
 				+ "		</div>\r\n" + "		<div class='dropdown'>\r\n"
-				+ "			<button class='dropbtn'>USUARIO</button>\r\n" + "\r\n"
+				+ "			<button class='dropbtn'>"+user+"</button>\r\n" + "\r\n"
 				+ "			<div class='dropdown-content'>\r\n" + "				<a href='LogOut'>LogOut</a>\r\n"
 				+ "			</div>\r\n" + "\r\n" + "			<div class='dropdown-content'>\r\n"
 				+ "				<a href='MostarSimulaciones'>Simulaciones</a>\r\n" + "			</div>\r\n"
@@ -101,14 +101,17 @@ public class MostrarSimulaciones extends HttpServlet {
 				double capital = hipoteca.getCapital();
 				double interes = hipoteca.getIntereses();
 				int mes = (int) hipoteca.getMeses();
+				String cuadroAmortizado = (hipoteca.getCuadroAmortizado() == 1)? "Si":"No";
+				String cuadroAmortizadoReenvio = (hipoteca.getCuadroAmortizado() == 1)? "Si":null;
 				
 				//Div que escribe en el html con los datos
-				out.append("<div class=\"simulacion\">").append("<p>ID: </p>")
+				out.append("<div class=\"simulacion\">")
 						.append("<p>Capital: " + capital + "</p>")
 						.append("<p>Interes: " + interes + "</p>")
 						.append("<p>Meses: " + mes + "</p>")
+						.append("<p> Cuadro amortizacion: " +cuadroAmortizado+"</p>")
 						.append("<a href='MostrarTabla?cap=" + capital + "&int=" + interes
-								+ "&meses=" + mes + "'>Ver</a>")
+								+ "&meses=" + mes +  "&amortizado="+cuadroAmortizadoReenvio+"&saveQuery= no\"'>Ver</a>")
 						.append("</div>");
 
 			}

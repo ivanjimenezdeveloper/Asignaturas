@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.Logger;
+
 /**
  * Servlet implementation class Main
  */
@@ -16,6 +20,7 @@ import javax.servlet.http.HttpSession;
 public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private PrintWriter out;
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(Main.class);	
 
 
 	/**
@@ -98,7 +103,8 @@ public class Main extends HttpServlet {
 				"\r\n" + 
 				"<div><p>Cap</p><input type=\"number\" name='cap'></div>\r\n" + 
 				"<div><p>Int</p><input type=\"number\" name='int'></div>\r\n" + 
-				"<div><p>Meses</p><input type=\"number\" name='meses'></div>\r\n" + 
+				"<div><p>Meses</p><input type=\"number\" name='meses'></div>\r\n" 
+				+"<div><p>Cuadro Amortizado</p><input type=\"checkbox\" name=\"amortizado\"></div>"+
 				"\r\n" + 
 				"<div> <input type=\"submit\" value='Calcular'></div>\r\n" + 
 				"\r\n" + 

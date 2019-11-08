@@ -30,7 +30,6 @@ public class Tabla {
 		double mesesTabla, interesesTabla;
 		double operacionCouta1, operacionCouta2;
 
-
 		// Recoge los datos dados y los guarda en un objeto hipoteca
 
 		hp.setCapital(capital);
@@ -52,21 +51,19 @@ public class Tabla {
 		// Guarda la capital pendiente posterior en la tabla
 		tabla.setCapitalPenPos(capitalTabla);
 
-		// Se crean las rows y se guardan en una array segun los meses dados
+		// Se crean las rows y se guardan en una array segun los meses dados y se hacen
+		// los calculos
 		for (int i = 0; i < mesesTabla; i++) {
 
-			// Guarda la nueva capital pendiente anterior
 			tabla.setCapitalPenAnt(tabla.getCapitalPenPos());
 
-			// Calcula la parte de la cuota que es interes
 			tabla.setCoutaInteres(tabla.getCapitalPenAnt() * (interesesTabla / 100 / 12));
 
-			// Calcula la parte de la cuota que es amortizada
 			tabla.setCoutaAmortizada(tabla.getCoutaTabla() - tabla.getCoutaInteres());
 
-			// Calcula el capital pendiente posterior
 			tabla.setCapitalPenPos(tabla.getCapitalPenAnt() - tabla.getCoutaAmortizada());
 
+			
 			// Guarda esta row en una array de objetos tabla
 			tbArr.add(tabla);
 
@@ -85,7 +82,6 @@ public class Tabla {
 		}
 
 		return tbArr;
-
 
 	}
 
@@ -128,7 +124,5 @@ public class Tabla {
 	public void setCapitalPenPos(double capitalPenPos) {
 		this.capitalPenPos = capitalPenPos;
 	}
-
-
 
 }

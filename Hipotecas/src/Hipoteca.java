@@ -6,11 +6,13 @@ public class Hipoteca {
 	
 	private double capital;
 
-	public Hipoteca(double meses, double intereses, double capital) {
+	private int cuadroAmortizado;
+	public Hipoteca(double meses, double intereses, double capital, int cuadroAmortizado) {
 		super();
 		this.meses = meses;
 		this.intereses = intereses;
 		this.capital = capital;
+		this.cuadroAmortizado = cuadroAmortizado;
 	}
 
 	
@@ -43,6 +45,17 @@ public class Hipoteca {
 		this.capital = capital;
 	}
 
+
+	public int getCuadroAmortizado() {
+		return cuadroAmortizado;
+	}
+
+
+	public void setCuadroAmortizado(int cuadroAmortizado) {
+		this.cuadroAmortizado = cuadroAmortizado;
+	}
+
+	
 	
 
 

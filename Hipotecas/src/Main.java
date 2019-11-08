@@ -34,10 +34,14 @@ public class Main extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 	
-		out = response.getWriter();
+		try {
+			out = response.getWriter();
+		} catch (IOException e1) {
+
+			e1.printStackTrace();
+		}
 		boolean logged = false;
 		String user = "";
 		
@@ -59,7 +63,11 @@ public class Main extends HttpServlet {
 			out.print(HtmlLogged(user));
 
 		} else {
-			response.sendRedirect("MainNoLogged.html");
+			try {
+				response.sendRedirect("MainNoLogged.html");
+			} catch (IOException e) {
+
+			}
 
 		}
 

@@ -11,6 +11,14 @@ public class Queries {
 
 	// Comprueba que exista un usuario y que coincida con su contrase�a
 	// devuelve true o false segun si lo encontro o no
+	
+	/**
+	 * Comprueba que exista un usuario y que coincida con su contraseña
+	 * @param usuario Nick de usuario
+	 * @param password Contraseña del usuario
+	 * @return Devuelve true si encuentra al usuario o false si no lo encuentra
+	 * @throws SQLException
+	 */
 	public static boolean hipotecaContains(String usuario, String password) throws SQLException {
 		Connection poolConn = Connection.getInstance();
 		con = poolConn.getConnection();
@@ -42,6 +50,13 @@ public class Queries {
 
 	// Busca si existe el nombre de usuario y devuelve un true o false segun su
 	// resultado
+	
+	/**
+	 * Comprueba a partir del Nick de usuario si existe
+	 * @param usuario Nick de usuario
+	 * @return Devuelve true si encuentra al usuario o false si no lo encuentra
+	 * @throws SQLException
+	 */
 	public static boolean UsuarioExiste(String usuario) throws SQLException {
 		Connection poolConn = Connection.getInstance();
 		con = poolConn.getConnection();
@@ -71,6 +86,12 @@ public class Queries {
 	}
 
 	// Busca si existe el usuario y devuelve un true o false segun su resultado
+	/**
+	 * Busca la id de un Nick de usuario en caso negativo devuelve -1
+	 * @param usuario Nick de usuario
+	 * @return id de usuario
+	 * @throws SQLException
+	 */
 	public static int UsuarioID(String usuario) throws SQLException {
 		Connection poolConn = Connection.getInstance();
 		con = poolConn.getConnection();
@@ -97,6 +118,12 @@ public class Queries {
 
 	// Busca segun la id del usuario las simulaciones del mismo y
 	// devuelve una array con los resultados
+	
+	/**
+	 *  Busca las simulaciones creadas por el usuario
+	 * @param usuarioID id del usuario
+	 * @return ArrayList de hipotecas con las simulaciones creadas por el usuario
+	 */
 	public static ArrayList<Hipoteca> querySimulaciones(int usuarioID) {
 
 		ArrayList<Hipoteca> hipotecas = new ArrayList<Hipoteca>();
@@ -121,7 +148,7 @@ public class Queries {
 				mes = rs.getInt("MES");
 				cuadroAmortizado = rs.getInt("CUADRO_AMORTIZACION");
 				
-				// guarda los parametros en el objeto hipoteca
+				// Guarda los parametros en el objeto hipoteca
 				hp.setCapital(capital);
 				hp.setIntereses(interes);
 				hp.setMeses(mes);

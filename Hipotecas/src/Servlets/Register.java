@@ -9,9 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-
-import java.io.File;
 
 /**
  * Servlet implementation class Register
@@ -28,8 +25,6 @@ public class Register extends HttpServlet {
 	public Register() {
 		super();
 	}
-
-	private static final String SAVE_DIR = "imagenes";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -64,7 +59,7 @@ public class Register extends HttpServlet {
 
 		try {
 
-			existe =Queries.UsuarioExiste(usuario);
+			existe = Queries.UsuarioExiste(usuario);
 		} catch (SQLException e1) {
 		}
 

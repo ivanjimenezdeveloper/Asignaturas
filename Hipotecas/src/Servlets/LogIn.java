@@ -17,17 +17,12 @@ import javax.servlet.http.HttpSession;
 public class LogIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
+
 	public LogIn() {
 		super();
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -54,10 +49,12 @@ public class LogIn extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// Recoge el usuario y la contrase�a
+		// Recoge el usuario y la contraseña
 		String usuario = request.getParameter("usuario");
 		String password = request.getParameter("pass");
 		boolean encontrado = false;
+		
+		
 		try {
 			// Recoge el valor dado de la querie para saber si existe el usuario
 			encontrado = Queries.hipotecaContains(usuario, password);
@@ -66,7 +63,7 @@ public class LogIn extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		// En caso de encontrar un usuario con su contrase�a guarda los atributos y reenvia al main
+		// En caso de encontrar un usuario con su contraseña guarda los atributos y reenvia al main
 		// en caso contrario vuelve al servlet con un error
 		if (usuario != null && password != null && encontrado == true) {
 			HttpSession session = request.getSession(true);

@@ -22,6 +22,13 @@ public class Tabla {
 		super();
 	}
 
+	/**
+	 * Hace los calculos de la tabla y devuelve una arraylist con cada row
+	 * @param meses Meses que dura el pago
+	 * @param capital Capital prestado
+	 * @param intereses Intereses aplicados al pago
+	 * @return Arraylist con las rows de la tabla
+	 */
 	public static ArrayList<Tabla> calcularTabla(int meses, double capital, double intereses) {
 
 		ArrayList<Tabla> tbArr = new ArrayList<Tabla>();

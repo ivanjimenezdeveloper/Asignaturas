@@ -20,17 +20,10 @@ import javax.servlet.http.HttpSession;
 public class MostrarTabla extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public MostrarTabla() {
 		super();
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -42,6 +35,10 @@ public class MostrarTabla extends HttpServlet {
 
 		boolean logged = false;
 		String user = "";
+
+		// En este try se prueba que haya algo dentro si no lo hay dara un error
+		// por no poder hacer los 'parse' y continuara con
+		// los valores instanciados anteriormente
 		try {
 			capital = Double.parseDouble(request.getParameter("cap"));
 			interes = Double.parseDouble(request.getParameter("int"));
@@ -51,9 +48,14 @@ public class MostrarTabla extends HttpServlet {
 
 		}
 
+		// Comprueba que no ponga los valores incorrectos si existe error redirige a
+		// Main o seguira con el programa
 		if (capital <= 0 | interes < 0 | meses < 1) {
 			response.sendRedirect("Main");
 		} else {
+
+			// Si el valor de amortizacion era distinto a null significa que hizo check
+			// para ver la amortizacion por lo que se cambiara la variable a 1
 			if (amortizacion != null) {
 				cuadroAmortizado = 1;
 			}
@@ -71,6 +73,8 @@ public class MostrarTabla extends HttpServlet {
 			if (user != null && !user.contentEquals("")) {
 				logged = true;
 
+				// Si el parametro saveQuery esta vacio significa que hay que guardar la
+				// simulacion
 				if (request.getParameter("saveQuery") == null) {
 
 					try {
@@ -116,23 +120,34 @@ public class MostrarTabla extends HttpServlet {
 		String amortizacion = null;
 		String esconderAmortizacion = "";
 
+		// Crea el formato para mostrar los numeros con dos decimales
 		DecimalFormat df2 = new DecimalFormat("#.##");
 
 		ArrayList<Tabla> tbArr = new ArrayList<Tabla>();
 		PrintWriter out = response.getWriter();
 
-		// Coge los parametros para realizar la tabla
+		// En este try se prueba que haya algo dentro si no lo hay dara un error
+		// por no poder hacer los 'parse' y continuara con
+		// los valores instanciados anteriormente
 		try {
+			// Coge los parametros para realizar la tabla
+
 			capital = Double.parseDouble(request.getParameter("cap"));
 			interes = Double.parseDouble(request.getParameter("int"));
 			meses = Integer.parseInt(request.getParameter("meses"));
 			amortizacion = request.getParameter("amortizado");
+
 		} catch (Exception e) {
 		}
 
+		// Comprueba que no ponga los valores incorrectos si existe error redirige a
+		// Main o seguira con el programa
 		if (capital <= 0 | interes < 0 | meses < 1) {
 			response.sendRedirect("Main");
 		} else {
+
+			// Si amortizacion es null, escondera la columna de amortizacion con un style
+			// interno
 			if (amortizacion == null) {
 				esconderAmortizacion = "style=\"display: none;\"";
 			}
@@ -141,10 +156,8 @@ public class MostrarTabla extends HttpServlet {
 					+ "<title>Tabla hipoteca</title>\n"
 					+ "<link rel=\"stylesheet\" type=\"text/css\" href=\"Hipotecas.css\">\n" + "\n" + "</head>\n"
 					+ "<body>\n" + "\n" + "<div class=\"nav\">\r\n" + " <div class=\"logo\">"
-							+ "<a href='Main'>HOME</a>"
-							+ "</div>\r\n"
-					+ "<div class='dropdown'><button class='dropbtn'>" + usr + "</button>"
-					+ "<div class='dropdown-content'><a href='LogOut'>LogOut</a></div></div></div>"
+					+ "<a href='Main'>HOME</a>" + "</div>\r\n" + "<div class='dropdown'><button class='dropbtn'>" + usr
+					+ "</button>" + "<div class='dropdown-content'><a href='LogOut'>LogOut</a></div></div></div>"
 					+ "	<div class=\"main\">\n" + "\n" + "		<table>\n" + "			<thead>\n"
 					+ "<td>Mes</td><td>Capital pendiente anterior</td>\n" + "<td>Couta a Pagar</td>\n" + "<td "
 					+ esconderAmortizacion + " >Parte de la couta que es amortizaci�n</td>\n"
@@ -161,6 +174,8 @@ public class MostrarTabla extends HttpServlet {
 
 			tbArr = Tabla.calcularTabla(meses, capital, interes);
 
+			// Por cada objeto de tabla añade una row y añade el style a la
+			// columna de amortizacion
 			for (Tabla tabla : tbArr) {
 				mes++;
 				out.append("<tr>").append("<td>" + mes + "</td>")
@@ -194,14 +209,19 @@ public class MostrarTabla extends HttpServlet {
 		int mes = 0;
 		String amortizacion = null;
 		String esconderAmortizacion = "";
+
+		// Crea el formato para mostrar los numeros con dos decimales
 		DecimalFormat df2 = new DecimalFormat("#.##");
 
 		ArrayList<Tabla> tbArr = new ArrayList<Tabla>();
 		PrintWriter out = response.getWriter();
 
-		// Coge los parametros para realizar la tabla
-
+		// En este try se prueba que haya algo dentro si no lo hay dara un error
+		// por no poder hacer los 'parse' y continuara con
+		// los valores instanciados anteriormente
 		try {
+
+			// Coge los parametros para realizar la tabla
 			capital = Double.parseDouble(request.getParameter("cap"));
 			interes = Double.parseDouble(request.getParameter("int"));
 			meses = Integer.parseInt(request.getParameter("meses"));
@@ -209,10 +229,14 @@ public class MostrarTabla extends HttpServlet {
 		} catch (Exception e) {
 		}
 
+		// Comprueba que no ponga los valores incorrectos si existe error redirige a
+		// Main o seguira con el programa
 		if (capital <= 0 | interes < 0 | meses < 1) {
 			response.sendRedirect("Main");
 		} else {
 
+			// Si amortizacion es null, escondera la columna de amortizacion con un style
+			// interno
 			if (amortizacion == null) {
 				esconderAmortizacion = "style=\"display: none;\"";
 			}
@@ -221,8 +245,7 @@ public class MostrarTabla extends HttpServlet {
 					+ "<title>Tabla hipoteca</title>\n"
 					+ "<link rel=\"stylesheet\" type=\"text/css\" href=\"Hipotecas.css\">\n" + "\n" + "</head>\n"
 					+ "<body>\n" + "\n" + "	<div class=\"nav\">\n" + "		<div class=\"logo\">\n"
-					+ "<a href='Main'>HOME</a>"
-					+ "		</div>\n" + "		<div class=\"logSingOut\">\n"
+					+ "<a href='Main'>HOME</a>" + "		</div>\n" + "		<div class=\"logSingOut\">\n"
 					+ "			<p>\n"
 					+ "				<a href=\"LogIn\">LogIn</a> | <a href=\"FormularioRegister.html\">Register</a>\n"
 					+ "			</p>\n" + "		</div>\n" + "	</div>\n" + "\n" + "	<div class=\"main\">\n" + "\n"

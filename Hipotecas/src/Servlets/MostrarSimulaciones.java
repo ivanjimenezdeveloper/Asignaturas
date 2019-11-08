@@ -19,17 +19,10 @@ import javax.servlet.http.HttpSession;
 public class MostrarSimulaciones extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public MostrarSimulaciones() {
 		super();
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -39,13 +32,15 @@ public class MostrarSimulaciones extends HttpServlet {
 		// Crea la sesion
 		HttpSession sesion = request.getSession(true);
 
-		// Coge el atributo de la sesion usuario
+		// Coge el atributo de la sesion que contiene el nombre de usuario
 		user = (String) sesion.getAttribute("usuario");
 
-		// En caso de que el usuario recogido no este vacio significara que hay alguien
-		// logged
-		// por lo que se cambiara el boolean logged a true y mostrare el html
-		// para usuarios loggeds
+		/**
+		 * En caso de que el usuario recogido no este vacio significara que hay alguien
+		 * logged por lo que se cambiara el boolean logged a true y mostrare el html
+		 * para usuarios loggeds
+		 */
+
 		if (user != null && !user.contentEquals("")) {
 			logged = true;
 		}
@@ -60,62 +55,60 @@ public class MostrarSimulaciones extends HttpServlet {
 		}
 
 	}
-/**
- * Muestra las simulaciones segun el nombre de usuario
- * @param response
- * @param user
- * @throws IOException
- */
+
+	/**
+	 * Muestra las simulaciones segun el nombre de usuario
+	 * 
+	 * @param response
+	 * @param user Nombre de usuario
+	 * @throws IOException
+	 */
 	protected void mostrarSimulaciones(HttpServletResponse response, String user) throws IOException {
 
 		PrintWriter out = response.getWriter();
-		
+
 		int idUsuario;
-		//Arraylist donde guardo los objetos hipotecas que mostrare en la simulacion
+		
+		// Arraylist donde guardo los objetos hipotecas que mostrare en la simulacion
 		ArrayList<Hipoteca> hp = new ArrayList<Hipoteca>();
 
-		//Primera parte del html
+		// Primera parte del html
 		out.append("<!DOCTYPE html>\r\n" + "<html>\r\n" + "<head>\r\n" + "<meta charset=\"ISO-8859-1\">\r\n"
 				+ "<title>Main Hipotecas</title>\r\n"
 				+ "<link rel=\"stylesheet\" type=\"text/css\" href='Hipotecas.css'>\r\n" + "</head>\r\n" + "<body>\r\n"
-				+ "	<div class=\"nav\">\r\n" + "		<div class=\"logo\">\r\n" +
-				"<a href='Main'>HOME</a>"
-				+ "		</div>\r\n" + "		<div class='dropdown'>\r\n"
-				+ "			<button class='dropbtn'>"+user+"</button>\r\n" + "\r\n"
-				+ "<div class='dropdown-content'>"
-				+ "<a href='LogOut'>LogOut</a>"
-				+ "<a href='MostrarSimulaciones'>Simulaciones</a>"
-				+ "</div>"
-						+ "\r\n"
-				+ "		</div>\r\n" + "	</div>\r\n" + "	<div class=\"main\">");
+				+ "	<div class=\"nav\">\r\n" + "		<div class=\"logo\">\r\n" + "<a href='Main'>HOME</a>"
+				+ "		</div>\r\n" + "		<div class='dropdown'>\r\n" + "			<button class='dropbtn'>" + user
+				+ "</button>\r\n" + "\r\n" + "<div class='dropdown-content'>" + "<a href='LogOut'>LogOut</a>"
+				+ "<a href='MostrarSimulaciones'>Simulaciones</a>" + "</div>" + "\r\n" + "		</div>\r\n"
+				+ "	</div>\r\n" + "	<div class=\"main\">");
 
 		try {
-			//Busca la id del usuario y la guarda en la variable idUsuario
+			// Busca la id del usuario y la guarda en la variable idUsuario
 			idUsuario = Queries.UsuarioID(user);
 
-			//Segun la id recibida crea la array con sus simulaciones de hipotecas
-			//y las guarda en una array
+			// Segun la id recibida instancia la array con las simulaciones de hipotecas
 			hp = Queries.querySimulaciones(idUsuario);
 
-			//Por cada hipoteca guardada en la array creara un div que mostrara 
-			// En un div
+			// Por cada hipoteca guardada en la array un div con sus datos
 			for (Hipoteca hipoteca : hp) {
-				
-				//Variables que guardan los valores de las actuales hipotecas
+
+				// Variables que guardan los valores de las actuales hipotecas
 				double capital = hipoteca.getCapital();
 				double interes = hipoteca.getIntereses();
 				int mes = (int) hipoteca.getMeses();
-				String cuadroAmortizado = (hipoteca.getCuadroAmortizado() == 1)? "Si":"No";
-				String cuadroAmortizadoReenvio = (hipoteca.getCuadroAmortizado() == 1)? "Si":null;
 				
-				//Div que escribe en el html con los datos
-				out.append("<div class=\"simulacion\">")
-						.append("<p>Capital: " + capital + "</p>")
-						.append("<p>Interes: " + interes + "</p>")
-						.append("<p>Meses: " + mes + "</p>")
-						.append("<p> Cuadro amortizacion: " +cuadroAmortizado+"</p>")
-						.append("<a href='MostrarTabla?cap=" + capital + "&int=" + interes
-								+ "&meses=" + mes +  "&amortizado="+cuadroAmortizadoReenvio+"&saveQuery= no\"'>Ver</a>")
+				// Si en la base de datos se guardo un 1 mostrara un Si y en caso contrario un No
+				// En la otra variable guarda lo mismo pero en lugar de un No guarda un null
+				// Para que el reenvio reciba bien los parametros
+				String cuadroAmortizado = (hipoteca.getCuadroAmortizado() == 1) ? "Si" : "No";
+				String cuadroAmortizadoReenvio = (hipoteca.getCuadroAmortizado() == 1) ? "Si" : null;
+
+				// Div que escribe en el html con los datos
+				out.append("<div class=\"simulacion\">").append("<p>Capital: " + capital + "</p>")
+						.append("<p>Interes: " + interes + "</p>").append("<p>Meses: " + mes + "</p>")
+						.append("<p> Cuadro amortizacion: " + cuadroAmortizado + "</p>")
+						.append("<a href='MostrarTabla?cap=" + capital + "&int=" + interes + "&meses=" + mes
+								+ "&amortizado=" + cuadroAmortizadoReenvio + "&saveQuery= no\"'>Ver</a>")
 						.append("</div>");
 
 			}

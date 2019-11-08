@@ -2,11 +2,13 @@ package Servlets;
 
 public class Hipoteca {
 	
-	//objeto hipoteca que guarda los meses, intereses y capital usados para la tabla
+	// Objeto hipoteca que guarda los meses, intereses, capital y si se ve el cuadro
+	// de amortizacion o no usados para la tabla
 	private double meses, intereses;
 	
 	private double capital;
 
+	
 	private int cuadroAmortizado;
 	public Hipoteca(double meses, double intereses, double capital, int cuadroAmortizado) {
 		super();

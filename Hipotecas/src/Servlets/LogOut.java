@@ -1,6 +1,5 @@
 package Servlets;
 
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,34 +14,25 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/LogOut")
 public class LogOut extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LogOut() {
-        super();
-    
-    
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	//Invalida la sesion guardada y redirige al main
-	HttpSession session = request.getSession(true);
-	session.invalidate();
-	
-	response.sendRedirect("Main");
+	public LogOut() {
+		super();
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-	
+		// Invalida la sesion guardada y redirige al main
+		HttpSession session = request.getSession(true);
+		session.invalidate();
+
+		response.sendRedirect("Main");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 	}
 
 }

@@ -69,6 +69,11 @@ public class Main extends HttpServlet {
 		doGet(request, response);
 	}
 	
+	/**
+	 * Devuelve el html del usuario loggeado
+	 * @param usr
+	 * @return
+	 */
 	protected String HtmlLogged(String usr) {
 		//Html del usuario logged
 		String html = "<!DOCTYPE html>\r\n" + 
@@ -82,8 +87,9 @@ public class Main extends HttpServlet {
 				"<div class=\"nav\">\r\n" + 
 				" <div class=\"logo\"><p>logo</p></div>\r\n" + 
 				"<div class='dropdown'><button class='dropbtn'>"+usr+"</button>"
-						+ "<div class='dropdown-content'><a href='LogOut'>LogOut</a></div>"
-						+ "<div class='dropdown-content'><a href='MostarSimulaciones'>Simulaciones</a></div></div></div>"+
+						+ "<div class='dropdown-content'><a href='LogOut'>LogOut</a>"
+						+ "<a href='MostrarSimulaciones'>Simulaciones</a></div>"
+						+ "</div></div>"+
 				"<div class=\"main\">\r\n" + 
 				"\r\n" + 
 				"<div class=\"formulario\">\r\n" + 

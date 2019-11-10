@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/MostrarSimulaciones")
 public class MostrarSimulaciones extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final LoggerPool LOG = LoggerPool.getInstance();
 
 	public MostrarSimulaciones() {
 		super();
@@ -60,7 +61,7 @@ public class MostrarSimulaciones extends HttpServlet {
 	 * Muestra las simulaciones segun el nombre de usuario
 	 * 
 	 * @param response
-	 * @param user Nombre de usuario
+	 * @param user     Nombre de usuario
 	 * @throws IOException
 	 */
 	protected void mostrarSimulaciones(HttpServletResponse response, String user) throws IOException {
@@ -68,7 +69,7 @@ public class MostrarSimulaciones extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		int idUsuario;
-		
+
 		// Arraylist donde guardo los objetos hipotecas que mostrare en la simulacion
 		ArrayList<Hipoteca> hp = new ArrayList<Hipoteca>();
 
@@ -96,8 +97,9 @@ public class MostrarSimulaciones extends HttpServlet {
 				double capital = hipoteca.getCapital();
 				double interes = hipoteca.getIntereses();
 				int mes = (int) hipoteca.getMeses();
-				
-				// Si en la base de datos se guardo un 1 mostrara un Si y en caso contrario un No
+
+				// Si en la base de datos se guardo un 1 mostrara un Si y en caso contrario un
+				// No
 				// En la otra variable guarda lo mismo pero en lugar de un No guarda un null
 				// Para que el reenvio reciba bien los parametros
 				String cuadroAmortizado = (hipoteca.getCuadroAmortizado() == 1) ? "Si" : "No";
@@ -114,7 +116,8 @@ public class MostrarSimulaciones extends HttpServlet {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOG.setError(e.getMessage());
+			LOG.setDebug(e.getMessage());
 		}
 
 	}

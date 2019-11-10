@@ -13,9 +13,11 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class LogIn
  */
+
 @WebServlet("/LogIn")
 public class LogIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final LoggerPool LOG = LoggerPool.getInstance();
 
 
 	public LogIn() {
@@ -60,8 +62,8 @@ public class LogIn extends HttpServlet {
 			encontrado = Queries.hipotecaContains(usuario, password);
 
 		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+			LOG.setError(e.getMessage());
+			LOG.setDebug(e.getMessage());		}
 
 		// En caso de encontrar un usuario con su contraseña guarda los atributos y reenvia al main
 		// en caso contrario vuelve al servlet con un error

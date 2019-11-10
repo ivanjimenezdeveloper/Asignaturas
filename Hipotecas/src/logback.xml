@@ -21,14 +21,10 @@
 		</encoder>
 	</appender>
 
-	<logger name="Servlets" level="error" additivity="true">
-		<appender-ref ref="ERRORFILE" />
-	</logger>
-	<logger name="Servlets" level="debug" additivity="true">
-		<appender-ref ref="ERRORFILE" />
+	<root level="debug">
 		<appender-ref ref="FILE" />
-
-	</logger>
+		<appender-ref ref="ERRORFILE" />
+	</root>
 
 
 </configuration>

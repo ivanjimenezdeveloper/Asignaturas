@@ -18,10 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final LoggerPool LOG = LoggerPool.getInstance();
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public Register() {
 		super();
 	}
@@ -43,10 +41,6 @@ public class Register extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		boolean existe = false;
@@ -61,6 +55,8 @@ public class Register extends HttpServlet {
 
 			existe = Queries.UsuarioExiste(usuario);
 		} catch (SQLException e1) {
+			LOG.setError(e1.getMessage());
+			LOG.setDebug(e1.getMessage());
 		}
 
 		if (usuario.length() == 0 || password.length() == 0 || nombre.length() == 0 || existe == true) {
@@ -74,7 +70,8 @@ public class Register extends HttpServlet {
 
 			} catch (SQLException e) {
 
-				e.printStackTrace();
+				LOG.setError(e.getMessage());
+				LOG.setDebug(e.getMessage());
 			}
 
 			// Si se registra correctamente redirige al log y en caso contrario recarga la

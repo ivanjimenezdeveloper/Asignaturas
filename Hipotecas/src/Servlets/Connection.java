@@ -1,4 +1,5 @@
 package Servlets;
+
 import java.sql.SQLException;
 
 import javax.naming.Context;
@@ -12,10 +13,12 @@ public final class Connection {
 	private static Context initContext;
 	private static Context envContext;
 	private static DataSource DatSrc;
-/**
- * 
- * Constructor de Connection que crea las conexiones por medio del contexto
- */
+	private static final LoggerPool LOG = LoggerPool.getInstance();
+
+	/**
+	 * 
+	 * Constructor de Connection que crea las conexiones por medio del contexto
+	 */
 	private Connection() {
 
 		try {
@@ -25,13 +28,15 @@ public final class Connection {
 			DatSrc = (DataSource) envContext.lookup("jdbc/HIPOTECA");
 
 		} catch (NamingException e) {
-			e.printStackTrace();
+			LOG.setError(e.getMessage());
+			LOG.setDebug(e.getMessage());
 		}
 
 	}
 
 	/**
 	 * Crea una instancia del objeto connection y la devuelve
+	 * 
 	 * @return Devuelve el objeto Connection
 	 */
 	public static Connection getInstance() {
@@ -49,14 +54,15 @@ public final class Connection {
 
 		return instancia;
 	}
-	
+
 	/**
 	 * Devuelve el objeto connection
+	 * 
 	 * @return devuelve el objeto connection
 	 * @throws SQLException
 	 */
-	public java.sql.Connection getConnection() throws SQLException{
-		
+	public java.sql.Connection getConnection() throws SQLException {
+
 		return DatSrc.getConnection();
 	}
 

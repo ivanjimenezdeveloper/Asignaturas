@@ -10,10 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
-
 /**
  * Servlet implementation class Main
  */
@@ -21,7 +17,7 @@ import ch.qos.logback.classic.Logger;
 public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private PrintWriter out;
-	private static final Logger logger = (Logger) LoggerFactory.getLogger(Main.class);
+	private static final LoggerPool LOG = LoggerPool.getInstance();
 
 	/**
 	 * contexto del servidor tomcat
@@ -38,15 +34,11 @@ public class Main extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
-		logger.debug("nose");
 		try {
 			out = response.getWriter();
 		} catch (IOException e1) {
-
-			logger.warn(e1.getMessage());
-			logger.debug(e1.getMessage());
-			logger.debug("prueba");
-
+			LOG.setError(e1.getMessage());
+			LOG.setDebug(e1.getMessage());
 		}
 		boolean logged = false;
 		String user = "";
@@ -64,7 +56,7 @@ public class Main extends HttpServlet {
 		if (user != null && !user.contentEquals("")) {
 			logged = true;
 		}
-		
+
 		// En caso de no estar logged redirige a el html para usuarios no logged
 		if (logged == true) {
 
@@ -74,15 +66,14 @@ public class Main extends HttpServlet {
 			try {
 				response.sendRedirect("MainNoLogged.html");
 			} catch (IOException e) {
-				logger.warn(e.getMessage());
-				logger.debug(e.getMessage());
-				logger.debug("prueba2");
+				LOG.setError(e.getMessage());
+				LOG.setDebug(e.getMessage());
+
 			}
 
 		}
 
 	}
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

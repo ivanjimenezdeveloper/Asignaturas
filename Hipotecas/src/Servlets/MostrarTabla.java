@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/MostrarTabla")
 public class MostrarTabla extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final LoggerPool LOG = LoggerPool.getInstance();
 
 	public MostrarTabla() {
 		super();
@@ -45,6 +46,9 @@ public class MostrarTabla extends HttpServlet {
 			meses = Integer.parseInt(request.getParameter("meses"));
 			amortizacion = request.getParameter("amortizado");
 		} catch (Exception e) {
+
+			LOG.setError(e.getMessage());
+			LOG.setDebug(e.getMessage());
 
 		}
 
@@ -138,6 +142,9 @@ public class MostrarTabla extends HttpServlet {
 			amortizacion = request.getParameter("amortizado");
 
 		} catch (Exception e) {
+
+			LOG.setError(e.getMessage());
+			LOG.setDebug(e.getMessage());
 		}
 
 		// Comprueba que no ponga los valores incorrectos si existe error redirige a
@@ -227,6 +234,9 @@ public class MostrarTabla extends HttpServlet {
 			meses = Integer.parseInt(request.getParameter("meses"));
 			amortizacion = request.getParameter("amortizado");
 		} catch (Exception e) {
+			
+			LOG.setError(e.getMessage());
+			LOG.setDebug(e.getMessage());
 		}
 
 		// Comprueba que no ponga los valores incorrectos si existe error redirige a
@@ -285,10 +295,7 @@ public class MostrarTabla extends HttpServlet {
 
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 

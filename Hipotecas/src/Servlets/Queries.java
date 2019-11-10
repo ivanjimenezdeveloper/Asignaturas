@@ -1,4 +1,5 @@
 package Servlets;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,13 +9,16 @@ public class Queries {
 	private static PreparedStatement stm;
 	private static java.sql.Connection con;
 	private static PreparedStatement ps;
+	private static final LoggerPool LOG = LoggerPool.getInstance();
+
 
 	// Comprueba que exista un usuario y que coincida con su contrase�a
 	// devuelve true o false segun si lo encontro o no
-	
+
 	/**
 	 * Comprueba que exista un usuario y que coincida con su contraseña
-	 * @param usuario Nick de usuario
+	 * 
+	 * @param usuario  Nick de usuario
 	 * @param password Contraseña del usuario
 	 * @return Devuelve true si encuentra al usuario o false si no lo encuentra
 	 * @throws SQLException
@@ -50,9 +54,10 @@ public class Queries {
 
 	// Busca si existe el nombre de usuario y devuelve un true o false segun su
 	// resultado
-	
+
 	/**
 	 * Comprueba a partir del Nick de usuario si existe
+	 * 
 	 * @param usuario Nick de usuario
 	 * @return Devuelve true si encuentra al usuario o false si no lo encuentra
 	 * @throws SQLException
@@ -88,6 +93,7 @@ public class Queries {
 	// Busca si existe el usuario y devuelve un true o false segun su resultado
 	/**
 	 * Busca la id de un Nick de usuario en caso negativo devuelve -1
+	 * 
 	 * @param usuario Nick de usuario
 	 * @return id de usuario
 	 * @throws SQLException
@@ -118,9 +124,10 @@ public class Queries {
 
 	// Busca segun la id del usuario las simulaciones del mismo y
 	// devuelve una array con los resultados
-	
+
 	/**
-	 *  Busca las simulaciones creadas por el usuario
+	 * Busca las simulaciones creadas por el usuario
+	 * 
 	 * @param usuarioID id del usuario
 	 * @return ArrayList de hipotecas con las simulaciones creadas por el usuario
 	 */
@@ -132,7 +139,7 @@ public class Queries {
 		String query = "SELECT * FROM SIMULACION where ID_USUARIO = ?";
 		double capital;
 		int interes, mes, cuadroAmortizado;
-		
+
 		try {
 			con = poolConn.getConnection();
 
@@ -147,13 +154,13 @@ public class Queries {
 				interes = rs.getInt("INTERES");
 				mes = rs.getInt("MES");
 				cuadroAmortizado = rs.getInt("CUADRO_AMORTIZACION");
-				
+
 				// Guarda los parametros en el objeto hipoteca
 				hp.setCapital(capital);
 				hp.setIntereses(interes);
 				hp.setMeses(mes);
 				hp.setCuadroAmortizado(cuadroAmortizado);
-				
+
 				// Guarda la hipoteca en la array
 				hipotecas.add(hp);
 
@@ -161,12 +168,13 @@ public class Queries {
 				hp = new Hipoteca();
 
 			}
-			
+
 			// Devuelve la array
 			return hipotecas;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOG.setError(e.getMessage());
+			LOG.setDebug(e.getMessage());
 		} finally {
 			try {
 				ps.close();

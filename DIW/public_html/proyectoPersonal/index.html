@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Personal project</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="index.css"/>
@@ -17,22 +17,21 @@ and open the template in the editor.
             <div class="header">
                 <img src="imagenes/logo.png" class="logoHeader"/>
             </div>
-            <div class="nav">
+            <div class="nav" id="nav">
                 <ul>
-                    <li><a href="#">Link 1</a></li>
-                    <li><a href="#">Link 2</a></li>
-                    <li><a href="#">Link 3</a></li>
-                    <li><a href="#">Link 4</a></li>
-                    <li><a href="#">Link 5</a></li>
-                    <li><a href="#">Longer Link Text</a></li>
-                    <li><a href="#">Link 6</a></li>
-                    <li><a href="#">Link 7</a></li>
+                    <li><a href="#volver">Abajo</a></li>
+                    <li><a href="#">No hace nada</a></li>
+                    <li><a href="#noticia">Noticias</a></li>
+                    <li><a href="#">No hace nada</a></li>
+                    <li><a href="#concurso">Concurso</a></li>
+                    <li><a href="#volver">Abajo</a></li>
+                    <li><a href="#">No hace nada</a></li>
                 </ul>
 
 
             </div>
             <div class="container">
-                <div class="noticias">
+                <div class="noticias" id="noticia" >
                     <h1>Noticias</h1>
 
                     <div class="subnoticia">
@@ -82,11 +81,68 @@ and open the template in the editor.
                     </div>
                 </div>
 
-                <div class="bloqueArtistas">
+                <div class="bloqueArtistas" id="concurso">
                     <h1>Ganadores Concurso</h1>
+                    <div class="animacion1"></div>
+                    <div class="animacion2"></div>
+                    <div class="animacion3"></div>
+                    <div class="animacion4"></div>
+                </div>
 
+                <div class="dosbloques" id="Botones">
+
+                    <div class="medioBloque">
+                        <h1>
+                            Botones
+                        </h1>  
+                        <table class="tablaBotones">
+ 
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <button>Rojo</button>
+                                    </td>
+                                    <td>
+                                        <button>Verde</button>
+
+                                    </td>
+                                    <td>
+                                        <button>Azul</button>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+                    <div class="medioBloque">
+                        <h1>Mas Botones</h1>
+                        <table class="tablaBotones">
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <button>Rojo</button>
+                                    </td>
+                                    <td>
+                                        <button>Verde</button>
+
+                                    </td>
+                                    <td>
+                                        <button>Azul</button>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
+                
+                <div><a class="volver" id="volver" href="#nav">Volver</a></div>
+                
             </div>
         </div>
     </body>

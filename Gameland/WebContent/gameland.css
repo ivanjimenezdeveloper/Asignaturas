@@ -1,0 +1,174 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11 nov. 2019, 15:41:40
+    Author     : horabaixa
+*/
+
+body{
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
+}
+
+/*************************************NAVEGADOR*************************************/
+.nav{
+    flex: 0 0 auto;
+    /*! margin: 5px; */
+    width: 100%;
+    margin-top: 0;
+    padding: 20px 0 0 20px;
+    background: rgb(60,207,82);
+    background: linear-gradient(0deg, rgba(60,207,82,1) 0%, rgba(11,149,32,1) 72%); 
+    /*! border-bottom: 2px solid #3ccf52; */
+    margin-bottom: 0;
+}
+
+.logoHeader{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    margin-right: 5px;
+}
+
+.nav h1{
+    display: inline-block;
+}
+
+.nodoInvisibleHeader{
+    display: inline-block;
+    width: 70%;
+}
+
+.usuario{
+    display: inline-block;
+    width: 200px;
+}
+
+.nombreUsuario{
+    display: inline-block;
+}
+
+.usuario div:first-child{
+
+}
+
+.usuario div:last-child{
+    font-size: 15px;
+    width: 100%;
+}
+.usuario div:last-child p{
+    width: 2px;
+}
+.usuario div:last-child *{
+
+    display: inline;
+}
+
+ul{
+    display: inline;
+        text-decoration: none;
+
+}
+
+.nav ul *{
+    text-decoration: none;
+    list-style: none;
+    display: inline-block;
+}
+.nav ul{
+    margin: 0 auto;
+    bottom: 0;
+    padding-left: 0;
+}
+
+.nav a{
+    padding: 0 15px 0 15px;
+	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+	background-color:#77b55a;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #5b8a3c;
+}
+
+.nav a:hover {
+background: rgb(11,118,149);
+background: linear-gradient(0deg, rgba(11,118,149,1) 0%, rgba(60,207,82,1) 39%);
+}
+.nav a:active {
+	position:relative;
+	top:1px;
+}
+
+
+/*************************************CONTAINER*************************************/
+
+.container{
+    display: flex;
+    flex: 0 0 auto;
+    margin: 0px auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    min-height: 400px;
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    min-height: 700px;
+}
+
+.container p{
+    /*! display: block; */
+}
+
+.logoMain{
+
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+
+
+.container {
+
+}
+
+.item {
+    flex: 0 0 auto;
+    margin: 5px;
+}
+
+/*************************************FOOTER*************************************/
+
+.footer{
+    flex: 0 0 auto;
+    margin: 0px;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    /*! top: 50%; */
+    /*! bottom: 50%; */
+    background: rgb(11,118,149);
+    background: linear-gradient(0deg, rgba(60,207,82,1) 0%, rgba(11,149,32,1) 72%); 
+
+}

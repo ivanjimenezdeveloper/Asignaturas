@@ -19,17 +19,19 @@ public class Logout extends HttpServlet {
 		super();
 	}
 
+	/**
+	 * Invalida la sesion
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession sesion = request.getSession(true);
 		sesion.invalidate();
-		
+		/**
+		 * Redirige al Main
+		 */
 		response.sendRedirect("Main");
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
 
-	}
 
 }

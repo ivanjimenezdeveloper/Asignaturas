@@ -21,6 +21,9 @@ public class Main extends HttpServlet {
 		super();
 	}
 
+	/**
+	 * Muestra la pagina de busqueda 
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		boolean logged = false;
@@ -45,6 +48,9 @@ public class Main extends HttpServlet {
 			logged = true;
 		}
 		
+		/**
+		 * Si esta logged muestra la pagina para usuarios loggeados y si no la busqueda normal
+		 */
 		if(logged) {
 			
 			response.getWriter()
@@ -58,7 +64,11 @@ public class Main extends HttpServlet {
 
 	}
 	
-	
+	/**
+	 * Devuelve el string del html personalizado para el usuario
+	 * @param user Nick de usuario
+	 * @return html personalizado de busqueda
+	 */
 	public String mostrarLogged(String user) {
 		
 		String html = "<!DOCTYPE html>\n" + 
@@ -112,9 +122,6 @@ public class Main extends HttpServlet {
 		
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
 
-	}
 
 }

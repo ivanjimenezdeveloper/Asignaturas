@@ -19,9 +19,16 @@ public class Login extends HttpServlet {
 		super();
 	}
 
+	/**
+	 * Comprueba si hay errores y redirige al html correspondiente
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		/**
+		 * Si encuentra algun error redirige al formulario de login con error
+		 * en caso contrario al login normal
+		 */
 		String error = request.getParameter("error");
 
 		if (error != null) {
@@ -32,16 +39,29 @@ public class Login extends HttpServlet {
 
 		}
 	}
-
+	/**
+	 * 
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		/**
+		 * Coge los parametros de usuario y contraseña
+		 */
 		String user = request.getParameter("user");
 		String pass = request.getParameter("pass");
 		boolean encontrado = false;
 
+		/**
+		 * Comprueba si existe esa combinacion de usuario y contraseña
+		 */
 		encontrado = query.Mantenimiento.UsuarioLogin(user, pass);
-
+		
+		
+		/**
+		 * Si existe el usuario entonces guarda en la sesion el nombre de usuario
+		 *  y contraseña y redirige al main
+		 */
 		if (encontrado == true) {
 			HttpSession sesion = request.getSession(true);
 			sesion.setAttribute("user", user);
@@ -49,7 +69,11 @@ public class Login extends HttpServlet {
 
 			response.sendRedirect("Main");
 
-		} else {
+		} 
+		/**
+		 * En caso de no encontrar al usuario recarga la pagina con un error
+		 */
+		else {
 			response.sendRedirect("Login?error=1");
 		}
 

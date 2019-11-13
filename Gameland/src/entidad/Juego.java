@@ -4,6 +4,17 @@ public class Juego {
 	
 	private int id,idGenero,idPlataforma, anyo;
 	private String titulo,img,descripcion;
+	
+	/**
+	 * Objeto juego que guarda los campos de la entidad juego de la base de datos
+	 * @param id id del juego
+	 * @param idGenero id del genero al que pertenece
+	 * @param idPlataforma id de la plataforma en la que esta el juego
+	 * @param anyo año de salida
+	 * @param titulo titulo del juego
+	 * @param img nombre de la imagen
+	 * @param descripcion Descripcion del juego
+	 */
 	public Juego(int id, int idGenero, int idPlataforma, int anyo, String titulo, String img, String descripcion) {
 		super();
 		this.id = id;

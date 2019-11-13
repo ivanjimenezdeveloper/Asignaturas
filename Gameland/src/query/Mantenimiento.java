@@ -22,9 +22,15 @@ public class Mantenimiento {
 	 */
 	public static boolean UsuarioExiste(String user) {
 		boolean encontrado = false;
+		/**
+		 * Crea la conexion
+		 */
 		pool = ConnectionPool.getInstance();
 		try {
 			cn = pool.getConnection();
+			/**
+			 * Busca un usuario con el nick de usuario dado
+			 */
 			String query = "SELECT * FROM USUARIO WHERE USUARIO = ?";
 			ps = cn.prepareStatement(query);
 			ps.setString(1, user);
@@ -34,6 +40,9 @@ public class Mantenimiento {
 			while (rs.next()) {
 				String usuario = rs.getString("USUARIO");
 
+				/**
+				 * Si encuentra al usuario cambiara el boolean a true
+				 */
 				if (usuario != null) {
 					encontrado = true;
 				}
@@ -55,12 +64,29 @@ public class Mantenimiento {
 
 		return encontrado;
 	}
-	
+
+	/**
+	 * Comprueba si existe un usuario con ese nick y esa contraseña
+	 * 
+	 * @param user Nick de usuario
+	 * @param pass Contraseña de usuario
+	 * @return boolean que determina si existe o no esa combinacion de usuario y
+	 *         contraseña
+	 */
 	public static boolean UsuarioLogin(String user, String pass) {
 		boolean encontrado = false;
+
+		/**
+		 * Crea la conexion
+		 */
 		pool = ConnectionPool.getInstance();
 		try {
 			cn = pool.getConnection();
+
+			/**
+			 * Crea la query donde busca un usuario con esa combinacion de usuario y
+			 * contraseña
+			 */
 			String query = "SELECT * FROM USUARIO WHERE USUARIO = ? AND PASS = ?";
 			ps = cn.prepareStatement(query);
 			ps.setString(1, user);
@@ -71,6 +97,9 @@ public class Mantenimiento {
 			while (rs.next()) {
 				String usuario = rs.getString("USUARIO");
 
+				/**
+				 * Si encuentra al usuario cambiara el boolean a true
+				 */
 				if (usuario != null) {
 					encontrado = true;
 				}

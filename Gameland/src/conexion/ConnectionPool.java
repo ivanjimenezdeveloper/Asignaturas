@@ -17,7 +17,9 @@ public class ConnectionPool {
 	private ConnectionPool() {
 
 		try {
-
+			/**
+			 * Inicio el los contextos para usar la base de datos
+			 */
 			initContext = new InitialContext();
 			envContext = (Context) initContext.lookup("java:/comp/env");
 			DS = (DataSource) envContext.lookup("jdbc/GAMELAND");
@@ -27,20 +29,30 @@ public class ConnectionPool {
 		}
 	}
 	
+	/**
+	 * Inicia la instancia de la conexion si no esta iniciada
+	 * @return Objeto de conexion instanciado
+	 */
 	public static ConnectionPool getInstance() {
-		if(instancia == null) {
+		if (instancia == null) {
 			synchronized (ConnectionPool.class) {
-				
-				if(instancia == null) {
+
+				if (instancia == null) {
 					instancia = new ConnectionPool();
 				}
-				
+
 			}
-			
+
 		}
-	return instancia;
+		return instancia;
 	}
 	
+	/**
+	 * Devuelve la conexion del DataSource
+	 * @return Devuelve la conexion del DataSource
+	 * @throws SQLException
+	 */
+
 	public Connection getConnection() throws SQLException {
 		return DS.getConnection();
 	}

@@ -1,41 +1,48 @@
 package conexion;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.sql.Connection;
+import java.sql.SQLException;
 
-/**
- * Servlet implementation class ConnectionPool
- */
-@WebServlet("/ConnectionPool")
-public class ConnectionPool extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ConnectionPool() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+public class ConnectionPool {
+	private static ConnectionPool instancia = null;
+	private static Context initContext;
+	private static Context envContext;
+	private static DataSource DS;
+
+	private ConnectionPool() {
+
+		try {
+
+			initContext = new InitialContext();
+			envContext = (Context) initContext.lookup("java:/comp/env");
+			DS = (DataSource) envContext.lookup("jdbc/GAMELAND");
+
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	
+	public static ConnectionPool getInstance() {
+		if(instancia == null) {
+			synchronized (ConnectionPool.class) {
+				
+				if(instancia == null) {
+					instancia = new ConnectionPool();
+				}
+				
+			}
+			
+		}
+	return instancia;
+	}
+	
+	public Connection getConnection() throws SQLException {
+		return DS.getConnection();
 	}
 
 }

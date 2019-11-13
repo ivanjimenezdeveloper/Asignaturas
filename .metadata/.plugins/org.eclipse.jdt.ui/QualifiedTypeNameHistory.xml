@@ -16,11 +16,7 @@
     <fullyQualifiedTypeName name="org.apache.tomcat.util.http.Cookies"/>
     <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
     <fullyQualifiedTypeName name="org.apache.naming.java.javaURLContextFactory"/>
-    <fullyQualifiedTypeName name="javax.naming.InitialContext"/>
-    <fullyQualifiedTypeName name="javax.naming.Context"/>
-    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="org.apache.tomcat.jdbc.pool.PoolConfiguration"/>
     <fullyQualifiedTypeName name="Usuario"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
@@ -35,4 +31,9 @@
     <fullyQualifiedTypeName name="Hipoteca"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="javax.naming.Context"/>
+    <fullyQualifiedTypeName name="javax.naming.InitialContext"/>
+    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
+    <fullyQualifiedTypeName name="conexion.ConnectionPool"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
 </qualifiedTypeNameHistroy>

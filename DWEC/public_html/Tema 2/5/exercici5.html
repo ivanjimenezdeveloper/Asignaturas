@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Exercici 5 - DOM</title>
+
+        <script>
+            function afegeix() {
+                
+              var ol = document.getElementById("llista");
+              var li = document.createElement("li");
+              var texto = document.getElementById("data1").value;
+              li.appendChild(document.createTextNode(texto));
+              
+              ol.appendChild(li);
+
+            }
+        </script>
+    </head>
+
+    <body>
+
+        <ol id="llista">
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Consectetuer adipiscing elit</li>
+            <li>Sed mattis enim vitae orci</li>
+            <li>Phasellus libero</li>
+            <li>Maecenas nisl arcu</li>
+        </ol>
+        <input id="data1" type="text">
+        <input type="button" value="Afegeix element" onclick="afegeix();">
+
+    </body>
+</html>

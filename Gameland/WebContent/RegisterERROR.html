@@ -1,47 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Gameland - Register</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="gameland.css"/>
+<head>
+<title>Gameland - Register</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="gameland.css" />
 
-    </head>
-    <body>
-        <div class="nav">
-            <div class="header">  
-                <div class="logoHeader"></div><h1>Gameland</h1>
-                <div class="nodoInvisibleHeader"></div>
-                <div class="usuario">
-                    <div>
-                        <p class="nombreUsuario">Usuario</p> <a class="fotoUsuario">imagen</a>
-                    </div>
-                    <div>            
-                        <a href="#">LogIn</a> <p> | </p> <a href="#"> Register</a>
-                    </div>
-                </div>
-            </div>
-            <div class="tab">
-                <ul>
-                    <li><a href="#">SEARCH</a></li>
-                    <li><a href="#">TOP Games</a></li>
-                    <li><a href="#">By Genre</a></li>
-                    <li> |</li>
-                    <li><a href="#">By Platform</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="container">
-            <form method="POST" action="Register">
-            <p>Nombre</p><input type="text" name="nombre">
-            <p>Usuario</p><input type="text" name="user"/>
-            <p>Contraseña</p><input type="password" name="pass"/>
-            <p>Foto</p><input type="file" name="img">
-                <input type="submit" value="Register"/>
-            </form>
-        </div>
-        <div class="footer">
-            <p>Web creada por XENOTECK INDUSTRIES copyright 2019</p>
-        </div>
-    </body>
+</head>
+<body>
+	<div class="nav">
+		<div class="header">
+			<div class="logoHeader"></div>
+			<h1>Gameland</h1>
+			<div class="nodoInvisibleHeader"></div>
+			<div class="usuario">
+				<div>
+					<p class="nombreUsuario">Usuario</p>
+					<a class="fotoUsuario">imagen</a>
+				</div>
+				<div>
+					<a href="#">LogIn</a>
+					<p>|</p>
+					<a href="#"> Register</a>
+				</div>
+			</div>
+		</div>
+		<div class="tab">
+			<ul>
+				<li><a href="Main">SEARCH</a></li>
+				<li><a href="#">TOP Games</a></li>
+				<li><a href="#">By Genre</a></li>
+				<li>|</li>
+				<li><a href="#">By Platform</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<form method="POST" action="Register">
+			<p>Nombre</p>
+			<input type="text" name="nombre">
+			<p>Usuario</p>
+			<input type="text" name="user" />
+			<p>Contraseña</p>
+			<input type="password" name="pass" />
+			<p>Foto</p>
+			<input type="file" name="img" value="examinar"> <input
+				type="submit" value="Register" />
+		</form>
+		<div class="error">COMBINACION INCORRECTA DE USUARIO Y
+			CONTRASEÑA</div>
+
+	</div>
+	<div class="footer">
+		<p>Web creada por XENOTECK INDUSTRIES copyright 2019</p>
+	</div>
+</body>
 </html>

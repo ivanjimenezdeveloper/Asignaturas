@@ -84,7 +84,7 @@ public class Main extends HttpServlet {
 				"            </div>\n" + 
 				"            <div class=\"tab\">\n" + 
 				"                <ul>\n" + 
-				"                    <li><a href=\"#\">SEARCH</a></li>\n" + 
+				"                    <li><a href=\"Main\">SEARCH</a></li>\n" + 
 				"                    <li><a href=\"#\">TOP Games</a></li>\n" + 
 				"                    <li><a href=\"#\">By Genre</a></li>\n" + 
 				"                    <li> |</li>\n" + 

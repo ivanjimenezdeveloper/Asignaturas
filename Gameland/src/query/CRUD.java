@@ -24,15 +24,17 @@ public class CRUD {
 
 			existe = Mantenimiento.UsuarioExiste(user);
 
-			if (existe = true) {
+			if (existe == true) {
 				registroCorrecto = false;
 			} else {
 
 				String query = "INSERT INTO USUARIO(NOMBRE, USUARIO, PASS, FOTO, ADMINISTRADOR) VALUES(?,?,?,?,0)";
+				ps = cn.prepareStatement(query);
+
 				ps.setString(1, nombre);
 				ps.setString(2, user);
-				ps.setString(2, pass);
-				ps.setString(3, "prueba");
+				ps.setString(3, pass);
+				ps.setString(4, "prueba");
 				
 				ps.executeUpdate();
 				

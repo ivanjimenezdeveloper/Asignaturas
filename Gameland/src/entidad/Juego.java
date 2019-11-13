@@ -14,6 +14,13 @@ public class Juego {
 		this.img = img;
 		this.descripcion = descripcion;
 	}
+	
+	
+	public Juego() {
+		super();
+	}
+
+
 	public int getId() {
 		return id;
 	}

@@ -38,8 +38,9 @@
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="query.Mantenimiento"/>
     <fullyQualifiedTypeName name="query.CRUD"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="query.Nombre"/>
     <fullyQualifiedTypeName name="entidad.Juego"/>
     <fullyQualifiedTypeName name="query.Busqueda"/>
 </qualifiedTypeNameHistroy>

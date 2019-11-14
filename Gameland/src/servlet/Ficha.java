@@ -121,7 +121,7 @@ public class Ficha extends HttpServlet {
 				"	<div class=\"container\">\n" + crearFicha(id)+
 
 				"		</div>\n" + 
-				"	</div>\n" + 
+				"	</div>\n" +  
 				"	<div class=\"footer\">\n" + 
 				"		<p>Web creada por XENOTECK INDUSTRIES copyright 2019</p>\n" + 
 				"	</div>\n" + 

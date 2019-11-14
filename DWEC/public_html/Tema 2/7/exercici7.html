@@ -11,11 +11,10 @@
 
             var body = document.body;
 
-
+            //Cojo todas las etiquetas
             var tagBody = body.getElementsByTagName("*");
             var output;
             //Contador de tags abiertos
-
             var cerrado = 0;
 
 
@@ -23,14 +22,15 @@
 
             //Por cada etiqueta compruebo
             for (var i = 0; i < tagBody.length; i++) {
+
                 //Guardo el nombre del tag
                 var nombreTag = tagBody[i].tagName;
-
+                
                 //En caso de que el tag tenga una H la borrara y guardara
                 // el resto en este caso un numero
                 var numeroHeader = nombreTag.replace("H", "");
                 var tagAnterior;
-
+                
                 //Si tagAnterior esta vacio le guardara un string vacio
                 //para que se use como string
                 if (!tagAnterior) {
@@ -43,6 +43,9 @@
                 if (nombreTag == "P") {
                     continue;
                 }
+
+                //Añade un atributo id con su contenido como id
+                tagBody[i].setAttribute("id", tagBody[i].innerHTML);
 
                 //Si cerrado es mayor a 0 y el numero del tag anterior es
                 //Mayor al numero del header actual entrara en el bucle
@@ -68,9 +71,9 @@
                     cerrado++;
                 }
 
-
                 //Añade una nueva entrada de lista con su direccion a su apartado
-                output += "<li>" + tagBody[i].textContent + "</li>";
+
+                output += "<li><a href='#" + tagBody[i].innerHTML + "'>" + tagBody[i].textContent + "</a></li>";
 
                 //Guarda el tag anterior y su numero
                 tagAnterior = tagBody[i].tagName;

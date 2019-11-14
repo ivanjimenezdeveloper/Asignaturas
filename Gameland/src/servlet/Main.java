@@ -1,14 +1,13 @@
 package servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import query.Busqueda;
 
 /**
  * Servlet implementation class Main
@@ -107,8 +106,8 @@ public class Main extends HttpServlet {
 				"        <div class=\"container\">\n" + 
 				"            <div class=\"logoMain\"></div>\n" + 
 				"            <p>Gameland</p>\n" + 
-				"            <form>\n" + 
-				"                <input type=\"text\" placeholder=\"Buscar\"/>\n" + 
+				"            <form method=\"GET\" action=\"MostrarBusqueda\">\n" + 
+				"                <input type=\"text\" placeholder=\"Buscar\" name=\"busqueda\"/>\n" + 
 				"                <input type=\"submit\" value=\"Buscar\"/>\n" + 
 				"            </form>\n" + 
 				"        </div>\n" + 
@@ -121,6 +120,7 @@ public class Main extends HttpServlet {
 		return html;
 		
 	}
+	
 
 
 

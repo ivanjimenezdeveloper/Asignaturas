@@ -7,168 +7,275 @@ and open the template in the editor.
     Created on : 11 nov. 2019, 15:41:40
     Author     : horabaixa
 */
-
-body{
-    display: flex;
-    display: -webkit-flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin: 0 auto;
+body {
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	margin: 0 auto;
 }
 
 /*************************************NAVEGADOR*************************************/
-.nav{
-    flex: 0 0 auto;
-    /*! margin: 5px; */
-    width: 100%;
-    margin-top: 0;
-    padding: 20px 0 0 20px;
-    background: rgb(60,207,82);
-    background: linear-gradient(0deg, rgba(60,207,82,1) 0%, rgba(11,149,32,1) 72%); 
-    /*! border-bottom: 2px solid #3ccf52; */
-    margin-bottom: 0;
+.nav {
+	flex: 0 0 auto;
+	/*! margin: 5px; */
+	width: 100%;
+	margin-top: 0;
+	padding: 20px 0 0 20px;
+	background: rgb(60, 207, 82);
+	background: linear-gradient(0deg, rgba(60, 207, 82, 1) 0%,
+		rgba(11, 149, 32, 1) 72%);
+	/*! border-bottom: 2px solid #3ccf52; */
+	margin-bottom: 0;
 }
 
-.logoHeader{
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    margin-right: 5px;
+.logoHeader {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	margin-right: 5px;
 }
 
-.nav h1{
-    display: inline-block;
+.nav h1 {
+	display: inline-block;
 }
 
-.nodoInvisibleHeader{
-    display: inline-block;
-    width: 70%;
+.nodoInvisibleHeader {
+	display: inline-block;
+	width: 70%;
 }
 
-.usuario{
-    display: inline-block;
-    width: 200px;
+.usuario {
+	display: inline-block;
+	width: 200px;
 }
 
-.nombreUsuario{
-    display: inline-block;
+.nombreUsuario {
+	display: inline-block;
 }
 
-.usuario div:first-child{
-
+.usuario div:last-child {
+	font-size: 15px;
+	width: 100%;
 }
 
-.usuario div:last-child{
-    font-size: 15px;
-    width: 100%;
-}
-.usuario div:last-child p{
-    width: 2px;
-}
-.usuario div:last-child *{
-
-    display: inline;
+.usuario div:last-child p {
+	width: 2px;
 }
 
-ul{
-    display: inline;
-        text-decoration: none;
-
+.usuario div:last-child * {
+	display: inline;
 }
 
-.nav ul *{
-    text-decoration: none;
-    list-style: none;
-    display: inline-block;
-}
-.nav ul{
-    margin: 0 auto;
-    bottom: 0;
-    padding-left: 0;
+ul {
+	display: inline;
+	text-decoration: none;
 }
 
-.nav a{
-    padding: 0 15px 0 15px;
-	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
-	background-color:#77b55a;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:13px;
-	font-weight:bold;
-	padding:6px 12px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #5b8a3c;
+.nav ul * {
+	text-decoration: none;
+	list-style: none;
+	display: inline-block;
+}
+
+.nav ul {
+	margin: 0 auto;
+	bottom: 0;
+	padding-left: 0;
+}
+
+.nav a {
+	padding: 0 15px 0 15px;
+	background: linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+	background-color: #77b55a;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 6px 12px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #5b8a3c;
 }
 
 .nav a:hover {
-background: rgb(11,118,149);
-background: linear-gradient(0deg, rgba(11,118,149,1) 0%, rgba(60,207,82,1) 39%);
-}
-.nav a:active {
-	position:relative;
-	top:1px;
+	background: rgb(11, 118, 149);
+	background: linear-gradient(0deg, rgba(11, 118, 149, 1) 0%,
+		rgba(60, 207, 82, 1) 39%);
 }
 
+.nav a:active {
+	position: relative;
+	top: 1px;
+}
 
 /*************************************CONTAINER*************************************/
-
-.container{
-    display: flex;
-    flex: 0 0 auto;
-    margin: 0px auto;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    min-height: 400px;
-    display: flex;
-    display: -webkit-flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    min-height: 700px;
-}
-
-.container p{
-    /*! display: block; */
-}
-
-.logoMain{
-
-    width: 200px;
-    height: 200px;
-    background-color: red;
-}
-
-
 .container {
-
+	display: flex;
+	flex: 0 0 auto;
+	margin: 0px auto;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	min-height: 400px;
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	min-height: 700px;
 }
 
-.item {
-    flex: 0 0 auto;
-    margin: 5px;
+.logoMain {
+	width: 200px;
+	height: 200px;
+	background-color: red;
+}
+
+/*************************************TABLAS*************************************/
+table, td, tr {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+table {
+	
+}
+
+thead {
+	background: linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+	background-color: #77b55a;
+	text-shadow: 0px 1px 0px #5b8a3c;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+tbody tr {
+	background: rgb(119, 181, 90);
+	background: linear-gradient(0deg, rgba(119, 181, 90, 0.2) 0%,
+		rgba(114, 179, 82, 0.2) 100%);
+}
+
+tbody tr:nth-child(even) {
+	background: rgb(119, 181, 90);
+	background: linear-gradient(0deg, rgba(119, 181, 90, 0.5) 0%,
+		rgba(114, 179, 82, 0.5) 100%);
+}
+
+td {
+	max-width: 150px;
+	width: 150px;
+	height: 50px;
+	min-height: 50px;
+}
+
+/*************************************FICHA*************************************/
+.ficha {
+	min-height: 400px;
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: auto;
+	align-content: center;
+}
+
+.ficha>div {
+	flex: auto;
+	margin: 5px;
+	margin: 5px 50px;
+	max-width: 600px;
+}
+
+.fichaImagen {
+	width: 300px;
+	height: 300px;
+	background-color: red;
+}
+
+.fichaContenido {
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: auto;
+	align-content: center;
+	max-width: 600px;
+}
+
+.fichaAtributo {
+	width: 100px;
+}
+
+.fichaDescripcion {
+	width: 500px;
+}
+
+.fichaRow {
+	width: 610px;
+}
+
+.fichaRow {
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: auto;
+	align-content: center;
+}
+
+/*************************************FORMULARIOS*************************************/
+.container>form {
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: auto;
+	align-content: center;
+	max-width: 600px;
+}
+
+.container>form>div {
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: auto;
+	align-content: center;
+}
+
+.container>form>div>p {
+	width: 100px;
+	margin-bottom: 20px;
+}
+
+.container>form>div>input, .container>form>div>select {
+	width: 400px;
+	margin-bottom: 20px;
 }
 
 /*************************************FOOTER*************************************/
-
-.footer{
-    flex: 0 0 auto;
-    margin: 0px;
-    width: 100%;
-    text-align: center;
-    height: 50px;
-    /*! top: 50%; */
-    /*! bottom: 50%; */
-    background: rgb(11,118,149);
-    background: linear-gradient(0deg, rgba(60,207,82,1) 0%, rgba(11,149,32,1) 72%); 
-
+.footer {
+	flex: 0 0 auto;
+	margin: 0px;
+	width: 100%;
+	text-align: center;
+	height: 50px;
+	background: rgb(11, 118, 149);
+	background: linear-gradient(0deg, rgba(60, 207, 82, 1) 0%,
+		rgba(11, 149, 32, 1) 72%);
 }

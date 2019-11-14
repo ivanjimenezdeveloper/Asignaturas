@@ -112,4 +112,76 @@ public class Busqueda {
 		return juegoArr;
 
 	}
+	
+	/**
+	 * Busca un juego segun su id
+	 * @param id id del juego
+	 * @return Objeto juego
+	 */
+	public static Juego buscarJuegoPorId(int id) {
+		
+		Juego game = new Juego();
+		/**
+		 * Crea la conexion
+		 */
+		pool = ConnectionPool.getInstance();
+		int idJuego, idGenero, idPlataforma, anyo;
+		String titulo, img, descripcion;
+		try {
+			cn = pool.getConnection();
+			
+			/**
+			 * Busca el nombre del genero segun la id
+			 */
+			String query = "SELECT * FROM JUEGO WHERE ID = ?";
+			ps = cn.prepareStatement(query);
+			ps.setInt(1, id);
+
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+
+				/**
+				 * Guarda los parametros en las variables
+				 */
+
+				idJuego = rs.getInt("ID");
+				idGenero = rs.getInt("IDGENERO");
+				idPlataforma = rs.getInt("IDPLATAFORMA");
+				anyo = rs.getInt("ANYO");
+
+				titulo = rs.getString("TITULO");
+				img = rs.getString("FOTO");
+				descripcion = rs.getString("DESCRIPCION");
+
+				/**
+				 * Guarda las variables en el objeto game
+				 */
+
+				game.setId(idJuego);
+				game.setIdGenero(idGenero);
+				game.setIdPlataforma(idPlataforma);
+				game.setAnyo(anyo);
+
+				game.setTitulo(titulo);
+				game.setImg(img);
+				game.setDescripcion(descripcion);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				ps.close();
+				cn.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return game;
+	}
 }

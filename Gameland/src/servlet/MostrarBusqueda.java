@@ -164,8 +164,11 @@ public class MostrarBusqueda extends HttpServlet {
 		for (Juego juego : juegoArr) {
 
 			tabla += "<tr>";
-
-			tabla += "<td>" + juego.getTitulo() + "</td>";
+			
+			/**
+			 * Si clica en el titulo reenvia al servlet Ficha con la id del juego
+			 */
+			tabla += "<td><a href='Ficha?id=" + juego.getId() + "'>" + juego.getTitulo() + "</a></td>";
 			tabla += "<td>" + "VALORACION" + "</td>";
 			tabla += "<td>" + query.Nombre.nombreGenero(juego.getIdGenero()) + "</td>";
 			tabla += "<td>" + juego.getAnyo() + "</td>";
@@ -176,9 +179,5 @@ public class MostrarBusqueda extends HttpServlet {
 		return tabla;
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-	}
 
 }

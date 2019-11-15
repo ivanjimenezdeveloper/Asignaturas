@@ -6,8 +6,33 @@
         <title>Exercici 8 - DOM</title>
 
         <script>
-            function canviar(){
-            
+            function canviar() {
+                var body = document.body;
+                var tags = body.getElementsByTagName("*");
+                var contadorImportante = 0;
+
+                for (var i = 0; i < tags.length; i++) {
+                    if (tags[i].tagName == "A") {
+                        var https = tags[i].getAttribute("href").replace("http", "https");
+                        tags[i].setAttribute("href", https);
+                    } else if (tags[i].tagName == "P" && tags[i].className == "importante") {
+                        tags[i].className = "resaltado";
+
+                    } else if (tags[i].tagName == "P") {
+
+                        tags[i].className = "normal";
+
+
+                    }
+                    if (tags[i].tagName == "A" && tags[i].className == "importante") {
+                        tags[i].setAttribute("name", "importante" + contadorImportante);
+                        contadorImportante++;
+
+                    }
+
+                }
+
+
             }
         </script>
     </head>

@@ -11,7 +11,7 @@ for (var i = 0; i < 20; i++) {
 
     rojo = Math.floor(Math.random() * (255 - 0 + 1) + 1);
     verde = Math.floor(Math.random() * (255 - 0 + 1) + 1);
-    azul = Math.floor(Math.random() * (255 - 0 + 1) + 1)
+    azul = Math.floor(Math.random() * (255 - 0 + 1) + 1);
     atributoColorTotal = "rgb("+rojo+","+verde+","+azul+")";
 
     tbody += "<tr><td>" + rojo + "</td>" + "<td>" + verde + "</td>" + "<td>" + azul 

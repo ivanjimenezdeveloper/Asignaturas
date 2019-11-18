@@ -121,4 +121,60 @@ public class Mantenimiento {
 
 		return encontrado;
 	}
+	
+	/**
+	 * Devuelve la id del usuario segun el nick
+	 * @param user nick de usuario
+	 * @return id de usuario
+	 */
+	public static int idUsuario(String user) {
+		
+		/**
+		 * Crea la conexion
+		 */
+		pool = ConnectionPool.getInstance();
+		try {
+			cn = pool.getConnection();
+
+			/**
+			 * Crea la query donde busca un usuario con el nick dado
+			 * 
+			 */
+			String query = "SELECT * FROM USUARIO WHERE USUARIO = ?";
+			ps = cn.prepareStatement(query);
+			ps.setString(1, user);
+
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				int id = rs.getInt("ID");
+
+				/**
+				 * Si encuentra una usuario con una id superior a 0 devuelve la id
+				 */
+				if (id > 0) {
+					return id;
+				}
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+				cn.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+		
+		/**
+		 * Si no encuentra la id devuelve -1
+		 */
+		return -1;
+	}
 }

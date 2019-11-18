@@ -21,6 +21,15 @@ public class Main extends HttpServlet {
 	}
 
 	/**
+	 * Contexto server
+	 *  <Resource name="jdbc/GAMELAND" auth="Container"
+            type="javax.sql.DataSource" maxActive="100" maxIdle="30"
+            maxWait="10000" username="gamelandIvan" password="Ageofempires2"
+            driverClassName="com.mysql.cj.jdbc.Driver"
+            url="jdbc:mysql://localhost:3306/GAMELAND?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
+	 */
+	
+	/**
 	 * Muestra la pagina de busqueda 
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

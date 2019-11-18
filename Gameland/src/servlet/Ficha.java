@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import entidad.Juego;
+import query.Nombre;
 
 /**
  * Servlet implementation class Ficha
@@ -214,7 +215,7 @@ public class Ficha extends HttpServlet {
 				"				</div>\n" + 
 				"				<div class=\"fichaRow\">\n" + 
 				"					<p class=\"fichaAtributo\">Género:</p>\n" + 
-				"					<p class=\"fichaDescripcion\">"+game.getIdGenero()+"</p>\n" + 
+				"					<p class=\"fichaDescripcion\">"+Nombre.nombreGenero(game.getIdGenero())+"</p>\n" + 
 				"				</div>\n" + 
 				"				<div class=\"fichaRow\">\n" + 
 				"					<p class=\"fichaAtributo\">Año:</p>\n" + 
@@ -222,7 +223,7 @@ public class Ficha extends HttpServlet {
 				"				</div>\n" + 
 				"				<div class=\"fichaRow\">\n" + 
 				"					<p class=\"fichaAtributo\">Plataforma:</p>\n" + 
-				"					<p class=\"fichaDescripcion\">"+game.getIdPlataforma()+ "</p>\n" + 
+				"					<p class=\"fichaDescripcion\">"+Nombre.nombrePlataforma(game.getIdPlataforma())+ "</p>\n" + 
 				"				</div>\n" + 
 				"				<div class=\"fichaRow\">\n" + 
 				"					<p class=\"fichaAtributo\">Valoración:</p>\n" + 
@@ -276,7 +277,7 @@ public class Ficha extends HttpServlet {
 				"				</div>\n" + 
 				"				<div class=\"fichaRow\">\n" + 
 				"					<p class=\"fichaAtributo\">Género:</p>\n" + 
-				"					<p class=\"fichaDescripcion\">"+game.getIdGenero()+"</p>\n" + 
+				"					<p class=\"fichaDescripcion\">"+Nombre.nombreGenero(game.getIdGenero())+"</p>\n" + 
 				"				</div>\n" + 
 				"				<div class=\"fichaRow\">\n" + 
 				"					<p class=\"fichaAtributo\">Año:</p>\n" + 
@@ -284,7 +285,7 @@ public class Ficha extends HttpServlet {
 				"				</div>\n" + 
 				"				<div class=\"fichaRow\">\n" + 
 				"					<p class=\"fichaAtributo\">Plataforma:</p>\n" + 
-				"					<p class=\"fichaDescripcion\">"+game.getIdPlataforma()+ "</p>\n" + 
+				"					<p class=\"fichaDescripcion\">"+Nombre.nombrePlataforma(game.getIdPlataforma())+ "</p>\n" + 
 				"				</div>\n" + 
 				"				<div class=\"fichaRow\">\n" + 
 				"					<p class=\"fichaAtributo\">Valoración:</p>\n" + 

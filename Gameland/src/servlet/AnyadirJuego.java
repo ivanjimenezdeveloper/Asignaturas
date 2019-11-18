@@ -8,36 +8,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MostarPorGenero
+ * Servlet implementation class AnyadirJuego
  */
-@WebServlet("/MostarPorGenero")
-public class MostarPorGenero extends HttpServlet {
+@WebServlet("/AnyadirJuego")
+public class AnyadirJuego extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MostarPorGenero() {
+    public AnyadirJuego() {
         super();
         // TODO Auto-generated constructor stub
     }
-
     
-    /**
-     * EJEMPLO QUERY POR GENERO
-     * 
-     * SELECT TITULO, MEDIA 
-FROM JUEGO,
-(
-	SELECT AVG(VALORACION) as MEDIA,  IDJUEGO 
-	FROM VALORACION
-	GROUP BY IDJUEGO
-)TVALORACION 
-WHERE JUEGO.ID = TVALORACION.IDJUEGO AND IDGENERO = 1
-ORDER BY MEDIA DESC;
+    
+    // CADA VEZ QUE AÑADA JUEGO, INSERTAR UNA VALORACION CON -1
 
-
-     */
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */

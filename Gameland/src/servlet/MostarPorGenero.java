@@ -24,15 +24,6 @@ public class MostarPorGenero extends HttpServlet {
 	}
 
 	/**
-	 * EJEMPLO QUERY POR GENERO
-	 * 
-	 * SELECT TITULO, MEDIA FROM JUEGO, ( SELECT AVG(VALORACION) as MEDIA, IDJUEGO
-	 * FROM VALORACION GROUP BY IDJUEGO )TVALORACION WHERE JUEGO.ID =
-	 * TVALORACION.IDJUEGO AND IDGENERO = 1 ORDER BY MEDIA DESC;
-	 * 
-	 * 
-	 */
-	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -119,9 +110,9 @@ int idGenero = 1;
 				+ "					<p>|</p>\n" + "					<a href=\"Register\"> Register</a>\n"
 				+ "				</div>\n" + "			</div>\n" + "		</div>\n" + "		<div class=\"tab\">\n"
 				+ "			<ul>\n" + "				<li><a href=\"Main\">SEARCH</a></li>\n"
-				+ "				<li><a href=\"#\">TOP Games</a></li>\n"
-				+ "				<li><a href=\"#\">By Genre</a></li>\n" + "				<li>|</li>\n"
-				+ "				<li><a href=\"#\">By Platform</a></li>\n" + "			</ul>\n" + "		</div>\n"
+				+ "				<li><a href=\"\">TOP Games</a></li>\n"
+				+ "				<li><a href=\"MostarPorGenero\">By Genre</a></li>\n" + "				<li>|</li>\n"
+				+ "				<li><a href=\"MostrarPorPlataforma\">By Platform</a></li>\n" + "			</ul>\n" + "		</div>\n"
 				+ "	</div>\n" + "	<div class=\"containerGenero\">		<div class=\"divGenero\">\n" + 
 						"			<ul>\n" + 
 						"				<li><a href=\"MostarPorGenero?idgenero=1\">SHOOTER</a></li>\n" + 

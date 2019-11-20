@@ -1,5 +1,7 @@
 CREATE DATABASE GAMELAND;
 
+
+
 USE GAMELAND;
 
 CREATE USER 'gamelandIvan'@'localhost' IDENTIFIED BY 'Ageofempires2'; 

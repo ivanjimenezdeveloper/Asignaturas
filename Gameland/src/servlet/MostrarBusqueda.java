@@ -155,7 +155,7 @@ public class MostrarBusqueda extends HttpServlet {
 	 * @param juegoArr Arraylist de juegos
 	 * @return String con las rows rellenadas de la tabla a mostrar
 	 */
-	protected String crearTabla(ArrayList<Juego> juegoArr) {
+	public static String crearTabla(ArrayList<Juego> juegoArr) {
 		String tabla = "";
 
 		/**

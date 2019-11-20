@@ -30,14 +30,18 @@ body {
 		rgba(11, 149, 32, 1) 72%);
 	/*! border-bottom: 2px solid #3ccf52; */
 	margin-bottom: 0;
+	
+	/*! background-image: url("gameland.png"); */
 }
 
 .logoHeader {
 	display: inline-block;
 	width: 100px;
 	height: 100px;
-	background-color: red;
 	margin-right: 5px;
+	background-size: 100px;
+		background-image: url("gameland.png");
+
 }
 
 .nav h1 {
@@ -137,7 +141,9 @@ ul {
 .logoMain {
 	width: 200px;
 	height: 200px;
-	background-color: red;
+	/*! background-color: red; */
+	background-size: 200px;
+	background-image: url("gameland.png");
 }
 
 .containerGenero{

@@ -37,12 +37,12 @@
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="query.CRUD"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="entidad.Juego"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
-    <fullyQualifiedTypeName name="query.Busqueda"/>
-    <fullyQualifiedTypeName name="query.Mantenimiento"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="query.Valoracion"/>
     <fullyQualifiedTypeName name="query.Nombre"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="query.Mantenimiento"/>
+    <fullyQualifiedTypeName name="query.Busqueda"/>
 </qualifiedTypeNameHistroy>

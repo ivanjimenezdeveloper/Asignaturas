@@ -121,14 +121,15 @@ public class Mantenimiento {
 
 		return encontrado;
 	}
-	
+
 	/**
 	 * Devuelve la id del usuario segun el nick
+	 * 
 	 * @param user nick de usuario
 	 * @return id de usuario
 	 */
 	public static int idUsuario(String user) {
-		
+
 		/**
 		 * Crea la conexion
 		 */
@@ -143,7 +144,6 @@ public class Mantenimiento {
 			String query = "SELECT * FROM USUARIO WHERE USUARIO = ?";
 			ps = cn.prepareStatement(query);
 			ps.setString(1, user);
-
 
 			rs = ps.executeQuery();
 
@@ -171,10 +171,130 @@ public class Mantenimiento {
 			}
 
 		}
-		
+
 		/**
 		 * Si no encuentra la id devuelve -1
 		 */
 		return -1;
+	}
+
+	public static boolean esAdministrador(String user) {
+
+		boolean encontrado = false;
+
+		/**
+		 * Crea la conexion
+		 */
+		pool = ConnectionPool.getInstance();
+		try {
+			cn = pool.getConnection();
+
+			/**
+			 * Crea la query donde busca un usuario con el nick dado
+			 */
+			String query = "SELECT * FROM USUARIO WHERE USUARIO = ?";
+			ps = cn.prepareStatement(query);
+			ps.setString(1, user);
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				int admin = rs.getInt("ADMINISTRADOR");
+
+				/**
+				 * Si el usuario es admin cambiara encontrado a true
+				 */
+				if (admin == 1) {
+					encontrado = true;
+				}
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+				cn.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+
+		return encontrado;
+
+	}
+
+	public static void editarJuego(int id, String titulo, int year, String desc, int plataforma, int genero,
+			String foto) {
+
+		/**
+		 * Crea la conexion
+		 */
+
+		ConnectionPool pool = ConnectionPool.getInstance();
+
+		try {
+			cn = pool.getConnection();
+
+			
+			String query = "UPDATE JUEGO SET TITULO = ?, ANYO = ?, FOTO=?, DESCRIPCION = ?, IDGENERO = ?, IDPLATAFORMA = ?  WHERE ID= ?";
+			ps = cn.prepareStatement(query);
+
+			ps.setString(1, titulo);
+			ps.setInt(2, year);
+			ps.setString(3, foto);
+			ps.setString(4, desc);
+			ps.setInt(5, genero);
+			ps.setInt(6, plataforma);
+			ps.setInt(7, id);
+
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				cn.close();
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+	
+	public static void borrarJuego(int id) {
+
+		/**
+		 * Crea la conexion
+		 */
+
+		ConnectionPool pool = ConnectionPool.getInstance();
+
+		try {
+			cn = pool.getConnection();
+
+			
+			String query = "DELETE FROM JUEGO WHERE ID = ?";
+			ps = cn.prepareStatement(query);
+
+			ps.setInt(1, id);
+
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				cn.close();
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
 	}
 }

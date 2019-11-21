@@ -24,24 +24,20 @@ public class CRUD {
 
 		boolean existe = false, registroCorrecto = true;
 
-		/**
-		 * Crea la conexion
-		 */
+		// Crea la conexion
 
 		ConnectionPool pool = ConnectionPool.getInstance();
 
 		try {
 			cn = pool.getConnection();
 
-			/**
-			 * Comprueba si existe un usuario con ese nombre de usuario
-			 */
+			// Comprueba si existe un usuario con ese nombre de usuario
 
 			existe = Mantenimiento.UsuarioExiste(user);
 
-			/**
-			 * Si el usuario existe no hara la query y devolvera false
-			 */
+			
+			 // Si el usuario existe no hara la query y devolvera false
+			 
 
 			if (existe == false) {
 
@@ -59,14 +55,14 @@ public class CRUD {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// Logger
 		} finally {
 			try {
 				cn.close();
 				ps.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+				// Logger
+				}
 		}
 
 		return registroCorrecto;

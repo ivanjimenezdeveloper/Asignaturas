@@ -22,15 +22,15 @@ public class Mantenimiento {
 	 */
 	public static boolean UsuarioExiste(String user) {
 		boolean encontrado = false;
-		/**
-		 * Crea la conexion
-		 */
+
+		// Crea la conexion
+
 		pool = ConnectionPool.getInstance();
 		try {
 			cn = pool.getConnection();
-			/**
-			 * Busca un usuario con el nick de usuario dado
-			 */
+
+			// Busca un usuario con el nick de usuario dado
+
 			String query = "SELECT * FROM USUARIO WHERE USUARIO = ?";
 			ps = cn.prepareStatement(query);
 			ps.setString(1, user);
@@ -40,9 +40,8 @@ public class Mantenimiento {
 			while (rs.next()) {
 				String usuario = rs.getString("USUARIO");
 
-				/**
-				 * Si encuentra al usuario cambiara el boolean a true
-				 */
+				// Si encuentra al usuario cambiara el boolean a true
+
 				if (usuario != null) {
 					encontrado = true;
 				}
@@ -50,14 +49,14 @@ public class Mantenimiento {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// Logger
 		} finally {
 			try {
 				ps.close();
 				cn.close();
 				rs.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				// Logger
 			}
 
 		}
@@ -76,14 +75,13 @@ public class Mantenimiento {
 	public static boolean UsuarioLogin(String user, String pass) {
 		boolean encontrado = false;
 
-		/**
-		 * Crea la conexion
-		 */
+		// Crea la conexion
+
 		pool = ConnectionPool.getInstance();
 		try {
 			cn = pool.getConnection();
 
-			/**
+			/*
 			 * Crea la query donde busca un usuario con esa combinacion de usuario y
 			 * contraseña
 			 */
@@ -107,14 +105,14 @@ public class Mantenimiento {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// Logger
 		} finally {
 			try {
 				ps.close();
 				cn.close();
 				rs.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				// Logger
 			}
 
 		}
@@ -130,17 +128,14 @@ public class Mantenimiento {
 	 */
 	public static int idUsuario(String user) {
 
-		/**
-		 * Crea la conexion
-		 */
+		// Crea la conexion
+
 		pool = ConnectionPool.getInstance();
 		try {
 			cn = pool.getConnection();
 
-			/**
-			 * Crea la query donde busca un usuario con el nick dado
-			 * 
-			 */
+			// Crea la query donde busca un usuario con el nick dado
+
 			String query = "SELECT * FROM USUARIO WHERE USUARIO = ?";
 			ps = cn.prepareStatement(query);
 			ps.setString(1, user);
@@ -150,9 +145,8 @@ public class Mantenimiento {
 			while (rs.next()) {
 				int id = rs.getInt("ID");
 
-				/**
-				 * Si encuentra una usuario con una id superior a 0 devuelve la id
-				 */
+				// Si encuentra una usuario con una id superior a 0 devuelve la id
+
 				if (id > 0) {
 					return id;
 				}
@@ -160,38 +154,41 @@ public class Mantenimiento {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// Logger
 		} finally {
 			try {
 				ps.close();
 				cn.close();
 				rs.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				// Logger
 			}
 
 		}
 
-		/**
-		 * Si no encuentra la id devuelve -1
-		 */
+		// Si no encuentra la id devuelve -1
+
 		return -1;
 	}
 
+	/**
+	 * Comprueba si el usuario dado es un administrador
+	 * 
+	 * @param user nick de usuario
+	 * @return boolean que declara si es o no administrador
+	 */
 	public static boolean esAdministrador(String user) {
 
 		boolean encontrado = false;
 
-		/**
-		 * Crea la conexion
-		 */
+		// Crea la conexion
+
 		pool = ConnectionPool.getInstance();
 		try {
 			cn = pool.getConnection();
 
-			/**
-			 * Crea la query donde busca un usuario con el nick dado
-			 */
+			// Crea la query donde busca un usuario con el nick dado
+
 			String query = "SELECT * FROM USUARIO WHERE USUARIO = ?";
 			ps = cn.prepareStatement(query);
 			ps.setString(1, user);
@@ -201,9 +198,8 @@ public class Mantenimiento {
 			while (rs.next()) {
 				int admin = rs.getInt("ADMINISTRADOR");
 
-				/**
-				 * Si el usuario es admin cambiara encontrado a true
-				 */
+				// Si el usuario es admin cambiara encontrado a true
+
 				if (admin == 1) {
 					encontrado = true;
 				}
@@ -211,14 +207,14 @@ public class Mantenimiento {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// Logger
 		} finally {
 			try {
 				ps.close();
 				cn.close();
 				rs.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				// Logger
 			}
 
 		}
@@ -227,19 +223,28 @@ public class Mantenimiento {
 
 	}
 
+	/**
+	 * Edita un juego de la base de datos
+	 * 
+	 * @param id         id del juego
+	 * @param titulo     titulo del juego
+	 * @param year       anyo del juego
+	 * @param desc       descripcion del juego
+	 * @param plataforma id de la plataforma
+	 * @param genero     id del genero
+	 * @param foto       nombre de la foto
+	 */
 	public static void editarJuego(int id, String titulo, int year, String desc, int plataforma, int genero,
 			String foto) {
 
-		/**
-		 * Crea la conexion
-		 */
+		// Crea la conexion
 
 		ConnectionPool pool = ConnectionPool.getInstance();
 
 		try {
 			cn = pool.getConnection();
 
-			
+			// Hace un update de un juego segun la id
 			String query = "UPDATE JUEGO SET TITULO = ?, ANYO = ?, FOTO=?, DESCRIPCION = ?, IDGENERO = ?, IDPLATAFORMA = ?  WHERE ID= ?";
 			ps = cn.prepareStatement(query);
 
@@ -254,30 +259,35 @@ public class Mantenimiento {
 			ps.executeUpdate();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
+			// Logger
+			} finally {
 			try {
 				cn.close();
 				ps.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+				// Logger
+				}
 		}
 
 	}
-	
+
+	/**
+	 * Borra el juego segun su id
+	 * 
+	 * @param id id del juego
+	 */
 	public static void borrarJuego(int id) {
 
-		/**
-		 * Crea la conexion
-		 */
+		// Crea la conexion
+
+		borrarValoracion(id);
 
 		ConnectionPool pool = ConnectionPool.getInstance();
 
 		try {
 			cn = pool.getConnection();
 
-			
+			// Borra el juego donde coincida con la id
 			String query = "DELETE FROM JUEGO WHERE ID = ?";
 			ps = cn.prepareStatement(query);
 
@@ -286,31 +296,73 @@ public class Mantenimiento {
 			ps.executeUpdate();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
+			// Logger
+			} finally {
 			try {
 				cn.close();
 				ps.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+				// Logger
+				}
 		}
 
 	}
-	
-	public static void addGame(String titulo, int year, String desc, int plataforma, int genero,
-			String foto) {
-		/**
-		 * Crea la conexion
-		 */
+
+	/**
+	 * Borra las valoraciones segun la id del juego
+	 * 
+	 * @param id id del juego
+	 */
+	public static void borrarValoracion(int id) {
+
+		// Crea la conexion
 
 		ConnectionPool pool = ConnectionPool.getInstance();
 
 		try {
 			cn = pool.getConnection();
 
-			
-			String query = "INSERT INTO JUEGO(TITULO, ANYO, FOTO, DESCRIPCION, IDGENERO, IDPLATAFORMA) VALUES(?, ?, ?, ?, ?,? ";
+			// Borra la valoracion que coincida con la id del juego
+			String query = "DELETE FROM VALORACION WHERE valoracion.IDJUEGO =?";
+			ps = cn.prepareStatement(query);
+
+			ps.setInt(1, id);
+
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			// Logger
+			} finally {
+			try {
+				cn.close();
+				ps.close();
+			} catch (SQLException e) {
+				// Logger
+				}
+		}
+
+	}
+
+	/**
+	 * Anyade un juego a la base de datos
+	 * 
+	 * @param titulo     titulo del juego
+	 * @param year       anyo de salida
+	 * @param desc       descripcion
+	 * @param plataforma id de la plataforma
+	 * @param genero     id del genero
+	 * @param foto       nombre de la foto
+	 */
+	public static void addGame(String titulo, int year, String desc, int plataforma, int genero, String foto) {
+
+		// Crea la conexion
+
+		ConnectionPool pool = ConnectionPool.getInstance();
+
+		try {
+			cn = pool.getConnection();
+
+			String query = "INSERT INTO JUEGO(TITULO, ANYO, FOTO, DESCRIPCION, IDGENERO, IDPLATAFORMA) VALUES(?, ?, ?, ?, ?,?) ";
 			ps = cn.prepareStatement(query);
 
 			ps.setString(1, titulo);
@@ -323,13 +375,13 @@ public class Mantenimiento {
 			ps.executeUpdate();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// Logger
 		} finally {
 			try {
 				cn.close();
 				ps.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				// Logger
 			}
 		}
 	}

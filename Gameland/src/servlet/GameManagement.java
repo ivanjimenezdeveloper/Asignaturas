@@ -136,19 +136,26 @@ public class GameManagement extends HttpServlet {
 	 */
 	public static String crearTabla(ArrayList<Juego> juegoArr) {
 		String tabla = "";
-
+		String mostrarValoracion;
 		/**
 		 * Por cada objeto en la array se crea una row con los valores del objeto
 		 */
 		for (Juego juego : juegoArr) {
 
 			tabla += "<tr>";
+			double valoracion = query.Valoracion.valoracionMedia(juego.getId());
+			
+			if(valoracion <= 0) {
+				mostrarValoracion = "Sin valoraciones";
+			}else {
+				 mostrarValoracion = ""+valoracion;
+			}
 			
 			/**
 			 * Si clica en el titulo reenvia al servlet Ficha con la id del juego
 			 */
 			tabla += "<td><a href='Ficha?id=" + juego.getId() + "'>" + juego.getTitulo() + "</a></td>";
-			tabla += "<td>" + "VALORACION" + "</td>";
+			tabla += "<td>" + mostrarValoracion + "</td>";
 			tabla += "<td>" + query.Nombre.nombreGenero(juego.getIdGenero()) + "</td>";
 			tabla += "<td>" + juego.getAnyo() + "</td>";
 			tabla += "<td>" + juego.getIdPlataforma() + "</td>";

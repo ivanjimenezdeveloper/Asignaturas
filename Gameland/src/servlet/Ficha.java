@@ -267,6 +267,14 @@ public class Ficha extends HttpServlet {
 		Juego game = query.Busqueda.buscarJuegoPorId(id);
 		double media = query.Valoracion.valoracionMedia(id);
 
+		String mostrarValoracion;
+
+			
+			if(media <= 0) {
+				mostrarValoracion = "Sin valoraciones";
+			}else {
+				 mostrarValoracion = ""+media;
+			}
 		
 		ficha += "		<div class=\"ficha\">\n" + 
 				"			<div class=\"fichaImagen\"></div>\n" + 
@@ -289,7 +297,7 @@ public class Ficha extends HttpServlet {
 				"				</div>\n" + 
 				"				<div class=\"fichaRow\">\n" + 
 				"					<p class=\"fichaAtributo\">Valoración:</p>\n" + 
-				"					<p class=\"fichaDescripcion\">"+media +"</p>\n" + 
+				"					<p class=\"fichaDescripcion\">"+mostrarValoracion +"</p>\n" + 
 				"				</div>\n" + 
 				"				<div class=\"fichaRow\">\n" + 
 				"					<p class=\"fichaAtributo\">Descripción:</p>\n" + 

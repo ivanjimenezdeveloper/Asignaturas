@@ -23,31 +23,28 @@ public class Busqueda {
 	 */
 	public static ArrayList<Juego> busquedaGeneral(String busqueda) {
 
-		/**
+		/*
 		 * Arraylist que devuelve y el juego donde guardara los que contenga el result
 		 * set
 		 */
 		ArrayList<Juego> juegoArr = new ArrayList<Juego>();
 		Juego game = new Juego();
 
-		/**
-		 * Se crea la conexion con la base de datos
-		 */
+		// Se crea la conexion con la base de datos
+
 		pool = ConnectionPool.getInstance();
 
 		try {
 			cn = pool.getConnection();
 
-			/**
-			 * Query que busca segun el mensaje
-			 */
+//			  Query que busca segun el mensaje
+
 			String query = "SELECT * FROM JUEGO WHERE TITULO LIKE ?";
 			ps = cn.prepareStatement(query);
 			ps.setString(1, "%" + busqueda + "%");
 
-			/**
-			 * Variables que guardaran los valores antes de guardarlo en el objeto game
-			 */
+//			 Variables que guardaran los valores antes de guardarlo en el objeto game
+
 			int id, idGenero, idPlataforma, anyo;
 			String titulo, img, descripcion;
 
@@ -55,9 +52,7 @@ public class Busqueda {
 
 			while (rs.next()) {
 
-				/**
-				 * Guarda los parametros en las variables
-				 */
+//				  Guarda los parametros en las variables
 
 				id = rs.getInt("ID");
 				idGenero = rs.getInt("IDGENERO");
@@ -68,9 +63,7 @@ public class Busqueda {
 				img = rs.getString("FOTO");
 				descripcion = rs.getString("DESCRIPCION");
 
-				/**
-				 * Guarda las variables en el objeto game
-				 */
+				// Guarda las variables en el objeto game
 
 				game.setId(id);
 				game.setIdGenero(idGenero);
@@ -81,29 +74,25 @@ public class Busqueda {
 				game.setImg(img);
 				game.setDescripcion(descripcion);
 
-				/**
-				 * Guarda el objeto game en la array
-				 */
+				// Guarda el objeto game en la array
 
 				juegoArr.add(game);
 
-				/**
-				 * Reinicia el objeto game
-				 */
+				// Reinicia el objeto game
 
 				game = new Juego();
 
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// Logger
 		} finally {
 			try {
 				ps.close();
 				cn.close();
 				rs.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				// Logger
 			}
 
 		}
@@ -112,41 +101,40 @@ public class Busqueda {
 
 	}
 
-	public static  ArrayList<Juego> buscarPorGenero(int idGeneroBusqueda){
-		
-		/**
+	/**
+	 * Busca juegos por genero y ordenado por valoracion
+	 * 
+	 * @param idGeneroBusqueda id del genero
+	 * @return Arraylist de juegos
+	 */
+	public static ArrayList<Juego> buscarPorGenero(int idGeneroBusqueda) {
+
+		/*
 		 * Arraylist que devuelve y el juego donde guardara los que contenga el result
 		 * set
 		 */
 		ArrayList<Juego> juegoArr = new ArrayList<Juego>();
 		Juego game = new Juego();
 
-		/**
-		 * Se crea la conexion con la base de datos
-		 */
+		// Se crea la conexion con la base de datos
+
 		pool = ConnectionPool.getInstance();
 
 		try {
 			cn = pool.getConnection();
 
-			/**
-			 * Query que busca segun el mensaje
-			 */
-			String query = "SELECT JUEGO.*, MEDIA \n" + 
-					"FROM JUEGO,\n" + 
-					"(\n" + 
-					"	SELECT AVG(VALORACION) as MEDIA,  IDJUEGO \n" + 
-					"	FROM VALORACION\n" + 
-					"	GROUP BY IDJUEGO\n" + 
-					")TVALORACION \n" + 
-					"WHERE JUEGO.ID = TVALORACION.IDJUEGO AND IDGENERO = ? \n" + 
-					"ORDER BY MEDIA DESC";
+			// Busca juegos por genero y ordenado por valoracion y limita la busqueda a la
+			// 10 juegos
+
+			String query = "SELECT JUEGO.*, MEDIA \n" + "FROM JUEGO,\n" + "(\n"
+					+ "	SELECT AVG(VALORACION) as MEDIA,  IDJUEGO \n" + "	FROM VALORACION\n" + "	GROUP BY IDJUEGO\n"
+					+ ")TVALORACION \n" + "WHERE JUEGO.ID = TVALORACION.IDJUEGO AND IDGENERO = ? \n"
+					+ "ORDER BY MEDIA DESC LIMIT 10";
 			ps = cn.prepareStatement(query);
 			ps.setInt(1, idGeneroBusqueda);
 
-			/**
-			 * Variables que guardaran los valores antes de guardarlo en el objeto game
-			 */
+			// Variables que guardaran los valores antes de guardarlo en el objeto game
+
 			int id, idGenero, idPlataforma, anyo;
 			String titulo, img, descripcion;
 
@@ -154,9 +142,7 @@ public class Busqueda {
 
 			while (rs.next()) {
 
-				/**
-				 * Guarda los parametros en las variables
-				 */
+				// Guarda los parametros en las variables
 
 				id = rs.getInt("ID");
 				idGenero = rs.getInt("IDGENERO");
@@ -167,9 +153,7 @@ public class Busqueda {
 				img = rs.getString("FOTO");
 				descripcion = rs.getString("DESCRIPCION");
 
-				/**
-				 * Guarda las variables en el objeto game
-				 */
+				// Guarda las variables en el objeto game
 
 				game.setId(id);
 				game.setIdGenero(idGenero);
@@ -180,72 +164,69 @@ public class Busqueda {
 				game.setImg(img);
 				game.setDescripcion(descripcion);
 
-				/**
-				 * Guarda el objeto game en la array
-				 */
+				// Guarda el objeto game en la array
 
 				juegoArr.add(game);
 
-				/**
-				 * Reinicia el objeto game
-				 */
+				// Reinicia el objeto game
 
 				game = new Juego();
 
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// Logger
 		} finally {
 			try {
 				ps.close();
 				cn.close();
 				rs.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				// Logger
 			}
 
 		}
 
 		return juegoArr;
-		
+
 	}
-	
-	public static  ArrayList<Juego> buscarPorPlataforma(int idGeneroBusqueda){
-		
-		/**
+
+	/**
+	 * Busca juegos por genero y ordenado por valoracion
+	 * 
+	 * @param idGeneroPlataforma id de la plataforma
+	 * @return Arraylist de juegos
+	 */
+
+	public static ArrayList<Juego> buscarPorPlataforma(int idPlataformaBusqueda) {
+
+		/*
 		 * Arraylist que devuelve y el juego donde guardara los que contenga el result
 		 * set
 		 */
 		ArrayList<Juego> juegoArr = new ArrayList<Juego>();
 		Juego game = new Juego();
 
-		/**
-		 * Se crea la conexion con la base de datos
-		 */
+		// Se crea la conexion con la base de datos
+
 		pool = ConnectionPool.getInstance();
 
 		try {
 			cn = pool.getConnection();
 
-			/**
-			 * Query que busca segun el mensaje
-			 */
-			String query = "SELECT JUEGO.*, MEDIA \n" + 
-					"FROM JUEGO,\n" + 
-					"(\n" + 
-					"	SELECT AVG(VALORACION) as MEDIA,  IDJUEGO \n" + 
-					"	FROM VALORACION\n" + 
-					"	GROUP BY IDJUEGO\n" + 
-					")TVALORACION \n" + 
-					"WHERE JUEGO.ID = TVALORACION.IDJUEGO AND IDPLATAFORMA = ? \n" + 
-					"ORDER BY MEDIA DESC";
-			ps = cn.prepareStatement(query);
-			ps.setInt(1, idGeneroBusqueda);
+			// Busca juegos por plataforma y ordenado por valoracion y limita la busqueda a
+			// la
+			// 10 juegos
 
-			/**
-			 * Variables que guardaran los valores antes de guardarlo en el objeto game
-			 */
+			String query = "SELECT JUEGO.*, MEDIA \n" + "FROM JUEGO,\n" + "(\n"
+					+ "	SELECT AVG(VALORACION) as MEDIA,  IDJUEGO \n" + "	FROM VALORACION\n" + "	GROUP BY IDJUEGO\n"
+					+ ")TVALORACION \n" + "WHERE JUEGO.ID = TVALORACION.IDJUEGO AND IDPLATAFORMA = ? \n"
+					+ "ORDER BY MEDIA DESC LIMIT 10";
+			ps = cn.prepareStatement(query);
+			ps.setInt(1, idPlataformaBusqueda);
+
+			// Variables que guardaran los valores antes de guardarlo en el objeto game
+
 			int id, idGenero, idPlataforma, anyo;
 			String titulo, img, descripcion;
 
@@ -253,9 +234,7 @@ public class Busqueda {
 
 			while (rs.next()) {
 
-				/**
-				 * Guarda los parametros en las variables
-				 */
+				// Guarda los parametros en las variables
 
 				id = rs.getInt("ID");
 				idGenero = rs.getInt("IDGENERO");
@@ -266,9 +245,7 @@ public class Busqueda {
 				img = rs.getString("FOTO");
 				descripcion = rs.getString("DESCRIPCION");
 
-				/**
-				 * Guarda las variables en el objeto game
-				 */
+				// Guarda las variables en el objeto game
 
 				game.setId(id);
 				game.setIdGenero(idGenero);
@@ -279,68 +256,64 @@ public class Busqueda {
 				game.setImg(img);
 				game.setDescripcion(descripcion);
 
-				/**
-				 * Guarda el objeto game en la array
-				 */
+				// Guarda el objeto game en la array
 
 				juegoArr.add(game);
 
-				/**
-				 * Reinicia el objeto game
-				 */
+				// Reinicia el objeto game
 
 				game = new Juego();
 
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+
+			// Logger
 		} finally {
 			try {
 				ps.close();
 				cn.close();
 				rs.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+
+				// Logger
 			}
 
 		}
 
 		return juegoArr;
-		
+
 	}
-	
+
 	/**
 	 * Busca un juego segun su id
+	 * 
 	 * @param id id del juego
 	 * @return Objeto juego
 	 */
 	public static Juego buscarJuegoPorId(int id) {
-		
+
 		Juego game = new Juego();
-		/**
-		 * Crea la conexion
-		 */
+
+		// Crea la conexion
+
 		pool = ConnectionPool.getInstance();
 		int idJuego, idGenero, idPlataforma, anyo;
 		String titulo, img, descripcion;
 		try {
 			cn = pool.getConnection();
-			
-			/**
-			 * Busca el nombre del genero segun la id
-			 */
+
+			// Busca el juego segun la id
+
 			String query = "SELECT * FROM JUEGO WHERE ID = ?";
 			ps = cn.prepareStatement(query);
 			ps.setInt(1, id);
 
 			rs = ps.executeQuery();
-			
-			while(rs.next()) {
 
-				/**
-				 * Guarda los parametros en las variables
-				 */
+			while (rs.next()) {
+
+				// Guarda los parametros en las variables
 
 				idJuego = rs.getInt("ID");
 				idGenero = rs.getInt("IDGENERO");
@@ -351,9 +324,7 @@ public class Busqueda {
 				img = rs.getString("FOTO");
 				descripcion = rs.getString("DESCRIPCION");
 
-				/**
-				 * Guarda las variables en el objeto game
-				 */
+				// Guarda las variables en el objeto game
 
 				game.setId(idJuego);
 				game.setIdGenero(idGenero);
@@ -363,51 +334,53 @@ public class Busqueda {
 				game.setTitulo(titulo);
 				game.setImg(img);
 				game.setDescripcion(descripcion);
-				
+
 			}
-			
-			
+
 		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
+			// Logger
+			} finally {
 			try {
 				ps.close();
 				cn.close();
 				rs.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+				// Logger
+				}
 		}
-		
+
 		return game;
 	}
-	
+
+	/**
+	 * Saca todos los juegos en la base de datos
+	 * 
+	 * @return ArrayList con todos los juegos
+	 */
+
 	public static ArrayList<Juego> todosLosJuego() {
 
-		/**
+		/*
 		 * Arraylist que devuelve y el juego donde guardara los que contenga el result
 		 * set
 		 */
 		ArrayList<Juego> juegoArr = new ArrayList<Juego>();
 		Juego game = new Juego();
 
-		/**
-		 * Se crea la conexion con la base de datos
-		 */
+		// Se crea la conexion con la base de datos
+
 		pool = ConnectionPool.getInstance();
 
 		try {
 			cn = pool.getConnection();
 
-			/**
-			 * Query que busca segun el mensaje
-			 */
+			// Query que busca todos los juegos
+
 			String query = "SELECT * FROM JUEGO";
 			ps = cn.prepareStatement(query);
 
-			/**
-			 * Variables que guardaran los valores antes de guardarlo en el objeto game
-			 */
+			// Variables que guardaran los valores antes de guardarlo en el objeto game
+
 			int id, idGenero, idPlataforma, anyo;
 			String titulo, img, descripcion;
 
@@ -415,9 +388,7 @@ public class Busqueda {
 
 			while (rs.next()) {
 
-				/**
-				 * Guarda los parametros en las variables
-				 */
+				// Guarda los parametros en las variables
 
 				id = rs.getInt("ID");
 				idGenero = rs.getInt("IDGENERO");
@@ -428,9 +399,7 @@ public class Busqueda {
 				img = rs.getString("FOTO");
 				descripcion = rs.getString("DESCRIPCION");
 
-				/**
-				 * Guarda las variables en el objeto game
-				 */
+				// Guarda las variables en el objeto game
 
 				game.setId(id);
 				game.setIdGenero(idGenero);
@@ -441,30 +410,26 @@ public class Busqueda {
 				game.setImg(img);
 				game.setDescripcion(descripcion);
 
-				/**
-				 * Guarda el objeto game en la array
-				 */
+				// Guarda el objeto game en la array
 
 				juegoArr.add(game);
 
-				/**
-				 * Reinicia el objeto game
-				 */
+				// Reinicia el objeto game
 
 				game = new Juego();
 
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// Logger
 		} finally {
 			try {
 				ps.close();
 				cn.close();
 				rs.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+				// Logger
+				}
 
 		}
 

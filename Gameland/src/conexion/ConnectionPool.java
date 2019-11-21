@@ -17,15 +17,15 @@ public class ConnectionPool {
 	private ConnectionPool() {
 
 		try {
-			/**
-			 * Inicio el los contextos para usar la base de datos
-			 */
+			
+			 //Inicio el los contextos para usar la base de datos
+			 
 			initContext = new InitialContext();
 			envContext = (Context) initContext.lookup("java:/comp/env");
 			DS = (DataSource) envContext.lookup("jdbc/GAMELAND");
 
 		} catch (NamingException e) {
-			e.printStackTrace();
+// Logger
 		}
 	}
 	

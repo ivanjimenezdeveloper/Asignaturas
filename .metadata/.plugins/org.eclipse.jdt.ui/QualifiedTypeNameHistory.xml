@@ -39,10 +39,9 @@
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="entidad.Juego"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="query.Mantenimiento"/>
     <fullyQualifiedTypeName name="query.Valoracion"/>
     <fullyQualifiedTypeName name="query.Nombre"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="query.Mantenimiento"/>
     <fullyQualifiedTypeName name="query.Busqueda"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>

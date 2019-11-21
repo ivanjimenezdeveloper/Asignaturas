@@ -297,4 +297,40 @@ public class Mantenimiento {
 		}
 
 	}
+	
+	public static void addGame(String titulo, int year, String desc, int plataforma, int genero,
+			String foto) {
+		/**
+		 * Crea la conexion
+		 */
+
+		ConnectionPool pool = ConnectionPool.getInstance();
+
+		try {
+			cn = pool.getConnection();
+
+			
+			String query = "INSERT INTO JUEGO(TITULO, ANYO, FOTO, DESCRIPCION, IDGENERO, IDPLATAFORMA) VALUES(?, ?, ?, ?, ?,? ";
+			ps = cn.prepareStatement(query);
+
+			ps.setString(1, titulo);
+			ps.setInt(2, year);
+			ps.setString(3, foto);
+			ps.setString(4, desc);
+			ps.setInt(5, genero);
+			ps.setInt(6, plataforma);
+
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				cn.close();
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

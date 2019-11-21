@@ -75,9 +75,6 @@ public class GameManagement extends HttpServlet {
 	}
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				doGet(request, response);
-	}
 	
 	public String mostrarAdmin(String user,ArrayList<Juego> juegoArr) {
 		

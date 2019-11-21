@@ -60,7 +60,7 @@ public class Login extends HttpServlet {
 		 * Si existe el usuario entonces guarda en la sesion el nombre de usuario y
 		 * contraseña y redirige al main
 		 */
-		
+
 		if (encontrado == true) {
 			HttpSession sesion = request.getSession(true);
 			sesion.setAttribute("user", user);

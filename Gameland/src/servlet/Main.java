@@ -92,7 +92,7 @@ public class Main extends HttpServlet {
 				+ "                        <p class=\"nombreUsuario\">" + user
 				+ "</p> <a class=\"fotoUsuario\">imagen</a>\n" + "                    </div>\n"
 				+ "                    <div>            \n"
-				+ "                        <a href=\"Logout\">Log Out</a> <p>" + "                    </div>\n"
+				+ "                        <a href=\"Logout\">Log Out</a> <p>" + " </div>\n"
 				+ "                </div>\n" + "            </div>\n" + "            <div class=\"tab\">\n"
 				+ "                <ul>\n" + "                    <li><a href=\"Main\">SEARCH</a></li>\n"
 				+ "                    <li><a href=\"\">TOP Games</a></li>\n"

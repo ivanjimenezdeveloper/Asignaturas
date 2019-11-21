@@ -20,8 +20,9 @@ public class AnyadirJuego extends HttpServlet {
 		super();
 	}
 
-	// CADA VEZ QUE AÑADA JUEGO, INSERTAR UNA VALORACION CON -1
-
+	/**
+	 * Muestra el formulario de anyadir juego o te reenvia a main si no es admin
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		boolean logged = false;
@@ -65,6 +66,12 @@ public class AnyadirJuego extends HttpServlet {
 		}
 	}
 
+	/**
+	 * Muestra el html para el admin
+	 * 
+	 * @param user nick de usuario
+	 * @return html
+	 */
 	public String mostrarAdmin(String user) {
 
 		String html = "<!DOCTYPE html>\n" + "<html>\n" + "<head>\n" + "<title>Gameland - Login</title>\n"
@@ -91,6 +98,11 @@ public class AnyadirJuego extends HttpServlet {
 
 	}
 
+	/**
+	 * Crea la ficha para anyadir un juego
+	 * 
+	 * @return string con la ficha
+	 */
 	public String crearFicha() {
 
 		String html = "	<div class=\"container\">\n" + "	<form method=\"POST\" action=\"AnyadirJuego\">\n"
@@ -119,6 +131,9 @@ public class AnyadirJuego extends HttpServlet {
 
 	}
 
+	/**
+	 * Comprueba que no este vacio ningun campo y hace el insert
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String titulo = "";
@@ -136,11 +151,12 @@ public class AnyadirJuego extends HttpServlet {
 			genero = Integer.parseInt(request.getParameter("genero"));
 			foto = "prueba";
 		} catch (Exception e) {
+			// Logger
 		}
 		foto = "prueba";
 
-		if (titulo.equals("") || year == 0 || desc.equals("") || plataforma <= 0 || plataforma > 4
-				|| genero <= 0 || genero > 4 || foto.equals("")) {
+		if (titulo.equals("") || year == 0 || desc.equals("") || plataforma <= 0 || plataforma > 4 || genero <= 0
+				|| genero > 4 || foto.equals("")) {
 
 			response.sendRedirect("GameManagement");
 

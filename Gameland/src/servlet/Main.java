@@ -37,17 +37,15 @@ public class Main extends HttpServlet {
 		String user = "";
 		boolean admin = false;
 
-		/**
-		 * Creamos la sesion
-		 */
+		// Creamos la sesion
+
 		HttpSession sesion = request.getSession(true);
 
-		/**
-		 * Coge el atributo usuario de la sesion
-		 */
+		// Coge el atributo usuario de la sesion
+
 		user = (String) sesion.getAttribute("user");
 
-		/**
+		/*
 		 * Si encuentra hay algo que se guarde en user significa que hay un usuario
 		 * Logged y ademas comprueba que sea admin
 		 */
@@ -57,13 +55,12 @@ public class Main extends HttpServlet {
 
 		}
 
-		/**
+		/*
 		 * Si esta logged muestra la pagina para usuarios loggeados y si no la busqueda
 		 * normal. En caso de ser un admin mostrara su html
 		 */
 		if (logged == true && admin == true) {
 			response.getWriter().print(mostrarAdmin(user));
-
 
 		} else if (logged) {
 
@@ -114,59 +111,47 @@ public class Main extends HttpServlet {
 		return html;
 
 	}
-
+	
+	
+	
+	/**
+	 * Muestra el html de admin
+	 * @param user nick de usuario
+	 * @return html
+	 */
 	public String mostrarAdmin(String user) {
-		
-		String html = "<!DOCTYPE html>\n" + 
-				"<html>\n" + 
-				"    <head>\n" + 
-				"        <title>Gameland</title>\n" + 
-				"        <meta charset=\"UTF-8\">\n" + 
-				"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" + 
-				"        <link rel=\"stylesheet\" type=\"text/css\" href=\"gameland.css\"/>\n" + 
-				"\n" + 
-				"    </head>\n" + 
-				"    <body>\n" + 
-				"        <div class=\"nav\">\n" + 
-				"            <div class=\"header\">  \n" + 
-				"                <div class=\"logoHeader\"></div><h1>Gameland</h1>\n" + 
-				"                <div class=\"nodoInvisibleHeader\"></div>\n" + 
-				"                <div class=\"usuario\">\n" + 
-				"                    <div>\n" + 
-				"                        <p class=\"nombreUsuario\">"+user+"</p> <a class=\"fotoUsuario\">imagen</a>\n" + 
-				"                    </div>\n" + 
-				"                    <div>            \n" + 
-				"                        <a href=\"Logout\">Log Out</a> <p>" + 
-				"                    </div>\n" + 
-				"                </div>\n" + 
-				"            </div>\n" + 
-				"            <div class=\"tab\">\n" + 
-				"                <ul>\n" + 
-				"                    <li><a href=\"Main\">SEARCH</a></li>\n" + 
-				"                    <li><a href=\"\">TOP Games</a></li>\n" + 
-				"                    <li><a href=\"MostarPorGenero\">By Genre</a></li>\n" + 
-				"                    <li> |</li>\n" + 
-				"                    <li><a href=\"MostrarPorPlataforma\">By Platform</a></li>\n" +
-				"				<li><a href=\"GameManagement\">GAME MANAGEMENT</a></li>\n" + 
-				"                </ul>\n" + 
-				"            </div>\n" + 
-				"        </div>\n" + 
-				"        <div class=\"container\">\n" + 
-				"            <div class=\"logoMain\"></div>\n" + 
-				"            <p>Gameland</p>\n" + 
-				"            <form method=\"GET\" action=\"MostrarBusqueda\">\n" + 
-				"                <input type=\"text\" placeholder=\"Buscar\" name=\"busqueda\"/>\n" + 
-				"                <input type=\"submit\" value=\"Buscar\"/>\n" + 
-				"            </form>\n" + 
-				"        </div>\n" + 
-				"        <div class=\"footer\">\n" + 
-				"            <p>Web creada por XENOTECK INDUSTRIES copyright 2019</p>\n" + 
-				"        </div>\n" + 
-				"    </body>\n" + 
-				"</html>";
-		
+
+		String html = "<!DOCTYPE html>\n" + "<html>\n" + "    <head>\n" + "        <title>Gameland</title>\n"
+				+ "        <meta charset=\"UTF-8\">\n"
+				+ "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+				+ "        <link rel=\"stylesheet\" type=\"text/css\" href=\"gameland.css\"/>\n" + "\n"
+				+ "    </head>\n" + "    <body>\n" + "        <div class=\"nav\">\n"
+				+ "            <div class=\"header\">  \n"
+				+ "                <div class=\"logoHeader\"></div><h1>Gameland</h1>\n"
+				+ "                <div class=\"nodoInvisibleHeader\"></div>\n"
+				+ "                <div class=\"usuario\">\n" + "                    <div>\n"
+				+ "                        <p class=\"nombreUsuario\">" + user
+				+ "</p> <a class=\"fotoUsuario\">imagen</a>\n" + "                    </div>\n"
+				+ "                    <div>            \n"
+				+ "                        <a href=\"Logout\">Log Out</a> <p>" + "                    </div>\n"
+				+ "                </div>\n" + "            </div>\n" + "            <div class=\"tab\">\n"
+				+ "                <ul>\n" + "                    <li><a href=\"Main\">SEARCH</a></li>\n"
+				+ "                    <li><a href=\"\">TOP Games</a></li>\n"
+				+ "                    <li><a href=\"MostarPorGenero\">By Genre</a></li>\n"
+				+ "                    <li> |</li>\n"
+				+ "                    <li><a href=\"MostrarPorPlataforma\">By Platform</a></li>\n"
+				+ "				<li><a href=\"GameManagement\">GAME MANAGEMENT</a></li>\n" + "                </ul>\n"
+				+ "            </div>\n" + "        </div>\n" + "        <div class=\"container\">\n"
+				+ "            <div class=\"logoMain\"></div>\n" + "            <p>Gameland</p>\n"
+				+ "            <form method=\"GET\" action=\"MostrarBusqueda\">\n"
+				+ "                <input type=\"text\" placeholder=\"Buscar\" name=\"busqueda\"/>\n"
+				+ "                <input type=\"submit\" value=\"Buscar\"/>\n" + "            </form>\n"
+				+ "        </div>\n" + "        <div class=\"footer\">\n"
+				+ "            <p>Web creada por XENOTECK INDUSTRIES copyright 2019</p>\n" + "        </div>\n"
+				+ "    </body>\n" + "</html>";
+
 		return html;
-		
+
 	}
 
 }

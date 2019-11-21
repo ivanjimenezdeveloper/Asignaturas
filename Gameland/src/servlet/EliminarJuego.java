@@ -18,6 +18,9 @@ public class EliminarJuego extends HttpServlet {
 		super();
 	}
 
+	/**
+	 * Elimina el juego con la id dada
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int id = 0;
@@ -25,9 +28,10 @@ public class EliminarJuego extends HttpServlet {
 		try {
 			id = Integer.parseInt(request.getParameter("idjuego"));
 		} catch (Exception e) {
-			// TODO: handle exception
+			// Logger
 		}
 
+		// Si la id es 0 o menor no hace la eliminacion
 		if (id > 0) {
 
 			query.Mantenimiento.borrarJuego(id);
@@ -35,11 +39,6 @@ public class EliminarJuego extends HttpServlet {
 		} else {
 			response.sendRedirect("GameManagement");
 		}
-
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
 
 	}
 

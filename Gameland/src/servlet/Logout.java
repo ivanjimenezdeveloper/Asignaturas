@@ -26,12 +26,10 @@ public class Logout extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession sesion = request.getSession(true);
 		sesion.invalidate();
-		/**
-		 * Redirige al Main
-		 */
+
+		// Redirige al Main
+
 		response.sendRedirect("Main");
 	}
-
-
 
 }

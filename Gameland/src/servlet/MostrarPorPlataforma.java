@@ -19,47 +19,40 @@ import entidad.Juego;
 public class MostrarPorPlataforma extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public MostrarPorPlataforma() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * Comprueba Si el usuario esta logged y guarda la array de juegos para mostrar
+	 * la tabla
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		int idPlataforma = 1;
 
-		/**
-		 * Recoge el parametro de busqueda
-		 */
+		// Recoge el parametro de busqueda
+
 		try {
 			idPlataforma = Integer.parseInt(request.getParameter("idplataforma"));
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			// Logger
 		}
 		ArrayList<Juego> juegoArr = new ArrayList<Juego>();
 		boolean logged = false;
 		String user = "";
 
-		/**
-		 * Creamos la sesion
-		 */
+		// Creamos la sesion
+
 		HttpSession sesion = request.getSession(true);
 
-		/**
-		 * Coge el atributo usuario de la sesion
-		 */
+		// Coge el atributo usuario de la sesion
+
 		user = (String) sesion.getAttribute("user");
 
-		/**
+		/*
 		 * Si encuentra hay algo que se guarde en user significa que hay un usuario
 		 * Logged
 		 */
@@ -67,16 +60,15 @@ public class MostrarPorPlataforma extends HttpServlet {
 			logged = true;
 		}
 
-		/**
-		 * Guarda en una array los elementos encontrados
-		 */
+		// Guarda en una array los elementos encontrados
+
 		juegoArr = query.Busqueda.buscarPorPlataforma(idPlataforma);
-		/**
+		/*
 		 * En caso de no encontrar nada devuelve al main. Si esta logged envia al html
 		 * de usuarios loggeados y en caso contrario envia al html de usuarios anonimos
 		 */
 		if (juegoArr.isEmpty()) {
-//Redirigir a main con error
+
 			response.sendRedirect("Main");
 
 		} else if (logged == true) {
@@ -114,8 +106,8 @@ public class MostrarPorPlataforma extends HttpServlet {
 				+ "			<ul>\n" + "				<li><a href=\"Main\">SEARCH</a></li>\n"
 				+ "				<li><a href=\"#\">TOP Games</a></li>\n"
 				+ "				<li><a href=\"MostarPorGenero\">By Genre</a></li>\n" + "				<li>|</li>\n"
-				+ "				<li><a href=\"MostrarPorPlataforma\">By Platform</a></li>\n" + "			</ul>\n" + "		</div>\n"
-				+ "	</div>\n" + "	<div class=\"containerGenero\">		<div class=\"divGenero\">\n"
+				+ "				<li><a href=\"MostrarPorPlataforma\">By Platform</a></li>\n" + "			</ul>\n"
+				+ "		</div>\n" + "	</div>\n" + "	<div class=\"containerGenero\">		<div class=\"divGenero\">\n"
 				+ "			<ul>\n" + "				<li><a href=\"MostrarPorPlataforma?idplataforma=1\">PS4</a></li>\n"
 				+ "				<li> <a href=\"MostrarPorPlataforma?idplataforma=2\">XBOX</a></li>\n"
 				+ "				<li><a href=\"MostrarPorPlataforma?idplataforma=3\">SWITCH</a></li>\n"
@@ -157,9 +149,10 @@ public class MostrarPorPlataforma extends HttpServlet {
 				+ "				<li><a href=\"Main\">SEARCH</a></li>\n"
 				+ "				<li><a href=\"#\">TOP Games</a></li>\n"
 				+ "				<li><a href=\"MostarPorGenero\">By Genre</a></li>\n" + "				<li>|</li>\n"
-				+ "				<li><a href=\"MostrarPorPlataforma\">By Platform</a></li>\n" + "			</ul>\n" + "		</div>\n"
-				+ "	</div>\n" + "</div>	"+"	<div class=\"containerGenero\">		<div class=\"divGenero\">\n"
-				+ "			<ul>\n" + "				<li><a href=\"MostrarPorPlataforma?idplataforma=1\">PS4</a></li>\n"
+				+ "				<li><a href=\"MostrarPorPlataforma\">By Platform</a></li>\n" + "			</ul>\n"
+				+ "		</div>\n" + "	</div>\n" + "</div>	"
+				+ "	<div class=\"containerGenero\">		<div class=\"divGenero\">\n" + "			<ul>\n"
+				+ "				<li><a href=\"MostrarPorPlataforma?idplataforma=1\">PS4</a></li>\n"
 				+ "				<li> <a href=\"MostrarPorPlataforma?idplataforma=2\">XBOX</a></li>\n"
 				+ "				<li><a href=\"MostrarPorPlataforma?idplataforma=3\">SWITCH</a></li>\n"
 				+ "				<li><a href=\"MostrarPorPlataforma?idplataforma=4\">PC</a></li>\n" + "\n"
@@ -185,23 +178,22 @@ public class MostrarPorPlataforma extends HttpServlet {
 	public static String crearTabla(ArrayList<Juego> juegoArr) {
 		String tabla = "";
 		String mostrarValoracion;
-		/**
-		 * Por cada objeto en la array se crea una row con los valores del objeto
-		 */
+
+		// Por cada objeto en la array se crea una row con los valores del objeto
+
 		for (Juego juego : juegoArr) {
 
 			tabla += "<tr>";
 			double valoracion = query.Valoracion.valoracionMedia(juego.getId());
-			
-			if(valoracion <= 0) {
+
+			if (valoracion <= 0) {
 				mostrarValoracion = "Sin valoraciones";
-			}else {
-				 mostrarValoracion = ""+valoracion;
+			} else {
+				mostrarValoracion = "" + valoracion;
 			}
-			
-			/**
-			 * Si clica en el titulo reenvia al servlet Ficha con la id del juego
-			 */
+
+			// Si clica en el titulo reenvia al servlet Ficha con la id del juego
+
 			tabla += "<td><a href='Ficha?id=" + juego.getId() + "'>" + juego.getTitulo() + "</a></td>";
 			tabla += "<td>" + mostrarValoracion + "</td>";
 			tabla += "<td>" + query.Nombre.nombreGenero(juego.getIdGenero()) + "</td>";
@@ -213,14 +205,6 @@ public class MostrarPorPlataforma extends HttpServlet {
 		return tabla;
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+
 
 }

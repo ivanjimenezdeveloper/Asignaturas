@@ -17,17 +17,12 @@ import entidad.Juego;
 public class EditarJuego extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public EditarJuego() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * Muestra los formularios de edicion de juegos para el admin
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -36,14 +31,13 @@ public class EditarJuego extends HttpServlet {
 		boolean admin = false;
 		int idJuego;
 		Juego game = new Juego();
-		/*
-		 * Creamos la sesion
-		 */
+
+		// Creamos la sesion
+
 		HttpSession sesion = request.getSession(true);
 
-		/*
-		 * Coge el atributo usuario de la sesion
-		 */
+		// Coge el atributo usuario de la sesion
+
 		user = (String) sesion.getAttribute("user");
 
 		try {
@@ -51,6 +45,7 @@ public class EditarJuego extends HttpServlet {
 
 		} catch (Exception e) {
 			idJuego = 0;
+			// Logger
 		}
 
 		/*
@@ -82,6 +77,13 @@ public class EditarJuego extends HttpServlet {
 		}
 	}
 
+	/**
+	 * Muestra el html para el admin
+	 * 
+	 * @param user  nick de usuario
+	 * @param Juego juego a editar
+	 * @return devuelve el html
+	 */
 	public String mostrarAdmin(String user, Juego Juego) {
 
 		String html = "<!DOCTYPE html>\n" + "<html>\n" + "<head>\n" + "<title>Gameland - Login</title>\n"
@@ -108,6 +110,12 @@ public class EditarJuego extends HttpServlet {
 
 	}
 
+	/**
+	 * Crea la ficha del juego
+	 * 
+	 * @param Juego juego que editar
+	 * @return string con la ficha
+	 */
 	public String crearFicha(Juego Juego) {
 
 		String html = "	<div class=\"container\">\n" + "	<form method=\"POST\" action=\"EditarJuego\">\n"
@@ -137,6 +145,9 @@ public class EditarJuego extends HttpServlet {
 
 	}
 
+	/**
+	 * Comprueba que no haya ningun campo vacio y edita el juego en la base de datos
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -157,9 +168,11 @@ public class EditarJuego extends HttpServlet {
 			genero = Integer.parseInt(request.getParameter("genero"));
 			foto = "prueba";
 		} catch (Exception e) {
+			// Logger
 		}
 		foto = "prueba";
 
+		// Comprueba que no haya ningun campo vacio
 		if (id == 0 || titulo.equals("") || year == 0 || desc.equals("") || plataforma <= 0 || plataforma > 4
 				|| genero <= 0 || genero > 4 || foto.equals("")) {
 

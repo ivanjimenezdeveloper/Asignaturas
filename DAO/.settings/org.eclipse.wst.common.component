@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="DAO">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="mysql-connector-java-8.0.13.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/horabaixa/Workspace/Asignaturas/Gameland/WebContent/WEB-INF/lib/mysql-connector-java-8.0.13.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="DAO"/>
+        <property name="java-output-path" value="/DAO/build/classes"/>
+    </wb-module>
+</project-modules>

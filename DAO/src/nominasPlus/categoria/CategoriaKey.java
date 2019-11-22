@@ -1,4 +1,4 @@
-package clases;
+package nominasPlus.categoria;
 
 public class CategoriaKey {
 

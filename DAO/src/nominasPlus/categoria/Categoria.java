@@ -1,4 +1,4 @@
-package clases;
+package nominasPlus.categoria;
 
 public class Categoria {
 
@@ -29,6 +29,13 @@ public class Categoria {
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Categoria [key=" + key + ", nom=" + nom + "]";
 	}
 	
 	

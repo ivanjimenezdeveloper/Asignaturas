@@ -1,4 +1,4 @@
-package clases;
+package nominasPlus.categoria;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -66,12 +66,22 @@ public class Dao {
 				 */
 
 				cat = new Categoria();
-				rs.close();
-				ps.close();
-				cn.close();
+	
 			}
 
 		} catch (SQLException e) {
+			
+			e.printStackTrace();
+
+		}finally {
+			try {
+				rs.close();
+				ps.close();
+				cn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		}
 

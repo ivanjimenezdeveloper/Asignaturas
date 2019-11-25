@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html><head>
+        <title>THE CONTRASENYA</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="password.css"/></head>
+
+    <body>
+        
+        <img src="lagarto.png"/>
+        
+        <div>
+            <form>
+                <h1>HOW SECURE IS MY PASSWORD</h1>
+                <select class="contrasena" id="herramienta">
+                    <option value="1">CPU</option>
+                    <option value="2">GPU</option>
+                    <option value="3">GRID</option></select>
+                <input class="contrasena" placeholder="ENTER PASSWORD" type="password" id="pass" />
+                <div><p id="tiempo"></p></div>
+            </form>
+                            <button onclick="usarPass()">COMPROBAR</button>
+
+        </div>
+        <img src="solid defense.jpg"/>
+        <script src="pass.js"></script>
+    </body>
+</html>

@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 
-var height = innerWidth;
-var width = innerHeight;
+var height = window.innerWidth;
+var width = window.innerHeight;
 var rojo, verde, azul;
 
 for(var i =0; i < 2000; i++){

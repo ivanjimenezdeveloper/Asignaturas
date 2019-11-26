@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<!DOCTYPE HTML>
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <p>Nom</p><input type="text" id="nom"/>
-        <p>Apellidos</p><input type="text" id="apellido"/>
-        
-        <button onclick="crearCookies()">ENVIAMO</button>
-
-        <script src="5.js"></script>
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+            }
+        </style>
+    </head> 
+    <body data-rsssl=1>
+        <canvas id="myCanvas" width="578" height="200"></canvas>
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.font = "30px Arial";
+            ctx.fillText("Hello World", canvas.width/2, canvas.height/2); 
+            
+        </script>
     </body>
-</html>
+</html>   

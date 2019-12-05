@@ -104,8 +104,7 @@ public class Main extends HttpServlet {
 				+ "            <p>Gameland</p>\n" + "            <form method=\"GET\" action=\"MostrarBusqueda\">\n"
 				+ "                <input type=\"text\" placeholder=\"Buscar\" name=\"busqueda\"/>\n"
 				+ "                <input type=\"submit\" value=\"Buscar\"/>\n" + "            </form>\n"
-				+ "        </div>\n" + "        <div class=\"footer\">\n"
-				+ "            <p>Web creada por XENOTECK INDUSTRIES copyright 2019</p>\n" + "        </div>\n"
+				+ "        </div>\n" 
 				+ "    </body>\n" + "</html>";
 
 		return html;

@@ -54,4 +54,8 @@
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="clases.tag"/>
+    <fullyQualifiedTypeName name="model.Conexion"/>
+    <fullyQualifiedTypeName name="model.entidad.usuario.UsuarioKey"/>
+    <fullyQualifiedTypeName name="model.entidad.usuario.Usuario"/>
+    <fullyQualifiedTypeName name="model.entidad.dao.Usuario"/>
 </qualifiedTypeNameHistroy>

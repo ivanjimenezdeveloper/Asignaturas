@@ -4,13 +4,18 @@
  * and open the template in the editor.
  */
 
+var audio = new Audio("audio1.mp3");
 var audios;
 var sourceAudio = document.getElementById("srcaudio");
-
-function crearArray(){
-    audios = ["audio1", "audio2", "audio3", "audio4", "audio5"];
+var cancionActual = 0;
+function crearArray() {
+    audios = ["audio1.mp3", "audio2.mp3", "audio3.mp3", "audio4.mp3", "audio5.mp3"];
 }
 
+function playe() {
+    audio = new Audio(audios[cancionActual]);
+    audio.play();
+}
 
 function aleatorio() {
 
@@ -20,58 +25,44 @@ function aleatorio() {
     });
 
 
+    cancionActual = 0;
 
+    audio.pause();
 
-    sourceAudio.setAttribute("src", audios[0]);
+    playe();
 
 }
 
 function reset() {
 
-    sourceAudio.setAttribute("src", audios[0]);
+
+    cancionActual = 0;
+    audio.pause();
+
+    playe();
 
 }
 
 function back() {
-
-    var cancionActual;
-
-    for (var i = 0; i <= audios.length; i++) {
-
-        if (sourceAudio.getAttribute("src") == audios[i]) {
-            cancionActual = i;
-        }
-
-    }
 
     if (cancionActual == 0) {
         cancionActual = audios.length - 1;
     } else {
         cancionActual--;
     }
-
-    sourceAudio.setAttribute("src", audios[cancionActual]);
+    audio.pause();
+    playe();
 
 }
 
 function next() {
-
-    var cancionActual;
-
-    for (var i = 0; i <= audios.length; i++) {
-
-        if (sourceAudio.getAttribute("src") == audios[i]) {
-            cancionActual = i;
-        }
-
-    }
 
     if (cancionActual == audios.length - 1) {
         cancionActual = 0;
     } else {
         cancionActual++;
     }
-
-    sourceAudio.setAttribute("src", audios[cancionActual]);
+    audio.pause();
+    playe();
 
 }

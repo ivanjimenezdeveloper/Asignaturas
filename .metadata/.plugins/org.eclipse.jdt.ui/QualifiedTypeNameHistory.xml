@@ -23,7 +23,6 @@
     <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
     <fullyQualifiedTypeName name="java.lang.Double"/>
     <fullyQualifiedTypeName name="CRUD"/>
-    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="Queries"/>
     <fullyQualifiedTypeName name="Hipoteca"/>
     <fullyQualifiedTypeName name="javax.naming.Context"/>
@@ -44,9 +43,15 @@
     <fullyQualifiedTypeName name="query.Busqueda"/>
     <fullyQualifiedTypeName name="entidad.Juego"/>
     <fullyQualifiedTypeName name="query.Mantenimiento"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="clases.CategoriaKey"/>
     <fullyQualifiedTypeName name="clases.Categoria"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="clases.Dao"/>
+    <fullyQualifiedTypeName name="javax.ejb.Stateless"/>
+    <fullyQualifiedTypeName name="javax.ejb.EJB"/>
+    <fullyQualifiedTypeName name="ejb.CalculadoraBean"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="clases.tag"/>
 </qualifiedTypeNameHistroy>

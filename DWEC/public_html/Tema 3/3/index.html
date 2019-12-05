@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script >
+            var cont = 0;
+            window.onload = function () {
+                var body = document.getElementById("body");
+                var h1 = document.getElementById("h1");
+
+                body.addEventListener("click", processaEvent, true);
+                h1.addEventListener("click", processaEvent, true);
+
+            };
+
+            function processaEvent() {
+                cont++;
+                alert(cont + " " + this.tagName);
+            }
+
+        </script>
+    </head>
+    <body id="body">
+        <h1 id="h1">CAPTURING</h1>
+    </body>
+</html>

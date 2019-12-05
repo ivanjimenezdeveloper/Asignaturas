@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body >
+        <input type="text" id="texto"/>
+        <button onclick="init()">ASLO</button>
+        <canvas id="myCanvas" width="400" height="200"></canvas>
+
+
+
+        <script type="text/javascript">
+            var can, ctx, step, steps = 0,
+                    delay = 20;
+            var text;
+            var x = -50, y = 70;
+            function init() {
+                text = document.getElementById("texto").value;
+
+                can = document.getElementById("myCanvas");
+                ctx = can.getContext("2d");
+                ctx.fillStyle = "blue";
+                ctx.font = "20pt Verdana";
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.translate(y, x);
+                step = 0;
+                steps = 350;
+                ctx.save();
+                animacion();
+            }
+
+            function animacion() {
+                step++;
+                ctx.clearRect(-70, -70, 400, 300);
+                ctx.save();
+                moverse();
+
+                ctx.rotate(((Math.PI * 20 / steps)) * step);
+                ctx.fillText(text, 0, 0);
+
+
+
+                ctx.restore();
+                if (step == steps) {
+                    x = 70;
+
+                    step = 0;
+                }
+                if (step < steps)
+                    setTimeout('animacion()', delay);
+            }
+
+
+            function moverse() {
+                x += 1;
+                ctx.translate(x, y);
+
+
+            }
+        </script>
+    </body>
+</html>

@@ -15,16 +15,15 @@ public class Usuario {
 	private static ResultSet rs;
 	private static Conexion pool;
 
+
 	/**
-	 * Devuelve una array de juegos con el mensaje que se ha recibido
-	 * 
-	 * @param busqueda palabra que comparar para encontrar juegos
-	 * @return Arraylist de juegos que coinciden con la busqueda
+	 * Busca todos los usuarios
+	 * @return Arraylist de usuarios
 	 */
 	public static ArrayList<model.entidad.usuario.Usuario> busquedaGeneral() {
 
 		/*
-		 * Arraylist que devuelve y el juego donde guardara los que contenga el result
+		 * Arraylist que devuelve la arraylist de usuarios
 		 * set
 		 */
 		ArrayList<model.entidad.usuario.Usuario> usArr = new ArrayList<model.entidad.usuario.Usuario>();
@@ -38,7 +37,7 @@ public class Usuario {
 		try {
 			cn = pool.getConnection();
 
-//			  Query que busca segun el mensaje
+//			  Query que busca a todos los usuarios
 
 			String query = "SELECT * FROM USUARIO";
 			ps = cn.prepareStatement(query);

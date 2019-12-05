@@ -1,8 +1,18 @@
 package vista.container;
 
 import java.io.PrintWriter;
-
+/**
+ * Clase que tiene el codigo html de las diferentes Containers
+ * @author horabaixa
+ *
+ */
 public class Container {
+	
+	/**
+	 * Muestra el container del calculo
+	 * @param out printwriter que sirve para mostrar
+	 * 
+	 */
 	public static void mostrar(PrintWriter out) {
 		String html = "<div class=\"container\">\n" + 
 				"<div class=\"logoMain\"></div>\n" + 
@@ -21,7 +31,7 @@ public class Container {
 				"	</div>\n" + 
 				"</form>\n" + 
 				"</div>";
-
+//pinta el html
 		out.append(html);
 	};
 }

@@ -3,9 +3,18 @@ package vista.cabecera;
 import java.io.PrintWriter;
 
 import model.entidad.usuario.Usuario;
-
+/**
+ * Clase que tiene el codigo html de las diferentes cabeceras
+ * @author horabaixa
+ *
+ */
 public class Cabecera {
 
+	/**
+	 * Muestra la cabecera estandar de un usuario logged
+	 * @param out printwriter que sirve para mostrar
+	 * @param user usuario logeado
+	 */
 	public static void mostrarLogged(PrintWriter out, Usuario user) {
 		String html = "<!DOCTYPE html>\n" + "<html>\n" + "    <head>\n" + "        <title>IMC</title>\n"
 
@@ -23,6 +32,7 @@ public class Cabecera {
 				+ "                        <a href=\"Logout\">Log Out</a> <p>" + " </div>\n"
 				+ "                </div>\n" + "            </div>\n" ;
 
+		//Pinta el html
 		out.append(html);
 	};
 

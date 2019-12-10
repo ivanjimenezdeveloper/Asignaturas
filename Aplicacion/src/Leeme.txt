@@ -1,0 +1,17 @@
+	Al context.xml del vostre tomEE heu d'afegir
+	
+	<Resource name="jdbc/aplicacion" auth="Container"
+	type="javax.sql.DataSource" maxActive="100" maxIdle="30"
+	maxWait="10000" username="aplicacion" password="patata23"
+	driverClassName="com.mysql.cj.jdbc.Driver"
+	url="jdbc:mysql://localhost:3306/Aplicacion?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
+
+	I al vostre web.xml del vostre projecte heu d'afegir (a aquest projecte ja està fet)
+	
+	  <resource-ref>
+		<description>MySQL Datasource de la aplicacion</description>
+		<res-ref-name>jdbc/aplicacion</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	  </resource-ref>
+	 

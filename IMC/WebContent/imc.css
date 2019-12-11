@@ -34,63 +34,6 @@ body {
 	/*! background-image: url("gameland.png"); */
 }
 
-.logoHeader {
-	display: inline-block;
-	width: 100px;
-	height: 100px;
-	margin-right: 5px;
-	background-size: 100px;
-	background-image: url("gameland.png");
-}
-
-.nav h1 {
-	display: inline-block;
-}
-
-.nodoInvisibleHeader {
-	display: inline-block;
-	width: 70%;
-}
-
-.usuario {
-	display: inline-block;
-	width: 200px;
-}
-
-.nombreUsuario {
-	display: inline-block;
-}
-
-.usuario div:last-child {
-	font-size: 15px;
-	width: 100%;
-}
-
-.usuario div:last-child p {
-	width: 2px;
-}
-
-.usuario div:last-child * {
-	display: inline;
-}
-
-ul {
-	display: inline;
-	text-decoration: none;
-}
-
-.nav ul * {
-	text-decoration: none;
-	list-style: none;
-	display: inline-block;
-}
-
-.nav ul {
-	margin: 0 auto;
-	bottom: 0;
-	padding-left: 0;
-}
-
 .nav a {
 	padding: 0 15px 0 15px;
 	background: linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
@@ -117,6 +60,81 @@ ul {
 	top: 1px;
 }
 
+.logoHeader {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	margin-right: 5px;
+	background-size: 100px;
+	background-image: url("imc.png");
+}
+
+.nav h1 {
+	display: inline-block;
+}
+
+.nodoInvisibleHeader {
+	display: inline-block;
+	width: 70%;
+}
+
+
+
+.usuario {
+	display: inline-block;
+	width: 200px;
+	/*! display: flex; */
+	align-content: center;
+}
+
+.nombreUsuario {
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.usuario div:last-child {
+	font-size: 15px;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.usuario div:last-child p {
+	width: 2px;
+}
+
+.usuario div:last-child * {
+	display: inline;
+}
+
+ul {
+	display: inline;
+	text-decoration: none;
+}
+
+.nav ul * {
+	text-decoration: none;
+	list-style: none;
+	display: inline-block;
+}
+
+.nav ul {
+	margin: 0 auto;
+	bottom: 0;
+	padding-left: 0;
+}
+.fotoUsuario{
+	width: 100px;
+	/*! height: auto; */
+	background-image: url('estandar.png');
+	background-size: 100px 100px;
+	width: 100px !important;
+	height: 100px !important; 
+	margin-bottom: 10px;
+	display: inline-block;
+margin: 0 auto;
+}
+
+
 /*************************************CONTAINER*************************************/
 .container {
 	display: flex;
@@ -140,9 +158,8 @@ ul {
 .logoMain {
 	width: 200px;
 	height: 200px;
-	/*! background-color: red; */
 	background-size: 200px;
-	background-image: url("gameland.png");
+	background-image: url("imc.png");
 }
 
 .containerGenero {
@@ -182,12 +199,7 @@ ul {
 	margin-right: 100px;
 }
 
-/* .calcularIMC { */
-/* 	display: flex; */
-/* 	flex-direction: column; */
-/* 	align-content: center; */
-/* 	align-items: center; */
-/* } */
+
 
 /*************************************TABLAS*************************************/
 table, td, tr {

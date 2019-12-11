@@ -117,6 +117,7 @@ public class UsuarioDAO {
 				us.setKey(usKey);
 				us.setCorreo(rs.getString("CORREO"));
 				us.setNombre(rs.getString("NOMBRE"));
+				us.setImagen(rs.getString("IMAGEN"));
 				us.setPass(rs.getString("PASS"));
 			}
 

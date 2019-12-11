@@ -27,7 +27,7 @@ public class Cabecera {
 				+ "                <div class=\"nodoInvisibleHeader\"></div>\n"
 				+ "                <div class=\"usuario\">\n" + "                    <div>\n"
 				+ "                        <p class=\"nombreUsuario\">" + user.getNombre()
-				+ "</p> <a class=\"fotoUsuario\">imagen</a>\n" + "                    </div>\n"
+				+ "</p> <div class=\"fotoUsuario\" style='background-image: url("+user.getImagen()+")'></div>\n" + "                    </div>\n"
 				+ "                    <div>            \n"
 				+ "                        <a href=\"Login?logout=1\">Log Out</a> <p>" + " </div>\n"
 				+ "                </div>\n" + "            </div>\n" ;

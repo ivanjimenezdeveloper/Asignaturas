@@ -1,8 +1,8 @@
-package vista.cabecera;
+package vista;
 
 import java.io.PrintWriter;
 
-import model.entidad.usuario.Usuario;
+import model.entidad.Usuario;
 /**
  * Clase que tiene el codigo html de las diferentes cabeceras
  * @author horabaixa

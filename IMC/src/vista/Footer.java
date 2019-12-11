@@ -1,4 +1,4 @@
-package vista.footer;
+package vista;
 
 import java.io.PrintWriter;
 

@@ -1,4 +1,4 @@
-package vista.nav;
+package vista;
 
 import java.io.PrintWriter;
 

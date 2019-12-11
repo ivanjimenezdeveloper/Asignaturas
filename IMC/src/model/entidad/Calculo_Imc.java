@@ -1,4 +1,4 @@
-package model.entidad.calculo;
+package model.entidad;
 
 public class Calculo_Imc {
 

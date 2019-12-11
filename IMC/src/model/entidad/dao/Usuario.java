@@ -20,15 +20,15 @@ public class Usuario {
 	 * Busca todos los usuarios
 	 * @return Arraylist de usuarios
 	 */
-	public static ArrayList<model.entidad.usuario.Usuario> busquedaGeneral() {
+	public static ArrayList<model.entidad.Usuario> busquedaGeneral() {
 
 		/*
 		 * Arraylist que devuelve la arraylist de usuarios
 		 * set
 		 */
-		ArrayList<model.entidad.usuario.Usuario> usArr = new ArrayList<model.entidad.usuario.Usuario>();
-		model.entidad.usuario.Usuario us = new model.entidad.usuario.Usuario();
-		model.entidad.usuario.UsuarioKey usKey = new model.entidad.usuario.UsuarioKey();
+		ArrayList<model.entidad.Usuario> usArr = new ArrayList<model.entidad.Usuario>();
+		model.entidad.Usuario us = new model.entidad.Usuario();
+		model.entidad.UsuarioKey usKey = new model.entidad.UsuarioKey();
 
 		// Se crea la conexion con la base de datos
 
@@ -60,7 +60,7 @@ public class Usuario {
 
 				// Reinicia el objeto game
 
-				us = new model.entidad.usuario.Usuario();
+				us = new model.entidad.Usuario();
 
 			}
 

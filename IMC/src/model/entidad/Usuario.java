@@ -1,4 +1,4 @@
-package model.entidad.usuario;
+package model.entidad;
 
 public class Usuario {
 	

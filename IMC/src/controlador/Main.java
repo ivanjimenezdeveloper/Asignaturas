@@ -7,11 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vista.cabecera.*;
+import model.entidad.Usuario;
+import vista.*;
 import vista.container.Container;
-import vista.footer.Footer;
-import vista.nav.Nav;
-import model.entidad.usuario.Usuario;
 
 @WebServlet("/Main")
 public class Main extends HttpServlet {

@@ -2,18 +2,19 @@ package model.entidad;
 
 public class Usuario {
 	
-	private String correo, nombre, pass;
+	private String correo, nombre, pass, imagen;
 	private UsuarioKey key;
 	
 	
 	public Usuario() {
 		super();
 	}
-	public Usuario(String correo, String nombre, String pass, UsuarioKey key) {
+	public Usuario(String correo, String nombre, String pass,String imagen, UsuarioKey key) {
 		super();
 		this.correo = correo;
 		this.nombre = nombre;
 		this.pass = pass;
+		this.imagen = imagen;
 		this.key = key;
 	}
 	public String getCorreo() {
@@ -39,6 +40,12 @@ public class Usuario {
 	}
 	public void setKey(UsuarioKey key) {
 		this.key = key;
+	}
+	public String getImagen() {
+		return imagen;
+	}
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 	
 	

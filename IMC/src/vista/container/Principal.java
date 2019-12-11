@@ -6,7 +6,7 @@ import java.io.PrintWriter;
  * @author horabaixa
  *
  */
-public class Container {
+public class Principal {
 	
 	/**
 	 * Muestra el container del calculo

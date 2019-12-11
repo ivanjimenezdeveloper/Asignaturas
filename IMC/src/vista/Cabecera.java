@@ -26,10 +26,10 @@ public class Cabecera {
 				+ "                <div class=\"logoHeader\"></div><h1>IMC</h1>\n"
 				+ "                <div class=\"nodoInvisibleHeader\"></div>\n"
 				+ "                <div class=\"usuario\">\n" + "                    <div>\n"
-				+ "                        <p class=\"nombreUsuario\">" + user.getCorreo()
+				+ "                        <p class=\"nombreUsuario\">" + user.getNombre()
 				+ "</p> <a class=\"fotoUsuario\">imagen</a>\n" + "                    </div>\n"
 				+ "                    <div>            \n"
-				+ "                        <a href=\"Logout\">Log Out</a> <p>" + " </div>\n"
+				+ "                        <a href=\"Login?logout=1\">Log Out</a> <p>" + " </div>\n"
 				+ "                </div>\n" + "            </div>\n" ;
 
 		//Pinta el html

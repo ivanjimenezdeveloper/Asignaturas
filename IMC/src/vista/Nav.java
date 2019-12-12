@@ -16,7 +16,7 @@ public class Nav {
 	 */
 	public static void mostrar(PrintWriter out) {
 		String html = "            <div class=\"tab\">\n" 
-	+ "            </div>\n" + "        </div>\n</div>";
+	+ "            </div>\n" +"<ul><li><a href='Main'>HOME</a></li></ul>" +"        </div>\n</div>";
 
 		out.append(html);
 	};

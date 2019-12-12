@@ -17,10 +17,10 @@ public class Principal {
 		String html = "<div class=\"container\">\n" + 
 				"<div class=\"logoMain\"></div>\n" + 
 				"<p>IMC</p>\n" + 
-				"<form method=\"GET\" action=\"calcularIMC\">\n" + 
+				"<form method=\"GET\" action=\"Calculo\">\n" + 
 				"	<div >\n" + 
 				"		<div>\n" + 
-				"			<p>Estatura: </p><input type=\"number\" placeholder=\"Buscar\" name=\"estatura\" />\n" + 
+				"			<p>Estatura (cm): </p><input type=\"number\"  name=\"estatura\" />\n" + 
 				"		</div>\n" + 
 				"		<div>\n" + 
 				"			<p>Peso:</p> <input type=\"number\" name=\"peso\" />\n" + 

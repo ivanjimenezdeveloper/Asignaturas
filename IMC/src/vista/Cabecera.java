@@ -35,5 +35,38 @@ public class Cabecera {
 		//Pinta el html
 		out.append(html);
 	};
+	
+	public static void mostrarNoLogged(PrintWriter out) {
+		String html = "<!DOCTYPE html>\n" + 
+				"<html>\n" + 
+				"<head>\n" + 
+				"<title>IMC</title>\n" + 
+				"<meta charset=\"UTF-8\">\n" + 
+				"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" + 
+				"<link rel=\"stylesheet\" type=\"text/css\" href=\"imc.css\" />\n" + 
+				"\n" + 
+				"</head>\n" + 
+				"<body>\n" + 
+				"	<div class=\"nav\">\n" + 
+				"		<div class=\"header\">\n" + 
+				"			<div class=\"logoHeader\"></div>\n" + 
+				"			<h1>IMC</h1>\n" + 
+				"			<div class=\"nodoInvisibleHeader\"></div>\n" + 
+				"			<div class=\"usuario\">\n" + 
+				"				<div>\n" + 
+				"					<p class=\"nombreUsuario\">Usuario</p>\n" + 
+				"					<div class=\"fotoUsuario\" ></div>\n" + 
+				"				</div>\n" + 
+				"				<div>\n" + 
+				"					<a href=\"Login\">LogIn</a>\n" + 
+				"					<p>|</p>\n" + 
+				"					<a href=\"Register\"> Register</a>\n" + 
+				"				</div>\n" + 
+				"			</div>\n" + 
+				"		</div>" ;
+
+		//Pinta el html
+		out.append(html);
+	};
 
 }

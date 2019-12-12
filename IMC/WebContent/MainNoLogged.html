@@ -16,7 +16,7 @@
 			<div class="usuario">
 				<div>
 					<p class="nombreUsuario">Usuario</p>
-					<div class="fotoUsuario" ></div>
+					<div class="fotoUsuario"></div>
 				</div>
 				<div>
 					<a href="Login">LogIn</a>
@@ -26,19 +26,23 @@
 			</div>
 		</div>
 		<div class="tab">
-
+			<ul>
+				<li><a href='Main'>HOME</a></li>
+			</ul>
 		</div>
 	</div>
 	<div class="container">
 		<div class="logoMain"></div>
 		<p>IMC</p>
-		<form method="GET" action="calcularIMC">
-			<div >
+		<form method="GET" action="Calculo">
+			<div>
 				<div>
-					<p>Estatura: </p><input type="number" placeholder="Buscar" name="estatura" />
+					<p>Estatura (cm):</p>
+					<input type="number" name="estatura" />
 				</div>
 				<div>
-					<p>Peso:</p> <input type="number" name="peso" />
+					<p>Peso:</p>
+					<input type="number" name="peso" />
 				</div>
 				<div>
 					<input type="submit" value="Calcular" />

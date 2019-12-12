@@ -61,6 +61,7 @@ public class Calculo extends HttpServlet {
 
 		if (user != null) {
 			Cabecera.mostrarLogged(response.getWriter(), user);
+			calculoEJB.guardarCalculo(peso, estatura.intValue(), user);
 		} else {
 			Cabecera.mostrarNoLogged(response.getWriter());
 		}

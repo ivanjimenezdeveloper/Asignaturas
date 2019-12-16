@@ -20,25 +20,36 @@ function guardarTexto() {
 function anyadirTexto() {
     var selector = document.getElementById("selector");
 
-
     selector = selector.options[selector.selectedIndex].text;
-var texto = document.getElementById("texto");
+var texto = document.getElementById("texto").value;
+var textoCambio = "";
     if (selector == "binario") {
 
-//        if (!RegExp("^[0-1]{1,}$").test(event.key)) {
-//
-//            document.getElementById("texto").value = texto;
-//        }
-
-    if (!texto.value.match(/^[0-1]{1,}$/)) {
-        texto.value = texto.value.replace(/^[0-1]{1,}$/g, '');
-    }
+        for (var i = 0; i < texto.length; i++) {
+            
+          textoCambio +=  texto.charAt(i).replace(/[^0-1]/, "");
+            
+            
+        }
 
     } else if (selector == "octal") {
-
+        for (var i = 0; i < texto.length; i++) {
+            
+          textoCambio +=  texto.charAt(i).replace(/[^0-7]/, "");
+            
+            
+        }
     } else {
+                for (var i = 0; i < texto.length; i++) {
+            
+          textoCambio +=  texto.charAt(i).replace(/[^1-9A-F]/, "");
+            
+            
+        }
 
     }
+    
+    document.getElementById("texto").value = textoCambio;
 }
 
 function borrar() {

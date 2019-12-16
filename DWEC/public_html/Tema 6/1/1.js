@@ -62,8 +62,8 @@ function retornaValor(objeto) {
         }
     } else if (objeto.type == "select-one") {
         
-
         toReturn = objeto.options[objeto.selectedIndex].text + ", ";
+        
     }else if(objeto.type == "select-multiple"){
         toReturn += " [";
         for (var i = 0; i < objeto.selectedOptions.length; i++) {

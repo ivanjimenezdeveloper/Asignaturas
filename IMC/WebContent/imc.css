@@ -310,10 +310,11 @@ td {
   justify-content: start;
   align-items: center;
   align-content: center;
-  width: 500px;
+  width: 700px;
 	border-width:10px;
 border-style:ridge;
 border-color:#2ece71;
+  margin-top: 30px;
 }
 
 .calculo > div:first-child{

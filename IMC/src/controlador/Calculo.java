@@ -49,9 +49,11 @@ public class Calculo extends HttpServlet {
 
 		Double peso = 0.0;
 		Double estatura = 0.0;
+		String guardar = null;
 		try {
 			estatura = Double.parseDouble(request.getParameter("estatura"));
 			peso = Double.parseDouble(request.getParameter("peso"));
+			guardar = request.getParameter("guardar");
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -61,7 +63,9 @@ public class Calculo extends HttpServlet {
 
 		if (user != null) {
 			Cabecera.mostrarLogged(response.getWriter(), user);
-			calculoEJB.guardarCalculo(peso, estatura.intValue(), user);
+			if (!guardar.equals("n")) {
+				calculoEJB.guardarCalculo(peso, estatura.intValue(), user);
+			}
 		} else {
 			Cabecera.mostrarNoLogged(response.getWriter());
 		}

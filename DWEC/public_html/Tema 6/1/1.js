@@ -2,6 +2,14 @@
 
 window.onload = function () {
     document.getElementById("boton").addEventListener("click", cogerValor);
+    document.getElementById("car").addEventListener("change", check);
+    document.getElementById("bike").addEventListener("change", check);
+    
+    document.getElementById("carh").disabled = true;
+    document.getElementById("bikeh").disabled = true;
+    
+
+
 }
 
 function cogerValor() {
@@ -18,13 +26,25 @@ function cogerValor() {
 
 }
 
+function check() {
+    
+    var lista = document.getElementById(this.id + "h");
+    
+    if(this.checked){
+        lista.disabled = false;
+    }else{
+        lista.disabled = true;
+    }
+
+}
+
 function retornaValor(objeto) {
 
     var toReturn = "";
 
     if (objeto.type == "textarea" || objeto.type == "text") {
         toReturn = objeto.value + ", ";
-    } else if (objeto.type) {
+    } else if (objeto.type == "radio") {
 
 
 
@@ -38,10 +58,18 @@ function retornaValor(objeto) {
 
     } else if (objeto.type == "checkbox") {
         if (objeto.checked) {
-            toReturn = objeto.value + ", ";
+            toReturn = objeto.value + " ";
         }
     } else if (objeto.type == "select-one") {
+        
+
         toReturn = objeto.options[objeto.selectedIndex].text + ", ";
+    }else if(objeto.type == "select-multiple"){
+        toReturn += " [";
+        for (var i = 0; i < objeto.selectedOptions.length; i++) {
+           toReturn += objeto.selectedOptions[i].text +" ";
+        }
+        toReturn +=  "], ";
     }
 
 

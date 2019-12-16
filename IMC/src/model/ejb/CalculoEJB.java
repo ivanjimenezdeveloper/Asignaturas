@@ -1,8 +1,11 @@
 package model.ejb;
 
+import java.util.ArrayList;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
+import model.entidad.Calculo_Imc;
 import model.entidad.Usuario;
 import model.entidad.dao.CalculoDAO;
 
@@ -25,5 +28,11 @@ public class CalculoEJB {
 
 		calculo.guardarCalculo(peso, estatura, user);
 
+	}
+	
+	public ArrayList<Calculo_Imc> getCalculosUsuario(Usuario user) {
+		CalculoDAO c = new CalculoDAO();
+		
+		return c.getCalculosUsuario(user);
 	}
 }

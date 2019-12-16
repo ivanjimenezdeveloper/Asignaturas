@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="Actividad1T1.Producto"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
-    <fullyQualifiedTypeName name="org.apache.tomcat.util.http.Cookies"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
-    <fullyQualifiedTypeName name="org.apache.naming.java.javaURLContextFactory"/>
-    <fullyQualifiedTypeName name="java.sql.Statement"/>
-    <fullyQualifiedTypeName name="org.apache.tomcat.jdbc.pool.PoolConfiguration"/>
-    <fullyQualifiedTypeName name="Usuario"/>
     <fullyQualifiedTypeName name="Connection"/>
     <fullyQualifiedTypeName name="Tabla"/>
     <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
@@ -39,7 +31,6 @@
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
     <fullyQualifiedTypeName name="clases.tag"/>
-    <fullyQualifiedTypeName name="model.Conexion"/>
     <fullyQualifiedTypeName name="model.entidad.usuario.UsuarioKey"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="vista.cabecera.Mostar"/>
@@ -49,15 +40,24 @@
     <fullyQualifiedTypeName name="vista.nav.Nav"/>
     <fullyQualifiedTypeName name="jdk.tools.jaotc.binformat.CodeContainer"/>
     <fullyQualifiedTypeName name="vista.container.Container"/>
-    <fullyQualifiedTypeName name="javax.ejb.Stateless"/>
-    <fullyQualifiedTypeName name="javax.ejb.LocalBean"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="model.entidad.dao.UsuarioDAO"/>
     <fullyQualifiedTypeName name="model.entidad.UsuarioKey"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="javax.ejb.Stateless"/>
+    <fullyQualifiedTypeName name="javax.ejb.LocalBean"/>
     <fullyQualifiedTypeName name="javax.ejb.EJB"/>
     <fullyQualifiedTypeName name="model.ejb.UsuarioEJB"/>
     <fullyQualifiedTypeName name="model.ejb.Sesiones"/>
+    <fullyQualifiedTypeName name="model.ejb.CalculoEJB"/>
     <fullyQualifiedTypeName name="vista.Cabecera"/>
+    <fullyQualifiedTypeName name="vista.Nav"/>
+    <fullyQualifiedTypeName name="vista.container.Calculo"/>
+    <fullyQualifiedTypeName name="vista.Footer"/>
     <fullyQualifiedTypeName name="model.entidad.Usuario"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="model.Conexion"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="model.entidad.dao.CalculoDAO"/>
 </qualifiedTypeNameHistroy>

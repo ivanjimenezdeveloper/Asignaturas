@@ -297,6 +297,51 @@ td {
 	align-content: center;
 }
 
+/*************************************MIS CALCULOS*************************************/
+
+.calculo{
+	display: flex;
+}
+
+.calculo {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  align-content: center;
+  width: 500px;
+	border-width:10px;
+border-style:ridge;
+border-color:#2ece71;
+}
+
+.calculo > div:first-child{
+	display: flex;
+	width: 350px;
+	
+	width: 70%;
+}
+
+.calculo > div:first-child > p{
+	margin: 0 auto;
+	margin-left: 10px;
+}
+
+.calculo > div:last-child{
+	align-self: end;
+	align-content: end;
+	width: 16%;
+	margin-right: 5;
+	justify-content: right;
+	text-align: right;
+}
+
+.calculo >div{
+  flex: 0 0 auto;
+  margin: 10px;
+}
+
 /*************************************FORMULARIOS*************************************/
 .container>form {
 	display: flex;

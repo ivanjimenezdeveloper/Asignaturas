@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
-       
+
         <script src="1.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -27,8 +27,21 @@ and open the template in the editor.
                 <input type="radio" name="gender" value="female" id="female"> Female<br>
             </div>
             <div>
-                <input type="checkbox" name="vehicle" value="Bike" id="bike"> I have a bike
-                <input type="checkbox" name="vehicle" value="Car" id="car" checked="checked"> I have a car
+                <input type="checkbox" name="vehicle" value="Bike" id="bike"> I have a bike<br>
+                <select id="bikeh" multiple >
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+
+                <input type="checkbox" name="vehicle" value="Car" id="car" > I have a car<br>
+                <select id="carh" multiple>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
             </div>
             <div>
                 <select id="select">
@@ -40,9 +53,9 @@ and open the template in the editor.
 
 
         </form>
-                    <div>
-                <button id="boton"> DALE</button>
-            </div>
+        <div>
+            <button id="boton"> DALE</button>
+        </div>
         <p id="output"></p>
     </body>
 </html>

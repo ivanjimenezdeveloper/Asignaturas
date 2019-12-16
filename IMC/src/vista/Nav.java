@@ -16,8 +16,20 @@ public class Nav {
 	 */
 	public static void mostrar(PrintWriter out) {
 		String html = "            <div class=\"tab\">\n" 
-	+ "            </div>\n" +"<ul><li><a href='Main'>HOME</a></li></ul>" +"        </div>\n</div>";
+	+ "            </div>\n" +"<ul>"
+			+ "<li><a href='Main'>HOME</a></li>"
+			+ "<li><a href='MisCalculos'>Mis calculos</a></li>"
+			+ "</ul>" +"        </div>\n</div>";
 
 		out.append(html);
 	};
+	public static void mostrarNologged(PrintWriter out) {
+		String html = "            <div class=\"tab\">\n" 
+	+ "            </div>\n" +"<ul>"
+			+ "<li><a href='Main'>HOME</a></li>"
+			+ "</ul>" +"        </div>\n</div>";
+
+		out.append(html);
+	};
+	
 }

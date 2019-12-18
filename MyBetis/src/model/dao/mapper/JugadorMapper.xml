@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace='model.dao.mapper.JugadorMapper'>
+
+	<select id='existeJugador' resultType='model.entidad.Jugador'>
+		SELECT * FROM JUGADOR
+		WHERE NOMBRE = #{nombre}
+	</select>
+
+	<resultMap type='Jugador' id='JugadorResult'>
+		<id property='id' column='ID' />
+		<result property='nombre' column='NOMBRE' />
+	</resultMap>
+
+	<select id='getJugadores' resultMap='JugadorResult'>
+		SELECT * FROM JUGADOR
+	</select>
+
+	<insert id='insertJugador' parameterType='Jugador'
+		useGeneratedKeys='true' keyProperty='id'>
+		INSERT INTO JUGADOR (nombre)
+		VALUES(#{nombre})
+	</insert>
+
+	<update id='updateJugador' parameterType='Jugador'>
+		UPDATE JUGADOR
+		SET
+		nombre = #{nombre}
+		WHERE id
+		= #{id}
+	</update>
+
+	<delete id='deleteJugador'>
+		DELETE FROM JUGADOR WHERE id = #{id}
+	</delete>
+
+	<select id='getJugador'
+		resultType='Jugador'>
+		SELECT * FROM JUGADOR WHERE id = #{id}
+	</select>
+</mapper>

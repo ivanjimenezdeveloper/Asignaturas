@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace='aplicacion.modelo.dao.mappers.UsuariosMapper'>
+
+	<select id='existeUsuario' resultType='aplicacion.modelo.pojo.Usuario'>
+		SELECT * FROM Usuarios WHERE usuario = #{user} AND password = #{pass}
+	</select>
+
+	<resultMap type='Usuario' id='UsuariosResult'>
+		<id property='id' column='id' />
+		<result property='nombre' column='nombre' />
+		<result property='usuario' column='usuario' />
+		<result property='password' column='password' />
+	</resultMap>
+
+	<select id='getUsuarios' resultMap='UsuariosResult'>
+		SELECT * FROM Usuarios
+	</select>
+
+	<insert id='insertUsuario' parameterType='Usuario' useGeneratedKeys='true' keyProperty='id'>
+		INSERT INTO Usuarios (nombre, usuario, password)
+		VALUES(#{nombre}, #{usuario}, #{password})
+	</insert>
+
+	<update id='updateUsuario' parameterType='Usuario'>
+		UPDATE Usuarios
+		SET
+		nombre = #{nombre},
+		usuario = #{usuario},
+		password= #{password}
+		WHERE id = #{id}
+	</update>
+
+	<delete id='deleteUsuario'>
+		DELETE FROM Usuarios WHERE id = #{id}
+	</delete>
+
+	<select id='getUsuario' resultType='aplicacion.modelo.pojo.Usuario'>
+		SELECT * FROM Usuarios WHERE id = #{id}
+	</select>
+</mapper>

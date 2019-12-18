@@ -9009,3 +9009,1261 @@ org.eclipse.core.runtime.AssertionFailedException: null argument:
 	at org.eclipse.jdt.core.JavaCore.initializeAfterLoad(JavaCore.java:4480)
 	at org.eclipse.jdt.internal.ui.InitializeAfterLoadJob$RealJob.run(InitializeAfterLoadJob.java:39)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2019-12-18 18:39:37.050 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=11.0.4
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:39:52.686
+!MESSAGE Exception occurred executing command line.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Exception occurred executing command line.
+	at org.eclipse.debug.core.DebugPlugin.exec(DebugPlugin.java:942)
+	at org.eclipse.debug.core.DebugPlugin.exec(DebugPlugin.java:885)
+	at org.eclipse.jdt.internal.launching.StandardVMType.generateLibraryInfo(StandardVMType.java:712)
+	at org.eclipse.jdt.internal.launching.StandardVMType.getLibraryInfo(StandardVMType.java:240)
+	at org.eclipse.jdt.internal.launching.StandardVMType.getDefaultLibraryLocations(StandardVMType.java:457)
+	at org.eclipse.jdt.internal.launching.StandardVMType.canDetectDefaultSystemLibraries(StandardVMType.java:267)
+	at org.eclipse.jdt.internal.launching.StandardVMType.validateInstallLocation(StandardVMType.java:661)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.addVM(VMDefinitionsContainer.java:139)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.populateVMForType(VMDefinitionsContainer.java:561)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.populateVMTypes(VMDefinitionsContainer.java:497)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.parseXMLIntoContainer(VMDefinitionsContainer.java:476)
+	at org.eclipse.jdt.launching.JavaRuntime.addPersistedVMs(JavaRuntime.java:1929)
+	at org.eclipse.jdt.launching.JavaRuntime.initializeVMs(JavaRuntime.java:3190)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallTypes(JavaRuntime.java:575)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallType(JavaRuntime.java:449)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.resolveVM(JREContainerInitializer.java:155)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.initialize(JREContainerInitializer.java:63)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3195)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2116)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3691)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3142)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3306)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.isTestSource(CompilationUnitProblemFinder.java:216)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:253)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:346)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:193)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1315)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:188)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:122)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:139)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:423)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+Caused by: java.io.IOException: Cannot run program "/home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231/bin/java": error=2, No existe el archivo o el directorio
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1128)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1071)
+	at java.base/java.lang.Runtime.exec(Runtime.java:591)
+	at java.base/java.lang.Runtime.exec(Runtime.java:493)
+	at org.eclipse.debug.core.DebugPlugin.exec(DebugPlugin.java:935)
+	... 41 more
+Caused by: java.io.IOException: error=2, No existe el archivo o el directorio
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:340)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:271)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1107)
+	... 45 more
+!SUBENTRY 1 org.eclipse.debug.core 4 125 2019-12-18 18:39:52.687
+!MESSAGE Exception occurred executing command line.
+!STACK 0
+java.io.IOException: Cannot run program "/home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231/bin/java": error=2, No existe el archivo o el directorio
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1128)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1071)
+	at java.base/java.lang.Runtime.exec(Runtime.java:591)
+	at java.base/java.lang.Runtime.exec(Runtime.java:493)
+	at org.eclipse.debug.core.DebugPlugin.exec(DebugPlugin.java:935)
+	at org.eclipse.debug.core.DebugPlugin.exec(DebugPlugin.java:885)
+	at org.eclipse.jdt.internal.launching.StandardVMType.generateLibraryInfo(StandardVMType.java:712)
+	at org.eclipse.jdt.internal.launching.StandardVMType.getLibraryInfo(StandardVMType.java:240)
+	at org.eclipse.jdt.internal.launching.StandardVMType.getDefaultLibraryLocations(StandardVMType.java:457)
+	at org.eclipse.jdt.internal.launching.StandardVMType.canDetectDefaultSystemLibraries(StandardVMType.java:267)
+	at org.eclipse.jdt.internal.launching.StandardVMType.validateInstallLocation(StandardVMType.java:661)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.addVM(VMDefinitionsContainer.java:139)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.populateVMForType(VMDefinitionsContainer.java:561)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.populateVMTypes(VMDefinitionsContainer.java:497)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.parseXMLIntoContainer(VMDefinitionsContainer.java:476)
+	at org.eclipse.jdt.launching.JavaRuntime.addPersistedVMs(JavaRuntime.java:1929)
+	at org.eclipse.jdt.launching.JavaRuntime.initializeVMs(JavaRuntime.java:3190)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallTypes(JavaRuntime.java:575)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallType(JavaRuntime.java:449)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.resolveVM(JREContainerInitializer.java:155)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.initialize(JREContainerInitializer.java:63)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3195)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2116)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3691)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3142)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3306)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.isTestSource(CompilationUnitProblemFinder.java:216)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:253)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:346)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:193)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1315)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:188)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:122)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:139)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:423)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+Caused by: java.io.IOException: error=2, No existe el archivo o el directorio
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:340)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:271)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1107)
+	... 45 more
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:39:52.724
+!MESSAGE Failed to retrieve default libraries for /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:39:52.725
+!MESSAGE Exception occurred executing command line.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Exception occurred executing command line.
+	at org.eclipse.debug.core.DebugPlugin.exec(DebugPlugin.java:942)
+	at org.eclipse.debug.core.DebugPlugin.exec(DebugPlugin.java:885)
+	at org.eclipse.jdt.internal.launching.StandardVMType.generateLibraryInfo(StandardVMType.java:712)
+	at org.eclipse.jdt.internal.launching.StandardVMType.getLibraryInfo(StandardVMType.java:243)
+	at org.eclipse.jdt.internal.launching.StandardVMType.getDefaultLibraryLocations(StandardVMType.java:457)
+	at org.eclipse.jdt.internal.launching.StandardVMType.canDetectDefaultSystemLibraries(StandardVMType.java:267)
+	at org.eclipse.jdt.internal.launching.StandardVMType.validateInstallLocation(StandardVMType.java:661)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.addVM(VMDefinitionsContainer.java:139)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.populateVMForType(VMDefinitionsContainer.java:561)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.populateVMTypes(VMDefinitionsContainer.java:497)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.parseXMLIntoContainer(VMDefinitionsContainer.java:476)
+	at org.eclipse.jdt.launching.JavaRuntime.addPersistedVMs(JavaRuntime.java:1929)
+	at org.eclipse.jdt.launching.JavaRuntime.initializeVMs(JavaRuntime.java:3190)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallTypes(JavaRuntime.java:575)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallType(JavaRuntime.java:449)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.resolveVM(JREContainerInitializer.java:155)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.initialize(JREContainerInitializer.java:63)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3195)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2116)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3691)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3142)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3306)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.isTestSource(CompilationUnitProblemFinder.java:216)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:253)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:346)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:193)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1315)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:188)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:122)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:139)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:423)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+Caused by: java.io.IOException: Cannot run program "/home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231/bin/java": error=2, No existe el archivo o el directorio
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1128)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1071)
+	at java.base/java.lang.Runtime.exec(Runtime.java:591)
+	at java.base/java.lang.Runtime.exec(Runtime.java:493)
+	at org.eclipse.debug.core.DebugPlugin.exec(DebugPlugin.java:935)
+	... 41 more
+Caused by: java.io.IOException: error=2, No existe el archivo o el directorio
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:340)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:271)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1107)
+	... 45 more
+!SUBENTRY 1 org.eclipse.debug.core 4 125 2019-12-18 18:39:52.726
+!MESSAGE Exception occurred executing command line.
+!STACK 0
+java.io.IOException: Cannot run program "/home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231/bin/java": error=2, No existe el archivo o el directorio
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1128)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1071)
+	at java.base/java.lang.Runtime.exec(Runtime.java:591)
+	at java.base/java.lang.Runtime.exec(Runtime.java:493)
+	at org.eclipse.debug.core.DebugPlugin.exec(DebugPlugin.java:935)
+	at org.eclipse.debug.core.DebugPlugin.exec(DebugPlugin.java:885)
+	at org.eclipse.jdt.internal.launching.StandardVMType.generateLibraryInfo(StandardVMType.java:712)
+	at org.eclipse.jdt.internal.launching.StandardVMType.getLibraryInfo(StandardVMType.java:243)
+	at org.eclipse.jdt.internal.launching.StandardVMType.getDefaultLibraryLocations(StandardVMType.java:457)
+	at org.eclipse.jdt.internal.launching.StandardVMType.canDetectDefaultSystemLibraries(StandardVMType.java:267)
+	at org.eclipse.jdt.internal.launching.StandardVMType.validateInstallLocation(StandardVMType.java:661)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.addVM(VMDefinitionsContainer.java:139)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.populateVMForType(VMDefinitionsContainer.java:561)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.populateVMTypes(VMDefinitionsContainer.java:497)
+	at org.eclipse.jdt.internal.launching.VMDefinitionsContainer.parseXMLIntoContainer(VMDefinitionsContainer.java:476)
+	at org.eclipse.jdt.launching.JavaRuntime.addPersistedVMs(JavaRuntime.java:1929)
+	at org.eclipse.jdt.launching.JavaRuntime.initializeVMs(JavaRuntime.java:3190)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallTypes(JavaRuntime.java:575)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallType(JavaRuntime.java:449)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.resolveVM(JREContainerInitializer.java:155)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.initialize(JREContainerInitializer.java:63)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3195)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2116)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3691)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3142)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3306)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.isTestSource(CompilationUnitProblemFinder.java:216)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:253)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:346)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:193)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1315)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:188)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:122)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:139)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:423)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+Caused by: java.io.IOException: error=2, No existe el archivo o el directorio
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:340)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:271)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1107)
+	... 45 more
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:39:52.727
+!MESSAGE Failed to retrieve default libraries for /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:39:52.734
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:39:52.740
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:39:52.741
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.core 4 4 2019-12-18 18:39:52.748
+!MESSAGE Exception occurred during problem detection:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package vista.container;
+
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
+import model.entidad.Calculo_Imc;
+
+public class MisCalculos {
+
+	public static void mostrar(PrintWriter out, ArrayList<Calculo_Imc> arrCalc) {
+		String html = "	<div class=\"container\">\n";
+		
+		
+		String pattern = "YYYY-MM-dd HH:mm:ss";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		Date fecha = new Date();
+		simpleDateFormat.format(fecha);
+		
+		for (Calculo_Imc c : arrCalc) {
+
+			html += "<div class='calculo'>";
+
+			html += "<div>";
+
+			html += "<p> Peso: <span>" + c.getPeso() + "</span></p>";
+			html += "<p> Estatura: <span>" + c.getEstatura() + "</span></p>";
+			html += "<p> Fecha: <span>" + simpleDateFormat.format(c.getFecha()) + "</span></p>";
+
+			html += "</div>";
+			
+			html += "<div><a href='Calculo?peso="+c.getPeso()+"&estatura="+c.getEstatura()+"&guardar=n'>Ver</a></div>";
+
+			html += "</div>";
+
+		}
+
+		html += "\n" + "	</div>";
+//pinta el html
+		out.append(html);
+	};
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:88)
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:76)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:94)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:89)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.getCommandLine(StandardVMRunner.java:473)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.run(StandardVMRunner.java:497)
+	at org.eclipse.jdt.launching.AbstractVMInstall.evaluateSystemProperties(AbstractVMInstall.java:398)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.isFoundation1_0(ExecutionEnvironmentAnalyzer.java:183)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.analyze(ExecutionEnvironmentAnalyzer.java:111)
+	at org.eclipse.jdt.internal.launching.environments.Analyzer.analyze(Analyzer.java:44)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.analyze(EnvironmentsManager.java:387)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.vmAdded(EnvironmentsManager.java:429)
+	at org.eclipse.jdt.launching.JavaRuntime.fireVMAdded(JavaRuntime.java:2908)
+	at org.eclipse.jdt.launching.JavaRuntime.initializeVMs(JavaRuntime.java:3280)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallTypes(JavaRuntime.java:575)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallType(JavaRuntime.java:449)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.resolveVM(JREContainerInitializer.java:155)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.initialize(JREContainerInitializer.java:63)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3195)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2116)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3691)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3142)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3306)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.isTestSource(CompilationUnitProblemFinder.java:216)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:253)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:346)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:193)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1315)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:188)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:122)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:139)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:423)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2019-12-18 18:39:52.749
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 1
+Java Model Exception: org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:324)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:346)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:193)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1315)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:188)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:122)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:139)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:423)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+Caused by: org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:88)
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:76)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:94)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:89)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.getCommandLine(StandardVMRunner.java:473)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.run(StandardVMRunner.java:497)
+	at org.eclipse.jdt.launching.AbstractVMInstall.evaluateSystemProperties(AbstractVMInstall.java:398)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.isFoundation1_0(ExecutionEnvironmentAnalyzer.java:183)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.analyze(ExecutionEnvironmentAnalyzer.java:111)
+	at org.eclipse.jdt.internal.launching.environments.Analyzer.analyze(Analyzer.java:44)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.analyze(EnvironmentsManager.java:387)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.vmAdded(EnvironmentsManager.java:429)
+	at org.eclipse.jdt.launching.JavaRuntime.fireVMAdded(JavaRuntime.java:2908)
+	at org.eclipse.jdt.launching.JavaRuntime.initializeVMs(JavaRuntime.java:3280)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallTypes(JavaRuntime.java:575)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallType(JavaRuntime.java:449)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.resolveVM(JREContainerInitializer.java:155)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.initialize(JREContainerInitializer.java:63)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3195)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2116)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3691)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3142)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3306)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.isTestSource(CompilationUnitProblemFinder.java:216)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:253)
+	... 17 more
+Caused by: org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:88)
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:76)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:94)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:89)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.getCommandLine(StandardVMRunner.java:473)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.run(StandardVMRunner.java:497)
+	at org.eclipse.jdt.launching.AbstractVMInstall.evaluateSystemProperties(AbstractVMInstall.java:398)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.isFoundation1_0(ExecutionEnvironmentAnalyzer.java:183)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.analyze(ExecutionEnvironmentAnalyzer.java:111)
+	at org.eclipse.jdt.internal.launching.environments.Analyzer.analyze(Analyzer.java:44)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.analyze(EnvironmentsManager.java:387)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.vmAdded(EnvironmentsManager.java:429)
+	at org.eclipse.jdt.launching.JavaRuntime.fireVMAdded(JavaRuntime.java:2908)
+	at org.eclipse.jdt.launching.JavaRuntime.initializeVMs(JavaRuntime.java:3280)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallTypes(JavaRuntime.java:575)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallType(JavaRuntime.java:449)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.resolveVM(JREContainerInitializer.java:155)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.initialize(JREContainerInitializer.java:63)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3195)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2116)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3691)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3142)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3306)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.isTestSource(CompilationUnitProblemFinder.java:216)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:253)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:346)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:193)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1315)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:188)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:122)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:139)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:423)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+!SUBENTRY 1 org.eclipse.jdt.core 4 1005 2019-12-18 18:39:52.749
+!MESSAGE null argument:
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:88)
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:76)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:94)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:89)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.getCommandLine(StandardVMRunner.java:473)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.run(StandardVMRunner.java:497)
+	at org.eclipse.jdt.launching.AbstractVMInstall.evaluateSystemProperties(AbstractVMInstall.java:398)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.isFoundation1_0(ExecutionEnvironmentAnalyzer.java:183)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.analyze(ExecutionEnvironmentAnalyzer.java:111)
+	at org.eclipse.jdt.internal.launching.environments.Analyzer.analyze(Analyzer.java:44)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.analyze(EnvironmentsManager.java:387)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.vmAdded(EnvironmentsManager.java:429)
+	at org.eclipse.jdt.launching.JavaRuntime.fireVMAdded(JavaRuntime.java:2908)
+	at org.eclipse.jdt.launching.JavaRuntime.initializeVMs(JavaRuntime.java:3280)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallTypes(JavaRuntime.java:575)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallType(JavaRuntime.java:449)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.resolveVM(JREContainerInitializer.java:155)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.initialize(JREContainerInitializer.java:63)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3195)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2116)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3691)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3142)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3306)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.isTestSource(CompilationUnitProblemFinder.java:216)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:253)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:346)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:193)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1315)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:188)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:122)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:139)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:423)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+!SUBENTRY 1 org.eclipse.jdt.core 4 1005 2019-12-18 18:39:52.750
+!MESSAGE null argument:
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:88)
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:76)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:94)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:89)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.getCommandLine(StandardVMRunner.java:473)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.run(StandardVMRunner.java:497)
+	at org.eclipse.jdt.launching.AbstractVMInstall.evaluateSystemProperties(AbstractVMInstall.java:398)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.isFoundation1_0(ExecutionEnvironmentAnalyzer.java:183)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.analyze(ExecutionEnvironmentAnalyzer.java:111)
+	at org.eclipse.jdt.internal.launching.environments.Analyzer.analyze(Analyzer.java:44)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.analyze(EnvironmentsManager.java:387)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.vmAdded(EnvironmentsManager.java:429)
+	at org.eclipse.jdt.launching.JavaRuntime.fireVMAdded(JavaRuntime.java:2908)
+	at org.eclipse.jdt.launching.JavaRuntime.initializeVMs(JavaRuntime.java:3280)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallTypes(JavaRuntime.java:575)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallType(JavaRuntime.java:449)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.resolveVM(JREContainerInitializer.java:155)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.initialize(JREContainerInitializer.java:63)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3195)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2116)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3691)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3142)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3306)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.isTestSource(CompilationUnitProblemFinder.java:216)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:253)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:346)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:193)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1315)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:188)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:122)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:139)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:423)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2019-12-18 18:39:52.750
+!MESSAGE Error in JDT Core during reconcile
+!STACK 1
+Java Model Exception: org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:324)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:346)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:193)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1315)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:188)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:122)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:139)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:423)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+Caused by: org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:88)
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:76)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:94)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:89)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.getCommandLine(StandardVMRunner.java:473)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.run(StandardVMRunner.java:497)
+	at org.eclipse.jdt.launching.AbstractVMInstall.evaluateSystemProperties(AbstractVMInstall.java:398)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.isFoundation1_0(ExecutionEnvironmentAnalyzer.java:183)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.analyze(ExecutionEnvironmentAnalyzer.java:111)
+	at org.eclipse.jdt.internal.launching.environments.Analyzer.analyze(Analyzer.java:44)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.analyze(EnvironmentsManager.java:387)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.vmAdded(EnvironmentsManager.java:429)
+	at org.eclipse.jdt.launching.JavaRuntime.fireVMAdded(JavaRuntime.java:2908)
+	at org.eclipse.jdt.launching.JavaRuntime.initializeVMs(JavaRuntime.java:3280)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallTypes(JavaRuntime.java:575)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallType(JavaRuntime.java:449)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.resolveVM(JREContainerInitializer.java:155)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.initialize(JREContainerInitializer.java:63)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3195)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2116)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3691)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3142)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3306)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.isTestSource(CompilationUnitProblemFinder.java:216)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:253)
+	... 17 more
+Caused by: org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:88)
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:76)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:94)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:89)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.getCommandLine(StandardVMRunner.java:473)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.run(StandardVMRunner.java:497)
+	at org.eclipse.jdt.launching.AbstractVMInstall.evaluateSystemProperties(AbstractVMInstall.java:398)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.isFoundation1_0(ExecutionEnvironmentAnalyzer.java:183)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.analyze(ExecutionEnvironmentAnalyzer.java:111)
+	at org.eclipse.jdt.internal.launching.environments.Analyzer.analyze(Analyzer.java:44)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.analyze(EnvironmentsManager.java:387)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.vmAdded(EnvironmentsManager.java:429)
+	at org.eclipse.jdt.launching.JavaRuntime.fireVMAdded(JavaRuntime.java:2908)
+	at org.eclipse.jdt.launching.JavaRuntime.initializeVMs(JavaRuntime.java:3280)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallTypes(JavaRuntime.java:575)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallType(JavaRuntime.java:449)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.resolveVM(JREContainerInitializer.java:155)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.initialize(JREContainerInitializer.java:63)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3195)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2116)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3691)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3142)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3306)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.isTestSource(CompilationUnitProblemFinder.java:216)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:253)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:346)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:193)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1315)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:188)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:122)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:139)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:423)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+!SUBENTRY 1 org.eclipse.jdt.core 4 1005 2019-12-18 18:39:52.751
+!MESSAGE null argument:
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:88)
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:76)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:94)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:89)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.getCommandLine(StandardVMRunner.java:473)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.run(StandardVMRunner.java:497)
+	at org.eclipse.jdt.launching.AbstractVMInstall.evaluateSystemProperties(AbstractVMInstall.java:398)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.isFoundation1_0(ExecutionEnvironmentAnalyzer.java:183)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.analyze(ExecutionEnvironmentAnalyzer.java:111)
+	at org.eclipse.jdt.internal.launching.environments.Analyzer.analyze(Analyzer.java:44)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.analyze(EnvironmentsManager.java:387)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.vmAdded(EnvironmentsManager.java:429)
+	at org.eclipse.jdt.launching.JavaRuntime.fireVMAdded(JavaRuntime.java:2908)
+	at org.eclipse.jdt.launching.JavaRuntime.initializeVMs(JavaRuntime.java:3280)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallTypes(JavaRuntime.java:575)
+	at org.eclipse.jdt.launching.JavaRuntime.getVMInstallType(JavaRuntime.java:449)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.resolveVM(JREContainerInitializer.java:155)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.initialize(JREContainerInitializer.java:63)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3195)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2116)
+	at org.eclipse.jdt.core.JavaCore.getClasspathContainer(JavaCore.java:3691)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3142)
+	at org.eclipse.jdt.internal.core.JavaProject.resolveClasspath(JavaProject.java:3306)
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2424)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.isTestSource(CompilationUnitProblemFinder.java:216)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:253)
+	at org.eclipse.jdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:346)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:193)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1315)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:188)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:122)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:139)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:423)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:39:57.143
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:39:57.145
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:39:57.145
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-12-18 18:39:57.156
+!MESSAGE An internal error occurred during: "Initializing Java Tooling".
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:88)
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:76)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:94)
+	at org.eclipse.jdt.internal.launching.ClasspathShortener.<init>(ClasspathShortener.java:89)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.getCommandLine(StandardVMRunner.java:473)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.run(StandardVMRunner.java:497)
+	at org.eclipse.jdt.launching.AbstractVMInstall.evaluateSystemProperties(AbstractVMInstall.java:398)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.isFoundation1_0(ExecutionEnvironmentAnalyzer.java:183)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironmentAnalyzer.analyze(ExecutionEnvironmentAnalyzer.java:111)
+	at org.eclipse.jdt.internal.launching.environments.Analyzer.analyze(Analyzer.java:44)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.analyze(EnvironmentsManager.java:387)
+	at org.eclipse.jdt.internal.launching.environments.EnvironmentsManager.initializeCompatibilities(EnvironmentsManager.java:294)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironment.init(ExecutionEnvironment.java:185)
+	at org.eclipse.jdt.internal.launching.environments.ExecutionEnvironment.getDefaultVM(ExecutionEnvironment.java:227)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.resolveVM(JREContainerInitializer.java:179)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.resolveVM(JREContainerInitializer.java:146)
+	at org.eclipse.jdt.internal.launching.JREContainerInitializer.initialize(JREContainerInitializer.java:63)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeContainer(JavaModelManager.java:3195)
+	at org.eclipse.jdt.internal.core.JavaModelManager$10.run(JavaModelManager.java:3079)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2295)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2322)
+	at org.eclipse.jdt.internal.core.JavaModelManager.initializeAllContainers(JavaModelManager.java:3141)
+	at org.eclipse.jdt.internal.core.JavaModelManager.getClasspathContainer(JavaModelManager.java:2111)
+	at org.eclipse.jdt.core.JavaCore.initializeAfterLoad(JavaCore.java:4480)
+	at org.eclipse.jdt.internal.ui.InitializeAfterLoadJob$RealJob.run(InitializeAfterLoadJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.274
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.336
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.336
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.337
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.337
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.338
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.338
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.339
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.339
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.339
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.427
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.428
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.429
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.430
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.430
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.431
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.432
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.433
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.434
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.437
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.437
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.437
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.438
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.438
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.438
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.438
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.438
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.439
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.520
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.521
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.521
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.521
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.521
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.522
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.522
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.522
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:12.522
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:18.026
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:18.191
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:18.198
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:18.201
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:18.207
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:18.210
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:18.215
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:18.217
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:18.223
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:18.225
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:18.231
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.188
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.188
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.189
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.189
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.190
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.190
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.191
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.191
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.192
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.202
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.202
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.202
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.203
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.203
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.203
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.203
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.203
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:37.203
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:58.446
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:58.457
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:58.833
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:58.842
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:58.860
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:58.864
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:58.877
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:43:58.878
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:00.450
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:00.454
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:00.454
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:00.456
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:00.456
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.667
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.702
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.703
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.703
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.703
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.703
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.704
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.704
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.704
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.705
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.734
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.734
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.734
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.735
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.735
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.735
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.736
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.736
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.736
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.737
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.737
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.738
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.738
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.738
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.739
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.739
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.739
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.740
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.838
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.842
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.843
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.843
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.844
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.844
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.844
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.845
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.845
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.846
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.857
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.857
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.864
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.864
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.865
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.865
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.865
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.866
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.866
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.867
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.867
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.917
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.917
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.917
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.917
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.917
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.918
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.918
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.918
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.918
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.919
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.920
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.920
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.920
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.920
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.920
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.921
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.921
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.921
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.922
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.922
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.922
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.922
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.922
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.923
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.923
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.923
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:22.923
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:46.856
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:46.878
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:46.879
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:48.085
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:48.085
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:48.089
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:48.089
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:48.090
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 18:44:48.091
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 19:00:11.485
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 19:00:41.738
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.
+
+!ENTRY org.eclipse.ui 4 0 2019-12-18 19:14:26.715
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController.computeInformation(AdditionalInfoController.java:541)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractInformationControlManager.showInformation(AbstractInformationControlManager.java:1091)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController.showInformation(AdditionalInfoController.java:530)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$1.showInformation(AdditionalInfoController.java:477)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$Timer.lambda$1(AdditionalInfoController.java:362)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4857)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4409)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1441)
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-18 19:42:53.646
+!MESSAGE Could not determine Java version for location /home/horabaixa/Descargas/jre-8u231-linux-i586/jre1.8.0_231.

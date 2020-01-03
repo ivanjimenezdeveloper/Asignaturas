@@ -1,5 +1,10 @@
 package model.entidad;
 
+/**
+ * POJO de la key de calculo
+ * @author HIBAN
+ *
+ */
 public class Calculo_ImcKey {
 
 	private Integer id;

@@ -21,6 +21,11 @@ import vista.Footer;
 import vista.Nav;
 
 @WebServlet("/MisCalculos")
+/**
+ * Consigue y muestra los calculos del usuario
+ * @author HIBAN
+ *
+ */
 public class MisCalculos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -42,6 +47,9 @@ public class MisCalculos extends HttpServlet {
 	@EJB
 	CalculoEJB calculoEJB;
 
+	/**
+	 * Consigue la array de calculos y la muestra
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession sesion = request.getSession(true);

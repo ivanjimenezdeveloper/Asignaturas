@@ -6,9 +6,18 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import model.entidad.Calculo_Imc;
-
+/**
+ * Muestra el html de los calculos de un ususario
+ * @author HIBAN
+ *
+ */
 public class MisCalculos {
 
+	/**
+	 * Muestra el html
+	 * @param out printwriter que sirve para mostrar
+	 * @param arrCalc Arraylist de calculos
+	 */
 	public static void mostrar(PrintWriter out, ArrayList<Calculo_Imc> arrCalc) {
 		String html = "	<div class=\"container\">\n";
 		

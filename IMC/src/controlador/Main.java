@@ -13,10 +13,17 @@ import javax.servlet.http.HttpSession;
 import model.ejb.Sesiones;
 import model.ejb.UsuarioEJB;
 import model.entidad.Usuario;
-import vista.*;
+import vista.Cabecera;
+import vista.Footer;
+import vista.Nav;
 import vista.container.Principal;
 
 @WebServlet("/Main")
+/**
+ * Muestra la pantalla principal de la pagina
+ * @author HIBAN
+ *
+ */
 public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,8 +39,14 @@ public class Main extends HttpServlet {
 	@EJB
 	Sesiones sesionEJB;
 
+
+	/**
+	 * Muestra la pagina principal de la pagina
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+
 
 		/*
 		 * TENER UN TOMEE VERSION 9 <Resource name="jdbc/IMC" auth="Container"

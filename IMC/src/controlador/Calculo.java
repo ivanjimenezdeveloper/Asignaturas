@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.Logger;
 import model.ejb.CalculoEJB;
 import model.ejb.Sesiones;
 import model.ejb.UsuarioEJB;
@@ -18,12 +21,17 @@ import vista.Cabecera;
 import vista.Footer;
 import vista.Nav;
 
-/**
- * Servlet implementation class Calculo
- */
+
 @WebServlet("/Calculo")
+/**
+ * Hace las operaciones para mostrar los calculos
+ * @author HIBAN
+ *
+ */
 public class Calculo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(Calculo.class);
 
 	/**
 	 * EJB para trabajar con usuarios
@@ -40,6 +48,9 @@ public class Calculo extends HttpServlet {
 	@EJB
 	CalculoEJB calculoEJB;
 
+	/**
+	 * Muestra el calculo
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession sesion = request.getSession(true);
@@ -50,17 +61,21 @@ public class Calculo extends HttpServlet {
 		Double peso = 0.0;
 		Double estatura = 0.0;
 		String guardar = null;
+		
+		//recibe los parametros
 		try {
 			estatura = Double.parseDouble(request.getParameter("estatura"));
 			peso = Double.parseDouble(request.getParameter("peso"));
 			guardar = request.getParameter("guardar");
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			logger.error(e.getMessage());
 		}
 
+		//calcula el IMC
 		Double resultado = calculoEJB.calcularIMC(peso, estatura);
 
+		//Muestra el html
 		if (user != null) {
 			Cabecera.mostrarLogged(response.getWriter(), user);
 			if (!guardar.equals("n")) {

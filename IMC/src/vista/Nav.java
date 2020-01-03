@@ -23,6 +23,10 @@ public class Nav {
 
 		out.append(html);
 	};
+	/**
+	 * Muestra el navegador para los usuarios no logeados
+	 * @param out printwriter que sirve para mostrar
+	 */
 	public static void mostrarNologged(PrintWriter out) {
 		String html = "            <div class=\"tab\">\n" 
 	+ "            </div>\n" +"<ul>"

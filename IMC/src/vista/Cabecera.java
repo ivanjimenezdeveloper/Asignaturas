@@ -35,7 +35,10 @@ public class Cabecera {
 		//Pinta el html
 		out.append(html);
 	};
-	
+	/**
+	 * Muestra la cabecera para usuarios no logeados
+	 * @param out printwriter que sirve para mostrar
+	 */
 	public static void mostrarNoLogged(PrintWriter out) {
 		String html = "<!DOCTYPE html>\n" + 
 				"<html>\n" + 

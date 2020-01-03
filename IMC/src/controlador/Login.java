@@ -14,10 +14,13 @@ import model.ejb.Sesiones;
 import model.ejb.UsuarioEJB;
 import model.entidad.Usuario;
 
-/**
- * Servlet implementation class Login
- */
+
 @WebServlet("/Login")
+/**
+ * Logea al usuario
+ * @author HIBAN
+ *
+ */
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -33,6 +36,9 @@ public class Login extends HttpServlet {
 	@EJB
 	Sesiones sesionEJB;
 
+	/**
+	 * Logea al usuario si es correcto
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -42,6 +48,8 @@ public class Login extends HttpServlet {
 		String error = request.getParameter("error");
 		String logout = request.getParameter("logout");
 		user = sesionEJB.usuarioLogeado(sesion);
+		
+		
 		if (logout != null) {
 			sesionEJB.logoutUsuario(sesion);
 			response.sendRedirect("Main");

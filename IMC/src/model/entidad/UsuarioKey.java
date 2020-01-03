@@ -1,5 +1,10 @@
 package model.entidad;
 
+/**
+ * POJO de la key de usuario
+ * @author HIBAN
+ *
+ */
 public class UsuarioKey {
 	private Integer key;
 

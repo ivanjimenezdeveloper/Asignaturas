@@ -2,6 +2,11 @@ package model.entidad;
 
 import java.util.Date;
 
+/**
+ * POJO de calculo
+ * @author HIBAN
+ *
+ */
 public class Calculo_Imc {
 	private Calculo_ImcKey id;
 	private UsuarioKey idUsuario;

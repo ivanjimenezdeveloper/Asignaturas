@@ -1,5 +1,10 @@
 package model.entidad;
 
+/**
+ * POJO de Usuario
+ * @author HIBAN
+ *
+ */
 public class Usuario {
 	
 	private String correo, nombre, pass, imagen;

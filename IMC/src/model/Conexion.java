@@ -8,6 +8,10 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.Logger;
+
 
 /**
  * Hace la conexion a la base de datos
@@ -19,6 +23,7 @@ public class Conexion {
 	private static Context initContext;
 	private static Context envContext;
 	private static DataSource DS;
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(Conexion.class);
 
 	private Conexion() {
 
@@ -31,7 +36,7 @@ public class Conexion {
 			DS = (DataSource) envContext.lookup("jdbc/IMC");
 
 		} catch (NamingException e) {
-// Logger
+			logger.error(e.getMessage());
 		}
 	}
 	

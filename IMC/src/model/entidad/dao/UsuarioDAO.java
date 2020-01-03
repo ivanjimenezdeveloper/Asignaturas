@@ -6,16 +6,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.Logger;
 import model.Conexion;
 import model.entidad.Usuario;
 import model.entidad.UsuarioKey;
 
+/**
+ * Hace los las operaciones de la logica para interactuar con los usuarios
+ * @author HIBAN
+ *
+ */
 public class UsuarioDAO {
 
 	private static Connection cn;
 	private static PreparedStatement ps;
 	private static ResultSet rs;
 	private static Conexion pool;
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(UsuarioDAO.class);
 
 	/**
 	 * Busca todos los usuarios
@@ -66,17 +75,16 @@ public class UsuarioDAO {
 			}
 
 		} catch (SQLException e) {
-			// Logger
+			logger.error(e.getMessage());
 
-			e.printStackTrace();
 		} finally {
 			try {
 				ps.close();
 				cn.close();
 				rs.close();
 			} catch (SQLException e) {
-				// Logger
-				e.printStackTrace();
+				logger.error(e.getMessage());
+
 
 			}
 
@@ -122,8 +130,8 @@ public class UsuarioDAO {
 			}
 
 		} catch (Exception e) {
-			// TODO: LOGGER
-			e.printStackTrace();
+			logger.error(e.getMessage());
+
 		} finally {
 
 			try {
@@ -131,8 +139,8 @@ public class UsuarioDAO {
 				ps.close();
 				cn.close();
 			} catch (SQLException e) {
-				// TODO LOGGER
-				e.printStackTrace();
+				logger.error(e.getMessage());
+
 			}
 
 		}
@@ -167,8 +175,8 @@ public class UsuarioDAO {
 			}
 
 		} catch (Exception e) {
-			// TODO: LOGGER
-			e.printStackTrace();
+			logger.error(e.getMessage());
+
 		} finally {
 
 			try {
@@ -176,8 +184,8 @@ public class UsuarioDAO {
 				ps.close();
 				cn.close();
 			} catch (SQLException e) {
-				// TODO LOGGER
-				e.printStackTrace();
+				logger.error(e.getMessage());
+
 			}
 
 		}

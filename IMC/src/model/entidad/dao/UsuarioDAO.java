@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.http.Part;
+
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Logger;
@@ -192,5 +194,46 @@ public class UsuarioDAO {
 		return existe;
 
 	}
+	
+	public void registrarUsuario(Usuario user) {
+		pool = Conexion.getInstance();
 
-}
+		try {
+
+			cn = pool.getConnection();
+
+			String query = "INSERT INTO USUARIO(CORREO, NOMBRE, PASS,IMAGEN)" + "VALUES(?, ?, ?, ?)";
+			ps = cn.prepareStatement(query);
+
+			ps.setString(1, user.getCorreo());
+			ps.setString(2, user.getNombre());
+			ps.setString(3, user.getPass());
+			ps.setString(4, user.getImagen());
+
+
+			ps.executeUpdate();
+
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+
+		} finally {
+			try {
+				cn.close();
+				ps.close();
+			} catch (SQLException e) {
+				logger.error(e.getMessage());
+
+			}
+		}
+
+	}
+
+	public String getFileName(Part part) {
+		for (String content : part.getHeader("content-disposition").split(";")) {
+			if (content.trim().startsWith("filename"))
+				return content.substring(content.indexOf("=") + 2, content.length() - 1);
+		}
+		return "desconocido.png";
+	}
+
+	}

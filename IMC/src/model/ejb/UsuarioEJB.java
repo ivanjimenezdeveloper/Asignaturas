@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.servlet.http.Part;
+
 import model.entidad.Usuario;
 import model.entidad.dao.UsuarioDAO;
 
@@ -55,5 +57,18 @@ public class UsuarioEJB {
 
 		return userDAO.existeUsuario(user);
 	}
+	
+	public void registrarUsuario(Usuario user) {
+	
+		UsuarioDAO userDAO = new UsuarioDAO();
 
+		 userDAO.registrarUsuario(user);
+	
+	}
+	
+	public String getFileName(Part part) {
+		UsuarioDAO userDAO = new UsuarioDAO();
+
+		return userDAO.getFileName(part);
+	}
 }

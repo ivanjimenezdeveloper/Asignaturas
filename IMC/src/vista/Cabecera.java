@@ -16,6 +16,12 @@ public class Cabecera {
 	 * @param user usuario logeado
 	 */
 	public static void mostrarLogged(PrintWriter out, Usuario user) {
+		String imagen;
+		if(user.getImagen() == null) {
+			imagen = "estandar.png";
+		}else {
+			imagen = user.getImagen();
+		}
 		String html = "<!DOCTYPE html>\n" + "<html>\n" + "    <head>\n" + "        <title>IMC</title>\n"
 
 				+ "        <meta charset=\"UTF-8\">\n"
@@ -27,7 +33,7 @@ public class Cabecera {
 				+ "                <div class=\"nodoInvisibleHeader\"></div>\n"
 				+ "                <div class=\"usuario\">\n" + "                    <div>\n"
 				+ "                        <p class=\"nombreUsuario\">" + user.getNombre()
-				+ "</p> <div class=\"fotoUsuario\" style='background-image: url("+user.getImagen()+")'></div>\n" + "                    </div>\n"
+				+ "</p> <div class=\"fotoUsuario\" style='background-image: url(imagenes/"+imagen+")'></div>\n" + "                    </div>\n"
 				+ "                    <div>            \n"
 				+ "                        <a href=\"Login?logout=1\">Log Out</a> <p>" + " </div>\n"
 				+ "                </div>\n" + "            </div>\n" ;
@@ -58,7 +64,7 @@ public class Cabecera {
 				"			<div class=\"usuario\">\n" + 
 				"				<div>\n" + 
 				"					<p class=\"nombreUsuario\">Usuario</p>\n" + 
-				"					<div class=\"fotoUsuario\" ></div>\n" + 
+				"					<div class=\"fotoUsuario\"  style='background-image: url(imagenes/estandar.png)' ></div>\n" + 
 				"				</div>\n" + 
 				"				<div>\n" + 
 				"					<a href=\"Login\">LogIn</a>\n" + 

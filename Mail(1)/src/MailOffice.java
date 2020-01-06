@@ -37,6 +37,7 @@ import javax.mail.internet.MimeMultipart;
     	        prop.put("mail.smtp.host", host);
     	        prop.put("mail.smtp.port", port);
     	        prop.put("mail.smtp.ssl.trust", host);
+    	        prop.put("mail.smtp.auth", "true");
 
     	        Session session = Session.getInstance(prop, new Authenticator() {
     	            @Override

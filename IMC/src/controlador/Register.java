@@ -18,6 +18,8 @@ import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Logger;
 import model.ejb.Sesiones;
 import model.ejb.UsuarioEJB;
+import model.ejb.VerificacionEJB;
+import model.entidad.Mail;
 import model.entidad.Usuario;
 
 @WebServlet("/Register")
@@ -39,6 +41,10 @@ public class Register extends HttpServlet {
 	 */
 	@EJB
 	Sesiones sesionEJB;
+	
+	
+	@EJB
+	VerificacionEJB verificacionEJB;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -64,7 +70,7 @@ public class Register extends HttpServlet {
 			throws ServletException, IOException {
 
 		boolean existe = false;
-
+		String remitente = "basiliscoxalligator@gmail.com";
 		// Recoge los parametros
 
 		String userName = request.getParameter("user");
@@ -90,6 +96,7 @@ public class Register extends HttpServlet {
 		} else {
 
 			try {
+				
 				String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
 				File uploadDir = new File(uploadPath);
 				if (!uploadDir.exists()) {
@@ -104,6 +111,13 @@ public class Register extends HttpServlet {
 					part.write(uploadPath + File.separator + fileName);
 				}
 				userEJB.registrarUsuario(user);
+				
+				Integer codigo = verificacionEJB.crearVerificacion(user);
+				
+				
+				Mail m = new Mail("smtp.gmail.com", 587, remitente, "Ageofempires2");
+
+				m.sendMail(user.getCorreo(), remitente, "Verificacion de correo IMC", "http://localhost:8080/IMC/MainNoLogged.html?ver="+codigo);
 
 			} catch (Exception e) {
 				logger.error(e.getMessage());

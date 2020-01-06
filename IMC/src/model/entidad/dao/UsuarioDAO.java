@@ -201,6 +201,7 @@ public class UsuarioDAO {
 		try {
 
 			cn = pool.getConnection();
+			
 
 			String query = "INSERT INTO USUARIO(CORREO, NOMBRE, PASS,IMAGEN)" + "VALUES(?, ?, ?, ?)";
 			ps = cn.prepareStatement(query);

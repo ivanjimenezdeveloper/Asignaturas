@@ -21,6 +21,7 @@ import vista.container.Principal;
 @WebServlet("/Main")
 /**
  * Muestra la pantalla principal de la pagina
+ * 
  * @author HIBAN
  *
  */
@@ -40,13 +41,12 @@ public class Main extends HttpServlet {
 	Sesiones sesionEJB;
 
 
+
 	/**
 	 * Muestra la pagina principal de la pagina
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-
 
 		/*
 		 * TENER UN TOMEE VERSION 9 <Resource name="jdbc/IMC" auth="Container"
@@ -56,6 +56,8 @@ public class Main extends HttpServlet {
 		 * "jdbc:mysql://localhost:3306/IMC?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useSSL=FALSE"
 		 * />
 		 */
+		
+
 
 		HttpSession sesion = request.getSession(true);
 
@@ -67,10 +69,9 @@ public class Main extends HttpServlet {
 			Principal.mostrar(response.getWriter());
 			Footer.mostrar(response.getWriter());
 
-		}else {
+		} else {
 			response.sendRedirect("MainNoLogged.html");
 		}
-
 
 	}
 

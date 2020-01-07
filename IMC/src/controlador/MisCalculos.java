@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import model.ejb.CalculoEJB;
 import model.ejb.Sesiones;
 import model.ejb.UsuarioEJB;
+import model.ejb.VerificacionEJB;
 import model.entidad.Calculo_Imc;
 import model.entidad.Usuario;
 import vista.Cabecera;
@@ -47,17 +48,30 @@ public class MisCalculos extends HttpServlet {
 	@EJB
 	CalculoEJB calculoEJB;
 
+
+	@EJB
+	VerificacionEJB verificacionEJB;
 	/**
 	 * Consigue la array de calculos y la muestra
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession sesion = request.getSession(true);
+		boolean ver = false;
+		
 
 		// Obtenemos el usuario de la sesion si existe
 		Usuario user = sesionEJB.usuarioLogeado(sesion);
-		
-		if (user != null) {
+		if(user != null) {
+			 ver = verificacionEJB.usuarioVerificado(user);
+
+		}
+		if(user != null && ver == false) {
+			
+			response.sendRedirect("Main");
+			
+		}
+		else if (user != null) {
 			ArrayList<Calculo_Imc> arrCalc = new ArrayList<Calculo_Imc>();
 			
 			arrCalc = calculoEJB.getCalculosUsuario(user);

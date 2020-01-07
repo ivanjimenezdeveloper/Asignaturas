@@ -21,15 +21,15 @@ public class VerificacionDAO {
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(VerificacionDAO.class);
 
 	private static Integer generarCodigo() {
-		
+
 		Integer codigo = (int) ((Math.random() * ((999999999 - 1) + 1)) + 1);
-		
-	if(!existeCodigo(codigo)) {
-		return codigo;
-	}else {
-		return generarCodigo();
-	}
-		
+
+		if (!existeCodigo(codigo)) {
+			return codigo;
+		} else {
+			return generarCodigo();
+		}
+
 	}
 
 	public Integer crearVerificacion(Usuario user) {
@@ -39,9 +39,9 @@ public class VerificacionDAO {
 		ver.setUsKey(user.getKey());
 		ver.setCodigo(generarCodigo());
 		ver.setVerificado(false);
-		
-		int verificadoBoolean =  (ver.getVerificado()==true)? 1:0;
-		
+
+		int verificadoBoolean = (ver.getVerificado() == true) ? 1 : 0;
+
 		pool = Conexion.getInstance();
 
 		try {
@@ -55,9 +55,8 @@ public class VerificacionDAO {
 			ps.setInt(2, ver.getCodigo());
 			ps.setInt(3, verificadoBoolean);
 
-
 			ps.executeUpdate();
-			
+
 			return ver.getCodigo();
 
 		} catch (Exception e) {
@@ -65,14 +64,15 @@ public class VerificacionDAO {
 
 		} finally {
 			try {
-				cn.close();
 				ps.close();
+
+				cn.close();
 			} catch (SQLException e) {
 				logger.error(e.getMessage());
 
 			}
 		}
-		
+
 		return ver.getCodigo();
 
 	}
@@ -85,7 +85,6 @@ public class VerificacionDAO {
 		try {
 			cn = pool.getConnection();
 
-			
 			String query = "SELECT * FROM VERIFICACION WHERE CODIGO = ?";
 			ps = pool.getConnection().prepareStatement(query);
 			ps.setInt(1, codigo);
@@ -112,6 +111,116 @@ public class VerificacionDAO {
 		}
 
 		return existe;
+
+	}
+
+	public void borrarVerificacionesExistentes(Usuario user) {
+
+		pool = Conexion.getInstance();
+
+		try {
+			cn = pool.getConnection();
+
+			String query = "DELETE FROM VERIFICACION WHERE IDUSUARIO = ?";
+			ps = pool.getConnection().prepareStatement(query);
+			ps.setInt(1, user.getKey().getKey());
+			ps.executeUpdate();
+
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+
+		} finally {
+
+			try {
+				ps.close();
+				cn.close();
+			} catch (SQLException e) {
+				logger.error(e.getMessage());
+
+			}
+
+		}
+
+	}
+
+	public boolean usuarioVerificado(Usuario user) {
+
+		boolean verificado = false;
+		int ver;
+
+		pool = Conexion.getInstance();
+
+		try {
+			cn = pool.getConnection();
+
+			String query = "SELECT * FROM VERIFICACION WHERE IDUSUARIO = ?";
+			ps = pool.getConnection().prepareStatement(query);
+			ps.setInt(1, user.getKey().getKey());
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+
+				ver = rs.getInt("VERIFICADO");
+
+				if (ver == 1) {
+					verificado = true;
+				}
+			}
+
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+
+		} finally {
+
+			try {
+				rs.close();
+				ps.close();
+				cn.close();
+			} catch (SQLException e) {
+				logger.error(e.getMessage());
+
+			}
+
+		}
+
+		return verificado;
+	}
+
+	public  boolean verificar(int codigo) {
+		boolean verificado = false;
+
+		pool = Conexion.getInstance();
+
+		try {
+			cn = pool.getConnection();
+
+			String query = "UPDATE VERIFICACION SET VERIFICADO = 1 WHERE CODIGO = ?";
+			ps = cn.prepareStatement(query);
+			ps.setInt(1, codigo);
+			int resultado = ps.executeUpdate();
+
+			if (resultado > 0) {
+
+				verificado = true;
+			}
+
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+
+		} finally {
+
+			try {
+				rs.close();
+				ps.close();
+				cn.close();
+			} catch (SQLException e) {
+				logger.error(e.getMessage());
+
+			}
+
+		}
+
+		return verificado;
 
 	}
 }

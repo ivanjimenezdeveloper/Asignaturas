@@ -219,8 +219,9 @@ public class UsuarioDAO {
 
 		} finally {
 			try {
-				cn.close();
 				ps.close();
+
+				cn.close();
 			} catch (SQLException e) {
 				logger.error(e.getMessage());
 

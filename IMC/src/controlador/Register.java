@@ -111,12 +111,14 @@ public class Register extends HttpServlet {
 				}
 				userEJB.registrarUsuario(user);
 				
-				Integer codigo = verificacionEJB.crearVerificacion(user);
+				verificacionEJB.borrarVerificacionesExistentes(userEJB.existeUsuario(user.getCorreo(), user.getPass()));
+				
+				Integer codigo = verificacionEJB.crearVerificacion(userEJB.existeUsuario(user.getCorreo(), user.getPass()));
 				
 				
 				Mail m = new Mail("smtp.gmail.com", 587, remitente, "Ageofempires2");
 
-				m.sendMail(user.getCorreo(), remitente, "Verificacion de correo IMC", "http://localhost:8080/IMC/MainNoLogged.html?ver="+codigo);
+				m.sendMail(user.getCorreo(), remitente, "Verificacion de correo IMC", "http://localhost:8080/IMC/Verificar?ver="+codigo);
 
 			} catch (Exception e) {
 				logger.error(e.getMessage());

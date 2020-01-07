@@ -16,6 +16,7 @@ import ch.qos.logback.classic.Logger;
 import model.ejb.CalculoEJB;
 import model.ejb.Sesiones;
 import model.ejb.UsuarioEJB;
+import model.ejb.VerificacionEJB;
 import model.entidad.Usuario;
 import vista.Cabecera;
 import vista.Footer;
@@ -47,6 +48,9 @@ public class Calculo extends HttpServlet {
 
 	@EJB
 	CalculoEJB calculoEJB;
+	
+	@EJB
+	VerificacionEJB verificacionEJB;
 
 	/**
 	 * Muestra el calculo
@@ -55,6 +59,7 @@ public class Calculo extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession sesion = request.getSession(true);
 
+		boolean ver =false;
 		// Obtenemos el usuario de la sesion si existe
 		Usuario user = sesionEJB.usuarioLogeado(sesion);
 
@@ -74,20 +79,34 @@ public class Calculo extends HttpServlet {
 
 		//calcula el IMC
 		Double resultado = calculoEJB.calcularIMC(peso, estatura);
+		if(user != null) {
+			 ver = verificacionEJB.usuarioVerificado(user);
 
+		}
+		
 		//Muestra el html
-		if (user != null) {
+		if(user != null && ver == false) {
+			
+			response.sendRedirect("Main");
+
+			
+		}
+		else if (user != null) {
 			Cabecera.mostrarLogged(response.getWriter(), user);
 			if (!guardar.equals("n")) {
 				calculoEJB.guardarCalculo(peso, estatura.intValue(), user);
 			}
+			Nav.mostrar(response.getWriter());
+			vista.container.Calculo.mostrar(response.getWriter(), resultado);
+			Footer.mostrar(response.getWriter());
 		} else {
 			Cabecera.mostrarNoLogged(response.getWriter());
+			Nav.mostrar(response.getWriter());
+			vista.container.Calculo.mostrar(response.getWriter(), resultado);
+			Footer.mostrar(response.getWriter());
 		}
 
-		Nav.mostrar(response.getWriter());
-		vista.container.Calculo.mostrar(response.getWriter(), resultado);
-		Footer.mostrar(response.getWriter());
+
 
 	}
 

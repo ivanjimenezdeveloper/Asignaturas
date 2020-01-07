@@ -19,6 +19,7 @@ public class Nav {
 	+ "            </div>\n" +"<ul>"
 			+ "<li><a href='Main'>HOME</a></li>"
 			+ "<li><a href='MisCalculos'>Mis calculos</a></li>"
+			+"<li><a href='BorrarCuenta'> BORRARCUENTA</a></li>"
 			+ "</ul>" +"        </div>\n</div>";
 
 		out.append(html);

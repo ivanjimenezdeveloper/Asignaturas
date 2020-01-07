@@ -12,15 +12,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Logger;
+import model.ejb.ControlEJB;
 import model.ejb.Sesiones;
 import model.ejb.UsuarioEJB;
 import model.ejb.VerificacionEJB;
 import model.entidad.Mail;
 import model.entidad.Usuario;
 
+/**
+ * Clase para registrar
+ * @author HIBAN
+ *
+ */
 @WebServlet("/Register")
 @MultipartConfig(maxFileSize = 1024 * 1024 * 5)
 public class Register extends HttpServlet {
@@ -41,10 +48,21 @@ public class Register extends HttpServlet {
 	@EJB
 	Sesiones sesionEJB;
 	
-	
+	/**
+	 * EJB para trabajar con verificaciones
+	 */
 	@EJB
 	VerificacionEJB verificacionEJB;
+	
+	/**
+	 * EJB para trabajar con control
+	 */
+	@EJB
+	ControlEJB controlEJB;
 
+	/**
+	 * muestra la pagina de registro
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -65,6 +83,9 @@ public class Register extends HttpServlet {
 		}
 	}
 
+	/**
+	 * Procede a registrar
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -95,7 +116,7 @@ public class Register extends HttpServlet {
 		} else {
 
 			try {
-				
+				//Guarda el archivo de imagen
 				String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
 				File uploadDir = new File(uploadPath);
 				if (!uploadDir.exists()) {
@@ -108,14 +129,21 @@ public class Register extends HttpServlet {
 					fileName = userEJB.getFileName(part);
 					user.setImagen(fileName);
 					part.write(uploadPath + File.separator + fileName);
+					
 				}
+				//Registra al usuario
 				userEJB.registrarUsuario(user);
 				
+				//Borra las verificaciones que esten a nombre del mismo correo
 				verificacionEJB.borrarVerificacionesExistentes(userEJB.existeUsuario(user.getCorreo(), user.getPass()));
 				
+//guarda un nuevo registro
+				controlEJB.insertarRegistro();
+				
+				//creal la verificacion
 				Integer codigo = verificacionEJB.crearVerificacion(userEJB.existeUsuario(user.getCorreo(), user.getPass()));
 				
-				
+				//Envia mail de verificacion
 				Mail m = new Mail("smtp.gmail.com", 587, remitente, "Ageofempires2");
 
 				m.sendMail(user.getCorreo(), remitente, "Verificacion de correo IMC", "http://localhost:8080/IMC/Verificar?ver="+codigo);

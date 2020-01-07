@@ -37,7 +37,7 @@ public class Login extends HttpServlet {
 	Sesiones sesionEJB;
 
 	/**
-	 * Logea al usuario si es correcto
+	 * Logea al usuario si es correcto o deslogea
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -67,6 +67,9 @@ public class Login extends HttpServlet {
 
 	}
 
+	/**
+	 * hace las operaciones de login
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 

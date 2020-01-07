@@ -43,6 +43,9 @@ public class Main extends HttpServlet {
 	@EJB
 	Sesiones sesionEJB;
 
+	/**
+	 * EJB para trabajar con verificaciones
+	 */
 	@EJB
 	VerificacionEJB verificacionEJB;
 
@@ -51,7 +54,8 @@ public class Main extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		
 		/*
 		 * TENER UN TOMEE VERSION 9 <Resource name="jdbc/IMC" auth="Container"
 		 * type="javax.sql.DataSource" maxActive="100" maxIdle="30" maxWait="10000"
@@ -70,7 +74,7 @@ public class Main extends HttpServlet {
 			 ver = verificacionEJB.usuarioVerificado(user);
 
 		}
-		
+		//comprueba si esta verficado
 		if(user != null && ver == false) {
 			
 			verificacionEJB.borrarVerificacionesExistentes(userEJB.existeUsuario(user.getCorreo(), user.getPass()));
@@ -95,5 +99,6 @@ public class Main extends HttpServlet {
 		}
 
 	}
+
 
 }

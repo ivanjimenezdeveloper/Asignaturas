@@ -12,6 +12,12 @@ import model.Conexion;
 import model.entidad.Usuario;
 import model.entidad.Verificacion;
 
+/**
+ * DAO de verificacion
+ * 
+ * @author HIBAN
+ *
+ */
 public class VerificacionDAO {
 
 	private static Connection cn;
@@ -20,10 +26,16 @@ public class VerificacionDAO {
 	private static Conexion pool;
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(VerificacionDAO.class);
 
+	/**
+	 * Genera el codigo
+	 * 
+	 * @return codigo generado
+	 */
 	private static Integer generarCodigo() {
 
 		Integer codigo = (int) ((Math.random() * ((999999999 - 1) + 1)) + 1);
 
+		// Si no existe el codigo lo devuelve, si existe lo vuelve a generar
 		if (!existeCodigo(codigo)) {
 			return codigo;
 		} else {
@@ -32,6 +44,11 @@ public class VerificacionDAO {
 
 	}
 
+	/**
+	 * Crea la verificacion
+	 * @param user usuario al que crear la verificacion
+	 * @return codigo de verificacion
+	 */
 	public Integer crearVerificacion(Usuario user) {
 
 		Verificacion ver = new Verificacion();
@@ -76,7 +93,11 @@ public class VerificacionDAO {
 		return ver.getCodigo();
 
 	}
-
+/**
+ * Comprueba si ya existe ese codigo
+ * @param codigo codigo a devolver
+ * @return boolean del exito
+ */
 	private static boolean existeCodigo(Integer codigo) {
 		boolean existe = false;
 
@@ -114,6 +135,10 @@ public class VerificacionDAO {
 
 	}
 
+	/**
+	 * borra las verificaciones
+	 * @param user usuario al que borrar las verificaciones
+	 */
 	public void borrarVerificacionesExistentes(Usuario user) {
 
 		pool = Conexion.getInstance();
@@ -143,6 +168,11 @@ public class VerificacionDAO {
 
 	}
 
+	/**
+	 * Comprueba si esta verificado
+	 * @param user usuario que comprobar
+	 * @return boolean del exito
+	 */
 	public boolean usuarioVerificado(Usuario user) {
 
 		boolean verificado = false;
@@ -186,7 +216,12 @@ public class VerificacionDAO {
 		return verificado;
 	}
 
-	public  boolean verificar(int codigo) {
+	/**
+	 * Cambia una verificacion a verificado
+	 * @param codigo codigo a verificar
+	 * @return boolean del exito
+	 */
+	public boolean verificar(int codigo) {
 		boolean verificado = false;
 
 		pool = Conexion.getInstance();
@@ -199,6 +234,7 @@ public class VerificacionDAO {
 			ps.setInt(1, codigo);
 			int resultado = ps.executeUpdate();
 
+			//si devuelve algo mayor a 0 es que ha hecho el update
 			if (resultado > 0) {
 
 				verificado = true;

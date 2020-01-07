@@ -18,13 +18,20 @@ import vista.Footer;
 import vista.Nav;
 import vista.container.Verificado;
 
+/**
+ * Verifica al usuario
+ * @author HIBAN
+ *
+ */
 @WebServlet("/Verificar")
 public class Verificar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(Verificar.class);
 	@EJB
 	VerificacionEJB verificacionEJB;
-	
+	/**
+	 * Verifica al usuario
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int codigo = -1;
@@ -47,14 +54,5 @@ public class Verificar extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
 
 }

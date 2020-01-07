@@ -57,7 +57,10 @@ public class UsuarioEJB {
 
 		return userDAO.existeUsuario(user);
 	}
-	
+	/**
+	 * Registra al usuario
+	 * @param user usuario a registrar
+	 */
 	public void registrarUsuario(Usuario user) {
 	
 		UsuarioDAO userDAO = new UsuarioDAO();
@@ -66,9 +69,23 @@ public class UsuarioEJB {
 	
 	}
 	
+	/**
+	 * Guarda el nombre de archivo
+	 * @param part
+	 * @return nombre de archivo
+	 */
 	public String getFileName(Part part) {
 		UsuarioDAO userDAO = new UsuarioDAO();
 
 		return userDAO.getFileName(part);
+	}
+	
+	/**
+	 * Borra usuario
+	 * @param user usuario a borrar
+	 */
+	public void borrarUsuario(Usuario user) {
+		UsuarioDAO userDAO = new UsuarioDAO();
+		userDAO.borrarUsuario(user);
 	}
 }

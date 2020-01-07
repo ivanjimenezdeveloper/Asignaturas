@@ -195,6 +195,10 @@ public class UsuarioDAO {
 
 	}
 	
+	/**
+	 * Registra un usuario
+	 * @param user usuario a registrar
+	 */
 	public void registrarUsuario(Usuario user) {
 		pool = Conexion.getInstance();
 
@@ -230,12 +234,48 @@ public class UsuarioDAO {
 
 	}
 
+	/**
+	 * Recoge el nombre del archivo
+	 * @param part
+	 * @return devuelve el nombre
+	 */
 	public String getFileName(Part part) {
 		for (String content : part.getHeader("content-disposition").split(";")) {
 			if (content.trim().startsWith("filename"))
 				return content.substring(content.indexOf("=") + 2, content.length() - 1);
 		}
 		return "desconocido.png";
+	}
+	
+	/**
+	 * Borra el usuario
+	 * @param user usuario a borrar
+	 */
+	public void borrarUsuario(Usuario user) {
+		pool = Conexion.getInstance();
+
+		try {
+			cn = pool.getConnection();
+
+			String query = "DELETE FROM USUARIO WHERE ID = ?";
+			ps = pool.getConnection().prepareStatement(query);
+			ps.setInt(1, user.getKey().getKey());
+			ps.executeUpdate();
+
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+
+		} finally {
+
+			try {
+				ps.close();
+				cn.close();
+			} catch (SQLException e) {
+				logger.error(e.getMessage());
+
+			}
+
+		}
 	}
 
 	}

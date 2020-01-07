@@ -22,10 +22,10 @@ import vista.Cabecera;
 import vista.Footer;
 import vista.Nav;
 
-
 @WebServlet("/Calculo")
 /**
  * Hace las operaciones para mostrar los calculos
+ * 
  * @author HIBAN
  *
  */
@@ -48,7 +48,7 @@ public class Calculo extends HttpServlet {
 
 	@EJB
 	CalculoEJB calculoEJB;
-	
+
 	@EJB
 	VerificacionEJB verificacionEJB;
 
@@ -59,15 +59,15 @@ public class Calculo extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession sesion = request.getSession(true);
 
-		boolean ver =false;
+		boolean ver = false;
 		// Obtenemos el usuario de la sesion si existe
 		Usuario user = sesionEJB.usuarioLogeado(sesion);
 
 		Double peso = 0.0;
 		Double estatura = 0.0;
 		String guardar = null;
-		
-		//recibe los parametros
+
+		// recibe los parametros
 		try {
 			estatura = Double.parseDouble(request.getParameter("estatura"));
 			peso = Double.parseDouble(request.getParameter("peso"));
@@ -77,7 +77,7 @@ public class Calculo extends HttpServlet {
 			logger.error(e.getMessage());
 		}
 
-		//calcula el IMC
+		// calcula el IMC
 		Double resultado = calculoEJB.calcularIMC(peso, estatura);
 		if(user != null) {
 			 ver = verificacionEJB.usuarioVerificado(user);
@@ -91,11 +91,13 @@ public class Calculo extends HttpServlet {
 
 			
 		}
-		else if (user != null) {
-			Cabecera.mostrarLogged(response.getWriter(), user);
-			if (!guardar.equals("n")) {
+		else 
+		if (user != null) {
+			if (guardar == null) {
 				calculoEJB.guardarCalculo(peso, estatura.intValue(), user);
 			}
+			Cabecera.mostrarLogged(response.getWriter(), user);
+
 			Nav.mostrar(response.getWriter());
 			vista.container.Calculo.mostrar(response.getWriter(), resultado);
 			Footer.mostrar(response.getWriter());
@@ -105,8 +107,6 @@ public class Calculo extends HttpServlet {
 			vista.container.Calculo.mostrar(response.getWriter(), resultado);
 			Footer.mostrar(response.getWriter());
 		}
-
-
 
 	}
 

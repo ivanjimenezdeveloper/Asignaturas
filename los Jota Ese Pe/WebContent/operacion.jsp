@@ -16,12 +16,6 @@
 		</select> 
 		<label>resultado</label>
 
-		<%
-
-			
-		%>
-
-
 
 
 		<input type="submit" value="DALE">

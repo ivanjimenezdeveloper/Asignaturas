@@ -9,10 +9,11 @@
 <body>
 
 <%! private int numero = (int) Math.floor(Math.random() * ((10 - 5) + 1) + 5); %>
-<%!
-public void reiniciaNumero(){
-	numero = (int) Math.floor(Math.random() * ((10 - 5) + 1) + 5);	
-}
+<%
+	if(request.getParameter("ganado") != null ){
+		numero = (int) Math.floor(Math.random() * ((10 - 5) + 1) + 5);	
+	}
+
 
 %>
 <%= numero %>

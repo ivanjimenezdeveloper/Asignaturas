@@ -16,7 +16,7 @@ int numero= Integer.parseInt(request.getParameter("numero"));
 if(numero == numeroAdivinar){
 	out.print("HAS GANAO");
 	
-	out.print("<form action='adivina.jsp' method='reiniciaNumero'><input type='submit' value='REINICIA'></form>");
+	response.sendRedirect("adivina.jsp?ganado=1");
 }else if(numero < numeroAdivinar){
 	out.print("MAYOR");
 	out.print("<a href='adivina.jsp'>VOLVER</a>");

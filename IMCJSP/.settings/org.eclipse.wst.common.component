@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="los Jota Ese Pe">
+        
+    <wb-module deploy-name="IMC">
+                
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="los_Jota_Ese_Pe"/>
-        <property name="java-output-path" value="/los Jota Ese Pe/build/classes"/>
+                
+        <property name="java-output-path" value="/IMC/build/classes"/>
+        <property name="context-root" value="IMCJSP"/>
+            
     </wb-module>
+    
 </project-modules>

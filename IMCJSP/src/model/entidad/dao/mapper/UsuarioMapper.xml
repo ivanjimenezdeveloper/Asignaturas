@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace='model.entidad.dao.mapper.UsuarioMapper'>
+
+	<resultMap type="Usuario" id="UsuarioResult">
+		<id property="key" column="ID"></id>
+		<result property='correo' column='CORREO' />
+		<result property='nombre' column='NOMBRE' />
+		<result property='pass' column='PASS' />
+		<result property='imagen' column='IMAGEN' />
+	</resultMap>
+
+	<select id="busquedaGeneral" resultMap='UsuarioResult'>
+		SELECT * FROM USUARIO
+	</select>
+
+	<select id='existeUsuario' resultType='model.entidad.Usuario'>
+		SELECT * FROM USUARIO
+		WHERE CORREO = #{correo} AND PASS = #{pass}
+	</select>
+
+	<select id='existeUsuario2' resultType='java.lang.Boolean'>
+		SELECT * FROM USUARIO
+		WHERE CORREO = #{correo}
+	</select>
+	<delete id='borrarUsuario'>
+		DELETE FROM USUARIO WHERE ID = #{id}
+	</delete>
+	
+	<insert id='registrarUsuario' parameterType='Usuario'
+		useGeneratedKeys='true' keyProperty='id'>
+		INSERT INTO USUARIO(CORREO, NOMBRE, PASS,IMAGEN)
+		VALUES(#{correo}, #{nombre}, #{pass}, #{imagen})
+	</insert>
+
+</mapper>

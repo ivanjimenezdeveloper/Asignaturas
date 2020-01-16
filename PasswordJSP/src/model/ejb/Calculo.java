@@ -3,10 +3,21 @@ package model.ejb;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
+/**
+ * Clase que hace los calculos de la pagina de password
+ * @author horabaixa
+ *
+ */
 @Stateless(mappedName = "CalculoEJB")
 @LocalBean
 public class Calculo {
 
+	/**
+	 * Calcula el tiempo necesario para conseguir descifrar la pass
+	 * @param numero tamaño de la pass
+	 * @param herramienta herramienta estipulada en el html que descrifra la pass
+	 * @return string con el tiempo de descifrado
+	 */
 	public String calcularTiempo(int numero, int herramienta) {
 		long tamanio = (long) Math.pow(256, numero);
 

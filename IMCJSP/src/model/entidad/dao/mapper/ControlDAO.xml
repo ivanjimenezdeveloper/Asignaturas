@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper namespace='model.entidad.dao.mapper.'
+<insert id='insertarRegistro' parameterType='java.lang.Integer'
+	useGeneratedKeys="true" keyProperty="ID">
+	INSERT INTO CONTROL(CODIGO) VALUES(0)
+</insert>
+
+<insert id='insertarBaja' parameterType='java.lang.Integer'
+	useGeneratedKeys="true" keyProperty="ID">
+	INSERT INTO CONTROL(CODIGO) VALUES(1)
+</insert>
+
+<select id="recibirRegistros" parameterType="java.lang.Integer">
+	SELECT count(*) FROM CONTROL WHERE CODIGO = 0
+</select>
+
+<select id="recibirBajas" parameterType="java.lang.Integer">
+	SELECT count(*) FROM CONTROL WHERE CODIGO = 1
+</select>
+
+<delete id="borrarRegistros">
+
+</delete>

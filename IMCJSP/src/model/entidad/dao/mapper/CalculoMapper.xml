@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace='model.entidad.dao.mapper.CalculoMapper'>
+<resultMap type='Calculo' id='CalculoResult'>
+	<id property="KEY" column="ID"></id>
+	<result property='idUsuario' column='IDUSUARIO' />
+	<result property='peso' column='PESO' />
+	<result property='estatura' column='ESTATURA' />
+	<result property="fecha" column='FECHA' />
+</resultMap>
+
+<insert id="guardarCalculo" 
+	useGeneratedKeys="true" keyProperty="ID">
+	INSERT INTO CALCULO_IMC(IDUSUARIO,
+	PESO, ESTATURA, FECHA)
+	VALUES(#{id}, #{peso}, #{estatura}, #{fecha})
+</insert>
+
+<select id="getCalculosUsuario" resultMap='usuarioResult'>
+SELECT * FROM CALCULO_IMC WHERE IDUSUARIO = #{key} //
+
+</select>
+</mapper>

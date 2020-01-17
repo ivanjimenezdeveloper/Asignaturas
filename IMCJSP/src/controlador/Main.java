@@ -15,7 +15,6 @@ import model.ejb.UsuarioEJB;
 import model.ejb.VerificacionEJB;
 import model.entidad.Mail;
 import model.entidad.Usuario;
-import model.entidad.UsuarioKey;
 import vista.Cabecera;
 import vista.Footer;
 import vista.Nav;

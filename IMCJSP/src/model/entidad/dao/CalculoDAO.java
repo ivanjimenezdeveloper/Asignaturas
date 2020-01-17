@@ -8,14 +8,18 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.apache.ibatis.session.SqlSession;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Logger;
 import model.Conexion;
+import model.MyBatisUtil;
 import model.entidad.Calculo_Imc;
 import model.entidad.Calculo_ImcKey;
 import model.entidad.Usuario;
 import model.entidad.UsuarioKey;
+import model.entidad.dao.mapper.CalculoMapper;
+import model.entidad.dao.mapper.UsuarioMapper;
 /**
  * Clase que ejecuta los calculos de la logica
  * @author HIBAN
@@ -36,41 +40,25 @@ public class CalculoDAO {
 	 * @param user Usuario que ha hecho el calculo
 	 */
 	public void guardarCalculo(Double peso, Integer estatura, Usuario user) {
-		pool = Conexion.getInstance();
 		String date;
 
 		String pattern = "YYYY-MM-dd HH:mm:ss";
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 		Date fecha = new Date();
 		date = simpleDateFormat.format(fecha);
-
+		
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
+			CalculoMapper calculoMapper = sqlSession.getMapper(CalculoMapper.class);
+			calculoMapper.guardarCalculo(user.getKey().getKey(), peso, estatura, date);
 
-			cn = pool.getConnection();
-
-			String query = "INSERT INTO CALCULO_IMC(IDUSUARIO, PESO, ESTATURA, FECHA) \n" + "VALUES(?, ?, ?, ?)";
-			ps = cn.prepareStatement(query);
-
-			ps.setInt(1, user.getKey().getKey());
-			ps.setDouble(2, peso);
-			ps.setInt(3, estatura);
-			ps.setString(4, date);
-
-			ps.executeUpdate();
-
+			sqlSession.commit();
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-
 		} finally {
-			try {
-				cn.close();
-				ps.close();
-			} catch (SQLException e) {
-				logger.error(e.getMessage());
-
-			}
+			sqlSession.close();
 		}
-
+		
 	}
 
 	/**

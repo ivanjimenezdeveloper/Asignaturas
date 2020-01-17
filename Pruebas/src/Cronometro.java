@@ -26,7 +26,7 @@ public class Cronometro {
 			}
 			
 
-			System.out.println(min + ":"+ sec + ":" + 0000 );
+//			System.out.println(min + ":"+ sec + ":" + 0000 );
 
 			//System.out.println(tiempo.get(min) + ":"+ tiempo.get(sec) + ":" + tiempo.get(milis));
 			

@@ -30,7 +30,7 @@
 	</delete>
 	
 	<insert id='registrarUsuario' parameterType='Usuario'
-		useGeneratedKeys='true' keyProperty='id'>
+		useGeneratedKeys='true' keyProperty='ID'>
 		INSERT INTO USUARIO(CORREO, NOMBRE, PASS,IMAGEN)
 		VALUES(#{correo}, #{nombre}, #{pass}, #{imagen})
 	</insert>

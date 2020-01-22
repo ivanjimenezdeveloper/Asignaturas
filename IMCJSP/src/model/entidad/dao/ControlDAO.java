@@ -1,24 +1,18 @@
 package model.entidad.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
+import org.apache.ibatis.session.SqlSession;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Logger;
-import model.Conexion;
+import model.MyBatisUtil;
+import model.entidad.dao.mapper.ControlMapper;
 /**
  * DAO del control
  * @author HIBAN
  *
  */
 public class ControlDAO {
-	private static Connection cn;
-	private static PreparedStatement ps;
-	private static ResultSet rs;
-	private static Conexion pool;
+
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(ControlDAO.class);
 
 	
@@ -27,30 +21,16 @@ public class ControlDAO {
 	 */
 	public void insertarRegistro() {
 
-		pool = Conexion.getInstance();
-
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
+			ControlMapper controlMapper = sqlSession.getMapper(ControlMapper.class);
+			controlMapper.insertarRegistro();
 
-			cn = pool.getConnection();
-
-			String query = "INSERT INTO CONTROL(CODIGO) VALUES(?)";
-			ps = cn.prepareStatement(query);
-
-			ps.setInt(1, 0);
-
-			ps.executeUpdate();
-
+			sqlSession.commit();
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-
 		} finally {
-			try {
-				ps.close();
-				cn.close();
-			} catch (SQLException e) {
-				logger.error(e.getMessage());
-
-			}
+			sqlSession.close();
 		}
 	}
 
@@ -60,30 +40,16 @@ public class ControlDAO {
 	 */
 	public void insertarBaja() {
 
-		pool = Conexion.getInstance();
-
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
+			ControlMapper controlMapper = sqlSession.getMapper(ControlMapper.class);
+			controlMapper.insertarBaja();
 
-			cn = pool.getConnection();
-
-			String query = "INSERT INTO CONTROL(CODIGO) VALUES(?)";
-			ps = pool.getConnection().prepareStatement(query);
-
-			ps.setInt(1, 1);
-
-			ps.executeUpdate();
-
+			sqlSession.commit();
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-
 		} finally {
-			try {
-				ps.close();
-				cn.close();
-			} catch (SQLException e) {
-				logger.error(e.getMessage());
-
-			}
+			sqlSession.close();
 		}
 
 	}
@@ -94,40 +60,17 @@ public class ControlDAO {
  */
 	public int recibirRegistros() {
 
-		int registros = 0;
-
-
-		pool = Conexion.getInstance();
-
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
-			cn = pool.getConnection();
+			ControlMapper controlMapper = sqlSession.getMapper(ControlMapper.class);
+			return controlMapper.recibirRegistros();
 
-
-			String query = "SELECT * FROM CONTROL WHERE CODIGO = 0";
-			ps = cn.prepareStatement(query);
-
-			rs = ps.executeQuery();
-
-			while (rs.next()) {
-
-				registros++;
-
-			}
-
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			logger.error(e.getMessage());
-
 		} finally {
-			try {
-				ps.close();
-				cn.close();
-				rs.close();
-			} catch (SQLException e) {
-				logger.error(e.getMessage());
-
-			}
+			sqlSession.close();
 		}
-		return registros;
+		return -1;
 	}
 	
 	/**
@@ -136,40 +79,17 @@ public class ControlDAO {
 	 */
 	public int recibirBajas() {
 
-		int bajas = 0;
-
-
-		pool = Conexion.getInstance();
-
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
-			cn = pool.getConnection();
+			ControlMapper controlMapper = sqlSession.getMapper(ControlMapper.class);
+			return controlMapper.recibirBajas();
 
-
-			String query = "SELECT * FROM CONTROL WHERE CODIGO = 1";
-			ps = cn.prepareStatement(query);
-
-			rs = ps.executeQuery();
-
-			while (rs.next()) {
-
-				bajas++;
-
-			}
-
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			logger.error(e.getMessage());
-
 		} finally {
-			try {
-				ps.close();
-				cn.close();
-				rs.close();
-			} catch (SQLException e) {
-				logger.error(e.getMessage());
-
-			}
+			sqlSession.close();
 		}
-		return bajas;
+		return -1;
 	}
 	
 	/**
@@ -177,29 +97,16 @@ public class ControlDAO {
 	 */
 	public void borrarRegistros() {
 		
-		pool = Conexion.getInstance();
-
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
-			cn = pool.getConnection();
+			ControlMapper controlMapper = sqlSession.getMapper(ControlMapper.class);
+			controlMapper.borrarRegistros();
 
-			String query = "DELETE FROM CONTROL WHERE CODIGO = ?";
-			ps = pool.getConnection().prepareStatement(query);
-			ps.setInt(1, 0);
-			ps.executeUpdate();
-
+			sqlSession.commit();
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-
 		} finally {
-
-			try {
-				ps.close();
-				cn.close();
-			} catch (SQLException e) {
-				logger.error(e.getMessage());
-
-			}
-
+			sqlSession.close();
 		}
 		
 	}
@@ -209,29 +116,16 @@ public class ControlDAO {
 	 */
 	public void borrarBajas() {
 		
-		pool = Conexion.getInstance();
-
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
-			cn = pool.getConnection();
+			ControlMapper controlMapper = sqlSession.getMapper(ControlMapper.class);
+			controlMapper.borrarBajas();
 
-			String query = "DELETE FROM CONTROL WHERE CODIGO = ?";
-			ps = pool.getConnection().prepareStatement(query);
-			ps.setInt(1, 1);
-			ps.executeUpdate();
-
+			sqlSession.commit();
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-
 		} finally {
-
-			try {
-				ps.close();
-				cn.close();
-			} catch (SQLException e) {
-				logger.error(e.getMessage());
-
-			}
-
+			sqlSession.close();
 		}
 		
 	}

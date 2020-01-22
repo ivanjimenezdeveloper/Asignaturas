@@ -36,6 +36,28 @@ public class ControlEJB {
 
 	}
 	
+	public int recibirRegistros() {
+		ControlDAO c = new ControlDAO();
+
+		return c.recibirRegistros();
+	};
+	
+	public int recibirBajas() {
+		ControlDAO c = new ControlDAO();
+
+		return c.recibirBajas();
+	};
+	
+	public void borrarRegistros() {
+		ControlDAO c = new ControlDAO();
+
+		c.borrarRegistros();
+	};
+	public void borrarBajas() {
+		ControlDAO c = new ControlDAO();
+
+		c.borrarBajas();
+	};
 	/**
 	 * Inserta bajas
 	 */

@@ -29,7 +29,6 @@
     <fullyQualifiedTypeName name="jdk.tools.jaotc.binformat.CodeContainer"/>
     <fullyQualifiedTypeName name="vista.container.Container"/>
     <fullyQualifiedTypeName name="model.entidad.dao.UsuarioDAO"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="javax.ejb.EJB"/>
     <fullyQualifiedTypeName name="model.ejb.UsuarioEJB"/>
     <fullyQualifiedTypeName name="model.ejb.Sesiones"/>
@@ -51,7 +50,6 @@
     <fullyQualifiedTypeName name="model.entidad.Calculo_Imc"/>
     <fullyQualifiedTypeName name="model.entidad.dao.CalculoDAO"/>
     <fullyQualifiedTypeName name="model.dao.mapper.JugadorMapper"/>
-    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="javax.ejb.LocalBean"/>
     <fullyQualifiedTypeName name="javax.ejb.Stateless"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
     <fullyQualifiedTypeName name="model.entidad.dao.mapper.CalculoMapper"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>

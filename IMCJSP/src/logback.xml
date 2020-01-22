@@ -5,7 +5,7 @@
       <file>  AppIMC.txt </file>
       <append>true</append>
       <encoder>
-         <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+         <pattern>%-4relative %d{yyyy-MM-dd HH:mm:ss}[%thread] %-5level %logger{35} - %msg%n</pattern>
       </encoder>
    </appender>
    

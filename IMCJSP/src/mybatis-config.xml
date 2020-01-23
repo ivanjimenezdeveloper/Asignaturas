@@ -21,6 +21,7 @@
 		<mapper resource='model/entidad/dao/mapper/UsuarioMapper.xml' />
 		<mapper resource='model/entidad/dao/mapper/CalculoMapper.xml' />
 		<mapper resource='model/entidad/dao/mapper/ControlDAOMapper.xml' />
+		<mapper resource='model/entidad/dao/mapper/VerificacionMapper.xml' />
 
 	</mappers>
 </configuration>

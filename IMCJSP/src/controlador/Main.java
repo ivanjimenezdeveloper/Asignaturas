@@ -80,10 +80,10 @@ public class Main extends HttpServlet {
 		
 		UsuarioKey uk = new UsuarioKey();
 		
-		uk.setKey(1);
+		uk.setKey(10);
 		user2.setKey(uk);
 		
-
+		verificacionEJB.usuarioVerificado(user2);
 
 		// Obtenemos el usuario de la sesion si existe
 		Usuario user = sesionEJB.usuarioLogeado(sesion);

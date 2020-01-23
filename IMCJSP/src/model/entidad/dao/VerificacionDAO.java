@@ -5,12 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.apache.ibatis.session.SqlSession;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Logger;
 import model.Conexion;
+import model.MyBatisUtil;
 import model.entidad.Usuario;
 import model.entidad.Verificacion;
+import model.entidad.dao.mapper.VerificacionMapper;
 
 /**
  * DAO de verificacion
@@ -33,7 +36,7 @@ public class VerificacionDAO {
 	 */
 	private static Integer generarCodigo() {
 
-		Integer codigo = (int) ((Math.random() * ((999999999 - 1) + 1)) + 1);
+		Integer codigo = (int) ((Math.random() * ((999999999 - 100) + 1)) + 100);
 
 		// Si no existe el codigo lo devuelve, si existe lo vuelve a generar
 		if (!existeCodigo(codigo)) {
@@ -46,6 +49,7 @@ public class VerificacionDAO {
 
 	/**
 	 * Crea la verificacion
+	 * 
 	 * @param user usuario al que crear la verificacion
 	 * @return codigo de verificacion
 	 */
@@ -59,117 +63,75 @@ public class VerificacionDAO {
 
 		int verificadoBoolean = (ver.getVerificado() == true) ? 1 : 0;
 
-		pool = Conexion.getInstance();
-
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
+			VerificacionMapper verificacionMapper = sqlSession.getMapper(VerificacionMapper.class);
+			verificacionMapper.crearVerificacion(ver.getUsKey().getKey(), ver.getCodigo(), verificadoBoolean);
+			;
 
-			cn = pool.getConnection();
-
-			String query = "INSERT INTO VERIFICACION(IDUSUARIO, CODIGO, VERIFICADO) VALUES(?, ?, ?)";
-			ps = pool.getConnection().prepareStatement(query);
-
-			ps.setInt(1, ver.getUsKey().getKey());
-			ps.setInt(2, ver.getCodigo());
-			ps.setInt(3, verificadoBoolean);
-
-			ps.executeUpdate();
-
+			sqlSession.commit();
 			return ver.getCodigo();
 
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-
 		} finally {
-			try {
-				ps.close();
-
-				cn.close();
-			} catch (SQLException e) {
-				logger.error(e.getMessage());
-
-			}
+			sqlSession.close();
 		}
-
 		return ver.getCodigo();
 
 	}
-/**
- * Comprueba si ya existe ese codigo
- * @param codigo codigo a devolver
- * @return boolean del exito
- */
+
+	/**
+	 * Comprueba si ya existe ese codigo
+	 * 
+	 * @param codigo codigo a devolver
+	 * @return boolean del exito
+	 */
 	private static boolean existeCodigo(Integer codigo) {
 		boolean existe = false;
 
-		pool = Conexion.getInstance();
-
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
-			cn = pool.getConnection();
-
-			String query = "SELECT * FROM VERIFICACION WHERE CODIGO = ?";
-			ps = pool.getConnection().prepareStatement(query);
-			ps.setInt(1, codigo);
-			rs = ps.executeQuery();
-
-			while (rs.next()) {
-				existe = true;
-			}
+			VerificacionMapper verificacionMapper = sqlSession.getMapper(VerificacionMapper.class);
+			return verificacionMapper.existeCodigo(codigo);
 
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-
 		} finally {
-
-			try {
-				rs.close();
-				ps.close();
-				cn.close();
-			} catch (SQLException e) {
-				logger.error(e.getMessage());
-
-			}
-
+			sqlSession.close();
 		}
-
 		return existe;
 
 	}
 
 	/**
 	 * borra las verificaciones
+	 * 
 	 * @param user usuario al que borrar las verificaciones
 	 */
 	public void borrarVerificacionesExistentes(Usuario user) {
 
-		pool = Conexion.getInstance();
-
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
-			cn = pool.getConnection();
+			VerificacionMapper verificacionMapper = sqlSession.getMapper(VerificacionMapper.class);
+			verificacionMapper.borrarVerificacionesExistentes(user.getKey().getKey());
+			;
 
-			String query = "DELETE FROM VERIFICACION WHERE IDUSUARIO = ?";
-			ps = pool.getConnection().prepareStatement(query);
-			ps.setInt(1, user.getKey().getKey());
-			ps.executeUpdate();
+			sqlSession.commit();
 
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-
 		} finally {
-
-			try {
-				ps.close();
-				cn.close();
-			} catch (SQLException e) {
-				logger.error(e.getMessage());
-
-			}
-
+			sqlSession.close();
 		}
 
 	}
 
+	
+
 	/**
 	 * Comprueba si esta verificado
+	 * 
 	 * @param user usuario que comprobar
 	 * @return boolean del exito
 	 */
@@ -178,46 +140,27 @@ public class VerificacionDAO {
 		boolean verificado = false;
 		int ver;
 
-		pool = Conexion.getInstance();
-
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
-			cn = pool.getConnection();
-
-			String query = "SELECT * FROM VERIFICACION WHERE IDUSUARIO = ?";
-			ps = pool.getConnection().prepareStatement(query);
-			ps.setInt(1, user.getKey().getKey());
-			rs = ps.executeQuery();
-
-			while (rs.next()) {
-
-				ver = rs.getInt("VERIFICADO");
-
-				if (ver == 1) {
-					verificado = true;
-				}
+			VerificacionMapper verificacionMapper = sqlSession.getMapper(VerificacionMapper.class);
+			ver = verificacionMapper.usuarioVerificado(user.getKey().getKey());
+			
+			if(ver == 1) {
+				verificado = true;
 			}
 
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-
 		} finally {
-
-			try {
-				rs.close();
-				ps.close();
-				cn.close();
-			} catch (SQLException e) {
-				logger.error(e.getMessage());
-
-			}
-
+			sqlSession.close();
 		}
-
+		
 		return verificado;
 	}
 
 	/**
 	 * Cambia una verificacion a verificado
+	 * 
 	 * @param codigo codigo a verificar
 	 * @return boolean del exito
 	 */
@@ -234,7 +177,7 @@ public class VerificacionDAO {
 			ps.setInt(1, codigo);
 			int resultado = ps.executeUpdate();
 
-			//si devuelve algo mayor a 0 es que ha hecho el update
+			// si devuelve algo mayor a 0 es que ha hecho el update
 			if (resultado > 0) {
 
 				verificado = true;

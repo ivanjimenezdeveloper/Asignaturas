@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace='model.entidad.dao.mapper.VerificacionMapper'>
+
+
+	<insert id="crearVerificacion" useGeneratedKeys='true'
+		keyProperty='IDUSUARIO'>
+
+		INSERT INTO VERIFICACION(IDUSUARIO, CODIGO, VERIFICADO)
+		VALUES(#{idusuario}, #{codigo}, #{verificacion})
+
+	</insert>
+
+	<select id='existeCodigo' resultType='java.lang.Boolean'>
+		SELECT * FROM VERIFICACION
+		WHERE CODIGO = #{codigo}
+	</select>
+
+	<delete id="borrarVerificacionesExistentes">
+		DELETE FROM VERIFICACION
+		WHERE IDUSUARIO =
+		#{idUsuario}
+	</delete>
+
+	<select id='usuarioVerificado' resultType='java.lang.Integer'>
+		SELECT CODIGO FROM
+		VERIFICACION WHERE IDUSUARIO = #{idUsuario}
+	</select>
+
+	<update id='verificar' parameterType='java.lang.Integer'>
+		UPDATE VERIFICACION SET
+		VERIFICADO = 1 WHERE CODIGO = #{codigo}
+	</update>
+
+</mapper>

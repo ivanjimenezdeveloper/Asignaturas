@@ -3,7 +3,6 @@ package model.entidad.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.LoggerFactory;
@@ -167,38 +166,23 @@ public class VerificacionDAO {
 	public boolean verificar(int codigo) {
 		boolean verificado = false;
 
-		pool = Conexion.getInstance();
-
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
-			cn = pool.getConnection();
-
-			String query = "UPDATE VERIFICACION SET VERIFICADO = 1 WHERE CODIGO = ?";
-			ps = cn.prepareStatement(query);
-			ps.setInt(1, codigo);
-			int resultado = ps.executeUpdate();
-
-			// si devuelve algo mayor a 0 es que ha hecho el update
-			if (resultado > 0) {
-
+			VerificacionMapper verificacionMapper = sqlSession.getMapper(VerificacionMapper.class);
+			int i = verificacionMapper.verificar(codigo);
+			if(i == 1) {
 				verificado = true;
 			}
 
+			sqlSession.commit();
+			return verificado;
+
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-
 		} finally {
-
-			try {
-				rs.close();
-				ps.close();
-				cn.close();
-			} catch (SQLException e) {
-				logger.error(e.getMessage());
-
-			}
-
+			sqlSession.close();
 		}
-
+		
 		return verificado;
 
 	}

@@ -71,7 +71,7 @@ public class BorrarCuenta extends HttpServlet {
 
 
 		} else {
-			response.sendRedirect("MainNoLogged.html");
+			response.sendRedirect("MainNoLogged.jsp");
 		}
 	}
 

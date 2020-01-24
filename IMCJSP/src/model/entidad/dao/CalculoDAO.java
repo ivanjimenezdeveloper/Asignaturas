@@ -38,7 +38,7 @@ public class CalculoDAO {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
 			CalculoMapper calculoMapper = sqlSession.getMapper(CalculoMapper.class);
-			calculoMapper.guardarCalculo(user.getKey().getKey(), peso, estatura, date);
+			calculoMapper.guardarCalculo(user.getKey(), peso, estatura, date);
 
 			sqlSession.commit();
 		} catch (Exception e) {
@@ -60,7 +60,7 @@ public class CalculoDAO {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
 			CalculoMapper calculoMapper = sqlSession.getMapper(CalculoMapper.class);
-			return calculoMapper.getCalculosUsuario(user.getKey().getKey());
+			return calculoMapper.getCalculosUsuario(user.getKey());
 
 		} catch (Exception e) {
 			logger.error(e.getMessage());

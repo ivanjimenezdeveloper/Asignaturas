@@ -10,14 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.ejb.CalculoEJB;
-import model.ejb.ControlEJB;
 import model.ejb.Sesiones;
 import model.ejb.UsuarioEJB;
 import model.ejb.VerificacionEJB;
 import model.entidad.Mail;
 import model.entidad.Usuario;
-import model.entidad.UsuarioKey;
 import vista.Cabecera;
 import vista.Footer;
 import vista.Nav;
@@ -52,11 +49,6 @@ public class Main extends HttpServlet {
 	@EJB
 	VerificacionEJB verificacionEJB;
 	
-	@EJB
-	CalculoEJB calculoEJB;
-	
-	@EJB
-	ControlEJB controlEJB;
 
 	/**
 	 * Muestra la pagina principal de la pagina
@@ -76,14 +68,7 @@ public class Main extends HttpServlet {
 		boolean ver = false;
 		HttpSession sesion = request.getSession(true);
 		
-		Usuario user2 = new Usuario();
-		
-		UsuarioKey uk = new UsuarioKey();
-		
-		uk.setKey(10);
-		user2.setKey(uk);
-		
-		verificacionEJB.verificar(21312312);
+
 
 		// Obtenemos el usuario de la sesion si existe
 		Usuario user = sesionEJB.usuarioLogeado(sesion);
@@ -112,7 +97,7 @@ public class Main extends HttpServlet {
 			Footer.mostrar(response.getWriter());
 
 		} else {
-			response.sendRedirect("MainNoLogged.html");
+			response.sendRedirect("MainNoLogged.jsp");
 		}
 
 	}

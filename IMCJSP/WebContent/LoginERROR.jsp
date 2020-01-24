@@ -1,10 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>IMC - Register</title>
+<title>IMC - Login</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="imc.css" />
+<%
+	HttpSession sesion = request.getSession(true);
+	String modo = (String) sesion.getAttribute("color");
+
+	if (modo == null) {
+		out.print("<link rel='stylesheet' type='text/css' href='imc.css' />");
+
+	}else{
+		
+	
+	if (modo.equals("l")) {
+		out.print("<link rel='stylesheet' type='text/css' href='imc.css' />");
+	} else {
+		out.print("<link rel='stylesheet' type='text/css' href='imcDark.css' />");
+	}}
+%>
 
 </head>
 <body>
@@ -32,28 +49,19 @@
 		</div>
 	</div>
 	<div class="container">
-		<form method="POST" action="Register" enctype="multipart/form-data">
+		<form method="POST" action="Login">
 			<div>
-				<p>Nombre</p>
-				<input type="text" name="nombre">
-			</div>
-			<div>
-
-				<p>Correo</p>
+				<p>Usuario</p>
 				<input type="text" name="user" />
 			</div>
 			<div>
-
 				<p>Contraseña</p>
 				<input type="password" name="pass" />
 			</div>
-			<div>
-
-				<p>Foto</p>
-				<input type="file" name="img" value="examinar" required="required">
-			</div>
-			<input type="submit" value="Register"  />
+			<div>SE HAN COMETIDO ERRORES</div>
+			<input type="submit" value="Log In" />
 		</form>
+
 	</div>
 	<div class="footer">
 		<p>Web creada por XENOTECK INDUSTRIES copyright 2019</p>

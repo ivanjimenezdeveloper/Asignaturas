@@ -90,7 +90,7 @@ public class UsuarioDAO {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
 			UsuarioMapper usuarioMapper = sqlSession.getMapper(UsuarioMapper.class);
-			usuarioMapper.borrarUsuario(user.getKey().getKey());
+			usuarioMapper.borrarUsuario(user.getKey());
 
 			sqlSession.commit();
 		} catch (Exception e) {

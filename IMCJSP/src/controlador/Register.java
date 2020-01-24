@@ -73,12 +73,12 @@ public class Register extends HttpServlet {
 		user = sesionEJB.usuarioLogeado(sesion);
 
 		if (error != null) {
-			response.sendRedirect("RegisterERROR.html");
+			response.sendRedirect("RegisterERROR.jsp");
 		} else {
 			if (user != null) {
 				response.sendRedirect("Main");
 			} else {
-				response.sendRedirect("Register.html");
+				response.sendRedirect("Register.jsp");
 			}
 		}
 	}

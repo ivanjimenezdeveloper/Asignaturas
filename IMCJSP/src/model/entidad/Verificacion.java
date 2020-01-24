@@ -2,10 +2,10 @@ package model.entidad;
 
 public class Verificacion {
 	
-	private UsuarioKey usKey;
+	private int usKey;
 	private Integer codigo;
 	Boolean verificado;
-	public Verificacion(UsuarioKey usKey, Integer codigo, Boolean verificado) {
+	public Verificacion(int usKey, Integer codigo, Boolean verificado) {
 		super();
 		this.usKey = usKey;
 		this.codigo = codigo;
@@ -20,10 +20,10 @@ public class Verificacion {
 
 
 
-	public UsuarioKey getUsKey() {
+	public int getUsKey() {
 		return usKey;
 	}
-	public void setUsKey(UsuarioKey usKey) {
+	public void setUsKey(int usKey) {
 		this.usKey = usKey;
 	}
 	public Integer getCodigo() {

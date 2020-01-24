@@ -1,14 +1,9 @@
 package model.entidad.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Logger;
-import model.Conexion;
 import model.MyBatisUtil;
 import model.entidad.Usuario;
 import model.entidad.Verificacion;
@@ -22,10 +17,7 @@ import model.entidad.dao.mapper.VerificacionMapper;
  */
 public class VerificacionDAO {
 
-	private static Connection cn;
-	private static PreparedStatement ps;
-	private static ResultSet rs;
-	private static Conexion pool;
+
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(VerificacionDAO.class);
 
 	/**
@@ -65,7 +57,7 @@ public class VerificacionDAO {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
 			VerificacionMapper verificacionMapper = sqlSession.getMapper(VerificacionMapper.class);
-			verificacionMapper.crearVerificacion(ver.getUsKey().getKey(), ver.getCodigo(), verificadoBoolean);
+			verificacionMapper.crearVerificacion(ver.getUsKey(), ver.getCodigo(), verificadoBoolean);
 			;
 
 			sqlSession.commit();
@@ -113,7 +105,7 @@ public class VerificacionDAO {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
 			VerificacionMapper verificacionMapper = sqlSession.getMapper(VerificacionMapper.class);
-			verificacionMapper.borrarVerificacionesExistentes(user.getKey().getKey());
+			verificacionMapper.borrarVerificacionesExistentes(user.getKey());
 			;
 
 			sqlSession.commit();
@@ -142,7 +134,7 @@ public class VerificacionDAO {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
 			VerificacionMapper verificacionMapper = sqlSession.getMapper(VerificacionMapper.class);
-			ver = verificacionMapper.usuarioVerificado(user.getKey().getKey());
+			ver = verificacionMapper.usuarioVerificado(user.getKey());
 			
 			if(ver == 1) {
 				verificado = true;

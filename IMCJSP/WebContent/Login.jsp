@@ -1,10 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>IMC</title>
+<title>IMC - Login</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="imc.css" />
+<%
+	HttpSession sesion = request.getSession(true);
+	String modo = (String) sesion.getAttribute("color");
+
+	if (modo == null) {
+		out.print("<link rel='stylesheet' type='text/css' href='imc.css' />");
+
+	}else{
+		
+	
+	if (modo.equals("l")) {
+		out.print("<link rel='stylesheet' type='text/css' href='imc.css' />");
+	} else {
+		out.print("<link rel='stylesheet' type='text/css' href='imcDark.css' />");
+	}}
+%>
 
 </head>
 <body>
@@ -32,22 +49,16 @@
 		</div>
 	</div>
 	<div class="container">
-		<div class="logoMain"></div>
-		<p>IMC</p>
-		<form method="GET" action="Calculo">
+		<form method="POST" action="Login">
 			<div>
-				<div>
-					<p>Estatura (cm):</p>
-					<input type="number" name="estatura" />
-				</div>
-				<div>
-					<p>Peso:</p>
-					<input type="number" name="peso" />
-				</div>
-				<div>
-					<input type="submit" value="Calcular" />
-				</div>
+				<p>Usuario</p>
+				<input type="text" name="user" />
 			</div>
+			<div>
+				<p>Contraseña</p>
+				<input type="password" name="pass" />
+			</div>
+			<input type="submit" value="Log In" />
 		</form>
 	</div>
 	<div class="footer">

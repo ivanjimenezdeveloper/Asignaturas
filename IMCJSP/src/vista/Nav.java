@@ -32,7 +32,7 @@ public class Nav {
 		String html = "            <div class=\"tab\">\n" 
 	+ "            </div>\n" +"<ul>"
 			+ "<li><a href='Main'>HOME</a></li>"
-			+ "</ul>" +"        </div>\n</div>";
+			+ "</ul>" +"</div>\n</div>";
 
 		out.append(html);
 	};

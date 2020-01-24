@@ -55,12 +55,12 @@ public class Login extends HttpServlet {
 			response.sendRedirect("Main");
 		} else {
 			if (error != null) {
-				response.sendRedirect("LoginERROR.html");
+				response.sendRedirect("LoginERROR.jsp");
 			} else {
 				if (user != null) {
 					response.sendRedirect("Main");
 				} else {
-					response.sendRedirect("Login.html");
+					response.sendRedirect("Login.jsp");
 				}
 			}
 		}
@@ -85,7 +85,7 @@ public class Login extends HttpServlet {
 		if (user == null) {
 			user = userEJB.existeUsuario(usuario, pass);
 
-			if (user.getCorreo() == null) {
+			if (user == null || user.getCorreo() == null) {
 				response.sendRedirect("Login?error=1");
 			} else {
 

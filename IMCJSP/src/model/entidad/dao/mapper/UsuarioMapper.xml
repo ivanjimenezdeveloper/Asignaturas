@@ -5,7 +5,7 @@
 <mapper namespace='model.entidad.dao.mapper.UsuarioMapper'>
 
 	<resultMap type="Usuario" id="UsuarioResult">
-		<id property="key" column="ID"></id>
+		<id property="key" column="ID"/>
 		<result property='correo' column='CORREO' />
 		<result property='nombre' column='NOMBRE' />
 		<result property='pass' column='PASS' />

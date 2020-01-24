@@ -1,11 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>IMC - Login</title>
+<title>IMC - Register</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="imc.css" />
+<%
+	HttpSession sesion = request.getSession(true);
+	String modo = (String) sesion.getAttribute("color");
 
+	if (modo == null) {
+		out.print("<link rel='stylesheet' type='text/css' href='imc.css' />");
+
+	}else{
+		
+	
+	if (modo.equals("l")) {
+		out.print("<link rel='stylesheet' type='text/css' href='imc.css' />");
+	} else {
+		out.print("<link rel='stylesheet' type='text/css' href='imcDark.css' />");
+	}}
+%>
 </head>
 <body>
 	<div class="nav">
@@ -32,16 +48,28 @@
 		</div>
 	</div>
 	<div class="container">
-		<form method="POST" action="Login">
+		<form method="POST" action="Register" enctype="multipart/form-data">
 			<div>
-				<p>Usuario</p>
+				<p>Nombre</p>
+				<input type="text" name="nombre">
+			</div>
+			<div>
+
+				<p>Correo</p>
 				<input type="text" name="user" />
 			</div>
 			<div>
+
 				<p>Contraseña</p>
 				<input type="password" name="pass" />
 			</div>
-			<input type="submit" value="Log In" />
+			<div>
+
+				<p>Foto</p>
+				<input type="file" name="img" value="examinar" required="required">
+			</div>
+			<input type="submit" value="Register"  />
+			<div>ERRO COMETIDO NO SE XD</div>
 		</form>
 	</div>
 	<div class="footer">

@@ -17,7 +17,7 @@ public class ControlEJB {
 	/**
 	 * Envia el correo
 	 */
-	@Schedule(second = "*", minute = "*/5", hour = "*", persistent = false)
+	@Schedule(second = "00", minute = "*/5", hour = "*", persistent = false)
 	public void prueba() {
 		int registros =0;
 		int bajas = 0;

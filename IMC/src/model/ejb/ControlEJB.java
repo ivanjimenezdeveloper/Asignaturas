@@ -32,7 +32,7 @@ public class ControlEJB {
 		
 		Mail m = new Mail("smtp.gmail.com", 587, "basiliscoxalligator@gmail.com", "Ageofempires2");
 
-		m.sendMail("ivanjl4444@hotmail.com", "basiliscoxalligator@gmail.com", "Bajaas y registors IMC", "Bajas: " + bajas +"\nRegistros: "+ registros);
+		m.sendMail("tribot@iessonferrer.net", "basiliscoxalligator@gmail.com", "Bajaas y registors IMC", "Bajas: " + bajas +"\nRegistros: "+ registros);
 
 	}
 	

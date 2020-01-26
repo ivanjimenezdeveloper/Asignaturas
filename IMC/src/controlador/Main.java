@@ -74,7 +74,7 @@ public class Main extends HttpServlet {
 			 ver = verificacionEJB.usuarioVerificado(user);
 
 		}
-		//comprueba si esta verficado
+		//comprueba si esta verficado 
 		if(user != null && ver == false) {
 			
 			verificacionEJB.borrarVerificacionesExistentes(userEJB.existeUsuario(user.getCorreo(), user.getPass()));

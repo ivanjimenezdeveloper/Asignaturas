@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,13 +18,11 @@ import model.ejb.UsuarioEJB;
 import model.ejb.VerificacionEJB;
 import model.entidad.Calculo_Imc;
 import model.entidad.Usuario;
-import vista.Cabecera;
-import vista.Footer;
-import vista.Nav;
 
 @WebServlet("/MisCalculos")
 /**
  * Consigue y muestra los calculos del usuario
+ * 
  * @author HIBAN
  *
  */
@@ -41,16 +40,16 @@ public class MisCalculos extends HttpServlet {
 	 */
 	@EJB
 	Sesiones sesionEJB;
-	
+
 	/**
 	 * EJB para trabajar con sesiones
 	 */
 	@EJB
 	CalculoEJB calculoEJB;
 
-
 	@EJB
 	VerificacionEJB verificacionEJB;
+
 	/**
 	 * Consigue la array de calculos y la muestra
 	 */
@@ -58,34 +57,32 @@ public class MisCalculos extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession sesion = request.getSession(true);
 		boolean ver = false;
-		
 
 		// Obtenemos el usuario de la sesion si existe
 		Usuario user = sesionEJB.usuarioLogeado(sesion);
-		if(user != null) {
-			 ver = verificacionEJB.usuarioVerificado(user);
+		if (user != null) {
+			ver = verificacionEJB.usuarioVerificado(user);
 
 		}
-		if(user != null && ver == false) {
-			
+		if (user != null && ver == false) {
+
 			response.sendRedirect("Main");
-			
-		}
-		else if (user != null) {
+
+		} else if (user != null) {
 			ArrayList<Calculo_Imc> arrCalc = new ArrayList<Calculo_Imc>();
-			
+
+			//Recupero los calculos del usuario
 			arrCalc = calculoEJB.getCalculosUsuario(user);
 			
-			Cabecera.mostrarLogged(response.getWriter(), user);
-			Nav.mostrar(response.getWriter());
-			vista.container.MisCalculos.mostrar(response.getWriter(), arrCalc);
-			Footer.mostrar(response.getWriter());
+			//Lo guardo en la sesion para usarlo en el jsp y muestro el jsp
+			sesion.setAttribute("arrayCalculos", arrCalc);
+			RequestDispatcher rs = getServletContext().getRequestDispatcher("/misCalculos.jsp");
+			rs.forward(request, response);
 
-		}else {
-			response.sendRedirect("MainNoLogged.html");
+		} else {
+			response.sendRedirect("Main");
 		}
-		
-	}
 
+	}
 
 }

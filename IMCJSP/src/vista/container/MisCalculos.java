@@ -19,7 +19,7 @@ public class MisCalculos {
 	 * @param arrCalc Arraylist de calculos
 	 */
 	public static void mostrar(PrintWriter out, ArrayList<Calculo_Imc> arrCalc) {
-		String html = "	<div class=\"container\">\n";
+		String html = "";
 		
 		
 		String pattern = "YYYY-MM-dd HH:mm:ss";
@@ -45,7 +45,6 @@ public class MisCalculos {
 
 		}
 
-		html += "\n" + "	</div>";
 //pinta el html
 		out.append(html);
 	};

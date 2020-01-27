@@ -8,6 +8,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <%
+//Recupero el modo visual estipulado
+
 	HttpSession sesion = request.getSession(true);
 	String modo = (String) sesion.getAttribute("color");
 

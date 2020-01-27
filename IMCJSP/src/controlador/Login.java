@@ -3,6 +3,7 @@ package controlador;
 import java.io.IOException;
 
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,10 +15,10 @@ import model.ejb.Sesiones;
 import model.ejb.UsuarioEJB;
 import model.entidad.Usuario;
 
-
 @WebServlet("/Login")
 /**
  * Logea al usuario
+ * 
  * @author HIBAN
  *
  */
@@ -48,19 +49,24 @@ public class Login extends HttpServlet {
 		String error = request.getParameter("error");
 		String logout = request.getParameter("logout");
 		user = sesionEJB.usuarioLogeado(sesion);
-		
-		
+
+		//Si hay un parametro de logout hara logout
 		if (logout != null) {
 			sesionEJB.logoutUsuario(sesion);
-			response.sendRedirect("Main");
+			response.sendRedirect("Main");	
 		} else {
+			//Comprueba que haya error y en caso positivo redirecciona a login con error
 			if (error != null) {
-				response.sendRedirect("LoginERROR.jsp");
+				RequestDispatcher rs = getServletContext().getRequestDispatcher("/LoginERROR.jsp");
+				rs.forward(request, response);
 			} else {
+				//si hay un usuario redirige a main
 				if (user != null) {
-					response.sendRedirect("Main");
+					response.sendRedirect("Main");	
 				} else {
-					response.sendRedirect("Login.jsp");
+					//En caso de no haber usuario muestra la pagina de login
+					RequestDispatcher rs = getServletContext().getRequestDispatcher("/Login.jsp");
+					rs.forward(request, response);
 				}
 			}
 		}
@@ -68,7 +74,7 @@ public class Login extends HttpServlet {
 	}
 
 	/**
-	 * hace las operaciones de login
+	 * Hace las operaciones de login
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -82,13 +88,17 @@ public class Login extends HttpServlet {
 
 		user = sesionEJB.usuarioLogeado(sesion);
 
+		//si el usuario es nulo procedera a hacer login, en caso contrario redirigira a main
 		if (user == null) {
+			//comprueba que exista el usuario
 			user = userEJB.existeUsuario(usuario, pass);
 
+			//comprueba que no haya errores
 			if (user == null || user.getCorreo() == null) {
 				response.sendRedirect("Login?error=1");
 			} else {
 
+				//Lo guarda en la sesion
 				sesionEJB.loginUsuario(sesion, user);
 				response.sendRedirect("Main");
 			}

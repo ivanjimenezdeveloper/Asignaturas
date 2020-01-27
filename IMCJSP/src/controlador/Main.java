@@ -3,6 +3,7 @@ package controlador;
 import java.io.IOException;
 
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,11 +16,6 @@ import model.ejb.UsuarioEJB;
 import model.ejb.VerificacionEJB;
 import model.entidad.Mail;
 import model.entidad.Usuario;
-import vista.Cabecera;
-import vista.Footer;
-import vista.Nav;
-import vista.container.NoVerificado;
-import vista.container.Principal;
 
 @WebServlet("/Main")
 /**
@@ -48,15 +44,13 @@ public class Main extends HttpServlet {
 	 */
 	@EJB
 	VerificacionEJB verificacionEJB;
-	
 
 	/**
 	 * Muestra la pagina principal de la pagina
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		
+
 		/*
 		 * TENER UN TOMEE VERSION 9 <Resource name="jdbc/IMC" auth="Container"
 		 * type="javax.sql.DataSource" maxActive="100" maxIdle="30" maxWait="10000"
@@ -67,40 +61,36 @@ public class Main extends HttpServlet {
 		 */
 		boolean ver = false;
 		HttpSession sesion = request.getSession(true);
-		
-
 
 		// Obtenemos el usuario de la sesion si existe
 		Usuario user = sesionEJB.usuarioLogeado(sesion);
-		if(user != null) {
-			 ver = verificacionEJB.usuarioVerificado(user);
+		if (user != null) {
+			ver = verificacionEJB.usuarioVerificado(user);
 
 		}
-		//comprueba si esta verficado
-		if(user != null && ver == false) {
-			
+		// comprueba si esta verficado
+		if (user != null && ver == false) {
+
 			verificacionEJB.borrarVerificacionesExistentes(userEJB.existeUsuario(user.getCorreo(), user.getPass()));
 			Integer codigo = verificacionEJB.crearVerificacion(userEJB.existeUsuario(user.getCorreo(), user.getPass()));
 			Mail m = new Mail("smtp.gmail.com", 587, "basiliscoxalligator@gmail.com", "Ageofempires2");
-			m.sendMail(user.getCorreo(), "basiliscoxalligator@gmail.com", "Verificacion de correo IMC", "http://localhost:8080/IMC/Verificar?ver="+codigo);
+			m.sendMail(user.getCorreo(), "basiliscoxalligator@gmail.com", "Verificacion de correo IMC",
+					"http://localhost:8080/IMC/Verificar?ver=" + codigo);
 
-			Cabecera.mostrarLogged(response.getWriter(), user);
-			Nav.mostrar(response.getWriter());
-			NoVerificado.mostrar(response.getWriter());
-			Footer.mostrar(response.getWriter());
-			
-		}
-		else if (user != null) {
-			Cabecera.mostrarLogged(response.getWriter(), user);
-			Nav.mostrar(response.getWriter());
-			Principal.mostrar(response.getWriter());
-			Footer.mostrar(response.getWriter());
+			RequestDispatcher rs = getServletContext().getRequestDispatcher("/principal/main.jsp");
+			rs.forward(request, response);
+
+		} else if (user != null) {
+//Muestra el main para usuarios logged
+			RequestDispatcher rs = getServletContext().getRequestDispatcher("/principal/main.jsp");
+			rs.forward(request, response);
 
 		} else {
-			response.sendRedirect("MainNoLogged.jsp");
+			// Muestra el main para usuarios anonimos
+			RequestDispatcher rs = getServletContext().getRequestDispatcher("/MainNoLogged.jsp");
+			rs.forward(request, response);
 		}
 
 	}
-
 
 }

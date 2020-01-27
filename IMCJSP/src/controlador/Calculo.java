@@ -3,6 +3,7 @@ package controlador;
 import java.io.IOException;
 
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,9 +19,6 @@ import model.ejb.Sesiones;
 import model.ejb.UsuarioEJB;
 import model.ejb.VerificacionEJB;
 import model.entidad.Usuario;
-import vista.Cabecera;
-import vista.Footer;
-import vista.Nav;
 
 @WebServlet("/Calculo")
 /**
@@ -79,6 +77,7 @@ public class Calculo extends HttpServlet {
 
 		// calcula el IMC
 		Double resultado = calculoEJB.calcularIMC(peso, estatura);
+		sesion.setAttribute("resultado", resultado);
 		if(user != null) {
 			 ver = verificacionEJB.usuarioVerificado(user);
 
@@ -96,16 +95,12 @@ public class Calculo extends HttpServlet {
 			if (guardar == null) {
 				calculoEJB.guardarCalculo(peso, estatura.intValue(), user);
 			}
-			Cabecera.mostrarLogged(response.getWriter(), user);
 
-			Nav.mostrar(response.getWriter());
-			vista.container.Calculo.mostrar(response.getWriter(), resultado);
-			Footer.mostrar(response.getWriter());
+			RequestDispatcher rs = getServletContext().getRequestDispatcher("/calculo.jsp");
+			rs.forward(request, response);
 		} else {
-			Cabecera.mostrarNoLogged(response.getWriter());
-			Nav.mostrar(response.getWriter());
-			vista.container.Calculo.mostrar(response.getWriter(), resultado);
-			Footer.mostrar(response.getWriter());
+			RequestDispatcher rs = getServletContext().getRequestDispatcher("/calculo.jsp");
+			rs.forward(request, response);
 		}
 
 	}

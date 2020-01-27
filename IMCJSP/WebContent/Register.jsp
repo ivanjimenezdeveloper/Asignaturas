@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,20 +7,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <%
+	//Recupero el modo visual estipulado
+
 	HttpSession sesion = request.getSession(true);
 	String modo = (String) sesion.getAttribute("color");
 
 	if (modo == null) {
 		out.print("<link rel='stylesheet' type='text/css' href='imc.css' />");
 
-	}else{
-		
-	
-	if (modo.equals("l")) {
-		out.print("<link rel='stylesheet' type='text/css' href='imc.css' />");
 	} else {
-		out.print("<link rel='stylesheet' type='text/css' href='imcDark.css' />");
-	}}
+
+		if (modo.equals("l")) {
+			out.print("<link rel='stylesheet' type='text/css' href='imc.css' />");
+		} else {
+			out.print("<link rel='stylesheet' type='text/css' href='imcDark.css' />");
+		}
+	}
 %>
 </head>
 <body>
@@ -32,7 +34,8 @@
 			<div class="usuario">
 				<div>
 					<p class="nombreUsuario">Usuario</p>
-					<div class="fotoUsuario" style='background-image: url(imagenes/estandar.png)'></div>
+					<div class="fotoUsuario"
+						style='background-image: url(imagenes/estandar.png)'></div>
 				</div>
 				<div>
 					<a href="Login">LogIn</a>
@@ -44,6 +47,8 @@
 		<div class="tab">
 			<ul>
 				<li><a href='Main'>HOME</a></li>
+				<li><a href='ChangeMode'>Cange Mode</a></li>
+
 			</ul>
 		</div>
 	</div>
@@ -68,7 +73,7 @@
 				<p>Foto</p>
 				<input type="file" name="img" value="examinar" required="required">
 			</div>
-			<input type="submit" value="Register"  />
+			<input type="submit" value="Register" />
 		</form>
 	</div>
 	<div class="footer">

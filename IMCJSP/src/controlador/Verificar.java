@@ -37,7 +37,7 @@ public class Verificar extends HttpServlet {
 		int codigo = -1;
 		try {
 			codigo = Integer.parseInt(request.getParameter("ver"));
-			
+			// si esta verificado muestra el html correspondiente
 			if (verificacionEJB.verificar(codigo) == true) {
 				Cabecera.mostrarNoLogged(response.getWriter());
 				Nav.mostrar(response.getWriter());

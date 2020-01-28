@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="conexion.ConnectionPool"/>
-    <fullyQualifiedTypeName name="com.mysql.cj.protocol.Resultset"/>
     <fullyQualifiedTypeName name="query.CRUD"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
@@ -26,7 +24,6 @@
     <fullyQualifiedTypeName name="jdk.tools.jaotc.binformat.CodeContainer"/>
     <fullyQualifiedTypeName name="vista.container.Container"/>
     <fullyQualifiedTypeName name="model.entidad.dao.UsuarioDAO"/>
-    <fullyQualifiedTypeName name="javax.ejb.EJB"/>
     <fullyQualifiedTypeName name="model.ejb.UsuarioEJB"/>
     <fullyQualifiedTypeName name="model.ejb.Sesiones"/>
     <fullyQualifiedTypeName name="vista.Cabecera"/>
@@ -60,4 +57,7 @@
     <fullyQualifiedTypeName name="model.ejb.ControlEJB"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
     <fullyQualifiedTypeName name="model.entidad.dao.mapper.VerificacionMapper"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.POST"/>
+    <fullyQualifiedTypeName name="javax.ejb.EJB"/>
+    <fullyQualifiedTypeName name="model.ejb.Calculos"/>
 </qualifiedTypeNameHistroy>

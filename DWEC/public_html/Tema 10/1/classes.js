@@ -1,13 +1,19 @@
-//Constructor de la classe classTabla
+
+
+////Constructor de la classe classTabla
 //tabla: L'objecte de la taula.
 //filas: número files.
 //columnas: número columnes.
 //texto: text que es ficarà a les cel·les.
-function classTabla(tabla, filas, columnas, texto) {
+function classTabla(body, filas, columnas, texto) {
 //Propietats de la classe classTabla
+
+ var tabla = document.createElement("TABLE");
     this.objTabla = tabla;
     this.numFilas = filas;
     this.numColumnas = columnas;
+    
+    body.insertBefore(this.objTabla, document.body.firstChild);
 //this.textoInicial = texto;
 //Mètodes de la classe classTabla
 //Mètode que inserta una fila
@@ -64,6 +70,14 @@ function classTabla(tabla, filas, columnas, texto) {
 //Mètode que esborra la columna en numColumna
 //numColumna: número columna on s'esborrarà
     this.borraColumna = function (numColumna) {
+
+        for (var i = 0; i < this.numColumnas; i++) {
+            var row = this.objTabla.rows[i];
+
+            var cell = row.deleteCell(numColumna);
+
+        }
+
     }
 //Mètode intern que esborra una cel·la
 //és privada, tot i que això no es pot definir en JS
@@ -74,21 +88,41 @@ function classTabla(tabla, filas, columnas, texto) {
 //numFila: número fila on s'esborrarà
     this.borraFila = function (numFila) {
 
-
-
         this.objTabla.deleteRow(numFila);
     }
 //Mètode que canvia el contingut d'una cel·la
 //numFila: número fila de la cel·la
 //numColumna: número columna de la cel·la
     this.cambiaCelda = function (numFila, numColumna, texto) {
+
+        var row = this.objTabla.rows[numFila].cells;
+
+        row[numColumna].innerHTML = texto;
     }
 //Mètode que canvia totes les cel·les de la taula per texto
 //texto: text que es posarà dins les cel·les
     this.cambiaCeldasTabla = function (texto) {
+
+        for (var e = 0; e < this.numFilas; e++) {
+
+            var row = this.objTabla.rows[e].cells;
+
+            for (var i = 0; i < this.numColumnas; i++) {
+
+                row[i].innerHTML = texto;
+
+            }
+        }
+
+
     }
 //Mètode que canvia el color de fons de la taula per pColor
 //pColor: color
+    this.cambiaFondo = function (pColor) {
+        
+        this.objTabla.style.backgroundColor = pColor;
+        
+    };
 
     this.insertaFilas(0, this.numFilas, texto);
 

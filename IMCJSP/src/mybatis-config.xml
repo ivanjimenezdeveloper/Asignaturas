@@ -3,8 +3,7 @@
 <configuration>
 	<properties resource='jdbc.properties' />
 	<typeAliases>
-		<typeAlias type='model.entidad.Usuario' alias='Usuario'></typeAlias>
-		<typeAlias type='model.entidad.Calculo_Imc' alias='Calculo'></typeAlias>
+		<typeAlias type='model.entidad.Jugador' alias='Jugador'></typeAlias>
 	</typeAliases>
 	<environments default='development'>
 		<environment id='development'>
@@ -18,10 +17,8 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource='model/entidad/dao/mapper/UsuarioMapper.xml' />
-		<mapper resource='model/entidad/dao/mapper/CalculoMapper.xml' />
-		<mapper resource='model/entidad/dao/mapper/ControlDAOMapper.xml' />
-		<mapper resource='model/entidad/dao/mapper/VerificacionMapper.xml' />
+		<mapper resource='model/entidad/dao/mapper/JugadorMapper.xml' />
+
 
 	</mappers>
 </configuration>

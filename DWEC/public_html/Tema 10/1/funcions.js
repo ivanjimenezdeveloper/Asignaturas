@@ -1,7 +1,7 @@
 //Funció que s'executa quan es carreguen les dades de la pàgina
 function myFunction() {
 //Es crea l'objecte de la classe classTablavar tmpTabla = document.getElementById('miTabla');
-    var myTabla = new classTabla(document.getElementById('miTabla'), 3, 4, "texto");
+    var myTabla = new classTabla(document.body, 3, 4, "texto");
 //assignar als botons els esdeveniments onclick
     document.getElementById('afFi').onclick = function () {
 

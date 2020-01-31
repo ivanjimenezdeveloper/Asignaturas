@@ -1,6 +1,8 @@
-package controller;
+
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Presentacion
+ * Servlet implementation class Main
  */
-@WebServlet("/Presentacion")
-public class Presentacion extends HttpServlet {
+@WebServlet(name="MainDAW", urlPatterns="")
+public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Presentacion() {
+    public Main() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,13 +29,16 @@ public class Presentacion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession sesion = request.getSession(true);
+
+		PrintWriter out = response.getWriter();
+		String nombre = getInitParameter("nombre");
+		String apellidos = getInitParameter("apellido");
+
+		out.print("<h1>Bienvenidos al servidor de "+ nombre + " " + apellidos +"</h1>");
 		
-		String nombre = request.getParameter("nombre");
-		String apellido = request.getParameter("apellido");
 		
-		sesion.setAttribute("nombre", nombre);
-		sesion.setAttribute("apellido", apellido);
+		
+	
 	}
 
 	/**

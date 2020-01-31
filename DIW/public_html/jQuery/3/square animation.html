@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Manipulating the DOM</title>
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+        <!--  Setting or returning one or more style properties for selected elements -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+
+                $("body div:eq(1)").animate({top: '300px'});
+
+                $("body div:eq(0)").hover(function () {
+                    $(this).animate({bottom: '3000px'}, {duration: 1000});
+                });
+
+                $("body div:eq(2)").hover(function () {
+                    $(this).animate({top: '3000px'}, {duration: 1000});
+                });
+                
+                $("body div:eq(3)").fadeOut();
+                
+                $("body div").hover(function () {
+                    $(this).fadeOut();
+                });
+                
+            });
+        </script>
+
+        <style type="text/css">
+            div {width: 60px; height:60px; margin:5px; float: left; position: relative;}
+        </style>
+    </head>
+    <body>
+        <p id="result">&nbsp;</p>
+        <div style="background-color: blue;"></div>
+        <div style="background-color: green;"></div>
+        <div style="background-color: yellow;"></div>
+        <div style="background-color: #f11;"></div>
+    </body>
+</html>

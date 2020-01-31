@@ -1,26 +1,23 @@
-package controller;
+
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Main
+ * Servlet implementation class HolaMundo
  */
-@WebServlet(name="MainDAW", urlPatterns="/Main")
-public class Main extends HttpServlet {
+@WebServlet("/HolaMundo")
+public class HolaMundo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Main() {
+    public HolaMundo() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,16 +26,7 @@ public class Main extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		PrintWriter out = response.getWriter();
-		String nombre = getInitParameter("nombre");
-		String apellidos = getInitParameter("apellido");
-
-		out.print("<h1>Bienvenidos al servidor de "+ nombre + " " + apellidos +"</h1>");
-		
-		
-		
-	
+		response.getWriter().print("HOLA MUNDO");
 	}
 
 	/**

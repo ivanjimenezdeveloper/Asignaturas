@@ -9,11 +9,15 @@
             $(document).ready(function () {
                 $("input[type='button'").click(function () {
                     var texto = $("#texto").val();
-                    var pattern = new RegExp(" "+texto+" ", "gi");
+                    var pattern = new RegExp(texto, "gi");
                     var texto2 = "";
+
+                    $("span").contents().unwrap();
+
+
                     $("div").children().each(function () {
                         this.innerHTML = this.innerHTML.replace(pattern, function () {
-                            return "<span> " + texto + " </span>";
+                            return "<span>" + texto + "</span>";
                         });
                     });
 

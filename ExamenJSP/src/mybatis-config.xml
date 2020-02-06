@@ -3,8 +3,12 @@
 <configuration>
 	<properties resource='jdbc.properties' />
 	<typeAliases>
-		<typeAlias type='model.entidad.Jugador' alias='Jugador'></typeAlias>
-		<typeAlias type='model.entidad.Equipo' alias='Equipo'></typeAlias>
+		<typeAlias type='model.entidad.Accidente' alias='Accidente'></typeAlias>
+		<typeAlias type='model.entidad.Tipos' alias='Tipos'></typeAlias>
+		<typeAlias type='model.entidad.Distritos' alias='Distrito'></typeAlias>
+
+
+		<typeAlias type='model.entidad.Estadisticas' alias='Est'></typeAlias>
 
 	</typeAliases>
 	<environments default='development'>
@@ -19,8 +23,9 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource='model/entidad/dao/mapper/JugadorMapper.xml' />
-		<mapper resource='model/entidad/dao/mapper/EquipoMapper.xml' />
+		<mapper
+			resource='model/entidad/dao/mapper/AccidentesMapper.xml' />
+
 
 	</mappers>
 </configuration>

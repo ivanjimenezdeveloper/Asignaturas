@@ -1,0 +1,398 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11 nov. 2019, 15:41:40
+    Author     : horabaixa
+*/
+body {
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	margin: 0 auto;
+	background-color: #1b262c;
+	color: #bbe1fa;
+}
+
+/*************************************NAVEGADOR*************************************/
+.nav {
+	flex: 0 0 auto;
+	/*! margin: 5px; */
+	width: 100%;
+	margin-top: 0;
+	padding: 20px 0 0 20px;
+	background: #0f4c75;
+	/*! border-bottom: 2px solid #3ccf52; */
+	margin-bottom: 0;
+
+	/*! background-image: url("gameland.png"); */
+}
+
+.nav a {
+	padding: 0 15px 0 15px;
+	background: #3282b8;
+	background-color: #3282b8;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 6px 12px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #5b8a3c;
+}
+
+.nav a:hover {
+	background: rgb(11, 118, 149);
+	background: linear-gradient(0deg, rgba(11, 118, 149, 1) 0%,
+		rgba(60, 207, 82, 1) 39%);
+}
+
+.nav a:active {
+	position: relative;
+	top: 1px;
+}
+
+.logoHeader {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	margin-right: 5px;
+	background-size: 100px;
+	background-image: url("imc.png");
+}
+
+.nav h1 {
+	display: inline-block;
+}
+
+.nodoInvisibleHeader {
+	display: inline-block;
+	width: 70%;
+}
+
+
+
+.usuario {
+	display: inline-block;
+	width: 200px;
+	/*! display: flex; */
+	align-content: center;
+}
+
+.nombreUsuario {
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.usuario div:last-child {
+	font-size: 15px;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.usuario div:last-child p {
+	width: 2px;
+}
+
+.usuario div:last-child * {
+	display: inline;
+}
+
+ul {
+	display: inline;
+	text-decoration: none;
+}
+
+.nav ul * {
+	text-decoration: none;
+	list-style: none;
+	display: inline-block;
+}
+
+.nav ul {
+	margin: 0 auto;
+	bottom: 0;
+	padding-left: 0;
+}
+.fotoUsuario{
+	width: 100px;
+	/*! height: auto; */
+	background-image: url('estandar.png');
+	background-size: 100px 100px;
+	width: 100px !important;
+	height: 100px !important; 
+	margin-bottom: 10px;
+	display: inline-block;
+margin: 0 auto;
+}
+
+
+/*************************************CONTAINER*************************************/
+.container {
+	display: flex;
+	flex: 0 0 auto;
+	margin: 0px auto;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	min-height: 400px;
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	min-height: 700px;
+}
+
+.logoMain {
+	width: 200px;
+	height: 200px;
+	background-size: 200px;
+	background-image: url("imc.png");
+}
+
+.containerGenero {
+	display: flex;
+	flex: 0 0 auto;
+	margin: 0px auto;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	min-height: 400px;
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	min-height: 700px;
+	display: flex;
+	flex: 0 0 auto;
+	margin: 0px auto;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.containerGenero>div:first-child {
+	margin-right: 100px;
+}
+
+
+
+/*************************************TABLAS*************************************/
+table, td, tr {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+table {
+	
+}
+
+thead {
+	background: linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+	background-color: #77b55a;
+	text-shadow: 0px 1px 0px #5b8a3c;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+tbody tr {
+	background: rgb(119, 181, 90);
+	background: linear-gradient(0deg, rgba(119, 181, 90, 0.2) 0%,
+		rgba(114, 179, 82, 0.2) 100%);
+}
+
+tbody tr:nth-child(even) {
+	background: rgb(119, 181, 90);
+	background: linear-gradient(0deg, rgba(119, 181, 90, 0.5) 0%,
+		rgba(114, 179, 82, 0.5) 100%);
+}
+
+td {
+	max-width: 150px;
+	width: 150px;
+	height: 50px;
+	min-height: 50px;
+}
+
+/*************************************FICHA*************************************/
+.ficha {
+	min-height: 400px;
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: auto;
+	align-content: center;
+}
+
+.ficha>div {
+	flex: auto;
+	margin: 5px;
+	margin: 5px 50px;
+	max-width: 600px;
+}
+
+.fichaImagen {
+	width: 300px;
+	height: 300px;
+	background-color: red;
+}
+
+.fichaContenido {
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: auto;
+	align-content: center;
+	max-width: 600px;
+}
+
+.fichaAtributo {
+	width: 110px;
+}
+
+.fichaDescripcion {
+	width: 500px;
+}
+
+.fichaRow {
+	width: 610px;
+}
+
+.fichaRow {
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: auto;
+	align-content: center;
+}
+
+/*************************************MIS CALCULOS*************************************/
+
+.calculo{
+	display: flex;
+}
+
+.calculo {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  align-content: center;
+  width: 700px;
+	border-width:10px;
+border-style:ridge;
+border-color:#2ece71;
+  margin-top: 30px;
+}
+
+.calculo > div:first-child{
+	display: flex;
+	width: 350px;
+	
+	width: 70%;
+}
+
+.calculo > div:first-child > p{
+	margin: 0 auto;
+	margin-left: 10px;
+}
+
+.calculo > div:last-child{
+	align-self: end;
+	align-content: end;
+	width: 16%;
+	margin-right: 5;
+	justify-content: right;
+	text-align: right;
+}
+
+.calculo >div{
+  flex: 0 0 auto;
+  margin: 10px;
+}
+
+/*************************************FORMULARIOS*************************************/
+.container>form {
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: auto;
+	align-content: center;
+	max-width: 600px;
+}
+
+.container>form>div {
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: auto;
+	align-content: center;
+}
+
+.container>form>div>* {
+	display: flex;
+	justify-content: center;
+	align-items: auto;
+	align-content: center;
+}
+.container>form>div>*>p {
+margin: 0 auto;
+	width: 90px;
+}
+
+.container>form>div>p {
+	width: 100px;
+	margin-bottom: 20px;
+}
+
+.container>form>div>input, .container>form>div>select {
+	width: 90px;
+	margin-bottom: 20px;
+}
+
+/*************************************FOOTER*************************************/
+.footer {
+	flex: 0 0 auto;
+	margin: 0px;
+	width: 100%;
+	text-align: center;
+	height: 50px;
+	background: #3282b8;
+
+}

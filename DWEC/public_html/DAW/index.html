@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>La historia de mi vida</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="imcDark.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                fecha();
+            });
+            function fecha() {
+                var fecha;
+                var d = new Date();
+                fecha = d.getDay();
+                fecha += "/" + d.getMonth();
+                fecha += "/" + d.getFullYear();
+
+                fecha += " " + d.getHours();
+                fecha += ":" + d.getSeconds();
+
+                $("#fecha").text(fecha);
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="nav">
+            <div class="header">
+                <div class="logoHeader"></div>
+                <h1>La historia de mi vida</h1>
+                <div class="nodoInvisibleHeader"></div>
+            </div>
+            <div class="tab">
+                <ul>
+                    <li><a href='Main'>HOME</a></li>
+                    <li><a href="#" id="fecha"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <pre>
+Ahora escucha la historia de mi vida
+Y de cómo el destino cambió mi movida
+Sin comerlo ni beberlo llegué a ser
+El chuleta de un barrio llamado Bel Air
+
+Al oeste en Filadelfia, crecía y vivía
+Sin hacer mucho caso a la policía
+Jugaba al basket sin cansarme demasiado
+Porque por las noches me sacaba el graduado
+Cierto día jugando al basket con amigos
+Unos tipos del barrio me metieron en un lío
+Y mi madre me decía una y otra vez
+¡Con tu tío y con tu tía irás a Bel Air!
+
+Después de rogarla, incluso la besé
+Me dio la maleta y el billete de avión
+Y entonces me di cuenta de la grave situación
+Por Dios, no está nada mal
+Zumo de naranja en una copa de champán
+Si estas son las pibas de Bel Air
+¡Esto si que es demasie!
+
+Llamé a un taxi, cuando se acercó
+Su molonga matrícula me fascinó
+Quería conocer a la clase de parientes
+Que me espera en Bel Air con aire sonriente
+
+A las siete llegué a aquella casa
+Y salí de aquel taxi que olía a cuadra
+Estaba en Bel Air y la cosa cambiaba
+Mi trono me esperaba, el príncipe llegaba
+            </pre>
+            <img src="will.png"/>
+        </div>
+        <div class="footer">
+            <p>Web creada por XENOTECK INDUSTRIES copyright 2019</p>
+        </div>
+    </body>
+</html>

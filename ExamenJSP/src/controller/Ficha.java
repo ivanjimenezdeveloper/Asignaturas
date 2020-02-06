@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.ejb.EquipoEJB;
-import model.ejb.JugadorEJB;
+import model.ejb.AccidenteEJB;
 
 /**
  * Servlet implementation class Ficha
@@ -24,16 +23,12 @@ public class Ficha extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-	@EJB
-	JugadorEJB jugadorEJB;
-	@EJB
-	EquipoEJB equipoEJB;
-	
     public Ficha() {
         super();
         // TODO Auto-generated constructor stub
     }
-
+	@EJB
+	AccidenteEJB accidenteEJB;
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -48,17 +43,14 @@ public class Ficha extends HttpServlet {
 			
 			id = 0;
 		}
-		
-		sesion.setAttribute("jugador", jugadorEJB.buscarJugador(id) );
-		sesion.setAttribute("equipo", equipoEJB.buscarJugador(id) );
-		
+		sesion.setAttribute("tipo", accidenteEJB.TipoPorId(1) );
+		sesion.setAttribute("distrito", accidenteEJB.distritoPorId(id) );
+
+		sesion.setAttribute("accidente", accidenteEJB.getAccidente(id) );
+
+
 		RequestDispatcher rs = getServletContext().getRequestDispatcher("/ficha.jsp");
 		rs.forward(request, response);
-		
-		
-		
-		
-		
 	}
 
 	/**

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+<mapper namespace='model.entidad.dao.mapper.EquipoMapper'>
+	<!-- private int id; private String nombre; private int anyoI; private int 
+		anyoFin; private int idJugador; -->
+	<resultMap type="Equipo" id="EquipoResult">
+		<id property="id" column="id" />
+		<result property='nombre' column='nombre' />
+		<result property='anyi' column='añoInicio' />
+		<result property='anyf' column='añoFin' />
+		<result property='idJugador' column='idJugador' />
+	</resultMap>
+
+
+
+	<select id="busquedaPorJugador" resultMap='EquipoResult'>
+SELECT * FROM Equipos
+		WHERE idJugador = #{id} order by añoInicio ASC
+	</select>
+</mapper>

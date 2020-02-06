@@ -1,0 +1,195 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Manipulating the DOM</title>
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+        <!--  Setting or returning one or more style properties for selected elements -->
+        <script type="text/javascript">
+            var idCambio;
+            $(document).ready(function () {
+
+                $("button[name=select]").click(select);
+
+                $("button[name=delete]").click(borrar);
+
+                $("button[name=update]").click(update);
+
+                $("button[name=insert]").click(insert);
+
+                $("button[name=cancel]").click(clearControl);
+
+
+                function select() {
+                    var id = $(this).parent().parent().attr("id");
+
+                    if ($(this).text() == "Selected") {
+                        $(this).parent().parent().removeClass("selected");
+                        $(this).text("Select");
+
+                    } else {
+                        $(this).parent().parent().addClass("selected");
+
+                        $(this).text("Selected");
+                    }
+
+                }
+
+                function update() {
+                    var id = $(this).parent().parent().attr("id");
+
+                    var position, name, points;
+
+                    position = $("#" + id + " td").first().text();
+
+                    name = $("#" + id + " td").eq(1).text();
+
+                    points = $("#" + id + " td").eq(2).text();
+
+
+
+                    if (position != "" || name != "" || points != "") {
+
+                        $("#control input").first().val(position);
+                        $("#control input").eq(1).val(name);
+                        $("#control input").eq(2).val(points);
+                        $("#control input").eq(3).attr("value", id);
+
+                    }
+
+
+                }
+
+                function borrar() {
+                    var id = $(this).parent().parent().attr("id");
+
+                    $("#" + id).remove();
+
+                }
+
+                function insert() {
+                    var position, name, points;
+                    var idUpdate = $("#control input").eq(3).val();
+                    position = $("#control input").first().val();
+                    name = $("#control input").eq(1).val();
+                    points = $("#control input").eq(2).val();
+                    if (idUpdate == 0) {
+
+
+                        if (position != "" || name != "" || points != "") {
+                            var idAnterior = $("tbody tr").last().attr("id");
+
+                            var numeroAnterior = idAnterior.charAt(1);
+                            numeroAnterior++;
+                            var id = "r" + numeroAnterior;
+
+                            $("tbody tr").last().after("<tr id='" + id + "'>"
+                                    + "<td>" + position + "</td>" + "<td>" + name + "</td>" + "<td>" + points + "</td>" +
+                                    "<td><button name='select'>Select</button><button name='delete'>Delete</button><button name='update'>Update</button></td>" +
+                                    "</tr>");
+
+                            $("tbody tr").last().children().last().children().first().click(select);
+                            $("tbody tr").last().children().last().children().eq(1).click(borrar);
+                            $("tbody tr").last().children().last().children().eq(2).click(update);
+
+                        }
+                    } else {
+                        if (position != "" || name != "" || points != "") {
+
+                        $("#" + idUpdate).children().first().text(position);
+                        $("#" + idUpdate).children().eq(1).text(name);
+                        $("#" + idUpdate).children().eq(2).text(points);}
+
+
+
+                    }
+
+
+
+
+                }
+
+                function clearControl() {
+                    $("#control input").val("");
+                }
+
+
+            });
+        </script>
+
+        <style type="text/css">
+            table, th, tr, td{
+                border: 1px black solid;
+                border-collapse: collapse;
+                padding: 5px;
+                text-align: center;
+            }
+            #control{
+                width: 200px;
+            }
+
+            .selected{
+                background-color: yellow; 
+            }
+        </style>
+    </head>
+    <body>
+        <table id="tabla">
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Team</th>
+                    <th>Points</th><th></th>
+                </tr>
+            </thead>
+            <tbody id="bodyTabla">
+                <tr id="r1">
+                    <td>1</td>
+                    <td>Real Oviedo</td>
+                    <td>50</td>
+                    <td>
+                        <button name="select" >Select</button>
+                        <button name="delete">Delete</button>
+                        <button name="update">Update</button>
+                    </td>
+                </tr>
+                <tr id="r2">
+                    <td>2</td>
+                    <td>Osasuna</td>
+                    <td>48</td>
+                    <td>
+                        <button name="select">Select</button>
+                        <button name="delete">Delete</button>
+                        <button name="update">Update</button>
+                    </td>
+                </tr>
+                <tr id="r3">
+                    <td>3</td>
+                    <td>FC Barcelona</td>
+                    <td>20</td>
+                    <td>
+                        <button name="select">Select</button>
+                        <button name="delete">Delete</button>
+                        <button name="update">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form id="control" onsubmit="return false">
+            Position
+            <input type="number" name="position">
+            Team
+            <input type="text" name="team">
+
+            Points
+            <input type="number" name="points">
+
+            <input type="hidden" name='id' value="0"/>
+
+
+            <button name="insert">Insert</button> <button name="cancel">Cancel</button>
+        </form>
+    </body>
+</html>

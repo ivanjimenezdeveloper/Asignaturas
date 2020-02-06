@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+<mapper namespace='model.entidad.dao.mapper.JugadorMapper'>
+
+	<resultMap type="Jugador" id="JugadorResult">
+		<id property="id" column="id"/>
+		<result property='nombre' column='nombre' />
+		<result property='foto' column='foto' />
+	</resultMap>
+
+	<select id="busquedaGeneral" resultMap='JugadorResult'>
+		SELECT * FROM Jugadores
+	</select>
+	
+		<select id="buscarJugador" resultMap='JugadorResult'>
+		SELECT * FROM Jugadores WHERE id = #{id}
+	</select>
+		<delete id='borrarJugador'>
+		DELETE FROM Jugadores WHERE id = #{id}
+	</delete>
+</mapper>

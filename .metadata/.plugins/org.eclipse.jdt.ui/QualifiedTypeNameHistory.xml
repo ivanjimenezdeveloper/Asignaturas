@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="entidad.Juego"/>
-    <fullyQualifiedTypeName name="query.Mantenimiento"/>
-    <fullyQualifiedTypeName name="clases.CategoriaKey"/>
-    <fullyQualifiedTypeName name="clases.Categoria"/>
-    <fullyQualifiedTypeName name="clases.Dao"/>
-    <fullyQualifiedTypeName name="ejb.CalculadoraBean"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
-    <fullyQualifiedTypeName name="clases.tag"/>
-    <fullyQualifiedTypeName name="model.entidad.usuario.UsuarioKey"/>
     <fullyQualifiedTypeName name="vista.cabecera.Mostar"/>
     <fullyQualifiedTypeName name="model.entidad.dao.Usuario"/>
     <fullyQualifiedTypeName name="model.entidad.usuario.Usuario"/>
@@ -27,7 +18,6 @@
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="vista.container.MisCalculos"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="model.entidad.Calculo_ImcKey"/>
     <fullyQualifiedTypeName name="com.sun.tools.javac.code.Type.ForAll"/>
     <fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
@@ -37,27 +27,37 @@
     <fullyQualifiedTypeName name="javax.ejb.LocalBean"/>
     <fullyQualifiedTypeName name="javax.ejb.Stateless"/>
     <fullyQualifiedTypeName name="model.ejb.JugadorEJB"/>
-    <fullyQualifiedTypeName name="model.entidad.Jugador"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="model.entidad.Calculo_Imc"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="model.entidad.Usuario"/>
     <fullyQualifiedTypeName name="model.entidad.UsuarioKey"/>
     <fullyQualifiedTypeName name="model.entidad.dao.mapper.ControlMapper"/>
     <fullyQualifiedTypeName name="model.entidad.dao.mapper.CalculoMapper"/>
     <fullyQualifiedTypeName name="model.ejb.ControlEJB"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
     <fullyQualifiedTypeName name="model.entidad.dao.mapper.VerificacionMapper"/>
     <fullyQualifiedTypeName name="javax.ws.rs.POST"/>
     <fullyQualifiedTypeName name="javax.ejb.EJB"/>
     <fullyQualifiedTypeName name="model.ejb.Calculos"/>
     <fullyQualifiedTypeName name="model.entidad.dao.mapper.JugadorMapper"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="javax.ws.rs.PathParam"/>
+    <fullyQualifiedTypeName name="jdk.jfr.ContentType"/>
     <fullyQualifiedTypeName name="javax.ws.rs.GET"/>
     <fullyQualifiedTypeName name="javax.ws.rs.Path"/>
-    <fullyQualifiedTypeName name="jdk.jfr.ContentType"/>
     <fullyQualifiedTypeName name="javax.ws.rs.Produces"/>
     <fullyQualifiedTypeName name="javax.ws.rs.core.MediaType"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.PathParam"/>
+    <fullyQualifiedTypeName name="model.entidad.Jugador"/>
+    <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlRootElement"/>
+    <fullyQualifiedTypeName name="model.ejb.AccidenteEJB"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="model.entidad.dao.mapper.AccidentesMapper"/>
+    <fullyQualifiedTypeName name="model.entidad.Accidente"/>
+    <fullyQualifiedTypeName name="model.entidad.Distritos"/>
+    <fullyQualifiedTypeName name="model.entidad.dao.AccidenteDAO"/>
+    <fullyQualifiedTypeName name="model.entidad.Estadisticas"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="model.entidad.Tipos"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
 </qualifiedTypeNameHistroy>

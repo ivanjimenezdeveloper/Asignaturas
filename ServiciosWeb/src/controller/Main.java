@@ -14,6 +14,6 @@ public class Main {
 	@Path("/saludar/{nombre}")
 	@Produces(MediaType.TEXT_PLAIN)
 	public String hola(@PathParam("nombre") String nombre) {
-		return "hola" + nombre;
+		return "hola " + nombre;
 	}
 }

@@ -20,6 +20,161 @@ and open the template in the editor.
             #effect { position: relative; }
             .newClass { width: 240px;  padding: 1em; letter-spacing: 0; margin: 0; }
             .anotherNewClass { text-indent: 40px; letter-spacing: .2em; width: 410px; height: 100px; padding: 30px; margin: 10px; font-size: 1.1em; }
+
+            .info p {
+                text-align:center;
+                color: #999;
+                text-transform:none;
+                font-weight:600;
+                font-size:15px;
+                margin-top:2px
+            }
+
+            .info i {
+                color:#F6AA93;
+            }
+            form h1 {
+                font-size: 18px;
+                background: #F6AA93 none repeat scroll 0% 0%;
+                color: rgb(255, 255, 255);
+                padding: 22px 25px;
+                border-radius: 5px 5px 0px 0px;
+                margin: auto;
+                text-shadow: none; 
+                text-align:left
+            }
+
+            form {
+                border-radius: 5px;
+                max-width:700px;
+                width:100%;
+                margin: 5% auto;
+                background-color: #FFFFFF;
+                overflow: hidden;
+            }
+
+            p span {
+                color: #F00;
+            }
+
+            p {
+                margin: 0px;
+                font-weight: 500;
+                line-height: 2;
+                color:#333;
+            }
+
+            h1 {
+                text-align:center; 
+                color: #666;
+                text-shadow: 1px 1px 0px #FFF;
+                margin:50px 0px 0px 0px
+            }
+
+            input {
+                border-radius: 0px 5px 5px 0px;
+                border: 1px solid #eee;
+                margin-bottom: 15px;
+                width: 75%;
+                height: 40px;
+                float: left;
+                padding: 0px 15px;
+            }
+
+            a {
+                text-decoration:inherit
+            }
+
+            textarea {
+                border-radius: 0px 5px 5px 0px;
+                border: 1px solid #EEE;
+                margin: 0;
+                width: 75%;
+                height: 130px; 
+                float: left;
+                padding: 0px 15px;
+            }
+
+            .form-group {
+                overflow: hidden;
+                clear: both;
+            }
+
+            .icon-case {
+                width: 35px;
+                float: left;
+                border-radius: 5px 0px 0px 5px;
+                background:#eeeeee;
+                height:42px;
+                position: relative;
+                text-align: center;
+                line-height:40px;
+            }
+
+            i {
+                color:#555;
+            }
+
+            .contentform {
+                padding: 40px 30px;
+            }
+
+            .bouton-contact{
+                background-color: #81BDA4;
+                color: #FFF;
+                text-align: center;
+                width: 100%;
+                border:0;
+                padding: 17px 25px;
+                border-radius: 0px 0px 5px 5px;
+                cursor: pointer;
+                margin-top: 40px;
+                font-size: 18px;
+            }
+
+            .leftcontact {
+                width:49.5%; 
+                float:left;
+                border-right: 1px dotted #CCC;
+                box-sizing: border-box;
+                padding: 0px 15px 0px 0px;
+            }
+
+            .rightcontact {
+                width:49.5%;
+                float:right;
+                box-sizing: border-box;
+                padding: 0px 0px 0px 15px;
+            }
+
+            .validation {
+                display:none;
+                margin: 0 0 10px;
+                font-weight:400;
+                font-size:13px;
+                color: #DE5959;
+            }
+
+            #sendmessage {
+                border:1px solid #fff;
+                display:none;
+                text-align:center;
+                margin:10px 0;
+                font-weight:600;
+                margin-bottom:30px;
+                background-color: #EBF6E0;
+                color: #5F9025;
+                border: 1px solid #B3DC82;
+                padding: 13px 40px 13px 18px;
+                border-radius: 3px;
+                box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.03);
+            }
+
+            #sendmessage.show,.show  {
+                display:block;
+            }
+
+
         </style>
         <script>
             $(function () {
@@ -32,6 +187,40 @@ and open the template in the editor.
                     $(".anotherNewClass").switchClass("anotherNewClass", "newClass", 1000);
                 });
             });
+
+            $(function () {
+                $(".toggler").draggable();
+                $(".book").draggable();
+            });
+
+            $(function () {
+                $("#datepicker").datepicker();
+            });
+
+            $(".drop").droppable({
+                drop: function (event, ui) {
+                    $(this)
+                            .addClass("ui-state-highlight")
+                            .find("p")
+                            .html("Dropped!");
+                }
+            });
+
+            $(function () {
+                $("#droppable").droppable({
+                    drop: function (event, ui) {
+                        $(this)
+                                .addClass("ui-state-highlight")
+                                .find("p")
+                                .html("Dropped!");
+                        $("#carrito").text($(ui.draggable).attr("alt"))
+                         $(ui.draggable).remove();
+                    }
+                });
+            });
+
+
+
         </script>
     </head>
     <body>
@@ -44,39 +233,205 @@ and open the template in the editor.
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#">Page 1</a></li>
                     <li><a href="#">Page 2</a></li>
-                    <li><a href="#">Page 3</a></li>
                 </ul>
             </div>
         </nav>
         <div class="container-fluid text-light" style="width: 75%; background-color: lightgray;">
-            <div class="row">
+            <div class="row" style="height: 700px;">
                 <div id="tabs" class="col-md-4 mx-auto">
                     <ul>
-                        <li><a href="#tabs-1">Nunc tincidunt</a></li>
-                        <li><a href="#tabs-2">Proin dolor</a></li>
-                        <li><a href="#tabs-3">Aenean lacinia</a></li>
+                        <li><a href="#tabs-1">Amanecer Rojo</a></li>
+                        <li><a href="#tabs-2">El archivo de las tormentas</a></li>
+                        <li><a href="#tabs-3">Las cronicas del asesino de reyes</a></li>
                     </ul>
                     <div id="tabs-1">
-                        <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+                        <p>Estrategia. Fuerza. Amor. Traición. Ideas como libertad o igualdad murieron junto con la Tierra.
+                            Ahora, en Marte, el equilibrio se sustenta en un férreo sistema de castas representadas por colores.
+                            Para acceder a la élite de los  gobernantes,
+                            los dorados deben ganarse su puesto en una contienda implacable. 
+                            Pero Darrow no es un dorado. Es un rojo, forjado en las entrañas del infierno. 
+                            Afilado por el odio. Fortalecido por el amor. Para sobrevivir, debe ocultar su verdad.
+                            Sin olvidar que cada muerte, cada paso de la contienda,
+                            es por la libertad. 
+                            Y con una idea fija en la mente: no convertirse en uno de ellos, pase lo que pase. 
+                            En un mundo de oscuridad, un rojo amanecerá dorado.</p>
                     </div>
                     <div id="tabs-2">
-                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+                        <p>
+                            Anhelo los días previos a la Última Desolación.
+
+                            Los días en que los Heraldos nos abandonaron y los Caballeros Radiantes se giraron en nuestra contra. Un tiempo en que aún había magia en el mundo y honor en el corazón de los hombres.
+
+                            El mundo fue nuestro, pero lo perdimos. Probablemente no hay nada más estimulante para las almas de los hombres que la victoria.
+
+                            ¿O tal vez fue la victoria una ilusión durante todo ese tiempo? ¿Comprendieron nuestros enemigos que cuanto más duramente luchaban, más resistíamos nosotros? Quizá vieron que el fuego y el martillo tan solo producían mejores espadas. Pero ignoraron el acero durante el tiempo suficiente para oxidarse.
+
+                            Hay cuatro personas a las que observamos. La primera es el médico, quien dejó de curar para convertirse en soldado durante la guerra más brutal de nuestro tiempo. La segunda es el asesino, un homicida que llora siempre que mata. La tercera es la mentirosa, una joven que viste un manto de erudita sobre un corazón de ladrona. Por último está el alto príncipe, un guerrero que mira al pasado mientras languidece su sed de guerra.
+
+                            El mundo puede cambiar. La potenciación y el uso de las esquirlas pueden aparecer de nuevo, la magia de los días pasados puede volver a ser nuestra. Esas cuatro personas son la clave.
+
+                            Una de ellas nos redimirá. Y una de ellas nos destruirá.
+                        </p>
                     </div>
                     <div id="tabs-3">
-                        <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-                        <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+                        <p>Kvothe es un personaje legendario, el héroe y el villano de miles de historias que corren entre la gente. Todos le dan por muerto, cuando en realidad vive con un nombre falso en una posada apartada y humilde, de la que es propietario. Nadie sabe ahora quién es. Hasta que una noche un viajero, llamado el Cronista, le reconoce y le suplica que le revele su historia, la verdadera, a lo que finalmente Kvothe accede. Pero habrá mucho que contar, le llevará tres días. Este es el primero… Kvothe (que podría pronunciarse ´Kuouz´) es el hijo del director de una compañía itinerante de artistas -actores, músicos, magos, juglares y acróbatas- cuya llegada a los pueblos y ciudades siempre es un motivo de alegría. En ese ambiente Kvothe, un niño prodigio muy alegre y servicial, aprende distintas artes. Para él, la magia no existe; sabe que son trucos. Hasta que un día se tropieza con Abenthy, un viejo mago que ha dominado los arcanos del saber, y le ve llamar al viento. Desde ese momento Kvothe solo anhela aprender la gran magia de conocer el nombre auténtico de las cosas. Pero ese es un conocimiento peligroso y Abenthy, que intuye en el niño un gran don, le enseña con cautela mientras lo prepara para que un día pueda ingresar en la Universidad y convertirse en un maestro de magos. Una tarde en que su padre ha estado ensayando el tema de una nueva canción sobre unos demonios legendarios, los Chandrian, Kvothe se va a pasear al bosque. Cuando regresa ya anochecido, descubre los carromatos incendiados y que todos, también sus padres, han sido asesinados. Unos desconocidos están sentados alrededor de la hoguera, pero luego desaparecen. Durante meses Kvothe vaga atemorizado por el bosque con su laúd por única compañía y cuando llega el invierno se dirige a la gran ciudad...</p>
                     </div>
                 </div>
                 <div class="col-md-8">
 
                     <div class="toggler">
                         <div id="effect" class="newClass ui-corner-all">
-                            Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede.
+                            Busca las palabras más importantes que puede pronunciar un hombre
+                            <br>
+
+                            <span class="text-muted">"Gavilar Kholin"</span>
                         </div>
                     </div>
-                    <button id="button" class="ui-state-default ui-corner-all">Run Effect</button>
+
+                    <div id="draggable" class="toggler" style="margin-left: 57%">
+                        <div id="effect" class="newClass ui-corner-all">
+                            If you're watching, Eo, it's time to close your eyes. The Reaper has come. And he's brought hell with him.
+                            <br>
+                            <span class="text-muted">"Darrow De Lykos"</span>
+                        </div>
+                    </div>
+
+                    <div class="toggler">
+                        <div id="effect" class="newClass ui-corner-all">
+                            There are three things all wise men fear: the sea in storm, a night with no moon, and the anger of a gentle man.
+
+                            <br>
+                            <span class="text-muted">"Patrick Rothfuss"</span>
+                        </div>
+                    </div>
+                    <button id="button" class="ui-state-default ui-corner-all">Ampliar</button>
                 </div>
+
             </div>
+            <hr>
+            <div class="row">
+                <!--                <form>
+                                    <h2>BUY OUR BOOKS</h2>
+                                    <label>Credit Card Number</label>
+                                    <input>
+                
+                
+                                </form> -->
+
+                <form>
+                    <h1>BUY OUR BOOKS</h1>
+
+                    <div class="contentform">
+                        <div id="sendmessage"> Your message has been sent successfully. Thank you. </div>
+
+
+                        <div class="leftcontact">
+                            <div class="form-group">
+                                <p>Surname<span>*</span></p>
+                                <span class="icon-case"><i class="fa fa-male"></i></span>
+                                <input type="text" name="nom" id="nom" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Nom' doit être renseigné."/>
+                                <div class="validation"></div>
+                            </div> 
+
+                            <div class="form-group">
+                                <p>Name <span>*</span></p>
+                                <span class="icon-case"><i class="fa fa-user"></i></span>
+                                <input type="text" name="prenom" id="prenom" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Prénom' doit être renseigné."/>
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <p>E-mail <span>*</span></p>    
+                                <span class="icon-case"><i class="fa fa-envelope-o"></i></span>
+                                <input type="email" name="email" id="email" data-rule="email" data-msg="Vérifiez votre saisie sur les champs : Le champ 'E-mail' est obligatoire."/>
+                                <div class="validation"></div>
+                            </div>  
+
+                            <div class="form-group">
+                                <p>Company <span>*</span></p>
+                                <span class="icon-case"><i class="fa fa-home"></i></span>
+                                <input type="text" name="society" id="society" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Société' doit être renseigné."/>
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Company Address <span>*</span></p>
+                                <span class="icon-case"><i class="fa fa-location-arrow"></i></span>
+                                <input type="text" name="adresse" id="adresse" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Adresse' doit être renseigné."/>
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Postcode <span>*</span></p>
+                                <span class="icon-case"><i class="fa fa-map-marker"></i></span>
+                                <input type="text" name="postal" id="postal" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Code postal' doit être renseigné."/>
+                                <div class="validation"></div>
+                            </div>  
+
+
+
+                        </div>
+
+                        <div class="rightcontact">  
+
+                            <div class="form-group">
+                                <p>City <span>*</span></p>
+                                <span class="icon-case"><i class="fa fa-building-o"></i></span>
+                                <input type="text" name="ville" id="ville" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Ville' doit être renseigné."/>
+                                <div class="validation"></div>
+                            </div>  
+
+                            <div class="form-group">
+                                <p>Phone number <span>*</span></p>  
+                                <span class="icon-case"><i class="fa fa-phone"></i></span>
+                                <input type="text" name="phone" id="phone" data-rule="maxlen:10" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Téléphone' doit être renseigné. Minimum 10 chiffres"/>
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Credit Card Number <span>*</span></p>
+                                <span class="icon-case"><i class="fa fa-info"></i></span>
+                                <input type="text" name="fonction" id="fonction" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Fonction' doit être renseigné."/>
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Expiration Date <span>*</span></p>   
+                                <span class="icon-case"><i class="fa fa-comment-o"></i></span>
+                                <input type="text" id="datepicker">                            <div class="validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <p>CFV <span>*</span></p>
+                                <span class="icon-case"><i class="fa fa-comments-o"></i></span>
+                                <input type="number" name="sujet" id="sujet" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Sujet' doit être renseigné."/>
+                                <div class="validation"></div>
+                            </div>  
+                            
+                            <div id="carrito">
+                                
+                            </div>
+
+                            <div id="droppable" class="ui-widget-header" style="width: 100px; height: 100px;">
+                                <p>Drop here</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <img src="kingslayer.jpg" style="width: 50px;" class="book" alt="King Slayer = 10$">
+                        <img src="redrisng.jpg" style="width: 50px;" class="book">
+                        <img src="twk.jpg" style="width: 50px;" class="book">
+
+
+
+                    </div>
+                    <button type="submit" class="bouton-contact">Send</button>
+
+                </form> 
+
+            </div>
+
         </div>
 
 

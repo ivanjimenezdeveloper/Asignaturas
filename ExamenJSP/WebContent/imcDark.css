@@ -62,11 +62,10 @@ body {
 
 .logoHeader {
 	display: inline-block;
-	width: 100px;
-	height: 100px;
+	width: 204px;
+	height: 93px;
 	margin-right: 5px;
-	background-size: 100px;
-	background-image: url("imc.png");
+	background-image: url("fotos/logo.png");
 }
 
 .nav h1 {

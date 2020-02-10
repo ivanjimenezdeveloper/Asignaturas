@@ -28,7 +28,27 @@
 			</ul>
 		</div>
 	</div>
-	<div class="container"></div>
+	<div class="container">
+		<table>
+			<thead>
+				<tr><th>Nombre</th><th>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%
+					if (arrJ != null | !arrJ.isEmpty()) {
+						for (Jugador j : arrJ) {
+							out.print("<tr>");
+							out.print("<td><a href='Ficha?i="+j.getId() +"'>"+j.getNombre()+"</a></td>");
+							out.print("<td><a href='Eliminar?i="+j.getId() +"'>Eliminar</td>");
+
+							out.print("</tr>");
+						}
+					}
+				%>
+			</tbody>
+		</table>
+	</div>
 	<div class="footer">
 		<p>Web creada por XENOTECK INDUSTRIES copyright 2019</p>
 	</div>

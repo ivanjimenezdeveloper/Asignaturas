@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+<mapper namespace='model.entidad.dao.mapper.EstadisticasMapper'>
+	<resultMap type="Estadisticas" id="EstadisticasResult">
+		<id property="id" column="id" />
+		<result property="idJugador" column="idJugador" />
+		<result property="puntos" column="puntos" />
+		<result property="partidosJugados" column="partidosJugados" />
+		<result property="triples" column="triples" />
+		<result property="tirosLibres" column="tirosLibres" />
+		<result property="tirosCampo" column="tirosCampo" />
+	</resultMap>
+
+	<select id="estadisticasJugador" resultMap="EstadisticasResult">
+		SELECT * FROM
+		Estadisticas WHERE idJugador = #{id}
+	</select>
+
+	<update id="cambiarEstadisticas">
+		UPDATE Estadisticas
+		SET puntos = #{puntos}, partidosJugados = #{partidosJ}, tirosCampo = #{tirosCampo},
+		 triples = #{triples},
+		tirosLibres = #{tirosLibres}
+		WHERE idJugador = #{id}
+	</update>
+</mapper>

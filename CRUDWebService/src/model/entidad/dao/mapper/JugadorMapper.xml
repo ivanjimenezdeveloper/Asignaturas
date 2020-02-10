@@ -4,7 +4,7 @@
 <mapper namespace='model.entidad.dao.mapper.JugadorMapper'>
 
 	<resultMap type="Jugador" id="JugadorResult">
-		<id property="id" column="id"/>
+		<id property="id" column="id" />
 		<result property='nombre' column='nombre' />
 		<result property='foto' column='foto' />
 	</resultMap>
@@ -12,11 +12,25 @@
 	<select id="busquedaGeneral" resultMap='JugadorResult'>
 		SELECT * FROM Jugadores
 	</select>
-	
-		<select id="buscarJugador" resultMap='JugadorResult'>
-		SELECT * FROM Jugadores WHERE id = #{id}
+
+	<select id="buscarJugador" resultMap='JugadorResult'>
+		SELECT * FROM Jugadores
+		WHERE id = #{id}
 	</select>
-		<delete id='borrarJugador'>
+	<delete id='borrarJugador'>
 		DELETE FROM Jugadores WHERE id = #{id}
 	</delete>
+
+	<insert id="newJugador" parameterType='Jugador'
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO Jugadores (nombre,
+		foto)
+		VALUES (#{nombre}, #{foto});
+	</insert>
+
+	<update id="updateJugador" parameterType="Jugador">
+		UPDATE Jugadores
+		SET nombre = #{nombre}, foto = #{foto}
+		WHERE id = #{id};
+	</update>
 </mapper>

@@ -23,10 +23,24 @@ public class JugadorEJB {
 		return j.buscarJugador(id);
 		
 	}
-	public void borrarJugador(int id)  {
+	public Integer borrarJugador(int id)  {
 		JugadorDAO j = new JugadorDAO();
 		
-		 j.borrarJugador(id);
+		 return j.borrarJugador(id);
+		
+	}
+	
+	public Integer newJugador(Jugador ju)  {
+		JugadorDAO j = new JugadorDAO();
+		
+		return j.newJugador(ju);
+		
+	}
+	
+	public Integer updateJugador(Jugador ju)  {
+		JugadorDAO j = new JugadorDAO();
+		
+		return j.updateJugador(ju);
 		
 	}
 }

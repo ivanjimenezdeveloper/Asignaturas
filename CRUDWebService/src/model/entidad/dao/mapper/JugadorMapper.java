@@ -9,6 +9,8 @@ import model.entidad.Jugador;
 public interface JugadorMapper {
 	public ArrayList<Jugador> busquedaGeneral();
 	public Jugador buscarJugador(@Param("id") Integer id);
-	public void borrarJugador(@Param("id") int id);
+	public Integer borrarJugador(@Param("id") int id);
+	public Integer newJugador(Jugador j);
+	public Integer updateJugador(Jugador j);
 
 }

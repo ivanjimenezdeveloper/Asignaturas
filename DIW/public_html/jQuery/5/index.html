@@ -18,8 +18,8 @@ and open the template in the editor.
             .toggler { width: 500px; height: 200px; position: relative; }
             #button { padding: .5em 1em; text-decoration: none; }
             #effect { position: relative; }
-            .newClass { width: 240px;  padding: 1em; letter-spacing: 0; margin: 0; }
-            .anotherNewClass { text-indent: 40px; letter-spacing: .2em; width: 410px; height: 100px; padding: 30px; margin: 10px; font-size: 1.1em; }
+            .textoEstandar { width: 240px;  padding: 1em; letter-spacing: 0; margin: 0; }
+            .textoAmpliado { text-indent: 40px; letter-spacing: .2em; width: 410px; height: 100px; padding: 30px; margin: 10px; font-size: 1.1em; }
 
             .info p {
                 text-align:center;
@@ -177,66 +177,85 @@ and open the template in the editor.
 
         </style>
         <script>
+            //Añade a la etiqueta tabs la funcion tabs de jquery ui, la cual crea a partir de una listra y 3 divs (2 de ellos ocultos)
+            //una pantalla que va ocultando los diferentes divs y mostrando el seleccionado
             $(function () {
                 $("#tabs").tabs();
             });
 
+            //Cambia la clase de las citas a una con el texto mas grande con una pequeña animacion
+            // y tambien al reves
             $(function () {
                 $("#button").on("click", function () {
-                    $(".newClass").switchClass("newClass", "anotherNewClass", 1000);
-                    $(".anotherNewClass").switchClass("anotherNewClass", "newClass", 1000);
+                    $(".textoEstandar").switchClass("textoEstandar", "textoAmpliado", 1000);
+                    $(".textoAmpliado").switchClass("textoAmpliado", "textoEstandar", 1000);
                 });
             });
-
+            //Convierte las clases toggler y book en draggable, es decir que se pueden arrastrar
             $(function () {
                 $(".toggler").draggable();
                 $(".book").draggable();
             });
 
+            //Añade la funcion de elegir una fecha con el datepicker de jquery ui en el formulario
             $(function () {
                 $("#datepicker").datepicker();
             });
 
-            $(".drop").droppable({
-                drop: function (event, ui) {
-                    $(this)
-                            .addClass("ui-state-highlight")
-                            .find("p")
-                            .html("Dropped!");
-                }
-            });
-
+            //crea un objeto que acepta drops en este caso el carrito
             $(function () {
                 $("#droppable").droppable({
                     drop: function (event, ui) {
                         $(this)
                                 .addClass("ui-state-highlight")
-                                .find("p")
-                                .html("Dropped!");
-                        $("#carrito").text($(ui.draggable).attr("alt"))
-                         $(ui.draggable).remove();
+                        //Cuando dropeamos algo crea un elemento p que recoge el
+                        //atributo alt y lo añade al div de carrito ademas de
+                        //borrar el elemento dropeado
+                        var p = document.createElement("p");
+
+
+                        p.innerHTML = $(ui.draggable).attr("alt");
+                        $("#carrito").append(p);
+                        $(ui.draggable).remove();
+                        //Cojo la ultima p de carrito y saco el texto
+                        var precio = $("#carrito p").last().text();
+                        //quito mediante pattern todo lo que no sean numeros
+                        precio = precio.replace(/[^0-9]/g, "");
+                        //sumo todo lo que hay en total
+                        var total = parseInt($("#total").text()) + parseInt(precio);
+                        //lo añado al total
+                        $("#total").text(total);
                     }
                 });
             });
 
+            //cuando el documento esta cargado añade la funcion
+            $(document).ready(function () {
+                //al clicar el elemento con la id submit ejecuta un evento de click
+                //que cambia la clase de submitForm a ninguna con un poco de delay
+                //Ademas le añade texto del div sendmessage (es enrevesado adrede)
+                $("#submit").click(function () {
+                    $("#submitForm").switchClass("hidden", "", 1000);
+                    $("#submitForm").text($("#sendmessage").text());
+                });
+            });
 
 
         </script>
     </head>
     <body>
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse" style="margin-bottom: 0;">
             <div class="container-fluid" >
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">WebSiteName</a>
+                    <a class="navbar-brand" href="#">Books etc</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Page 1</a></li>
-                    <li><a href="#">Page 2</a></li>
+                    <li class="active"><a href="#tabs">Home</a></li>
+                    <li><a href="#form">Form</a></li>
                 </ul>
             </div>
         </nav>
-        <div class="container-fluid text-light" style="width: 75%; background-color: lightgray;">
+        <div class="container-fluid text-light" style="width: 75%; background-color: lightgray; padding-top: 50px;">
             <div class="row" style="height: 700px;">
                 <div id="tabs" class="col-md-4 mx-auto">
                     <ul>
@@ -280,7 +299,7 @@ and open the template in the editor.
                 <div class="col-md-8">
 
                     <div class="toggler">
-                        <div id="effect" class="newClass ui-corner-all">
+                        <div id="effect" class="textoEstandar ui-corner-all">
                             Busca las palabras más importantes que puede pronunciar un hombre
                             <br>
 
@@ -289,7 +308,7 @@ and open the template in the editor.
                     </div>
 
                     <div id="draggable" class="toggler" style="margin-left: 57%">
-                        <div id="effect" class="newClass ui-corner-all">
+                        <div id="effect" class="textoEstandar ui-corner-all">
                             If you're watching, Eo, it's time to close your eyes. The Reaper has come. And he's brought hell with him.
                             <br>
                             <span class="text-muted">"Darrow De Lykos"</span>
@@ -297,7 +316,7 @@ and open the template in the editor.
                     </div>
 
                     <div class="toggler">
-                        <div id="effect" class="newClass ui-corner-all">
+                        <div id="effect" class="textoEstandar ui-corner-all">
                             There are three things all wise men fear: the sea in storm, a night with no moon, and the anger of a gentle man.
 
                             <br>
@@ -310,15 +329,7 @@ and open the template in the editor.
             </div>
             <hr>
             <div class="row">
-                <!--                <form>
-                                    <h2>BUY OUR BOOKS</h2>
-                                    <label>Credit Card Number</label>
-                                    <input>
-                
-                
-                                </form> -->
-
-                <form>
+                <form onsubmit="return false;" id="form">
                     <h1>BUY OUR BOOKS</h1>
 
                     <div class="contentform">
@@ -329,46 +340,46 @@ and open the template in the editor.
                             <div class="form-group">
                                 <p>Surname<span>*</span></p>
                                 <span class="icon-case"><i class="fa fa-male"></i></span>
-                                <input type="text" name="nom" id="nom" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Nom' doit être renseigné."/>
+                                <input type="text" name="nom" id="nom" />
                                 <div class="validation"></div>
                             </div> 
 
                             <div class="form-group">
                                 <p>Name <span>*</span></p>
                                 <span class="icon-case"><i class="fa fa-user"></i></span>
-                                <input type="text" name="prenom" id="prenom" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Prénom' doit être renseigné."/>
+                                <input type="text" name="prenom" id="prenom"  />
                                 <div class="validation"></div>
                             </div>
 
                             <div class="form-group">
                                 <p>E-mail <span>*</span></p>    
                                 <span class="icon-case"><i class="fa fa-envelope-o"></i></span>
-                                <input type="email" name="email" id="email" data-rule="email" data-msg="Vérifiez votre saisie sur les champs : Le champ 'E-mail' est obligatoire."/>
+                                <input type="email" name="email" id="email" />
                                 <div class="validation"></div>
                             </div>  
 
                             <div class="form-group">
                                 <p>Company <span>*</span></p>
                                 <span class="icon-case"><i class="fa fa-home"></i></span>
-                                <input type="text" name="society" id="society" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Société' doit être renseigné."/>
+                                <input type="text" name="society" id="society" />
                                 <div class="validation"></div>
                             </div>
 
                             <div class="form-group">
                                 <p>Company Address <span>*</span></p>
                                 <span class="icon-case"><i class="fa fa-location-arrow"></i></span>
-                                <input type="text" name="adresse" id="adresse" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Adresse' doit être renseigné."/>
+                                <input type="text" name="adresse" id="adresse" />
                                 <div class="validation"></div>
                             </div>
 
                             <div class="form-group">
                                 <p>Postcode <span>*</span></p>
                                 <span class="icon-case"><i class="fa fa-map-marker"></i></span>
-                                <input type="text" name="postal" id="postal" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Code postal' doit être renseigné."/>
+                                <input type="text" name="postal" id="postal"/>
                                 <div class="validation"></div>
                             </div>  
 
-
+                            <p>TOTAL: <span id="total"> 0</span></p>
 
                         </div>
 
@@ -377,56 +388,59 @@ and open the template in the editor.
                             <div class="form-group">
                                 <p>City <span>*</span></p>
                                 <span class="icon-case"><i class="fa fa-building-o"></i></span>
-                                <input type="text" name="ville" id="ville" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Ville' doit être renseigné."/>
+                                <input type="text" name="ville" id="ville" />
                                 <div class="validation"></div>
                             </div>  
 
                             <div class="form-group">
                                 <p>Phone number <span>*</span></p>  
                                 <span class="icon-case"><i class="fa fa-phone"></i></span>
-                                <input type="text" name="phone" id="phone" data-rule="maxlen:10" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Téléphone' doit être renseigné. Minimum 10 chiffres"/>
+                                <input type="text" name="phone" id="phone" />
                                 <div class="validation"></div>
                             </div>
 
                             <div class="form-group">
                                 <p>Credit Card Number <span>*</span></p>
                                 <span class="icon-case"><i class="fa fa-info"></i></span>
-                                <input type="text" name="fonction" id="fonction" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Fonction' doit être renseigné."/>
+                                <input type="text" name="fonction" id="fonction" />
                                 <div class="validation"></div>
                             </div>
 
                             <div class="form-group">
                                 <p>Expiration Date <span>*</span></p>   
                                 <span class="icon-case"><i class="fa fa-comment-o"></i></span>
-                                <input type="text" id="datepicker">                            <div class="validation"></div>
+                                <input type="text" id="datepicker"> <div class="validation"></div>
                             </div>
 
                             <div class="form-group">
                                 <p>CFV <span>*</span></p>
                                 <span class="icon-case"><i class="fa fa-comments-o"></i></span>
-                                <input type="number" name="sujet" id="sujet" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Sujet' doit être renseigné."/>
+                                <input type="number" name="sujet" id="sujet" />
                                 <div class="validation"></div>
                             </div>  
-                            
+
                             <div id="carrito">
-                                
+
                             </div>
 
-                            <div id="droppable" class="ui-widget-header" style="width: 100px; height: 100px;">
-                                <p>Drop here</p>
+                            <div id="droppable" class="ui-widget-header" style="width: 100px; height: 100px; background-image: url('pngocean.com.png');">
                             </div>
                         </div>
                     </div>
 
                     <div>
                         <img src="kingslayer.jpg" style="width: 50px;" class="book" alt="King Slayer = 10$">
-                        <img src="redrisng.jpg" style="width: 50px;" class="book" alt="Red rising = 10$">
-                        <img src="twk.jpg" style="width: 50px;" class="book" alt="The Way of Kings = 10$">
+                        <img src="redrisng.jpg" style="width: 50px;" class="book" alt="Red rising = 30$">
+                        <img src="twk.jpg" style="width: 50px;" class="book" alt="The Way of Kings = 40$">
 
 
 
                     </div>
-                    <button type="submit" class="bouton-contact">Send</button>
+                    <button class="bouton-contact" id="submit">Send</button>
+
+                    <div class="hidden" style="text-align: center; background-color: lightgreen; " id="submitForm">
+
+                    </div>
 
                 </form> 
 

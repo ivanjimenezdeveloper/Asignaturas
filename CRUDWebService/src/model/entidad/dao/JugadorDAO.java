@@ -2,7 +2,6 @@ package model.entidad.dao;
 
 import java.util.ArrayList;
 
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +20,7 @@ public class JugadorDAO {
 			JugadorMapper jugadorMapper = sqlSession.getMapper(JugadorMapper.class);
 			return jugadorMapper.busquedaGeneral();
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			e.printStackTrace();
 			ArrayList<Jugador> uArr = new ArrayList<Jugador>();
 			return uArr;
 		} finally {
@@ -35,7 +34,7 @@ public class JugadorDAO {
 			JugadorMapper jugadorMapper = sqlSession.getMapper(JugadorMapper.class);
 			return jugadorMapper.buscarJugador(id);
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			e.printStackTrace();
 			Jugador j = new Jugador();
 			return j;
 		} finally {
@@ -43,16 +42,56 @@ public class JugadorDAO {
 		}
 	}
 	
-	public void borrarJugador(@Param("id") int id) {
+	public Integer borrarJugador(int id) {
 		
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
 			JugadorMapper usuarioMapper = sqlSession.getMapper(JugadorMapper.class);
-			usuarioMapper.borrarJugador(id);
+			int correcto =usuarioMapper.borrarJugador(id);
 
 			sqlSession.commit();
+			return correcto;
+
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			e.printStackTrace();
+			return 0;
+
+		} finally {
+			sqlSession.close();
+		}
+		
+	}
+	
+	public Integer newJugador( Jugador j) {
+		
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+		try {
+			JugadorMapper usuarioMapper = sqlSession.getMapper(JugadorMapper.class);
+			int correcto = usuarioMapper.newJugador(j);
+
+			sqlSession.commit();
+			return correcto;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		} finally {
+			sqlSession.close();
+		}
+		
+	}
+	
+	public Integer updateJugador( Jugador j) {
+		
+		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+		try {
+			JugadorMapper usuarioMapper = sqlSession.getMapper(JugadorMapper.class);
+			int correcto = usuarioMapper.updateJugador(j);
+
+			sqlSession.commit();
+			return correcto;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
 		} finally {
 			sqlSession.close();
 		}

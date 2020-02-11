@@ -197,14 +197,6 @@ and open the template in the editor.
                 $("#datepicker").datepicker();
             });
 
-            $(".drop").droppable({
-                drop: function (event, ui) {
-                    $(this)
-                            .addClass("ui-state-highlight")
-                            .find("p")
-                            .html("Dropped!");
-                }
-            });
 
             $(function () {
                 $("#droppable").droppable({
@@ -212,8 +204,11 @@ and open the template in the editor.
                         $(this)
                                 .addClass("ui-state-highlight")
                                 .find("p")
-                                .html("Dropped!");
-                        $("#carrito").text($(ui.draggable).attr("alt"))
+                                .html("Añadido a la cesta!!");
+                        var texto;
+                       texto = $("#carrito").text();
+                       texto +=$(ui.draggable).attr("alt");
+                       $("#carrito").text(texto);
                          $(ui.draggable).remove();
                     }
                 });
@@ -310,13 +305,7 @@ and open the template in the editor.
             </div>
             <hr>
             <div class="row">
-                <!--                <form>
-                                    <h2>BUY OUR BOOKS</h2>
-                                    <label>Credit Card Number</label>
-                                    <input>
-                
-                
-                                </form> -->
+
 
                 <form>
                     <h1>BUY OUR BOOKS</h1>
@@ -420,8 +409,8 @@ and open the template in the editor.
 
                     <div>
                         <img src="kingslayer.jpg" style="width: 50px;" class="book" alt="King Slayer = 10$">
-                        <img src="redrisng.jpg" style="width: 50px;" class="book">
-                        <img src="twk.jpg" style="width: 50px;" class="book">
+                        <img src="redrisng.jpg" style="width: 50px;" class="book" alt="Red Rising = 20$">
+                        <img src="twk.jpg" style="width: 50px;" class="book" alt="The Way Of Kings = 30$">
 
 
 

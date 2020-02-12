@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+<mapper namespace='model.entidad.dao.mapper.AccidentesMapper'>
+
+	<resultMap type="Accidente" id="AccidenteResult">
+		<id property="id" column="id" />
+		<result property='id_distrito' column='ID_DISTRITO' />
+		<result property='id_tipo_accidente' column='ID_TIPO_ACCIDENTE' />
+		<result property='direccion' column='DIRECCION' />
+		<result property='tipo_vehiculo' column='TIPO_VEHICULO' />
+		<result property='tipo_persona' column='TIPO_PERSONA' />
+		<result property='sexo' column='SEXO' />
+		<result property='lesividad' column='LESIVIDAD' />
+		<result property='fecha' column='FECHA' />
+		<result property='expediente' column='EXPEDIENTE' />
+
+
+	</resultMap>
+
+
+	<select resultType="Tipos" id="TipoPorId">
+
+		SELECT * FROM TIPOS_ACCIDENTE
+		WHERE ID = #{id}
+
+	</select>
+
+	<select resultType="Tipos" id="getTipos">
+
+		SELECT * FROM TIPOS_ACCIDENTE
+
+	</select>
+
+	<select resultType="Distrito" id="distritoPorId">
+
+		SELECT * FROM DISTRITOS WHERE
+		ID = #{id}
+
+	</select>
+
+	<select id="busquedaGeneral" resultMap='AccidenteResult'>
+		SELECT * FROM ACCIDENTES
+	</select>
+
+	<select id="getAccidente" resultMap='AccidenteResult'>
+		SELECT * FROM ACCIDENTES
+		WHERE ID = #{id}
+	</select>
+
+	<select id="getEstadisticas" resultType="Est">
+		SELECT DISTRITOS.NOMBRE
+		as distrito, COUNT(TIPOS_ACCIDENTE.NOMBRE) as
+		cantidad,
+		TIPOS_ACCIDENTE.NOMBRE as tipo
+		FROM ACCIDENTES, TIPOS_ACCIDENTE,
+		DISTRITOS
+		WHERE ID_DISTRITO = DISTRITOS.ID AND ID_TIPO_ACCIDENTE =
+		TIPOS_ACCIDENTE.ID
+		group by DISTRITOS.NOMBRE, TIPOS_ACCIDENTE.NOMBRE
+		order by cantidad desc
+	</select>
+
+	<select id="busquedaAccidente" resultMap="AccidenteResult">
+		SELECT ACCIDENTES.*
+		FROM ACCIDENTES, TIPOS_ACCIDENTE WHERE
+		TIPOS_ACCIDENTE.NOMBRE LIKE #{tipo} AND ACCIDENTES.FECHA &lt; #{fecha} AND
+		TIPOS_ACCIDENTE.ID = ACCIDENTES.ID_TIPO_ACCIDENTE
+	</select>
+
+	<select id="busquedaAccidenteDespues"
+		resultMap="AccidenteResult">
+		SELECT ACCIDENTES.*
+		FROM ACCIDENTES, TIPOS_ACCIDENTE WHERE
+		TIPOS_ACCIDENTE.NOMBRE LIKE #{tipo} AND ACCIDENTES.FECHA &gt; #{fecha}
+		AND
+		TIPOS_ACCIDENTE.ID = ACCIDENTES.ID_TIPO_ACCIDENTE
+	</select>
+
+	<select id="busquedaGeneralDistritos" resultType="Distrito">
+		SELECT * FROM DISTRITOS
+	</select>
+		<select id="busquedaGeneralTipos" resultType="Tipos">
+		SELECT * FROM TIPOS_ACCIDENTE
+	</select>
+
+</mapper>

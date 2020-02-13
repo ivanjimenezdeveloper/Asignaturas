@@ -6,6 +6,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Tipos {
 	private int id;
 	private String nombre;
+	
+	/**
+	 * Constructor de tipos
+	 * @param id id del tipo
+	 * @param nombre nombre del tipo
+	 */
 	public Tipos(int id, String nombre) {
 		super();
 		this.id = id;

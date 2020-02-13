@@ -16,6 +16,10 @@ import model.entidad.dao.mapper.AccidentesMapper;
 public class AccidenteDAO implements AccidentesMapper{
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(AccidenteDAO.class);
 
+	/**
+	 * Busqueda de todos los accidentes
+	 * @return ArrayList con los accidentes
+	 */
 	public ArrayList<Accidente> busquedaGeneral() {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
@@ -30,6 +34,11 @@ public class AccidenteDAO implements AccidentesMapper{
 		}
 	}
 
+	/**
+	 * Busqueda de tipo por id
+	 * @param id id del tipo de accidente
+	 * @return Objeto de tipos
+	 */
 	@Override
 	public Tipos TipoPorId(int id) {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
@@ -45,6 +54,11 @@ public class AccidenteDAO implements AccidentesMapper{
 		}
 	}
 
+	/**
+	 * Conseguir un accidente por id
+	 * @param id id del accidente
+	 * @return objeto accidente
+	 */
 	@Override
 	public Accidente getAccidente(int id) {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
@@ -60,6 +74,11 @@ public class AccidenteDAO implements AccidentesMapper{
 		}
 	}
 
+	/**
+	 * Consigue un distrito por id
+	 * @param id id del distrito
+	 * @return objeto distrito
+	 */
 	@Override
 	public Distritos distritoPorId(int id) {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
@@ -75,6 +94,10 @@ public class AccidenteDAO implements AccidentesMapper{
 		}
 	}
 
+	/**
+	 * Devuelve todas las estadisticas
+	 * @return Arraylist con todas las estadisticas
+	 */
 	@Override
 	public ArrayList<Estadisticas> getEstadisticas() {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
@@ -89,7 +112,12 @@ public class AccidenteDAO implements AccidentesMapper{
 			sqlSession.close();
 		}
 	}
-
+	
+	
+	/**
+	 * Devuelve todos los distritos
+	 * @return ArrayList de Distritos
+	 */
 	@Override
 	public ArrayList<Accidente> busquedaAccidente(String tipo, String fecha) {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
@@ -105,21 +133,13 @@ public class AccidenteDAO implements AccidentesMapper{
 		}
 	}
 
-	@Override
-	public ArrayList<Tipos> getTipos() {
-		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-		try {
-			AccidentesMapper accidenteMapper = sqlSession.getMapper(AccidentesMapper.class);
-			return accidenteMapper.getTipos();
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-			ArrayList<Tipos> t = new ArrayList<Tipos>();
-			return t;
-		} finally {
-			sqlSession.close();
-		}
-	}
 
+	/**
+	 * Busqueda de accidentes despues de la fecha dada
+	 * @param tipo tipo de accidente
+	 * @param fecha fecha inicial
+	 * @return Arraylist de accidentes
+	 */
 	@Override
 	public ArrayList<Accidente> busquedaAccidenteDespues(String tipo, String fecha) {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
@@ -135,6 +155,10 @@ public class AccidenteDAO implements AccidentesMapper{
 		}
 	}
 
+	/**
+	 * Devuelve todos los distritos
+	 * @return ArrayList de Distritos
+	 */
 	@Override
 	public ArrayList<Distritos> busquedaGeneralDistritos() {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
@@ -150,6 +174,10 @@ public class AccidenteDAO implements AccidentesMapper{
 		}
 	}
 
+	/**
+	 * Devuelve todos los tipos de accidentes
+	 * @return ArrayList de tipos de accidentes
+	 */
 	@Override
 	public ArrayList<Tipos> busquedaGeneralTipos() {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();

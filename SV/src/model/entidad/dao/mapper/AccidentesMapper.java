@@ -25,7 +25,6 @@ public interface AccidentesMapper {
 
 	public ArrayList<Accidente> busquedaAccidenteDespues(@Param("tipo") String tipo, @Param("fecha") String fecha);
 
-	public ArrayList<Tipos> getTipos();
 
 	public ArrayList<Distritos> busquedaGeneralDistritos();
 

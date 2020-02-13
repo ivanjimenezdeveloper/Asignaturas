@@ -26,11 +26,6 @@
 
 	</select>
 
-	<select resultType="Tipos" id="getTipos">
-
-		SELECT * FROM TIPOS_ACCIDENTE
-
-	</select>
 
 	<select resultType="Distrito" id="distritoPorId">
 

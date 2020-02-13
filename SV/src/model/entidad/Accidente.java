@@ -5,14 +5,26 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Accidente {
-	private Integer id,id_distrito,id_tipo_accidente;
-	private String expediente, direccion, tipo_vehiculo, tipo_persona, sexo, lesividad;
+	private Integer id,id_distrito,id_tipo_accidente, tipo_vehiculo, tipo_persona;
+	private String expediente, direccion,  sexo, lesividad;
 	private Date fecha;
 	
 
-
+	/**
+	 * Constructor de accidentes
+	 * @param id id del accidente
+	 * @param id_distrito id del distrito
+	 * @param id_tipo_accidente id del tipo de accidente
+	 * @param expediente numero de expediente
+	 * @param direccion direccion donde ocurrio el accidente
+	 * @param tipo_vehiculo id del tipo de vehiculo
+	 * @param tipo_persona id de tipo de persona
+	 * @param sexo id tipo de sexo
+	 * @param lesividad lesividad
+	 * @param fecha fecha del accidente
+	 */
 	public Accidente(Integer id, Integer id_distrito, Integer id_tipo_accidente, String expediente, String direccion,
-			String tipo_vehiculo, String tipo_persona, String sexo, String lesividad, Date fecha) {
+			Integer tipo_vehiculo, Integer tipo_persona, String sexo, String lesividad, Date fecha) {
 		super();
 		this.id = id;
 		this.id_distrito = id_distrito;
@@ -26,9 +38,14 @@ public class Accidente {
 		this.fecha = fecha;
 	}
 
+	/**
+	 * Constructor vacio
+	 */
 	public Accidente() {
 		super();
 	}
+	
+	//Getters y setters
 
 	public Integer getId() {
 		return id;
@@ -54,6 +71,22 @@ public class Accidente {
 		this.id_tipo_accidente = id_tipo_accidente;
 	}
 
+	public Integer getTipo_vehiculo() {
+		return tipo_vehiculo;
+	}
+
+	public void setTipo_vehiculo(Integer tipo_vehiculo) {
+		this.tipo_vehiculo = tipo_vehiculo;
+	}
+
+	public Integer getTipo_persona() {
+		return tipo_persona;
+	}
+
+	public void setTipo_persona(Integer tipo_persona) {
+		this.tipo_persona = tipo_persona;
+	}
+
 	public String getExpediente() {
 		return expediente;
 	}
@@ -68,22 +101,6 @@ public class Accidente {
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
-	}
-
-	public String getTipo_vehiculo() {
-		return tipo_vehiculo;
-	}
-
-	public void setTipo_vehiculo(String tipo_vehiculo) {
-		this.tipo_vehiculo = tipo_vehiculo;
-	}
-
-	public String getTipo_persona() {
-		return tipo_persona;
-	}
-
-	public void setTipo_persona(String tipo_persona) {
-		this.tipo_persona = tipo_persona;
 	}
 
 	public String getSexo() {
@@ -109,7 +126,8 @@ public class Accidente {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	
+
+
 	
 	
 }

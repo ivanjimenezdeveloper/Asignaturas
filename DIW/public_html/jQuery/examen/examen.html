@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(document).ready(function () {
+                var $target = $('html,body');
+
+                $("#bot").click(function () {
+                    $target.animate({scrollTop: $target.height()}, 1000)
+                });
+                $("#top").click(function () {
+                    $target.animate({scrollTop: 0}, 1000)
+                });
+
+                $(".hover").hover(function () {
+                    $(this).addClass("arriba");
+                }, function () {
+                    $(this).removeClass("arriba");
+                });
+
+                $("#estilo").click(function () {
+                    $("body").animate({'background-color': "blue", "font-size": "15pt", "color": "white"}, 1000);
+                    $("#imagen").animate({'width': "50%"}, 1000);
+                    $("fotos").animate({'background-color': "blue"}, 1000);
+                    $("#texto").fadeOut(3000);
+//
+//                    $("#texto").fadeIn(6000);
+                    $("#texto").slideDown("slow");
+                    $(".imagen1").addClass("imagen12");
+                    $(".imagen2").addClass("imagen22");
+                    $(".imagen3").addClass("imagen32");
+                    $(".imagen4").addClass("imagen42");
+                    $(".imagen5").addClass("imagen52");
+                    $("#fotosdiv").height("1000px");
+                    $("#fotos").height("2100px");
+                });
+
+            });
+        </script>
+        <style>
+            .imagen1       {
+                position: absolute;
+                top: 100px;
+                left: 0;
+                z-index: 1
+            }
+            .imagen2
+            {
+                position: absolute;
+                top: 110px;
+                left: 15px;
+                z-index: 2;
+            }
+            .imagen3
+            {
+                position: absolute;
+                top: 120px;
+                left:30px;
+                z-index: 3
+            }
+            .imagen4
+            {
+                position: absolute;
+                top: 130px;
+                left:45px;
+                z-index: 4
+            }
+            .imagen5
+            {
+                position: absolute;
+                top: 140px;
+                left:60px;
+                z-index: 5
+            }
+            .arriba{
+                z-index: 6
+
+            }
+
+            .imagen12       {
+                position: absolute;
+                top: 100px;
+                left: 200px;
+                z-index: 1
+            }
+            .imagen22
+            {
+                position: absolute;
+                top: 300px;
+                left: 200px;
+                z-index: 2;
+            }
+            .imagen32
+            {
+                position: absolute;
+                top: 500px;
+                left:200px;
+                z-index: 3
+            }
+            .imagen42
+            {
+                position: absolute;
+                top: 700px;
+                left:200px;
+                z-index: 4
+            }
+            .imagen52
+            {
+                position: absolute;
+                top: 900px;
+                left:200px;
+                z-index: 5
+            }
+
+
+        </style>
+
+    </head>
+    <body style="background-color: lightgreen;">
+        <div style="width: 80%;" class="container-fluid">
+            <div class="row" style="background-color: white;   position: sticky;
+                 top: 0; z-index: 5000">
+                <div class="col-md-6"><button id="estilo">NEW STYLE</button></div>
+                <div class="col-md-6"><button id="top">go top</button><button id="bot">go bottom</button></div>
+
+
+            </div>
+            <div class="row">
+                <div id="imagen" class="center" style="background-image: url('flower.jpg'); height: 300px; width: 100%;"><h1 style="color: black">HOLA COMO ESTAS</h1></div>
+            </div>
+            <div class="row">
+                <div id="texto" class="col-md-6" >
+
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis elit nec nulla tristique placerat non id purus. Donec fermentum vel ex tincidunt convallis. Proin eget lacus justo. Mauris elementum, ligula non auctor molestie, ante nisl vulputate odio, ac pharetra massa orci in nulla. Ut pharetra, sem nec suscipit eleifend, dolor nulla auctor justo, quis convallis massa ex interdum risus. Proin quis orci ac diam mattis interdum. In in dignissim magna.
+
+                    Morbi sodales mollis augue eu eleifend. Ut sit amet nisl cursus, vulputate erat eget, blandit dui. Duis sodales est ante. Donec ut turpis quis mauris fringilla sagittis. Phasellus in mattis justo. Nam dictum lacinia sem, eu cursus est vulputate quis. Nulla facilisi. Nam lorem nulla, ullamcorper id lectus sed, pharetra interdum dolor. Donec placerat, est non ornare porta, leo enim interdum est, vestibulum tristique risus magna et dui. In quis mi nisi. Donec ac diam magna. Proin ex ante, lobortis nec venenatis tempor, convallis id neque. Sed sit amet magna non orci pharetra consectetur et eu erat.
+
+                    Ut et sagittis est, vitae posuere ante. Aliquam eleifend tincidunt arcu in pretium. Nulla condimentum dictum nisl et efficitur. Praesent vitae orci vel leo finibus auctor. Mauris vel ipsum mattis justo euismod lobortis vitae a velit. Morbi accumsan lectus fermentum massa dignissim, eget venenatis quam interdum. Curabitur viverra cursus turpis sed pellentesque.
+
+                    Sed euismod nec ex vitae pellentesque. Donec eget mi purus. Cras eu sapien dictum, iaculis sem accumsan, placerat sapien. Vivamus sapien dui, volutpat et risus sed, sagittis eleifend metus. Ut laoreet velit at tortor luctus hendrerit. Integer ornare tincidunt ipsum. Vestibulum vestibulum aliquet nulla. Praesent a elementum dui, sed dictum risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla suscipit faucibus turpis, at lobortis neque suscipit quis. Vivamus sed enim non diam feugiat interdum. Maecenas nec justo eu erat maximus luctus at non mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis tempor dignissim dignissim. Curabitur cursus, mi et feugiat facilisis, nisl elit eleifend erat, in efficitur quam libero sit amet lorem.
+
+                    Morbi lorem lorem, sollicitudin eu neque eget, tempor blandit risus. Sed eu urna sed elit sagittis porttitor ut ut elit. Sed dignissim dolor vel ante viverra maximus. Suspendisse luctus lorem felis, vitae pulvinar elit mollis quis. Ut aliquet est ut tortor semper elementum. Donec ut sem blandit, consectetur tortor ac, varius mauris. Pellentesque tincidunt porttitor ex non suscipit. Mauris accumsan, ligula at viverra efficitur, purus mauris condimentum eros, ut dapibus nisl metus vehicula purus. Duis varius augue nibh, quis condimentum felis pellentesque sit amet. Suspendisse potenti. Maecenas commodo, nulla non tempor interdum, magna nisl dignissim felis, sed dignissim tortor elit a erat. Sed egestas mi lacus, dignissim blandit nulla gravida et. Aliquam luctus tellus mi, a condimentum ex feugiat non. Cras vel leo mauris. </div>
+                <div class="col-md-6 text-center" id="fotos" style="background-color: greenyellow; border: 3px #3b6e22 solid; height: 1000px">
+                    <h2>FOTOTECA</h2>
+                    <div id="fotosdiv" style="height: 300px;">
+                        <img class="imagen1 hover" src="kingslayer.jpg" width="100" height="200" >
+                        <img class="imagen2 hover" src="pngocean.com.png" width="100" height="200" >
+                        <img class="imagen3 hover" src="redrisng.jpg" width="100" height="200" >
+                        <img class="imagen4 hover" src="twk.jpg" width="100" height="200" >
+                        <img class="imagen5 hover" src="flower.jpg" width="100" height="200" >
+                    </div>
+                    <h2>COSSAS</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis elit nec nulla tristique placerat non id purus. Donec fermentum vel ex tincidunt convallis. Proin eget lacus justo. Mauris elementum, ligula non auctor molestie, ante nisl vulputate odio, ac pharetra massa orci in nulla. Ut pharetra, sem nec suscipit eleifend, dolor nulla auctor justo, quis convallis massa ex interdum risus. Proin quis orci ac diam mattis interdum. In in dignissim magna.
+
+                        Morbi sodales mollis augue eu eleifend. Ut sit amet nisl cursus, vulputate erat eget, blandit dui. Duis sodales est ante. Donec ut turpis quis mauris fringilla sagittis. Phasellus in mattis justo. Nam dictum lacinia sem, eu cursus est vulputate quis. Nulla facilisi. Nam lorem nulla, ullamcorper id lectus sed, pharetra interdum dolor. Donec placerat, est non ornare porta, leo enim interdum est, vestibulum tristique risus magna et dui. In quis mi nisi. Donec ac diam magna. Proin ex ante, lobortis nec venenatis tempor, convallis id neque. Sed sit amet magna non orci pharetra consectetur et eu erat.
+
+                    </p>
+
+                    <h2>COSSAS</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis elit nec nulla tristique placerat non id purus. Donec fermentum vel ex tincidunt convallis. Proin eget lacus justo. Mauris elementum, ligula non auctor molestie, ante nisl vulputate odio, ac pharetra massa orci in nulla. Ut pharetra, sem nec suscipit eleifend, dolor nulla auctor justo, quis convallis massa ex interdum risus. Proin quis orci ac diam mattis interdum. In in dignissim magna.
+
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

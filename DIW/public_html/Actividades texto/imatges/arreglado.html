@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+   	<!--<link rel="stylesheet" type="text/css" href="ejercicio13.css" title="style" />-->
+	<title>Lorem ipsum</title>
+        <style>
+            body{
+    color: black;
+    font-size: 0.9em;
+    line-height: 2.6em;
+    font-family: Arial;
+}
+
+
+
+
+ul,ul li{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+h1,h2,h3,p,form{
+    margin:0;
+    padding:0;
+}
+
+.clear{
+    clear:both;
+}
+
+img{
+    border:none;
+}
+
+#contenedor{
+    width:90%;
+    max-width:900px;
+    width: 900px;
+    margin:0 auto;
+}
+
+#cabecera,#menu,#lateral,#contenido,#contenido #principal,#contenido #secundario,#pie{
+    border:2px solid #777;
+}
+
+
+#cabecera{
+    clear:both;
+}
+
+#menu{
+    clear:both;
+}
+
+#lateral{
+    float:left;
+    width:20%;
+
+}
+
+#contenido{
+    float:right;
+    width:78%;
+}
+
+#contenido #principal{
+    float:left;
+    width:78%;
+}
+
+#contenido #secundario{
+    float:right;
+    width:20%;
+}
+
+#pie{
+    clear:both;
+}
+
+#cabecera #logo{
+    float:left;
+    line-height: auto;
+}
+
+#cabecera #buscador{
+    float:right;
+}
+
+#menu ul#menu_principal li{
+    display:inline;
+    float:left;
+}
+
+#contenido #principal .articulo img{
+    width:100px;
+    float:left;
+}
+
+#pie .enlaces{
+    float:left;
+    font-size: 20px;
+}
+
+#pie .copyright{
+    float:right;
+    font-size: 20px;
+}
+
+#cabecera,#menu,#lateral,#lateral #noticias,#lateral #publicidad,#contenido,#contenido #principal,#contenido #secundario,#pie{
+    padding:.5em;
+    border:none;
+}
+
+#lateral{
+    padding:0;
+    font-size: 0.9em;
+}
+
+#cabecera{
+    padding:1em;
+}
+
+#cabecera h1{
+    background:url(./imatges/logo.gif) no-repeat -5px -10px;
+    padding: 0.5em;
+}
+
+#cabecera h1 span{
+
+}
+
+#menu{
+    margin-bottom:.5em;
+    border-bottom:1px solid #004C99;
+    background:url(./imatges/fondo_menu.gif) repeat-x;
+    margin-right: 1em;
+}
+
+#contenido{
+    width:77%;
+    padding:0;
+}
+
+#contenido #principal{
+    width:73%;
+}
+
+#contenido #secundario{
+    border:1px solid #C60;
+}
+
+#contenido #secundario h2{
+    background:#DB905C;
+    padding:.2em;
+    font-size: 1em;
+    color: white;
+    margin-bottom: 0.6em;
+}
+
+#pie{
+    padding:.5em 0;
+    margin-top:1em;
+    border-top:1px solid #C5C5C5;
+    border-bottom:1px solid #C5C5C5;
+    background:#F8F8F8;
+}
+
+#contenido #principal .articulo{
+    margin-bottom:1em;
+}
+
+#contenido #principal .articulo img{
+    margin:.5em;
+}
+
+#lateral #noticias{
+    border:1px solid #C5C5C5;
+    background:#F8F8F8;
+}
+
+#lateral #publicidad{
+    margin-top:1em;
+    border:1px dashed #C60;
+    background:#FFF6CD;
+}
+
+.articulo h2{
+    color: #CC6600;
+    font-size: 1.6em;
+    line-height: 1.2em;
+    margin-bottom: 0.3em;
+}
+
+#menu_principal{
+    
+    color: white;
+}
+
+#menu a{
+    /*! text-decoration: none; */
+    color: white;
+    font-size: 1.3em;
+    padding: 0.5em;
+}
+.fecha{
+    color: #999;
+}
+.fecha:after{
+    content: "";
+    display: inline-block;
+    width: 100%;
+}
+#noticias h3, h3 a{
+    color: #003366;
+    
+}
+#publicidad{
+    
+    color: #555;
+    
+}
+
+.articulo a{
+    color: #CC6600;
+
+}
+.articulo{
+        margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+#contenedor #secundario p{
+    margin-bottom: 0.5em;
+}
+#pie{
+    font-size: 0.7em;
+}
+#pie .copyright{
+
+color: #555;
+}
+#pie{
+    font-size: 20px;
+}
+.grande{
+    width: 100%;
+}
+        </style>
+</head>
+
+<body>
+<!-- Contenedor -->
+<div id="contenedor">
+
+	<!-- Cabecera -->
+	<div id="cabecera">
+		<div id="logo">
+                    <h1><span style="visibility: ">LOGOTIPO</span></h1>
+		</div>
+
+		<div id="buscador">
+			<form action="#" method="post">
+                            <label for="buscar">Buscar</label>  <input id="buscar" name="busqueda" type="text" />
+                            <label>SUBELO</label><input  class="grande" type="submit" value="DALE"/>
+			</form>
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+	<!-- /Cabecera -->
+	
+	<!-- Menu principal -->
+	<div id="menu">
+		<ul id="menu_principal">
+			<li>Lorem</li>
+			<li>Ipsum</li>
+			<li>Dolor</li>
+			<li>Sit</li>
+			<li>Amet</li>
+		</ul>
+		<div class="clear"></div>
+	</div>
+	
+
+	<!-- Lateral -->
+	<div id="lateral">
+	
+		<!-- Noticias -->
+		<div id="noticias">
+			<h3>Noticias</h3>
+			<p><span class="fecha">dd/mm/aaaa</span> Lorem ipsum dolor sit amet</p>
+			<p><span class="fecha">dd/mm/aaaa</span> Consectetuer adipiscing elit</p>
+			<p><span class="fecha">dd/mm/aaaa</span> Donec molestie nunc eu sapien</p>
+			<p><span class="fecha">dd/mm/aaaa</span> Maecenas aliquam dolor eget metus</p>
+			<p><span class="fecha">dd/mm/aaaa</span> Fusce tristique lorem id metus</p>
+				
+			<h3>Enlaces relacionados</h3>
+			<ul>
+				<li>Proin placerat</li>
+				<li>Nulla in felis</li>
+				<li>Nam luctus</li>
+			</ul>
+		</div>
+		<!-- /Noticias -->
+	
+		<!-- Publicidad -->
+		<div id="publicidad">
+			<h3>Publicidad</h3>
+			<p>Etiam fermentum, nisl tincidunt blandit interdum, massa velit posuere dolor, sed euismod sem odio at mi.</p>
+			<p>Duis porta placerat arcu. Nullam felis pede, commodo vel, suscipit a, molestie vel, felis. Maecenas mattis est vel est.</p>
+			<p>Seguir leyendo...</p>
+		</div>
+		<!-- /Publicidad -->
+
+	</div>
+	<!-- /Lateral -->
+	
+<div id="contenido">
+	
+	<!-- Principal -->
+	<div id="principal">
+		
+		<div class="articulo">
+			<h2>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</h2>
+		
+			<img src="imatges/imagen.png" alt="Imagen genérica" />
+			
+			<p>Nullam est lacus, suscipit ut, dapibus quis, condimentum ac, risus. Vivamus vestibulum, ipsum sollicitudin faucibus pharetra, dolor metus fringilla dui, vel aliquet pede diam tempor tortor.</p>
+			<p>Vestibulum pulvinar urna et quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam vel turpis vitae dui imperdiet laoreet. Quisque eget ipsum.</p>
+			<p>Donec commodo, turpis vel venenatis sollicitudin, quam ante convallis justo, sed eleifend justo lectus quis sapien. Ut consequat libero eget est.</p>
+			
+		</div>
+	
+		<div class="articulo">
+			<h2>Vivamus lobortis turpis ac ante fringilla faucibus</h2>
+		
+			<img src="imatges/imagen.png" alt="Imagen genérica" />
+			
+			<p>Quisque eget ipsum. Donec commodo, turpis vel venenatis sollicitudin, quam ante convallis justo, sed eleifend justo lectus quis sapien. Ut consequat libero eget est.</p>
+			<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam dictum hendrerit neque. Mauris id ligula non elit mattis semper. Fusce arcu ipsum, tempus eget, tincidunt at, imperdiet in, mi.</p>
+			<p>Sed fermentum cursus dolor. Aenean a diam. Phasellus feugiat. Donec tempor dignissim sem.</p>
+		</div>
+		
+	</div>
+	<!-- /Principal -->
+	
+	<!-- Secundario -->
+	<div id="secundario">
+		<h2>Phasellus blandit</h2>
+		<p>Praesent sodales imperdiet augue. Mauris lorem felis, semper eu, tincidunt eu, sollicitudin eget, sem. Nulla facilisi. Morbi ut enim ut enim ultricies dapibus.</p>
+	
+		<h2>Nullam vel turpis</h2>
+		<p>Donec commodo, turpis vel venenatis sollicitudin, quam ante convallis justo, sed eleifend justo lectus quis sapien. Ut consequat libero eget est.</p>
+	</div>
+	<!-- /Secundario -->
+
+	</div>
+	<!-- /Contenido -->
+	
+    <div class="clear"></div>
+	
+    <!-- Pie -->
+	<div id="pie">
+		<span class="enlaces">
+                    <p>Nulla</p> 
+
+		</span>
+		
+		<span class="copyright">
+			&copy; Copyright Lorem ipsum
+		</span>
+		<div class="clear"></div>
+	</div>
+	<!-- /Pie -->
+
+</div>
+<!-- /Contenedor -->
+
+</body>
+</html>
